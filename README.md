@@ -68,33 +68,3 @@ Set NODE_ENV in Linux Shells:
 ``` bash
 export NODE_ENV=local
 ```
-
-Run testcafe locally (from /frontend/tests/e2e directory):
-``` bash
-testcafe chrome,firefox ./
-```
-
-### /e2e/helpers
-This folder contains any repeatable code (such as automated login) or any constants (such as JSON for a student). Any functions or constants stored here should be imported into the testcafe tests directly.
-
-
-/* eslint-disable */
-//Purpose:
-//this script starts at OSPR splash page, navigates to CLP and allows user to log in with Basic BCeID, and takes a screenshot of completed forms
-//Screenshots saved to C:\temp\artifacts\screenshots\  with -s path=artifacts/screenshots,fullPage=true,pathPattern=${TEST_INDEX}/${USERAGENT}/${FILE_INDEX}.png NOTE: (that string not required in script if screenshots not taken)
-
-/*
-BEFORE RUNNING TESTCAFE COMMAND
-
-Setting Local Env on Powershell:
-$env:NODE_ENV="local"
-
-Setting local Env on CMD:
-set NODE_ENV=local
-*/
-
-
-//To Run:
-//open CMD
-//navigate to folder where .js files are stored (EG C:temp with cd .\..\, then cd temp)
-//to run type: testcafe chrome sharene_basic_login_test.js --hostname 127.0.0.1 -s path=artifacts/screenshots,fullPage=true,pathPattern=${TEST_INDEX}/${USERAGENT}/${FILE_INDEX}.png
