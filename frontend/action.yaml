@@ -1,0 +1,5 @@
+name: 'E2E Docker Test'
+description: 'Test using the Testcafe Docker image'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

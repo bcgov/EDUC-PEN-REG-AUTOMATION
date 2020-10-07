@@ -1,0 +1,22 @@
+---
+  apiVersion: v1
+  kind: Template
+  labels:
+    template: revanth-persistent-template
+  metadata: 
+    name: revanth-persistent-template
+  objects:
+  - apiVersion: v1
+    kind: BuildConfig
+    labels:
+      template: revanth-persistent-template
+    metadata:
+      name: "revanth-pipeline"
+    spec:
+      source:
+        git:
+          ref: master
+          uri: "https://github.com/bcgov/EDUC-E2E-PEN-REGISTRY"
+      strategy:
+        jenkinsPipelineStrategy:
+          jenkinsfilePath: tools/jenkins/e2e-Jenkinsfile

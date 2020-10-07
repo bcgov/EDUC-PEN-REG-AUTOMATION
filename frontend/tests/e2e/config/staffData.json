@@ -1,0 +1,18 @@
+{
+    "Status": [
+        "First Review",
+        "Subsequent Review",
+        "Completed by auto-match",
+        "Completed by manual match",
+        "Could not be fulfilled",
+        "Draft",
+        "Returned for more information",
+        "Updates Completed",
+        "Abandoned"
+    ],
+    "ClaimConformationText" : "You are working on this request",
+    "NoOneWorkingOnThis": "No one is working on this request",
+    "RequestInformation": "Please provide an Identification Document",
+    "RejectInformation": "Sorry to Inform, Your Pen Request is rejected because of Identification Issues",
+    "CompleteComment": "Your update my Pen request is approved"
+}

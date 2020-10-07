@@ -1,0 +1,35 @@
+name: Maintenance Page Off Test
+on: 
+  repository_dispatch:
+    types: [maintenance-off-test]
+  workflow_dispatch:  
+
+jobs:
+  MaintenancePageOff_Test:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Node Modules
+        uses: actions/cache@v1
+        env:
+          cahce-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - run: npm install
+
+      - run: npm run maintenancePageOff
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}

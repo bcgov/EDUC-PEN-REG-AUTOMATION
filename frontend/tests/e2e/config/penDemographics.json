@@ -1,0 +1,27 @@
+{
+    "Legal": "TAGAR, SIDDIQUI, (none)",
+    "Usual": "TAGAR, SIDDIQUI, (none)",
+    "DOB": "1979-09-22",
+    "Gender": "Female",
+    "First": "SIDDIQUI",
+    "Middle": "",
+    "Last": "TAGAR",
+    "studentSearchResult": {
+        "mergedSearchResult": "-",
+        "legalSurnameSearchResult": "TAGAR",
+        "usualSurnameSearchResult": "TAGAR",
+        "legalGivennameSearchResult": "SIDDIQUI",
+        "usualGivennameSearchResult": "SIDDIQUI",
+        "legalMiddlenameSearchResult": "-",
+        "usualMiddlenameSearchResult": "-",
+        "postalCodeSearchResult": "V2T4G6",
+        "memoSearchResult": "-",
+        "dcSearchResult": "-",
+        "localIdSearchResult": "-",
+        "genderSearchResult": "F",
+        "birthDateSearchResult": "1979-09-22",
+        "gradeSearchResult": "-",
+        "mincodeSearchResult": "10200022",
+        "twinnedSearchResult": "-"
+    }
+}

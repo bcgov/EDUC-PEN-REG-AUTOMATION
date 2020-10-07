@@ -1,0 +1,50 @@
+{
+  "name": "pen-request",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PEN request UI.",
+  "author": "Revanth Gandra",
+  "scripts": {
+    "createStudentData": "node tests/e2e/helpers/createStudentData.js",
+    "maintenancePageOn": "testcafe chrome ./tests/e2e/testCases/maintenance/maintenancePageOnCheck.js",
+    "maintenancePageOff": "testcafe chrome ./tests/e2e/testCases/maintenance/maintenancePageOffCheck.js",
+    "studentFilloutAndActivatePenRequest": "node tests/e2e/testSuites/gmpE2E/studentFilloutAndActivatePenRequest.js",
+    "studentFilloutAndActivateUmpRequest": "node tests/e2e/testSuites/umpE2E/studentFilloutAndActivateUmpRequest.js",
+    "staffRequestForMoreInfoAndRejectOnPen": "node tests/e2e/testSuites/gmpE2E/staffRequestForMoreInfoAndRejectOnPenSuite.js",
+    "staffRequestForMoreInfoAndRejectOnUmp": "node tests/e2e/testSuites/umpE2E/staffRequestForMoreInfoAndRejectOnUmpSuite.js",
+    "staffRejectPenRequest": "node tests/e2e/testSuites/gmpE2E/staffRejectPenRequestSuite.js",
+    "staffRejectUmpRequest": "node tests/e2e/testSuites/umpE2E/staffRejectUmpRequestSuite.js",
+    "staffRejectPenRequestTestCase": "testcafe chrome ./tests/e2e/testCases/admin/staffRejectPenRequest.js -e",
+    "verifySagaTestCase": "testcafe chrome ./tests/e2e/testCases/admin/verifySaga.js -e",
+    "staffIssuePenToStudent": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentSuite.js",
+    "staffIssuePenToBcscStudent": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToBcscStudentSuite.js",
+    "staffCompleteUmpRequest": "node tests/e2e/testSuites/umpE2E/staffCompleteUmpRequestSuite.js",
+    "staffActionOnDraftPenRequest": "node tests/e2e/testSuites/gmpE2E/verifyStaffCanNotReqInfoOrIssuePenButCanRejectOnDraftSuite.js",
+    "staffActionOnDraftUmpRequest": "node tests/e2e/testSuites/umpE2E/verifyStaffCanNotReqInfoOrIssueUmpButCanRejectOnDraftSuite.js",
+    "testcases:e2e": "testcafe chrome ./tests/e2e/testCases",
+    "testcases:e2e:headless": "testcafe chrome:headless ./tests/e2e/testCases",
+    "testcases:e2e:mobile": "testcafe chrome:emulation:device=iphone 11 ./tests/e2e/testCases",
+    "insertAndUpdatePenRequestData": "node tests/e2e/testCases/gmp/insertAndUpdatePenRequestData.js",
+    "insertAndUpdatePenRequestDataToAbandoned": "node tests/e2e/testCases/gmp/insertAndUpdatePenRequestDataToAbandoned.js",
+    "getAndDeletePenRequestData": "node tests/e2e/testCases/gmp/getAndDeletePenRequestData.js",
+    "getAndDeleteUmpRequestData": "node tests/e2e/testCases/ump/getAnddeleteUmpRequestData.js",
+    "staffIssuePenToStudentAndUnlinkSuite": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentAndUnlinkSuite.js",
+    "staffForceUnlinkSuite": "node tests/e2e/testSuites/gmpE2E/staffForceUnlinkSuite.js",
+    "studentSubmitGenderChangeAfterPenCompleteGetsCompleted": "node tests/e2e/testSuites/gmpWithUmpE2E/studentSubmitGenderChangeAfterPenCompleteGetsCompleted.js",
+    "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "date-and-time": "^0.13.1",
+    "dotenv": "^8.2.0",
+    "faker": "4.1.0",
+    "nconf": "^0.10.0",
+    "npmlog": "^4.1.2",
+    "simple-encryptor": "^4.0.0",
+    "testcafe": "^1.9.1"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  }
+}

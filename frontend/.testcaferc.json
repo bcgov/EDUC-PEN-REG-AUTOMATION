@@ -1,0 +1,19 @@
+{
+    "browsers": "edge",
+    "reporter": "list",
+    "screenshots": {
+        "path": "tests/e2e/screenshots/",
+        "pathPattern": "${DATE}_${TIME}/test-${TEST_INDEX}/${USERAGENT}/${TEST}.png",
+        "takeOnFails": false,
+        "fullPage": false
+    },
+    "quarantineMode": false,
+    "developmentMode": true,
+    "skipJsErrors": true,
+    "color": true,
+    "stopOnFirstFail": true,
+    "pageLoadTimeout": 30000,
+    "disablePageCaching": true,
+    "speed": 1,
+    "selectorTimeout": 30000
+}

@@ -1,0 +1,44 @@
+name: Saga Part Two DEV Environment
+on:
+  repository_dispatch:
+    types: [saga-part-two-dev-environment]
+  workflow_dispatch:  
+
+jobs:
+  Saga_Part_Two_Dev_Environment:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Node Modules
+        uses: actions/cache@v1
+        env:
+          cahce-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - run: npm install
+
+      - run: npm run staffRejectPenRequestTestCase
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+
+      # - uses: actions/upload-artifact@v2
+      #   if: ${{ failure() }}
+      #   with:
+      #     name: Screenshot
+      #     path: D:\a\EDUC-E2E-PEN-REGISTRY\EDUC-E2E-PEN-REGISTRY\frontend\tests\e2e\screenshots\
+      # # Warning: Make sure not to upload the screenshots for test cases involved with PI data
