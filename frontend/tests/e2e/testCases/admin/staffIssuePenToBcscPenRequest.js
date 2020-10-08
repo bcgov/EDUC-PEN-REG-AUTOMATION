@@ -4,8 +4,8 @@ import staffPenRetrievalRequestPage from '../../pageObjects/admin/staffPenRetrie
 import staffActionOnPenPage from '../../pageObjects/admin/staffActionOnPenPage'
 import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../config/constants';
 import bcscStudentData from '../../config/studentData/bcscStudentData.json';
-import staffData from '../../config/staffData.json'
-import penDemographics from '../../config/penDemographics.json'
+import staffData from '../../config/staffData/staffData.json'
+import penDemographics from '../../config/staffData/penDemographics.json'
 
 const staffLogin = new staffLoginPage()
 const penPage = new staffPenRetrievalRequestPage()

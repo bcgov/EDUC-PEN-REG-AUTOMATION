@@ -1,7 +1,7 @@
 import studentLoginPage from '../../pageObjects/login/studentLoginPage';
 import studentProvideInformationPage from '../../pageObjects/gmp/studentProvideInformationPage'
 import { bceidCredentials, studentProfileUrl } from '../../config/constants';
-import studentData from '../../config/studentData.json'
+import studentData from '../../config/studentData/studentData.json';
 
 const studentLogin = new studentLoginPage()
 const studentProvideInformation = new studentProvideInformationPage

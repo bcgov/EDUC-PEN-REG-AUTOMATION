@@ -1,6 +1,6 @@
 import studentLoginPage from '../../pageObjects/login/studentLoginPage'
 import { bceidCredentials, studentProfileUrl } from '../../config/constants'
-import studentData from '../../config/studentData.json'
+import studentData from '../../config/studentData/studentData.json'
 import updateMyPenInfoPage from '../../pageObjects/ump/updateMyPenInfoPage'
 
 

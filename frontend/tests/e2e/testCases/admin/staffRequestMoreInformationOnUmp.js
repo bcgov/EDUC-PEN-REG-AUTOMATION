@@ -3,8 +3,8 @@ import staffDashboardPage from '../../pageObjects/admin/staffDashboardPage'
 import staffUmpRequestsPage from '../../pageObjects/admin/staffUmpRequestsPage'
 import staffActionOnUmpPage from '../../pageObjects/admin/staffActionOnUmpPage'
 import { idirAdminCredentials, staffLoginUrl } from '../../config/constants'
-import studentData from '../../config/studentData.json'
-import staffData from '../../config/staffData.json'
+import studentData from '../../config/studentData/studentData.json';
+import staffData from '../../config/staffData/staffData.json'
 
 const staffLogin = new staffLoginPage()
 const umpPage = new staffUmpRequestsPage()

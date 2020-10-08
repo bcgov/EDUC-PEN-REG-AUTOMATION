@@ -1,6 +1,6 @@
 import mailsacPage from '../../pageObjects/mailsac/mailsacPage'
 import { mailsacUrl, mailsacCredentials } from '../../config/constants'
-import studentData from '../../config/studentData.json'
+import studentData from '../../config/studentData/studentData.json'
 
 const mailsac = new mailsacPage()
 

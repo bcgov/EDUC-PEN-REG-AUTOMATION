@@ -1,7 +1,7 @@
 import studentLoginPage from '../../pageObjects/login/studentLoginPage';
 import penRequestForm from '../../pageObjects/gmp/penRequestForm';
 import { bcscCredentials, studentProfileUrlBcsc } from '../../config/constants';
-import bcscStudentData from '../../config/bcscStudentData.json'
+import bcscStudentData from '../../config/studentData/bcscStudentData.json'
 
 const studentLogin = new studentLoginPage()
 const penRequest = new penRequestForm()

@@ -1,6 +1,5 @@
 const helper = require("../../helpers/axios-helper")
 const constants = require('../../config/constants')
-const studentData = require("../../config/studentData.json")
 const { getToken } = require('../../helpers/generateToken')
 const log = require('npmlog')
 

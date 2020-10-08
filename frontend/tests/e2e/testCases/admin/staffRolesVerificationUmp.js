@@ -3,7 +3,7 @@ import staffDashboardPage from '../../pageObjects/admin/staffDashboardPage'
 import staffUmpRequestsPage from '../../pageObjects/admin/staffUmpRequestsPage'
 import staffActionOnUmpPage from '../../pageObjects/admin/staffActionOnUmpPage'
 import { idirReadOnlyCredentials, staffLoginUrl, penNumber } from '../../config/constants'
-import staffData from '../../config/staffData.json'
+import staffData from '../../config/staffData/staffData.json'
 
 
 const staffLogin = new staffLoginPage()

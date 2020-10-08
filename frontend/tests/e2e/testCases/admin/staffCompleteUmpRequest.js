@@ -3,9 +3,8 @@ import staffUmpRequestsPage from '../../pageObjects/admin/staffUmpRequestsPage'
 import staffActionOnUmpPage from '../../pageObjects/admin/staffActionOnUmpPage'
 import staffDashboardPage from '../../pageObjects/admin/staffDashboardPage'
 import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../config/constants';
-import studentData from '../../config/studentData.json';
-import staffData from '../../config/staffData.json'
-import penDemographics from '../../config/penDemographics.json'
+import staffData from '../../config/staffData/staffData.json'
+import penDemographics from '../../config/staffData/penDemographics.json'
 
 const staffLogin = new staffLoginPage()
 const umpPage = new staffUmpRequestsPage()

@@ -3,8 +3,8 @@ import staffDashboardPage from '../../pageObjects/admin/staffDashboardPage'
 import staffPenRetrievalRequestPage from '../../pageObjects/admin/staffPenRetrievalRequestsPage'
 import staffActionOnPenPage from '../../pageObjects/admin/staffActionOnPenPage'
 import { idirReadOnlyCredentials, staffLoginUrl } from '../../config/constants';
-import staffData from '../../config/staffData.json'
-import studentData from '../../config/studentData.json'
+import studentData from '../../config/studentData/studentData.json';
+import staffData from '../../config/staffData/staffData.json'
 
 const staffLogin = new staffLoginPage()
 const penPage = new staffPenRetrievalRequestPage()
