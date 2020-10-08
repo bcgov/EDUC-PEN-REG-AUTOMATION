@@ -3,7 +3,7 @@ import staffDashboardPage from '../../pageObjects/admin/staffDashboardPage'
 import staffPenRetrievalRequestPage from '../../pageObjects/admin/staffPenRetrievalRequestsPage'
 import staffActionOnPenPage from '../../pageObjects/admin/staffActionOnPenPage'
 import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../config/constants';
-import bcscStudentData from '../../config/bcscStudentData.json';
+import bcscStudentData from '../../config/studentData/bcscStudentData.json';
 import staffData from '../../config/staffData.json'
 import penDemographics from '../../config/penDemographics.json'
 

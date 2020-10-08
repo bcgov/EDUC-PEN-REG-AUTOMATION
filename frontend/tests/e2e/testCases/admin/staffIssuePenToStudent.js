@@ -5,7 +5,7 @@ import staffActionOnPenPage from '../../pageObjects/admin/staffActionOnPenPage'
 import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../config/constants';
 import studentData from '../../config/studentData.json';
 import staffData from '../../config/staffData.json'
-import penDemographics from '../../config/penDemographics.json'
+import penDemographics from '../../config/staffData/penDemographics.json'
 
 const staffLogin = new staffLoginPage()
 const penPage = new staffPenRetrievalRequestPage()
