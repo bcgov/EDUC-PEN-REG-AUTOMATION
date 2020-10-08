@@ -50,7 +50,6 @@ nconf.defaults({
   },
   penNumber: process.env.PEN_NUMBER,
   
-  studentDetailsPenNumber: process.env.STUDENT_DETAILS_PEN_NUMBER
 });
 
 module.exports = nconf;

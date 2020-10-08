@@ -64,7 +64,3 @@ module.exports.mailsacCredentials = Object.freeze({
 
 // PEN number
 module.exports.penNumber =  config.get('penNumber')
-
-//Student Details PEN number
-module.exports.studentDetailsPenNumber = config.get('studentDetailsPenNumber')
-
