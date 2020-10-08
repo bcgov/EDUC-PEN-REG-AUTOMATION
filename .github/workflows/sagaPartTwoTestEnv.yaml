@@ -41,4 +41,3 @@ jobs:
       #   with:
       #     name: Screenshot
       #     path: D:\a\EDUC-E2E-PEN-REGISTRY\EDUC-E2E-PEN-REGISTRY\frontend\tests\e2e\screenshots\
-      # # Warning: Make sure not to upload the screenshots for test cases involved with PI data

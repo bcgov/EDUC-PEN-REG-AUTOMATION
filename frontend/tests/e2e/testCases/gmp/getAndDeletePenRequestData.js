@@ -74,13 +74,13 @@ getToken().then(async (data) => {
 
         if (getStudentService.content && getStudentService.content.length > 0) {
 
-            //Get Student ID
-            const studentID = getStudentService.content[0].studentID
-            //console.log("Student ID" + studentID)
+            // //Get Student ID
+            // const studentID = getStudentService.content[0].studentID
+            // //console.log("Student ID" + studentID)
 
-            //Delete Student record on student service
-            const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
-            //console.log(deleteStudentService)
+            // //Delete Student record on student service
+            // const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
+            // //console.log(deleteStudentService)
 
             //get student ID and Digita ID
             const getDigitalID = await helper.getData(token, `${constants.digitalIdApiUrl}${digitalID}`)
