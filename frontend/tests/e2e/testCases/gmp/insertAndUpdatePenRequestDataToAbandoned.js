@@ -1,6 +1,6 @@
 const helper = require("../../helpers/axios-helper");
 const constants = require('../../config/constants')
-const studentData = require("../../config/insertStudentData.json")
+const studentData = require("../../config/studentData/insertStudentData.json")
 const { getToken } = require('../../helpers/generateToken')
 let nodeDate = require('date-and-time')
 
