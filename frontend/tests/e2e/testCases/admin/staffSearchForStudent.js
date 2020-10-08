@@ -2,7 +2,7 @@ import staffLoginPage from '../../pageObjects/login/staffLoginPage'
 import staffDashboardPage from '../../pageObjects/admin/staffDashboardPage'
 import { idirAdminCredentials, staffLoginUrl, penNumber} from '../../config/constants'
 import staffStudentSearchPage from '../../pageObjects/admin/staffStudentSearchPage'
-import penDemographics from '../../config/penDemographics.json'
+import studentSearchResult from '../../config/studentData/studentSearchResults.json'
 
 const staffLogin = new staffLoginPage()
 const staffSearch = new staffStudentSearchPage()
@@ -23,6 +23,6 @@ test('Staff login search for student test', async t => {
 
     await staffSearch.setPen(penNumber)
 
-    await staffSearch.verifyStudentSearchResult(penNumber, penDemographics)
+    await staffSearch.verifyStudentSearchResult(penNumber, studentSearchResult)
 
 });

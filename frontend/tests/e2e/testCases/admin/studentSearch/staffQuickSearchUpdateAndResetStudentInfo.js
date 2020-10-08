@@ -1,8 +1,8 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
 import staffDashboardPage from '../../../pageObjects/admin/staffDashboardPage'
-import { idirAdminCredentials, staffLoginUrl, studentDetailsPenNumber } from '../../../config/constants'
-import studentDetailsData from '../../../config/studentDetailsData.json'
-import studentDetailsUpdatedData from '../../../config/studentDetailsUpdatedData.json'
+import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../../config/constants'
+import studentSearchResult from '../../../config/studentData/studentSearchResults.json'
+import studentUpdatedSearchResult from '../../../config/studentData/studentUpdatedSearchResults.json'
 import studentDetailsPage from '../../../pageObjects/admin/studentDetailsPage'
 import staffHamburgerMenuPage from '../../../pageObjects/admin/staffHamburgerMenuPage'
 import staffStudentSearchPage from '../../../pageObjects/admin/staffStudentSearchPage'
@@ -23,15 +23,15 @@ test('Staff login search update and reset student info test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
-    await dashboard.setPenNumber(studentDetailsPenNumber)
+    await dashboard.setPenNumber(penNumber)
 
     await dashboard.clickQuickSearchButton()
 
-    await studentDetails.setUsualSurname(studentDetailsUpdatedData.studentSearchResult.usualSurnameSearchResult)
+    await studentDetails.setUsualSurname(studentUpdatedSearchResult.usualSurnameSearchResult)
 
-    await studentDetails.setUsualGiven(studentDetailsUpdatedData.studentSearchResult.usualGivennameSearchResult)
+    await studentDetails.setUsualGiven(studentUpdatedSearchResult.usualGivennameSearchResult)
 
-    await studentDetails.setUsualMiddle(studentDetailsUpdatedData.studentSearchResult.usualMiddlenameSearchResult)
+    await studentDetails.setUsualMiddle(studentUpdatedSearchResult.usualMiddlenameSearchResult)
 
     await studentDetails.clickSaveButton()
 
@@ -41,11 +41,11 @@ test('Staff login search update and reset student info test', async t => {
 
     await dashboard.clickFullSearchButton()
 
-    await staffSearch.setPen(studentDetailsPenNumber)
+    await staffSearch.setPen(penNumber)
 
     await staffSearch.clickSearchButton()
 
-    await staffSearch.verifyStudentSearchResult(studentDetailsPenNumber, studentDetailsUpdatedData)
+    await staffSearch.verifyStudentSearchResult(penNumber, studentUpdatedSearchResult)
 
     await staffSearch.clickOnFirstSearchResult()
 
@@ -65,10 +65,10 @@ test('Staff login search update and reset student info test', async t => {
 
     await staffSearch.clickAdvanceSearchButton()
 
-    await staffSearch.setPen(studentDetailsPenNumber)
+    await staffSearch.setPen(penNumber)
 
     await staffSearch.clickSearchButton()
 
-    await staffSearch.verifyStudentSearchResult(studentDetailsPenNumber, studentDetailsData)
+    await staffSearch.verifyStudentSearchResult(penNumber, studentSearchResult)
 
 });

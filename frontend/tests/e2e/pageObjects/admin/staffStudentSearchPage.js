@@ -157,37 +157,37 @@ class staffStudentSearchPage {
 
         await t.expect(this.penSearchResult.innerText).eql(penNumber, { timeout: 10000 })
 
-        await t.expect(this.mergedSearchResult.innerText).eql(data.studentSearchResult.mergedSearchResult)
+        await t.expect(this.mergedSearchResult.innerText).eql(data.mergedSearchResult)
 
-        await t.expect(this.legalSurnameSearchResult.innerText).eql(data.studentSearchResult.legalSurnameSearchResult)
+        await t.expect(this.legalSurnameSearchResult.innerText).eql(data.legalSurnameSearchResult)
 
-        await t.expect(this.usualSurnameSearchResult.innerText).eql(data.studentSearchResult.usualSurnameSearchResult)
+        await t.expect(this.usualSurnameSearchResult.innerText).eql(data.usualSurnameSearchResult)
 
-        await t.expect(this.legalGivennameSearchResult.innerText).eql(data.studentSearchResult.legalGivennameSearchResult)
+        await t.expect(this.legalGivennameSearchResult.innerText).eql(data.legalGivennameSearchResult)
 
-        await t.expect(this.usualGivennameSearchResult.innerText).eql(data.studentSearchResult.usualGivennameSearchResult)
+        await t.expect(this.usualGivennameSearchResult.innerText).eql(data.usualGivennameSearchResult)
 
-        await t.expect(this.legalMiddlenameSearchResult.innerText).eql(data.studentSearchResult.legalMiddlenameSearchResult)
+        await t.expect(this.legalMiddlenameSearchResult.innerText).eql(data.legalMiddlenameSearchResult)
 
-        await t.expect(this.usualMiddlenameSearchResult.innerText).eql(data.studentSearchResult.usualMiddlenameSearchResult)
+        await t.expect(this.usualMiddlenameSearchResult.innerText).eql(data.usualMiddlenameSearchResult)
 
-        await t.expect(this.postalCodeSearchResult.innerText).eql(data.studentSearchResult.postalCodeSearchResult)
+        await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
 
-        await t.expect(this.memoSearchResult.innerText).eql(data.studentSearchResult.memoSearchResult)
+        await t.expect(this.memoSearchResult.innerText).eql(data.memoSearchResult)
 
-        await t.expect(this.dcSearchResult.innerText).eql(data.studentSearchResult.dcSearchResult)
+        await t.expect(this.dcSearchResult.innerText).eql(data.dcSearchResult)
 
-        await t.expect(this.localIdSearchResult.innerText).eql(data.studentSearchResult.localIdSearchResult)
+        await t.expect(this.localIdSearchResult.innerText).eql(data.localIdSearchResult)
 
-        await t.expect(this.genderSearchResult.innerText).eql(data.studentSearchResult.genderSearchResult)
+        await t.expect(this.genderSearchResult.innerText).eql(data.genderSearchResult)
 
-        await t.expect(this.birthDateSearchResult.innerText).eql(data.studentSearchResult.birthDateSearchResult)
+        await t.expect(this.birthDateSearchResult.innerText).eql(data.birthDateSearchResult)
 
-        await t.expect(this.gradeSearchResult.innerText).eql(data.studentSearchResult.gradeSearchResult)
+        await t.expect(this.gradeSearchResult.innerText).eql(data.gradeSearchResult)
 
-        await t.expect(this.mincodeSearchResult.innerText).eql(data.studentSearchResult.mincodeSearchResult)
+        await t.expect(this.mincodeSearchResult.innerText).eql(data.mincodeSearchResult)
 
-        await t.expect(this.twinnedSearchResult.innerText).eql(data.studentSearchResult.twinnedSearchResult)
+        await t.expect(this.twinnedSearchResult.innerText).eql(data.twinnedSearchResult)
 
         log.info("Student Search Results Verified")
     }
