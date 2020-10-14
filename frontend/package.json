@@ -31,7 +31,8 @@
     "staffIssuePenToStudentAndUnlinkSuite": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentAndUnlinkSuite.js",
     "staffForceUnlinkSuite": "node tests/e2e/testSuites/gmpE2E/staffForceUnlinkSuite.js",
     "studentSubmitGenderChangeAfterPenCompleteGetsCompleted": "node tests/e2e/testSuites/gmpWithUmpE2E/studentSubmitGenderChangeAfterPenCompleteGetsCompleted.js",
-    "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js"
+    "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js",
+    "staffQuickSearchUpdateAndResetStudentInfo": "node tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

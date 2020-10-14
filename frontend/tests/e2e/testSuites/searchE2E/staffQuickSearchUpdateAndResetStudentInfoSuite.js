@@ -12,11 +12,11 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
                 
-                "tests/e2e/testCases/Ump/studentSubmitFirstNameChange.js",
+                "tests/e2e/testCases/admin/studentSearch/staffSearchForStudent.js",
 
-                "tests/e2e/testCases/mailsac/mailsacDeleteUmpEmailWithOutActivatingForDraftTest.js",
+                "tests/e2e/testCases/admin/studentSearch/staffAdvancedSearchForStudent.js",
 
-                "tests/e2e/testCases/admin/verifyStaffCanNotReqInfoOrIssueUmpButCanRejectOnDraft.js"
+                "tests/e2e/testCases/admin/studentSearch/staffQuickSearchUpdateAndResetStudentInfo.js",
 
             ])
             .run();

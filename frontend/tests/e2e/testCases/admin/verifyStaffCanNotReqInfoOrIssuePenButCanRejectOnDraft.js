@@ -11,13 +11,13 @@ const penPage = new staffPenRetrievalRequestPage()
 const penAction = new staffActionOnPenPage()
 const dashboard = new staffDashboardPage()
 
-fixture`Staff login and can not request more information/ issue Pen on Draft request`
+fixture`Staff login and can not request more information/issue Pen  but can reject Draft request`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
     })
 
-test('Staff login and can not request more information/ issue Pen on Draft request test', async t => {
+test('Staff login and can not request more information/issue Pen  but can reject Draft request test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
@@ -44,5 +44,18 @@ test('Staff login and can not request more information/ issue Pen on Draft reque
     await penAction.verifyasOfDate()
 
     await penAction.verifySubmittedDateEmpty()
+
+    await penAction.clickRejectButton()
+
+    await penAction.setRejectTextBox(staffData.RejectInformation)
+
+    await penAction.clickRejectPenRequestButton(staffData.Status[4])
+
+    await penAction.actionConfirmationText(idirAdminCredentials.username)
+
+    await penAction.verifyasOfDate()
+
+    await penAction.verifySubmittedDateEmpty()
+
 
 });

@@ -11,13 +11,13 @@ const umpAction = new staffActionOnUmpPage()
 const umpPage = new staffUmpRequestsPage()
 const dashboard = new staffDashboardPage()
 
-fixture`Staff login and can not request more information/Complete on Ump Draft request`
+fixture`Staff login and can not request more information/Complete but can reject Ump Draft request`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
     })
 
-test('Staff login and can not request more information/Complete on Ump Draft request test', async t => {
+test('Staff login and can not request more information/Complete but can reject Ump Draft request test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
@@ -38,4 +38,16 @@ test('Staff login and can not request more information/Complete on Ump Draft req
     await umpAction.verifyasOfDate()
 
     await umpAction.verifySubmittedDateEmpty()
+
+    await umpAction.clickRejectButton()
+
+    await umpAction.setRejectTextBox(staffData.RejectInformation)
+
+    await umpAction.clickRejectPenRequestButton(staffData.Status[4])
+
+    await umpAction.verifyasOfDate()
+
+    await umpAction.verifySubmittedDateEmpty()
+
+    await umpAction.actionConfirmationText(idirAdminCredentials.username)
 });
