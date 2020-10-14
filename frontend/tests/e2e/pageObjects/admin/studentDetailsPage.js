@@ -132,6 +132,7 @@ class studentDetailsPage {
     async clickSaveButton() {
         await t.click(this.saveButton)
         log.info("save button is clicked")
+        await t.wait(3000)
     }
 
 
