@@ -77,7 +77,7 @@ class updateMyPenInfoPage {
         await t
             .click(Selector('div.v-select__selections'));
         await t.wait(2000)
-        await t.click(Selector('div.v-list-item__content').find('.v-list-item__title').nth(studentData.gender))
+        await t.click(Selector('div.v-list-item__content').find('.v-list-item__title').nth(studentData.updatedGender))
         await t.wait(2000)
         await t.pressKey("tab");
         log.info("Gender selected")
