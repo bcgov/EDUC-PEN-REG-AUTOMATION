@@ -1,5 +1,7 @@
 const createTestCafe = require('testcafe');
 const log = require('npmlog')
+Object.defineProperty(log, 'heading', { get: () => { return new Date().toString() } })
+log.headingStyle = { bg: '', fg: 'blue' }
 
 let testcafe = null;
 
