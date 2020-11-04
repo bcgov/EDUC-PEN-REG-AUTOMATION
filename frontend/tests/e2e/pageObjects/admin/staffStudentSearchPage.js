@@ -171,21 +171,21 @@ class staffStudentSearchPage {
 
         await t.expect(this.usualMiddlenameSearchResult.innerText).eql(data.usualMiddlenameSearchResult)
 
-        await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
+        // await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
 
         await t.expect(this.memoSearchResult.innerText).eql(data.memoSearchResult)
 
         await t.expect(this.dcSearchResult.innerText).eql(data.dcSearchResult)
 
-        await t.expect(this.localIdSearchResult.innerText).eql(data.localIdSearchResult)
+        // await t.expect(this.localIdSearchResult.innerText).eql(data.localIdSearchResult)
 
         await t.expect(this.genderSearchResult.innerText).eql(data.genderSearchResult)
 
         await t.expect(this.birthDateSearchResult.innerText).eql(data.birthDateSearchResult)
 
-        await t.expect(this.gradeSearchResult.innerText).eql(data.gradeSearchResult)
+        // await t.expect(this.gradeSearchResult.innerText).eql(data.gradeSearchResult)
 
-        await t.expect(this.mincodeSearchResult.innerText).eql(data.mincodeSearchResult)
+        // await t.expect(this.mincodeSearchResult.innerText).eql(data.mincodeSearchResult)
 
         await t.expect(this.twinnedSearchResult.innerText).eql(data.twinnedSearchResult)
 
