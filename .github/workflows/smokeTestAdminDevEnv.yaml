@@ -13,19 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Node Modules
-        uses: actions/cache@v1
-        env:
-          cahce-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "10.x"
+          node-version: "12.x"
       - run: npm install
 
       - run: npm run getAndDeletePenRequestData
