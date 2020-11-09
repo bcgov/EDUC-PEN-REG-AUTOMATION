@@ -18,7 +18,7 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentProfile/mailsac/mailsacDeleteUmpEmailWithOutActivatingForDraftTest.js",
 
-                "tests/e2e/testCases/admin/ump/verifyStaffCanNotReqInfoOrIssueUmpButCanRejectOnDraft.js"
+                "tests/e2e/testCases/studentAdmin/ump/verifyStaffCanNotReqInfoOrIssueUmpButCanRejectOnDraft.js"
 
             ])
             .run();

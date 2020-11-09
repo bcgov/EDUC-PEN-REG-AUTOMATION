@@ -18,7 +18,7 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentProfile/mailsac/mailsacDeletePenEmailWithOutActivatingForDraftTest.js",
 
-                "tests/e2e/testCases/admin/gmp/verifyStaffCanNotReqInfoOrIssuePenButCanRejectOnDraft.js"
+                "tests/e2e/testCases/studentAdmin/gmp/verifyStaffCanNotReqInfoOrIssuePenButCanRejectOnDraft.js"
 
             ])
             .run();

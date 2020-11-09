@@ -18,13 +18,13 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentProfile/mailsac/mailsacActivatePenRequest.js",
 
-                "tests/e2e/testCases/admin/gmp/staffIssuePenToStudent.js",
+                "tests/e2e/testCases/studentAdmin/gmp/staffIssuePenToStudent.js",
 
                 "tests/e2e/testCases/studentProfile/gmp/verifyStudentReceivedPen.js",
                 
                 "tests/e2e/testCases/studentProfile/ump/verifyPenApprovedStudentDataDisplayedByDefault.js",
 
-                "tests/e2e/testCases/admin/gmp/staffUnlinkStudentWithPen.js",
+                "tests/e2e/testCases/studentAdmin/gmp/staffUnlinkStudentWithPen.js",
 
                 "tests/e2e/testCases/studentProfile/gmp/verifyStudentUnlinkedWithPen.js"
 

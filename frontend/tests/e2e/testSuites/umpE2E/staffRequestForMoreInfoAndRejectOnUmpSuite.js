@@ -18,13 +18,13 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentProfile/mailsac/mailsacActivateUmpRequest.js",
 
-                "tests/e2e/testCases/admin/ump/staffRolesVerificationUmp.js",
+                "tests/e2e/testCases/studentAdmin/ump/staffRolesVerificationUmp.js",
 
-                "tests/e2e/testCases/admin/ump/staffRequestMoreInformationOnUmp.js",
+                "tests/e2e/testCases/studentAdmin/ump/staffRequestMoreInformationOnUmp.js",
 
                 "tests/e2e/testCases/studentProfile/ump/studentProvideRequestedInfoOnUmp.js",
 
-                "tests/e2e/testCases/admin/ump/staffRejectUmpRequestAfterStudentProvideInfo.js"
+                "tests/e2e/testCases/studentAdmin/ump/staffRejectUmpRequestAfterStudentProvideInfo.js"
 
             ])
             .run();

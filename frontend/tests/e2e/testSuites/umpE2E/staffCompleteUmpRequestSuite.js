@@ -18,7 +18,7 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentProfile/mailsac/mailsacActivateUmpRequest.js",
 
-                "tests/e2e/testCases/admin/ump/staffCompleteUmpRequest.js",
+                "tests/e2e/testCases/studentAdmin/ump/staffCompleteUmpRequest.js",
 
             ])
             .run();
