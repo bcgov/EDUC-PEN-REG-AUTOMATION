@@ -1,5 +1,5 @@
 import studentLoginPage from '../../pageObjects/login/studentLoginPage';
-import { studentProfileUrl } from '../../helpers/constants';
+import { studentProfileUrl } from '../../config/constants';
 
 
 const studentLogin = new studentLoginPage()
