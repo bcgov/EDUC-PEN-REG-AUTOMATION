@@ -14,19 +14,19 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
 
-                "tests/e2e/testCases/gmp/studentFilloutPenRequestForm.js",
+                "tests/e2e/testCases/studentProfile/gmp/studentFilloutPenRequestForm.js",
 
-                "tests/e2e/testCases/mailsac/mailsacActivatePenRequest.js",
+                "tests/e2e/testCases/studentProfile/mailsac/mailsacActivatePenRequest.js",
 
-                "tests/e2e/testCases/admin/staffIssuePenToStudent.js",
+                "tests/e2e/testCases/admin/gmp/staffIssuePenToStudent.js",
 
-                "tests/e2e/testCases/gmp/verifyStudentReceivedPen.js",
+                "tests/e2e/testCases/studentProfile/gmp/verifyStudentReceivedPen.js",
                 
-                "tests/e2e/testCases/ump/verifyPenApprovedStudentDataDisplayedByDefault.js",
+                "tests/e2e/testCases/studentProfile/ump/verifyPenApprovedStudentDataDisplayedByDefault.js",
 
-                "tests/e2e/testCases/admin/staffUnlinkStudentWithPen.js",
+                "tests/e2e/testCases/admin/gmp/staffUnlinkStudentWithPen.js",
 
-                "tests/e2e/testCases/gmp/verifyStudentUnlinkedWithPen.js"
+                "tests/e2e/testCases/studentProfile/gmp/verifyStudentUnlinkedWithPen.js"
 
             ])
             .run();

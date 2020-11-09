@@ -14,9 +14,9 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
 
-                "tests/e2e/testCases/gmp/studentFilloutPenRequestForm.js",
+                "tests/e2e/testCases/studentProfile/gmp/studentFilloutPenRequestForm.js",
 
-                "tests/e2e/testCases/mailsac/mailsacActivatePenRequest.js",
+                "tests/e2e/testCases/studentProfile/mailsac/mailsacActivatePenRequest.js",
 
             ])
             .run();

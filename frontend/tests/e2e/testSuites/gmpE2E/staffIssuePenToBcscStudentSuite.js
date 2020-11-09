@@ -14,11 +14,11 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
                 
-                "tests/e2e/testCases/gmp/studentLoginWithBCSCandSubmitPenRequest.js",
+                "tests/e2e/testCases/studentProfile/gmp/studentLoginWithBCSCandSubmitPenRequest.js",
                
-                "tests/e2e/testCases/mailsac/mailsacActivatePenRequest.js",
+                "tests/e2e/testCases/studentProfile/mailsac/mailsacActivatePenRequest.js",
                 
-                "tests/e2e/testCases/admin/staffIssuePenToBcscPenRequest.js"
+                "tests/e2e/testCases/admin/gmp/staffIssuePenToBcscPenRequest.js"
 
             ])
             .run();

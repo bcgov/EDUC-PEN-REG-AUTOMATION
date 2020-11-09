@@ -14,17 +14,17 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
                 
-                "tests/e2e/testCases/ump/studentSubmitFirstNameChange.js",
+                "tests/e2e/testCases/studentProfile/ump/studentSubmitFirstNameChange.js",
 
-                "tests/e2e/testCases/mailsac/mailsacActivateUmpRequest.js",
+                "tests/e2e/testCases/studentProfile/mailsac/mailsacActivateUmpRequest.js",
 
-                "tests/e2e/testCases/admin/staffRolesVerificationUmp.js",
+                "tests/e2e/testCases/admin/ump/staffRolesVerificationUmp.js",
 
-                "tests/e2e/testCases/admin/staffRequestMoreInformationOnUmp.js",
+                "tests/e2e/testCases/admin/ump/staffRequestMoreInformationOnUmp.js",
 
-                "tests/e2e/testCases/ump/studentProvideRequestedInfoOnUmp.js",
+                "tests/e2e/testCases/studentProfile/ump/studentProvideRequestedInfoOnUmp.js",
 
-                "tests/e2e/testCases/admin/staffRejectUmpRequestAfterStudentProvideInfo.js"
+                "tests/e2e/testCases/admin/ump/staffRejectUmpRequestAfterStudentProvideInfo.js"
 
             ])
             .run();

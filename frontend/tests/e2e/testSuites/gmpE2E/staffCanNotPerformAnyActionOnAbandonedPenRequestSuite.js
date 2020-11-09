@@ -15,7 +15,7 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
                                 
-                "tests/e2e/testCases/admin/staffCanNotPerformAnyActionOnAbandonedPenRequest.js"
+                "tests/e2e/testCases/admin/gmp/staffCanNotPerformAnyActionOnAbandonedPenRequest.js"
 
             ])
             .run();
