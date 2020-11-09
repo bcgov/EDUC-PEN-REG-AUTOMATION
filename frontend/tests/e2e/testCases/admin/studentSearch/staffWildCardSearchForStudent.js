@@ -10,35 +10,23 @@ const staffSearch = new staffStudentSearchPage()
 const dashboard = new staffDashboardPage()
 
 
-fixture`Staff login and do advanced search for student`
+fixture`Staff login and wild card search for student`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
     })
 
-test('Staff login and do advanced search for student test', async t => {
+test('Staff login and wild card search for student test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
     await dashboard.clickFullSearchButton()
 
-    await staffSearch.clickAdvanceSearchButton()
+    await staffSearch.setLegalSurname(studentData.legalSurnameWildcard)
 
-    //await staffSearch.setPen(penNumber)
-
-    await staffSearch.setLegalSurname(studentData.legalLastName)
-
-    await staffSearch.setLegalGiven(studentData.legalFirstName)
-
-    await staffSearch.setLegalMiddle(studentData.legalMiddleNames)
-    
-    await staffSearch.setDobRange(studentData)
+    await staffSearch.setLegalGiven(studentData.legalGivenWildcard)
 
     await staffSearch.clickSearchButton()
-    
-    await staffSearch.verifyStudentSearchResult(penNumber, studentSearchResult)
-
-    await staffSearch.verifyClearButtonAction()
 
     await staffSearch.verifyStudentSearchResult(penNumber, studentSearchResult)
 

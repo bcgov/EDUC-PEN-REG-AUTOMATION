@@ -20,6 +20,8 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/admin/studentSearch/staffQuickSearchUpdateAndResetStudentInfo.js",
 
+                "tests/e2e/testCases/admin/studentSearch/staffWildCardSearchForStudent.js"
+
             ])
             .run();
     })

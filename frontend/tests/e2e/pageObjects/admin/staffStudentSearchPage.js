@@ -54,11 +54,11 @@ class staffStudentSearchPage {
         //Advanced Search Related Selectors
         this.birthYearStart = Selector('#start-dob-year')
         this.birthMonthStart = Selector('#start-dob-month')
-        this.BirthDayStart = Selector('#start-dob-day')
-        this.useRangeCheckBox = Selector('label').withText('Use range')
+        this.birthDayStart = Selector('#start-dob-day')
+        this.useRangeCheckBox = Selector('div.v-input--selection-controls__ripple:nth-child(3)')
         this.birthYearEnd = Selector('#end-dob-year')
         this.birthMonthEnd = Selector('#end-dob-month')
-        this.BirthDayEnd = Selector('#end-dob-day')
+        this.birthDayEnd = Selector('#end-dob-day')
         this.gender = Selector('#gender')
 
     }
@@ -148,7 +148,7 @@ class staffStudentSearchPage {
         log.info("Search button is clicked")
     }
 
-    async clickOnFirstSearchResult(){
+    async clickOnFirstSearchResult() {
         await t.click(this.penSearchResult)
         log.info("clicked on first search result")
     }
@@ -192,6 +192,30 @@ class staffStudentSearchPage {
         log.info("Student Search Results Verified")
     }
 
-    
+    async setDobRange(data) {
+        await t.typeText(this.birthYearStart, data.birthYearStart)
+        await t.typeText(this.birthMonthStart, data.birthMonthStart)
+        await t.typeText(this.birthDayStart, data.birthDayStart)
+        await t.click(this.useRangeCheckBox)
+        await t.typeText(this.birthYearEnd, data.birthYearEnd)
+        await t.typeText(this.birthMonthEnd, data.birthMonthEnd)
+        await t.typeText(this.birthDayEnd, data.birthDayEnd)
+        log.info("Birthdate range set")
+    }
+
+
+    async verifyClearButtonAction() {
+        await t
+        .wait(5)
+        .expect(this.birthYearEnd.count).eql(1)
+
+        await t.click(this.clearButon)
+        await t
+        .wait(5)
+        .expect(this.birthYearEnd.count).eql(0)
+        log.info("clear button functionality verified")
+    }
+
+
 }
 export default staffStudentSearchPage
