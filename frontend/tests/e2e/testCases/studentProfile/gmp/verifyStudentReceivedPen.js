@@ -1,4 +1,4 @@
-import studentLoginPage from '../../../../pageObjects/login/studentLoginPage';
+import studentLoginPage from '../../../pageObjects/login/studentLoginPage';
 import { bceidCredentials, studentProfileUrl , penNumber } from '../../../../config/constants'
 import studentInformationVerificationPage from '../../../../pageObjects/gmp/studentInformationVerificationPage'
 
