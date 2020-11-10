@@ -1,6 +1,6 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage';
-import { bceidCredentials, studentProfileUrl , penNumber } from '../../../../config/constants'
-import studentInformationVerificationPage from '../../../../pageObjects/gmp/studentInformationVerificationPage'
+import { bceidCredentials, studentProfileUrl , penNumber } from '../../../config/constants'
+import studentInformationVerificationPage from '../../../pageObjects/gmp/studentInformationVerificationPage'
 
 const studentLogin = new studentLoginPage()
 const verify = new studentInformationVerificationPage()
