@@ -20,7 +20,7 @@
     "lastBCStudentNumber": "60848",
     "currentSchool": "Dixieberg High School",
     "respondHereText": "Attached the document",
-    "uploadFileLocation": "../../uploads/BC.jpg",
+    "uploadFileLocation": "../../../uploads/BC.jpg",
     "documentType": "Canadian Passport",
     "documentName": "BC.jpg",
     "penRequestSubmissionConfirmationText": "You are almost finished. To complete your request, you must verify the email address you provided by completing the following steps:",
