@@ -64,3 +64,4 @@ module.exports.mailsacCredentials = Object.freeze({
 
 // PEN number
 module.exports.penNumber =  config.get('penNumber')
+module.exports.penMerged =  config.get('penMerged')

@@ -49,6 +49,7 @@ nconf.defaults({
     pass: process.env.PENEMAIL_PASS
   },
   penNumber: process.env.PEN_NUMBER,
+  penMerged: process.env.PEN_MERGED
   
 });
 

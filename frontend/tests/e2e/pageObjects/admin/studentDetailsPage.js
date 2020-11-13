@@ -1,3 +1,4 @@
+import { execPath } from 'process'
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
 const assert = require('assert')
@@ -27,6 +28,10 @@ class studentDetailsPage {
         this.cancelButton = Selector('span').withText('Cancel')
         this.saveButton = Selector('span').withText('Save')
 
+        //twin record related
+        this.twinRecordYes = Selector('a').withText('Yes')
+        this.twinsNumber = Selector('#twins-number')
+
     }
 
     async setPen(data) {
@@ -49,7 +54,7 @@ class studentDetailsPage {
         await t
             .click(this.usualSurname)
             .pressKey('ctrl+a delete')
-            log.info("usual surname input cleared")
+        log.info("usual surname input cleared")
     }
 
     async setLegalGiven(data) {
@@ -63,10 +68,10 @@ class studentDetailsPage {
         log.info("usual given is set")
     }
 
-    async clearUsualGiven(){
+    async clearUsualGiven() {
         await t
-        .click(this.usualGiven)
-        .pressKey('ctrl+a delete')
+            .click(this.usualGiven)
+            .pressKey('ctrl+a delete')
         log.info("usual given input cleared")
     }
 
@@ -81,10 +86,10 @@ class studentDetailsPage {
         log.info("usual middle name is set")
     }
 
-    async clearUsualMiddle(){
+    async clearUsualMiddle() {
         await t
-        .click(this.usualMiddle)
-        .pressKey('ctrl+a delete')
+            .click(this.usualMiddle)
+            .pressKey('ctrl+a delete')
         log.info("usual middle input cleared")
     }
 
@@ -133,6 +138,32 @@ class studentDetailsPage {
         await t.click(this.saveButton)
         log.info("save button is clicked")
         await t.wait(3000)
+    }
+
+    async clickOnTwinRecordYes() {
+        await t.click(this.twinRecordYes)
+        log.info("clicked on twin record")
+    }
+
+    async verifyTwinsNumber(data) {
+        await t.expect(this.twinsNumber.innerText).eql(data, { timeout: 10000 })
+        log.info("verified number of twins displayed on popup module")
+    }
+
+    async getText() {
+        const table = Selector('table:nth-child(1)')
+
+        const rowCount = await table.find('tr').count
+        log.info("row count    "+ rowCount)
+
+        const columnCount = await table.find('tr').nth(1).find('td').count
+        log.info("column count    "+ columnCount)
+
+        for(let i = 1; i < rowCount; i++) {
+            for(let j = 0; j < columnCount; j++) {  
+                let tdText = await table.find('tr').nth(i).find('td').nth(j).textContent
+            }
+        }
     }
 
 
