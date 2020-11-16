@@ -42,7 +42,7 @@
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
     "simple-encryptor": "^4.0.0",
-    "testcafe": "^1.9.1"
+    "testcafe": "^1.9.4"
   },
   "engines": {
     "node": ">= 6.0.0",
