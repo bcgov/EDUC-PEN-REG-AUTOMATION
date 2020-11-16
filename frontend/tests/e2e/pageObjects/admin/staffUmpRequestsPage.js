@@ -11,7 +11,7 @@ class staffUmpRequestsPage {
         this.penSearchBar = Selector('#pen-text-field').filterVisible()
         this.lastNameSearchBar = Selector('#last-name-text-field').filterVisible()
         this.firstNameSearchBar = Selector('#first-name-text-field')
-        this.statusResultFirstElement = Selector('div.v-application--wrap tr:nth-of-type(1) td:nth-of-type(2)').filterVisible()
+        //this.searchResultFirstElement = Selector('td').withText(data)
     }
 
 
@@ -31,8 +31,9 @@ class staffUmpRequestsPage {
         log.info("lastname entered")
     }
 
-    async clickStatusResultFirstElement() {
-        await t.click(this.statusResultFirstElement)
+    async clickStatusResultFirstElement(data) {
+        this.searchResultFirstElement = Selector('td').withText(data)
+        await t.click(this.searchResultFirstElement)
         log.info("Clicked on the search result one")
     }
     

@@ -13,7 +13,7 @@ class staffPenRetrievalRequestPage {
         this.firstNameSearchBar = Selector('#first-name-text-field').filterVisible()
         this.reviewerSearchBar = Selector('#review-text-field').filterVisible()
         this.penSearchBar = Selector('#pen-text-field').filterVisible()
-        this.statusResultFirstElement = Selector('div.v-application--wrap tr:nth-of-type(1) td:nth-of-type(2)').filterVisible()
+        //this.statusResultFirstElement = Selector('div.v-application--wrap tr:nth-of-type(1) td:nth-of-type(2)').filterVisible()
         this.statusResultSecondElement = Selector('div.v-application--wrap tr:nth-of-type(2) td:nth-of-type(2)').filterVisible()
         this.submittedTime = Selector('div.v-data-table__wrapper table:nth-child(1) tbody:nth-child(3) tr:nth-child(1) > td:nth-child(2)')
 
@@ -65,8 +65,9 @@ class staffPenRetrievalRequestPage {
         log.info(data + "  Entered in reviewer search bar")
     }
 
-    async clickStatusResultFirstElement() {
-        await t.click(this.statusResultFirstElement)
+    async clickStatusResultFirstElement(data) {
+        this.searchResultFirstElement = Selector('td').withText(data)
+        await t.click(this.searchResultFirstElement)
         log.info("Clicked on the search result one")
     }
 

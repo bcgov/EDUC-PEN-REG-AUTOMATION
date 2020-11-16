@@ -29,7 +29,7 @@ test('Staff login and Reject Pen Request after student provided information', as
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement()
+    await penPage.clickStatusResultFirstElement(staffData.Status[1])
 
     await penAction.verifyClaimConformation(staffData.ClaimConformationText)
 

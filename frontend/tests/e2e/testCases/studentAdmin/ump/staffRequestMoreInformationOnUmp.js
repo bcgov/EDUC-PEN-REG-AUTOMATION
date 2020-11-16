@@ -28,7 +28,7 @@ test('Staff login and request more information from student on Ump request test'
 
     await umpPage.setLastNameSearchBar(studentData.legalLastName)
 
-    await umpPage.clickStatusResultFirstElement()
+    await umpPage.clickStatusResultFirstElement(staffData.Status[0])
 
     await umpAction.clickClaimButton()
 

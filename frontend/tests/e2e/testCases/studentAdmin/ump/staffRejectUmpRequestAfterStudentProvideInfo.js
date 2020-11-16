@@ -27,7 +27,7 @@ test('Staff login and Reject Ump Request after student provided information test
 
     await umpPage.setPenNumberSearchBar(penNumber)
 
-    await umpPage.clickStatusResultFirstElement()
+    await umpPage.clickStatusResultFirstElement(staffData.Status[1])
 
     await umpAction.verifyClaimConformation(staffData.ClaimConformationText)
 

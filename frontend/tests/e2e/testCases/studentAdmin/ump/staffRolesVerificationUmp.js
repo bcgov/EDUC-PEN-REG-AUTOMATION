@@ -27,7 +27,7 @@ test('Staff login and Can not perform any action on Ump request test', async t =
 
     await umpPage.setPenNumberSearchBar(penNumber)
 
-    await umpPage.clickStatusResultFirstElement()
+    await umpPage.clickStatusResultFirstElement(staffData.Status[0])
 
     await umpAction.verifyClaimConformation(staffData.NoOneWorkingOnThis)
 

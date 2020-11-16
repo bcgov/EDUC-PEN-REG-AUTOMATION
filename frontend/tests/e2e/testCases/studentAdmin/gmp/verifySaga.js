@@ -29,7 +29,7 @@ test('Staff login and verify saga test', async t => {
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement()
+    await penPage.clickStatusResultFirstElement(staffData.Status[0])
 
     await penAction.clickRequestInfoButton()
 

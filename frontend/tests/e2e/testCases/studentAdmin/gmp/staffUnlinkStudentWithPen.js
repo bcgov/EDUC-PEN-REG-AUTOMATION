@@ -29,7 +29,7 @@ test('Staff login and unlink student test', async t => {
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement()
+    await penPage.clickStatusResultFirstElement(staffData.Status[3])
 
     await penAction.clickUnlinkButton(staffData.Status[1])
 

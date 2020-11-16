@@ -29,7 +29,7 @@ test('Staff login and Reject Draft Pen Request test', async t => {
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement()
+    await penPage.clickStatusResultFirstElement(staffData.Status[5])
 
     await penAction.verifyClaimButtonDisabled()
 

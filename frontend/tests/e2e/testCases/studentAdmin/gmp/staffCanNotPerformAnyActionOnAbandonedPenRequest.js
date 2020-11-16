@@ -30,7 +30,7 @@ test('Staff login and can not perform any action on abandoned Pen Request test',
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement()
+    await penPage.clickStatusResultFirstElement(staffData.Status[8])
 
     await penAction.verifyClaimButtonDisabled()
 

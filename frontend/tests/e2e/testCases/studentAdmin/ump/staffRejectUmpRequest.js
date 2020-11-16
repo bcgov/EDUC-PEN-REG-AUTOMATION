@@ -26,7 +26,7 @@ test('Staff login and Reject Ump Request test', async t => {
 
     await umpPage.setPenNumberSearchBar(penNumber)
 
-    await umpPage.clickStatusResultFirstElement()
+    await umpPage.clickStatusResultFirstElement(staffData.Status[0])
 
     await umpAction.clickClaimButton()
 

@@ -29,7 +29,7 @@ test('Staff login and can not request more information/issue Pen  but can reject
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement()
+    await penPage.clickStatusResultFirstElement(staffData.Status[5])
 
     await penAction.verifyClaimButtonDisabled()
 
