@@ -1,5 +1,5 @@
 {
-    "mergedSearchResult": "-",
+    "mergedSearchResult": "",
     "legalSurnameSearchResult": "AUTOMATION",
     "usualSurnameSearchResult": "AUTOMATION",
     "legalGivennameSearchResult": "TESTER",
@@ -7,12 +7,12 @@
     "legalMiddlenameSearchResult": "PEN",
     "usualMiddlenameSearchResult": "PEN",
     "postalCodeSearchResult": "V1V1V1",
-    "memoSearchResult": "-",
-    "dcSearchResult": "-",
+    "memoSearchResult": "",
+    "dcSearchResult": "",
     "localIdSearchResult": "A3816",
     "genderSearchResult": "M",
     "birthDateSearchResult": "1999-12-01",
     "gradeSearchResult": "10",
     "mincodeSearchResult": "08787010",
-    "twinnedSearchResult": "-"
+    "twinnedSearchResult": ""
 }
