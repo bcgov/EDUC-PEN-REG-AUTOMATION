@@ -1,5 +1,5 @@
 {
-    "browsers": "chrome:headless",
+    "browsers": "edge",
     "reporter": "list",
     "screenshots": {
         "path": "tests/e2e/screenshots/",
@@ -12,8 +12,6 @@
     "skipJsErrors": true,
     "color": true,
     "stopOnFirstFail": true,
-    "pageLoadTimeout": 60000,
     "disablePageCaching": true,
-    "speed": 1,
-    "selectorTimeout": 60000
+    "speed": 1
 }

@@ -1,7 +1,7 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
-import staffDashboardPage from '../../../pageObjects/admin/staffDashboardPage'
-import staffUmpRequestsPage from '../../../pageObjects/admin/staffUmpRequestsPage'
-import staffActionOnUmpPage from '../../../pageObjects/admin/staffActionOnUmpPage'
+import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
+import staffUmpRequestsPage from '../../../pageObjects/studentAdmin/ump/staffUmpRequestsPage'
+import staffActionOnUmpPage from '../../../pageObjects/studentAdmin/ump/staffActionOnUmpPage'
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants'
 import studentData from '../../../config/studentData/studentData.json';
 import staffData from '../../../config/staffData/staffData.json'

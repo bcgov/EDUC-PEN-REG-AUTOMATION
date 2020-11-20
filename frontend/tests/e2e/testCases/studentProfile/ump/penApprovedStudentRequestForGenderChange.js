@@ -1,7 +1,7 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage'
 import { bceidCredentials, studentProfileUrl } from '../../../config/constants'
 import studentData from '../../../config/studentData/studentData.json'
-import updateMyPenInfoPage from '../../../pageObjects/ump/updateMyPenInfoPage'
+import updateMyPenInfoPage from '../../../pageObjects/studentProfile/ump/updateMyPenInfoPage'
 
 
 const studentLogin = new studentLoginPage()

@@ -1,5 +1,5 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage';
-import studentProvideInformationPage from '../../../pageObjects/gmp/studentProvideInformationPage'
+import studentProvideInformationPage from '../../../pageObjects/studentProfile/gmp/studentProvideInformationPage'
 import { bceidCredentials, studentProfileUrl } from '../../../config/constants';
 import studentData from '../../../config/studentData/studentData.json';
 

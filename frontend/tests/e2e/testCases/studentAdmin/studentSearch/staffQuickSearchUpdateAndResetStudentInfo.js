@@ -1,11 +1,11 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
-import staffDashboardPage from '../../../pageObjects/admin/staffDashboardPage'
+import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../../config/constants'
 import studentSearchResult from '../../../config/studentData/studentSearchResults.json'
 import studentUpdatedSearchResult from '../../../config/studentData/studentUpdatedSearchResults.json'
-import studentDetailsPage from '../../../pageObjects/admin/studentDetailsPage'
-import staffHamburgerMenuPage from '../../../pageObjects/admin/staffHamburgerMenuPage'
-import staffStudentSearchPage from '../../../pageObjects/admin/staffStudentSearchPage'
+import studentDetailsPage from '../../../pageObjects/studentAdmin/studentSearch/studentDetailsPage'
+import staffHamburgerMenuPage from '../../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage'
+import staffStudentSearchPage from '../../../pageObjects/studentAdmin/studentSearch/staffStudentSearchPage'
 
 const staffLogin = new staffLoginPage()
 const dashboard = new staffDashboardPage()

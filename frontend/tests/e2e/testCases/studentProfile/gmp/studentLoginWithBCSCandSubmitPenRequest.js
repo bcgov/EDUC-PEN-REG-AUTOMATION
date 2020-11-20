@@ -1,5 +1,5 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage';
-import penRequestForm from '../../../pageObjects/gmp/penRequestForm';
+import penRequestForm from '../../../pageObjects/studentProfile/gmp/penRequestForm';
 import { bcscCredentials, studentProfileUrlBcsc } from '../../../config/constants';
 import bcscStudentData from '../../../config/studentData/bcscStudentData.json'
 

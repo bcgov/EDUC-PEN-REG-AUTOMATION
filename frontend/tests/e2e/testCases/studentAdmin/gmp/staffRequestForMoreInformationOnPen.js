@@ -1,7 +1,7 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage';
-import staffDashboardPage from '../../../pageObjects/admin/staffDashboardPage'
-import staffPenRetrievalRequestPage from '../../../pageObjects/admin/staffPenRetrievalRequestsPage'
-import staffActionOnPenPage from '../../../pageObjects/admin/staffActionOnPenPage'
+import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
+import staffPenRetrievalRequestPage from '../../../pageObjects/studentAdmin/gmp/staffPenRetrievalRequestsPage'
+import staffActionOnPenPage from '../../../pageObjects/studentAdmin/gmp/staffActionOnPenPage'
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants';
 import studentData from '../../../config/studentData/studentData.json';
 import staffData from '../../../config/staffData/staffData.json'

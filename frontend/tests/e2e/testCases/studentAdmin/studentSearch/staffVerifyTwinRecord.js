@@ -1,8 +1,8 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
-import staffDashboardPage from '../../../pageObjects/admin/staffDashboardPage'
+import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import { idirAdminCredentials, staffLoginUrl, penMerged} from '../../../config/constants'
-import staffStudentSearchPage from '../../../pageObjects/admin/staffStudentSearchPage'
-import studentDetailsPage from '../../../pageObjects/admin/studentDetailsPage'
+import staffStudentSearchPage from '../../../pageObjects/studentAdmin/studentSearch/staffStudentSearchPage'
+import studentDetailsPage from '../../../pageObjects/studentAdmin/studentSearch/studentDetailsPage'
 
 const staffLogin = new staffLoginPage()
 const staffSearch = new staffStudentSearchPage()

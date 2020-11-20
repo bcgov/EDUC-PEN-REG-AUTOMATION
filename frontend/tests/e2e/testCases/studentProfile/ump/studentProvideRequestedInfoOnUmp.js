@@ -1,6 +1,6 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage'
 import { bceidCredentials, studentProfileUrl } from '../../../config/constants'
-import studentProvideInformationPage from '../../../pageObjects/ump/studentProvideInformationPage'
+import studentProvideInformationPage from '../../../pageObjects/studentProfile/ump/studentProvideInformationPage'
 import studentData from '../../../config/studentData/studentData.json'
 
 const studentLogin = new studentLoginPage()
