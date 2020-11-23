@@ -21,10 +21,10 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -46,10 +46,10 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -69,10 +69,10 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -80,10 +80,10 @@ jobs:
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
       - run: npm run staffRequestForMoreInfoAndRejectOnUmp
@@ -103,10 +103,10 @@ jobs:
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
       # - uses: actions/upload-artifact@v2

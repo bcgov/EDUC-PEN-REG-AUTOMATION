@@ -11,15 +11,15 @@ const utils = {
             }
         };
 
-        if (tokenData.token_environment == "dev") {
-            const data = 'grant_type=client_credentials&client_id=' + tokenData.token_client_id + '&client_secret=' + tokenData.token_client_secret_dev;
+        if (tokenData.token_environment == "tools") {
+            const data = 'grant_type=client_credentials&client_id=' + tokenData.token_client_id + '&client_secret=' + tokenData.token_client_secret_tools;
             const response = await axios.post(tokenData.getTokenUrl, data, params);
             return response.data;
 
         }
 
-        if (tokenData.token_environment == "test") {
-            const data = 'grant_type=client_credentials&client_id=' + tokenData.token_client_id + '&client_secret=' + tokenData.token_client_secret_test;
+        if (tokenData.token_environment == "dev") {
+            const data = 'grant_type=client_credentials&client_id=' + tokenData.token_client_id + '&client_secret=' + tokenData.token_client_secret_dev;
             const response = await axios.post(tokenData.getTokenUrl, data, params);
             return response.data;
 
