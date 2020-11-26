@@ -25,7 +25,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -50,7 +50,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -61,7 +61,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
@@ -85,7 +85,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
@@ -107,7 +107,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -130,7 +130,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -140,7 +140,7 @@ jobs:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT}}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
       # - uses: actions/upload-artifact@v2
