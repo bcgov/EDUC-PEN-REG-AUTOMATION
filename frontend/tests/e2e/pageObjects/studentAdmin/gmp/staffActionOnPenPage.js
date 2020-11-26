@@ -36,7 +36,7 @@ class staffActionOnPenPage {
 
         //Unlink Pen related selectors
         this.studentDemoChangedCheckBox = Selector('input').withAttribute('role', 'checkbox')
-        this.unlinkButton = Selector('button').withAttribute('class', 'v-btn v-btn--contained theme--dark v-size--default')
+        this.unlinkButton = Selector('#unlink-button')
 
         //last name of the student
         this.fullNameOfStudent2 = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1) > strong:nth-of-type(1)')
