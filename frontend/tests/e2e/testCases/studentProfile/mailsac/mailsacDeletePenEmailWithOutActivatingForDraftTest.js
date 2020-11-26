@@ -16,7 +16,7 @@ test('mailsac Delete email with out activating test', async t => {
 
     await mailsac.clickSubmitButton()
 
-    await mailsac.setMyInboxTextBox(mailsacCredentials.username)
+    await mailsac.setMyInboxTextBox(studentData.email)
 
     await mailsac.clickCheckTheEmailButton()
 

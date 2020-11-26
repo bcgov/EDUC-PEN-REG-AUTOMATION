@@ -18,7 +18,7 @@ test('mailsac activate PEN request test', async t => {
 
     await mailsac.clickSubmitButton()
 
-    await mailsac.setMyInboxTextBox(mailsacCredentials.username)
+    await mailsac.setMyInboxTextBox(studentData.email)
 
     await mailsac.clickCheckTheEmailButton()
 
