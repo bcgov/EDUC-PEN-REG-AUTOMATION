@@ -22,7 +22,7 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
@@ -47,7 +47,7 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
@@ -58,7 +58,7 @@ jobs:
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
@@ -82,7 +82,7 @@ jobs:
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
@@ -104,7 +104,7 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
@@ -127,7 +127,7 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
@@ -137,7 +137,7 @@ jobs:
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ success() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT}}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
