@@ -1,6 +1,6 @@
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
-const assert = require('assert')
+
 
 class updateMyPenInfoPage {
 
@@ -95,18 +95,18 @@ class updateMyPenInfoPage {
     }
 
     async clickIDeclareCheckBox() {
-        await t.click(this.topCheckBox)
+        await t.click(Selector('#declarationCheckbox', { timeout: 1000 }))
         log.info("I declare check box is clicked")
     }
 
     async editFirstName(data) {
-        await t.click(this.firstNameEditCheckBox)
+        await t.click(Selector('#editLegalFirstNameCheckbox', { timeout: 1000 }))
         await t.typeText(this.firstNameTextBox, data)
         log.info("First name is set")
     }
 
     async clickeditGenderCheckbox() {
-        await t.click(this.genderEditCheckBox)
+        await t.click(Selector('#editGenderLabelCheckbox', { timeout: 1000 }))
         log.info("edit gender checkbox is clicked")
     }
 
@@ -116,7 +116,7 @@ class updateMyPenInfoPage {
     }
 
     async clickAccurateCheckBox() {
-        await t.click(this.bottomCheckBox)
+        await t.click(Selector('#acceptance_chk', { timeout: 1000 }))
         log.info("provided info is accurate check box is clicked")
     }
 
@@ -126,15 +126,15 @@ class updateMyPenInfoPage {
     }
 
     async assertBelowInfoText() {
-        assert.equal('Below is your current information as it appears in your school record', await this.informationText.innerText)
+        await t.expect(this.informationText.innerText).eql('Below is your current information as it appears in your school record', { timeout: 10000 })
     }
 
     async assertEnterInfoText() {
-        assert.equal('Enter current information as it appears on your highschool transcript or school record', await this.informationText.innerText)
+        await t.expect(this.informationText.innerText).eql('Enter current information as it appears on your highschool transcript or school record', { timeout: 10000 })
     }
 
     async submitConfirmationDisplayed(data) {
-        assert.equal(data, await this.submitConfirmation.innerText)
+        await t.expect(this.submitConfirmation.innerText).eql(data, { timeout: 10000 })
         log.info('Submit confirmation text displayed')
     }
 

@@ -72,7 +72,7 @@ class staffActionOnPenPage {
 
     async actionConfirmationText(data) {
         log.info('Action conformation text displayed as    ' + await this.claimConformationText.innerText)
-        assert.equal(data + " completed this request", await this.claimConformationText.innerText)
+        await t.expect(this.claimConformationText.innerText).eql(data, { timeout: 10000 })
     }
 
     async clickBackToListButton() {
