@@ -106,8 +106,12 @@ getToken().then(async (data) => {
             else {
                 log.info("Not to delete the digital ID option is selected")
             }
-
         }
+        
+        setTimeout(function() {
+            log.info('waited for 5 seconds');
+        }, 5000)
+
     }
 
 })

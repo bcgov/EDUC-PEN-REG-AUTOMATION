@@ -52,6 +52,10 @@ getToken().then(async (data) => {
             log.info("Digital ID is already deleted")
         }
 
+        setTimeout(function() {
+            log.info('waited for 5 seconds');
+        }, 5000)
+
     }
 
 })
