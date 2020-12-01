@@ -45,6 +45,7 @@ class studentDetailsPage {
     }
 
     async setUsualSurname(data) {
+        this.clearUsualSurname()
         await t.click(this.usualSurname)
         await t.typeText(this.usualSurname, data, { paste: true })
         log.info("ususal surname is set")
@@ -63,6 +64,7 @@ class studentDetailsPage {
     }
 
     async setUsualGiven(data) {
+        this.clearUsualGiven()
         await t.click(this.usualGiven)
         await t.typeText(this.usualGiven, data, { paste: true })
         log.info("usual given is set")
@@ -81,6 +83,7 @@ class studentDetailsPage {
     }
 
     async setUsualMiddle(data) {
+        this.clearUsualMiddle()
         await t.click(this.usualMiddle)
         await t.typeText(this.usualMiddle, data, { paste: true })
         log.info("usual middle name is set")
@@ -99,6 +102,7 @@ class studentDetailsPage {
     }
 
     async setMemo(data) {
+        await t.click(this.memo)
         await t.typeText(this.memo, data, { paste: true })
         log.info("memo is set")
     }
@@ -148,6 +152,13 @@ class studentDetailsPage {
     async verifyTwinsNumber(data) {
         await t.expect(this.twinsNumber.innerText).eql(data, { timeout: 10000 })
         log.info("verified number of twins displayed on popup module")
+    }
+
+    async clearMemo(){
+        await t
+        .click(this.memo)
+        .pressKey('ctrl+a delete')
+    log.info("usual middle input cleared")
     }
 
     async getText() {

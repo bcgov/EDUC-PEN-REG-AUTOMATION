@@ -33,6 +33,8 @@ test('Staff login search update and reset student info test', async t => {
 
     await studentDetails.setUsualMiddle(studentUpdatedSearchResult.usualMiddlenameSearchResult)
 
+    await studentDetails.setMemo(studentUpdatedSearchResult.memoSearchResult)
+
     await studentDetails.clickSaveButton()
 
     await menu.clickHamburgerMenu()
@@ -49,11 +51,13 @@ test('Staff login search update and reset student info test', async t => {
 
     await staffSearch.clickOnFirstSearchResult()
 
-    await studentDetails.clearUsualSurname()
+    await studentDetails.setUsualSurname(studentSearchResult.usualSurnameSearchResult)
 
-    await studentDetails.clearUsualGiven()
+    await studentDetails.setUsualGiven(studentSearchResult.usualGivennameSearchResult)
 
-    await studentDetails.clearUsualMiddle()
+    await studentDetails.setUsualMiddle(studentSearchResult.usualMiddlenameSearchResult)
+
+    await studentDetails.clearMemo()
 
     await studentDetails.clickSaveButton()
 

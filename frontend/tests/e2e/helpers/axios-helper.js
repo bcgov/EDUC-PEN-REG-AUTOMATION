@@ -129,6 +129,27 @@ const helper = {
             const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
             throw new ApiError(status, { message: 'API DELETE error' }, e);
         }
-    }
+    },
+
+    async postStudentData(token, url, data, params) {
+        try {
+            params = setToken(params, token);
+            log.info('post Data Url', url);
+            log.verbose('post Data Req', minify(data));
+
+            const response = await axios.post(url, data, params);
+
+            log.info('post Data Status', response.status);
+            log.info('post Data StatusText', response.statusText);
+
+            log.verbose('post Data Res', response.data);
+
+            return response.data;
+        } catch (e) {
+            logApiError(e, 'postData', 'Error during POST on ' + url);
+            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
+            throw new ApiError(status, { message: 'API Post error' }, e);
+        }
+    },
 }
 module.exports = helper;
