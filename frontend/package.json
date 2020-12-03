@@ -28,11 +28,13 @@
     "insertAndUpdatePenRequestDataToAbandoned": "node tests/e2e/testCases/studentProfile/gmp/insertAndUpdatePenRequestDataToAbandoned.js",
     "getAndDeletePenRequestData": "node tests/e2e/testCases/studentProfile/gmp/getAndDeletePenRequestData.js",
     "getAndDeleteUmpRequestData": "node tests/e2e/testCases/studentProfile/ump/getAnddeleteUmpRequestData.js",
+    "getAndDeleteStudentData": "node tests/e2e/testCases/studentProfile/gmp/getAndDeleteStudentData.js",
     "staffIssuePenToStudentAndUnlinkSuite": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentAndUnlinkSuite.js",
     "staffForceUnlinkSuite": "node tests/e2e/testSuites/gmpE2E/staffForceUnlinkSuite.js",
     "studentSubmitGenderChangeAfterPenCompleteGetsCompleted": "node tests/e2e/testSuites/gmpWithUmpE2E/studentSubmitGenderChangeAfterPenCompleteGetsCompleted.js",
     "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js",
-    "staffQuickSearchUpdateAndResetStudentInfo": "node tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js"
+    "staffQuickSearchUpdateAndResetStudentInfo": "node tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js",
+    "verifyValidationErrorsAndCreateNewPen": "node tests/e2e/testSuites/createNewPenE2E/verifyValidationErrorsAndCreateNewPenSuite.js"
   },
   "dependencies": {
     "axios": "^0.19.2",

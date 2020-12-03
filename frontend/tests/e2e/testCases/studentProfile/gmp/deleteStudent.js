@@ -10,13 +10,13 @@ getToken().then(async (data) => {
 
     for (let i = 0; i <= 99; i++) {
 
-        let searchListCriteria2 = []
+        let searchListCriteria = []
 
-        searchListCriteria2.push({ key: 'pen', operation: 'eq', value: penNums.pen[i], valueType: 'STRING' });
+        searchListCriteria.push({ key: 'pen', operation: 'eq', value: penNums.pen[i], valueType: 'STRING' });
 
         const search = [
             {
-                searchCriteriaList: searchListCriteria2
+                searchCriteriaList: searchListCriteria
             }
         ]
         const filterParam2 = {

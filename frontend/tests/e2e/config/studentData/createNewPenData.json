@@ -1,0 +1,18 @@
+{
+    "legalSurname": "AUTOMATION NEW",
+    "usualSurname": "AUTOMATION NEW",
+    "legalGivenname": "TESTER NEW",
+    "usualGivenname": "TESTER NEW",
+    "legalMiddlename": "PEN NEW",
+    "usualMiddlename": "PEN NEW",
+    "postalCode": "V2V2V2",
+    "gender": "M",
+    "birthDate": "19890101",
+    "grade": "12",
+    "mincode": "03939004",
+    "legalSurnameError": "AUTOMATION^NEW",
+    "legalGivennameError": "TESTER'NEW",
+    "legalMiddlenameError": "PEN_NEW",
+    "nameErrorDescription": "Field contains invalid character",
+    "gradeErrorDescription": "Invalid Grade Code"
+}
