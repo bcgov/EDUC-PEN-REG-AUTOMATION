@@ -16,12 +16,12 @@ getToken().then(async (data) => {
     console.log(yesterday)
 
     // Choose the Digital ID
-    if (constants.token_environment == "dev") {
-        studentData.digitalID = constants.bceid_digital_id_dev
+    if (constants.token_environment == "tools") {
+        studentData.digitalID = constants.bceid_digital_id_tools
     }
 
-    if (constants.token_environment == "test") {
-        studentData.digitalID = constants.bceid_digital_id_test
+    if (constants.token_environment == "dev") {
+        studentData.digitalID = constants.bceid_digital_id_dev
     }
 
     // insert Student record on Student Side
