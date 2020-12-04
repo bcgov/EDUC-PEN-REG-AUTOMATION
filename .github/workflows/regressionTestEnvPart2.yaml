@@ -126,7 +126,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
           
