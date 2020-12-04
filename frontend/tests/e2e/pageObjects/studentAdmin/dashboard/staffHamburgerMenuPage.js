@@ -7,7 +7,7 @@ class staffHamburgerMenuPage {
 
         this.hamburgerMenuButton = Selector('#menuBtn')
         this.dashboardLink = Selector('#DashboardMenuBtn')
-        this.infrequentProcessLink = Selector('div').withText('Infrequent Processes')
+        this.infrequentProcessLink = Selector('#InfrequentProcessesMenuBtn')
         this.createNewPenLink = Selector('#CreateNew PENMenuBtn')
     }
 

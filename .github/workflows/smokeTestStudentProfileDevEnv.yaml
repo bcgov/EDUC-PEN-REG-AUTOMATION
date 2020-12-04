@@ -22,10 +22,10 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
@@ -42,20 +42,21 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run studentFilloutAndActivateUmpRequest
         if: ${{ always() }}
@@ -70,10 +71,11 @@ jobs:
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
