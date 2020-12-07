@@ -15,7 +15,7 @@
     "staffRejectPenRequest": "node tests/e2e/testSuites/gmpE2E/staffRejectPenRequestSuite.js",
     "staffRejectUmpRequest": "node tests/e2e/testSuites/umpE2E/staffRejectUmpRequestSuite.js",
     "staffRejectPenRequestTestCase": "testcafe chrome ./tests/e2e/testCases/studentAdmin/gmp/staffRejectPenRequest.js -e",
-    "verifySagaTestCase": "testcafe chrome ./tests/e2e/testCases/admin/verifySaga.js -e",
+    "verifySagaTestCase": "testcafe chrome ./tests/e2e/testCases/studentAdmin/gmp/verifySaga.js -e",
     "staffIssuePenToStudent": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentSuite.js",
     "staffIssuePenToBcscStudent": "node tests/e2e/testSuites/gmpE2E/staffIssuePenToBcscStudentSuite.js",
     "staffCompleteUmpRequest": "node tests/e2e/testSuites/umpE2E/staffCompleteUmpRequestSuite.js",
