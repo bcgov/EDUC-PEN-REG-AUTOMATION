@@ -22,21 +22,21 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run insertAndUpdatePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
-          BCEID_DIGITAL_ID_TEST: ${{ secrets.BCEID_DIGITAL_ID_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          BCEID_DIGITAL_ID_DEV: ${{ secrets.BCEID_DIGITAL_ID_DEV }}
 
       - run: npm run verifySagaTestCase
         if: ${{ always() }}
@@ -49,10 +49,10 @@ jobs:
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
