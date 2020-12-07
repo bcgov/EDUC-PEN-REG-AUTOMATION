@@ -108,9 +108,7 @@ class createNewPenPage {
     }
 
     async verifyValidationErrors(data, num) {
-
         this.nameValidationError = Selector('td').withExactText(data)
-
         await t.expect(this.nameValidationError.count).eql(num)
     }
 

@@ -1,7 +1,6 @@
 import { execPath } from 'process'
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
-const assert = require('assert')
 
 class studentDetailsPage {
 
@@ -154,27 +153,32 @@ class studentDetailsPage {
         log.info("verified number of twins displayed on popup module")
     }
 
-    async clearMemo(){
+    async clearMemo() {
         await t
-        .click(this.memo)
-        .pressKey('ctrl+a delete')
-    log.info("usual middle input cleared")
+            .click(this.memo)
+            .pressKey('ctrl+a delete')
+        log.info("usual middle input cleared")
     }
 
     async getText() {
         const table = Selector('table:nth-child(1)')
 
         const rowCount = await table.find('tr').count
-        log.info("row count    "+ rowCount)
+        log.info("row count    " + rowCount)
 
         const columnCount = await table.find('tr').nth(1).find('td').count
-        log.info("column count    "+ columnCount)
+        log.info("column count    " + columnCount)
 
-        for(let i = 1; i < rowCount; i++) {
-            for(let j = 0; j < columnCount; j++) {  
+        for (let i = 1; i < rowCount; i++) {
+            for (let j = 0; j < columnCount; j++) {
                 let tdText = await table.find('tr').nth(i).find('td').nth(j).textContent
             }
         }
+    }
+
+    async verifyStudentDetailsPageDisplayed() {
+        await t.expect(this.legalSurname.count).eql(1)
+        log.info("Student details page displayed")
     }
 
 

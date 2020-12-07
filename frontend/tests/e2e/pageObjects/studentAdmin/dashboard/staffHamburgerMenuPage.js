@@ -7,8 +7,9 @@ class staffHamburgerMenuPage {
 
         this.hamburgerMenuButton = Selector('#menuBtn')
         this.dashboardLink = Selector('#DashboardMenuBtn')
+        this.studentSearchLink = Selector('#StudentSearchMenuBtn')
         this.infrequentProcessLink = Selector('#InfrequentProcessesMenuBtn')
-        this.createNewPenLink = Selector('#CreateNew PENMenuBtn')
+        this.createNewPenLink = Selector('#CreateNewPENMenuBtn')
     }
 
     async clickHamburgerMenu(){
@@ -19,6 +20,11 @@ class staffHamburgerMenuPage {
     async clickDashboardLink(){
         await t.click(this.dashboardLink)
         log.info("Dashboard link is clicked")
+    }
+
+    async clickStudentSearchLink(){
+        await t.click(this.studentSearchLink)
+        log.info("Student search link clicked")
     }
 
     async clickInfrequentProcessLink(){

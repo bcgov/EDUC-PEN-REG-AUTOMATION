@@ -216,6 +216,41 @@ class staffStudentSearchPage {
         log.info("clear button functionality verified")
     }
 
+    async verifyDetailsOfNewPenCreated(studentData){
+
+        await t.expect(this.legalSurnameSearchResult.innerText).eql(studentData.legalSurname, { timeout: 15000 })
+
+        await t.expect(this.usualSurnameSearchResult.innerText).eql(studentData.usualSurname)
+
+        await t.expect(this.legalGivennameSearchResult.innerText).eql(studentData.legalGivenname)
+
+        await t.expect(this.usualGivennameSearchResult.innerText).eql(studentData.usualGivenname)
+
+        await t.expect(this.legalMiddlenameSearchResult.innerText).eql(studentData.legalMiddlename)
+
+        await t.expect(this.usualMiddlenameSearchResult.innerText).eql(studentData.usualMiddlename)
+
+        await t.expect(this.postalCodeSearchResult.innerText).eql(studentData.postalCode)
+
+        await t.expect(this.memoSearchResult.innerText).eql(studentData.memo)
+
+        await t.expect(this.dcSearchResult.innerText).eql(studentData.dc)
+
+        await t.expect(this.localIdSearchResult.innerText).eql(studentData.localId)
+
+        await t.expect(this.genderSearchResult.innerText).eql(studentData.gender)
+
+        await t.expect(this.birthDateSearchResult.innerText).eql(studentData.birthDateSearchResult)
+
+        await t.expect(this.gradeSearchResult.innerText).eql(studentData.grade)
+
+        await t.expect(this.mincodeSearchResult.innerText).eql(studentData.mincode)
+
+        await t.expect(this.twinnedSearchResult.innerText).eql(studentData.twinned)
+
+        log.info("New Student Search Results Verified")
+    }
+
 
 }
 export default staffStudentSearchPage

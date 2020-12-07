@@ -19,13 +19,11 @@ test('Staff verify validation errors on create new pen screen test', async t => 
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
-    //await menu.clickHamburgerMenu()
+    await menu.clickHamburgerMenu()
 
-    // await menu.clickInfrequentProcessLink()
+    await menu.clickInfrequentProcessLink()
 
-    // await menu.clickCreateNewPenLink()
-
-    await t.navigateTo("")
+    await menu.clickCreateNewPenLink()
 
     await create.clickEnterDataButton()
 
