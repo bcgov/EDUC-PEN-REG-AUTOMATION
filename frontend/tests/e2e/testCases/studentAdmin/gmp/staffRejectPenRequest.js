@@ -23,7 +23,7 @@ test('Staff login and Reject Pen Request test', async t => {
 
     await dashboard.clickViewGmpButton()
 
-    await penPage.setMainStatusBar(staffData.Status[0])
+    //await penPage.setMainStatusBar(staffData.Status[0])
 
     await penPage.setLastNameSearchBar(studentData.legalLastName)
 
