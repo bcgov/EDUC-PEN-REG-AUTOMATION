@@ -27,7 +27,7 @@ test('Staff login and can not request more information/Complete but can reject U
     
     await umpPage.setPenNumberSearchBar(penNumber)
 
-    await umpPage.clickStatusResultFirstElement(staffData.Status[5])
+    await umpPage.clickStatusResultFirstElement(staffData.Status[5],penNumber)
 
     await umpAction.verifyClaimButtonDisabled()
 

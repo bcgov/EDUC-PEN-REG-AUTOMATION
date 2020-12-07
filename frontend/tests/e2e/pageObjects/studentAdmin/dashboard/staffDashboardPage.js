@@ -22,6 +22,7 @@ class staffDashboardPage {
     }
 
     async clickViewUmpButton() {
+        await t.wait(3000)
         await t.click(this.viewUmpButton)
         log.info("View UMP button is clicked")
     }

@@ -2,7 +2,7 @@ import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
 import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import staffUmpRequestsPage from '../../../pageObjects/studentAdmin/ump/staffUmpRequestsPage'
 import staffActionOnUmpPage from '../../../pageObjects/studentAdmin/ump/staffActionOnUmpPage'
-import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants'
+import { idirAdminCredentials, staffLoginUrl, penNumber} from '../../../config/constants'
 import studentData from '../../../config/studentData/studentData.json';
 import staffData from '../../../config/staffData/staffData.json'
 
@@ -28,7 +28,7 @@ test('Staff login and request more information from student on Ump request test'
 
     await umpPage.setLastNameSearchBar(studentData.legalLastName)
 
-    await umpPage.clickStatusResultFirstElement(staffData.Status[0])
+    await umpPage.clickStatusResultFirstElement(staffData.Status[0],penNumber)
 
     await umpAction.clickClaimButton()
 
