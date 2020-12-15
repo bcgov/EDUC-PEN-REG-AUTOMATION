@@ -28,6 +28,14 @@ jobs:
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
+      - run: npm run getAndDeleteUmpRequestData
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
       - run: npm run staffRequestForMoreInfoAndRejectOnPen
         if: ${{ always() }}
@@ -77,14 +85,6 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
-      - run: npm run getAndDeleteUmpRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
       - run: npm run staffRequestForMoreInfoAndRejectOnUmp
         if: ${{ always() }}
