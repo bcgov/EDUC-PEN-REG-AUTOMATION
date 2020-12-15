@@ -33,6 +33,7 @@ class staffUmpRequestsPage {
 
     async clickStatusResultFirstElement(data, pennum) {
         try {
+            await t.wait(2000)
             this.searchResultFirstElement = Selector('td').withText(data)
             await t.click(this.searchResultFirstElement)
             log.info("Clicked on the search result one")
