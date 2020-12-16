@@ -18,12 +18,19 @@ test('Staff create New Pen test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
+    for (let i = 1; i <= 4; i++) {
+
     await menu.clickHamburgerMenu()
 
     await menu.clickInfrequentProcessLink()
 
     await menu.clickCreateNewPenLink()
 
-    await create.verifySessionTimeOut()
+    await create.implicitWait(i)
 
+    await menu.clickHamburgerMenu()
+
+    await menu.clickDashboardLink()
+
+    }
 })
