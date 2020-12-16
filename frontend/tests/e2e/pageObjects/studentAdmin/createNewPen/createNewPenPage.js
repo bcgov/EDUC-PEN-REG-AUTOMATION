@@ -1,5 +1,6 @@
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
+const nodeDate = require('date-and-time')
 
 class createNewPenPage {
 
@@ -112,6 +113,11 @@ class createNewPenPage {
         await t.expect(this.nameValidationError.count).eql(num)
     }
 
+    async time() {
+        let date = new Date()
+        return nodeDate.format(date, 'YYYY-MM-DD hh-mm-ss')
+    }
+
     async verifySessionTimeOut() {
 
         for (let i = 1; i <= 4; i++) {
@@ -124,9 +130,9 @@ class createNewPenPage {
             await t.click(this.cancelButton)
             log.info("cancel button is clicked")
 
-            log.info("Implicit  wait started")
+            log.info("Implicit  wait started at "+ await this.time())
             await t.wait(1680000)
-            log.info("Implicit wait completed")
+            log.info("Implicit wait completed at "+ await this.time())
 
             await t.click(this.enterDataAndSearchButton)
             log.info("enter data and search button is clicked")
