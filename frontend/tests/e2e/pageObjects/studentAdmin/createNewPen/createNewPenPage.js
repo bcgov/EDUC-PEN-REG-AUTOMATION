@@ -112,4 +112,32 @@ class createNewPenPage {
         await t.expect(this.nameValidationError.count).eql(num)
     }
 
+    async verifySessionTimeOut() {
+
+        for (let i = 1; i <= 4; i++) {
+
+            await t.click(this.enterDataAndSearchButton)
+            log.info("enter data and search button is clicked")
+
+            await t.wait(5000)
+
+            await t.click(this.cancelButton)
+            log.info("cancel button is clicked")
+
+            log.info("Implicit  wait started")
+            await t.wait(1680000)
+            log.info("Implicit wait completed")
+
+            await t.click(this.enterDataAndSearchButton)
+            log.info("enter data and search button is clicked")
+
+            await t.wait(5000)
+
+            await t.click(this.cancelButton)
+            log.info("cancel button is clicked")
+
+            log.info("Round- " + i + " session verification completed")
+        }
+    }
+
 } export default createNewPenPage
