@@ -44,6 +44,16 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+
+      - run: npm run comparePens
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_MERGED: ${{ secrets.PEN_MERGED }}
           
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}

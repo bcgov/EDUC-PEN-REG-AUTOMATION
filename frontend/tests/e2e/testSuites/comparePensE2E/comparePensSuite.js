@@ -3,6 +3,7 @@ const log = require('npmlog')
 Object.defineProperty(log, 'heading', { get: () => { return new Date().toString() } })
 log.headingStyle = { bg: '', fg: 'blue' }
 
+
 let testcafe = null;
 
 createTestCafe('localhost', 1337, 1338)
@@ -14,15 +15,7 @@ createTestCafe('localhost', 1337, 1338)
             // list multiple test files
             .src([
 
-                "tests/e2e/testCases/studentAdmin/studentSearch/staffSearchForStudent.js",
-
-                "tests/e2e/testCases/studentAdmin/studentSearch/staffAdvancedSearchForStudent.js",
-
-                "tests/e2e/testCases/studentAdmin/studentSearch/staffQuickSearchUpdateAndResetStudentInfo.js",
-
-                "tests/e2e/testCases/studentAdmin/studentSearch/staffWildCardSearchForStudent.js",
-
-                "tests/e2e/testCases/studentAdmin/studentSearch/staffVerifyTwinRecord.js"
+                "tests/e2e/testCases/studentAdmin/comparePens/comparePens.js"
 
             ])
             .run();

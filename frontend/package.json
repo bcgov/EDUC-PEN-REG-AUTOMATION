@@ -35,7 +35,8 @@
     "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js",
     "staffQuickSearchUpdateAndResetStudentInfo": "node tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js",
     "verifyValidationErrorsAndCreateNewPen": "node tests/e2e/testSuites/createNewPenE2E/verifyValidationErrorsAndCreateNewPenSuite.js",
-    "verifySessionTimeOut": "testcafe chrome ./tests/e2e/testCases/maintenance/verifySessionTimeOut.js -e"
+    "verifySessionTimeOut": "testcafe chrome ./tests/e2e/testCases/maintenance/verifySessionTimeOut.js -e",
+    "comparePens": "node tests/e2e/testSuites/comparePensE2E/comparePensSuite.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
