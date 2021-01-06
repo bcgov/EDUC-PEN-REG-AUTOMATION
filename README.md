@@ -1,3 +1,4 @@
+[![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)](https://github.com/bcgov/repomountie/blob/master/doc/lifecycle-badges.md)
 # EDUC-PEN-REG-AUTOMATION
 ## E2E Tests
 The following documentation describes the E2E test folder structure and file purpose.
