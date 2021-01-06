@@ -1,4 +1,3 @@
-import { execPath } from 'process'
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
 
@@ -6,8 +5,7 @@ class studentDetailsPage {
 
     constructor() {
 
-
-        //Student details related Selectors
+        //Student Demographics tab related Selectors
         this.pen = Selector('#pen')
         this.legalSurname = Selector('#legalLastName')
         this.usualSurname = Selector('#usualLastName')
@@ -20,17 +18,23 @@ class studentDetailsPage {
         this.gender = Selector('#genderCode')
         this.localID = Selector('#localID')
         this.birthDate = Selector('#dob')
+        this.dobFull = Selector('#dobFull')
         this.grade = Selector('#gradeCode')
         this.mincode = Selector('#mincode')
+        this.schoolName = Selector('#schoolFill')
+        this.gradeLabel = Selector('#gradeLabel')
 
         //cancel and save buttons
         this.cancelButton = Selector('span').withText('Cancel')
         this.saveButton = Selector('span').withText('Save')
 
-        //twin record related
+        //twin record related Selectors
         this.twinRecordYes = Selector('a').withText('Yes')
         this.twinsNumber = Selector('#twins-number')
 
+
+        //Audit History tab related Selectors
+        this.auditHistoryTabLink = Selector('strong').withText('Audit History')
     }
 
     async setPen(data) {
@@ -181,6 +185,32 @@ class studentDetailsPage {
         log.info("Student details page displayed")
     }
 
+    async clickAuditHistoryTab() {
+        await t.click(this.auditHistoryTabLink)
+        log.info("Audit History tab selected")
+    }
+
+    async verifyStudentDetails(penNumber, data) {
+
+        await t.expect(this.pen.value).eql(penNumber)
+        await t.expect(this.legalSurname.value).eql(data.legalSurname)
+        await t.expect(this.usualSurname.value).eql(data.usualSurname)
+        await t.expect(this.legalGiven.value).eql(data.legalGivenname)
+        await t.expect(this.usualGiven.value).eql(data.usualGivenname)
+        await t.expect(this.legalMiddle.value).eql(data.legalMiddlename)
+        await t.expect(this.usualMiddle.value).eql(data.usualMiddlename)
+        await t.expect(this.postalCode.value).eql(data.postalCode)
+        await t.expect(this.gender.value).eql(data.gender)
+        await t.expect(this.localID.value).eql(data.localId)
+        await t.expect(this.birthDate.value).eql(data.birthDate)
+        await t.hover(this.birthDate)
+        await t.expect(this.dobFull.value).eql(data.dobFull)
+        await t.expect(this.grade.value).eql(data.grade)
+        await t.expect(this.gradeLabel.value).eql(data.gradeLabel)
+        await t.expect(this.mincode.value).eql(data.mincode)
+        await t.expect(this.schoolName.value).eql(data.schoolName)
+        log.info("Student details verified")
+    }
 
 
 } export default studentDetailsPage

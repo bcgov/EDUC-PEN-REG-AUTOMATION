@@ -3,6 +3,7 @@ import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staf
 import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../../config/constants'
 import studentSearchResult from '../../../config/studentData/studentSearchResults.json'
 import studentUpdatedSearchResult from '../../../config/studentData/studentUpdatedSearchResults.json'
+import studentDetailsData from '../../../config/studentData/studentDetails.json'
 import studentDetailsPage from '../../../pageObjects/studentAdmin/studentSearch/studentDetailsPage'
 import staffHamburgerMenuPage from '../../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage'
 import staffStudentSearchPage from '../../../pageObjects/studentAdmin/studentSearch/staffStudentSearchPage'
@@ -26,6 +27,8 @@ test('Staff login search update and reset student info test', async t => {
     await dashboard.setPenNumber(penNumber)
 
     await dashboard.clickQuickSearchButton()
+
+    await studentDetails.verifyStudentDetails(penNumber, studentDetailsData)
 
     await studentDetails.setUsualSurname(studentUpdatedSearchResult.usualSurnameSearchResult)
 

@@ -39,14 +39,14 @@
     "comparePens": "node tests/e2e/testSuites/comparePensE2E/comparePensSuite.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "date-and-time": "^0.13.1",
     "dotenv": "^8.2.0",
     "faker": "4.1.0",
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
     "simple-encryptor": "^4.0.0",
-    "testcafe": "^1.10.0"
+    "testcafe": "^1.10.1"
   },
   "engines": {
     "node": ">= 6.0.0",
