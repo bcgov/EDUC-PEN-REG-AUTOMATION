@@ -1,11 +1,11 @@
 # This work flow covers staff search for student and edit student details scenarios.
-name: Regression Test Test Environment Latest
+name: Regression Test Dev Environment Latest
 on:
   repository_dispatch:
-    types: [regressionTest-test-environment-latest]
+    types: [regressionTest-dev-environment-latest]
   workflow_dispatch: 
 jobs:
-  RegressionTest_Test_Environment_Latest:
+  RegressionTest_Dev_Environment_Latest:
     runs-on: windows-latest
     defaults:
       run:
