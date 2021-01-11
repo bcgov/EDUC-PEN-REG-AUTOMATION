@@ -109,7 +109,7 @@ getToken().then(async (data) => {
         }
         
         setTimeout(function() {
-            log.info('waited for 5 seconds');
+            log.info('Implicit Wait completed');
         }, 5000)
 
     }

@@ -1,12 +1,11 @@
-# This workflow covers request information, reject,complete, unlink, Readonly roles for Pen Request and
-# request information, reject,complete, Readonly roles for Ump Request. (Dev environment)
-name: Regression Test Dev Environment
+# This work flow covers Staff action on draft Pen,Ump requests and Staff force unlink scenarios.
+name: Regression Test Dev Environment Part 2
 on:
   repository_dispatch:
-    types: [regressionTest-dev-environment]
+    types: [regressionTest-dev-environment-part-2]
   workflow_dispatch: 
 jobs:
-  RegressionTest_Dev_Environment:
+  RegressionTest_Dev_Environment_Part_2:
     runs-on: windows-latest
     defaults:
       run:
@@ -30,21 +29,26 @@ jobs:
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-
-      - run: npm run staffRequestForMoreInfoAndRejectOnPen
+      - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+
+      - run: npm run staffActionOnDraftPenRequest
+        if: ${{ always() }}
+        env:
           BCEID_USER: ${{ secrets.BCEID_USER }}
           BCEID_PASS: ${{ secrets.BCEID_PASS }}
           PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
+          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
-          IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeletePenRequestData
         if: ${{ success() }}
         env:
@@ -56,28 +60,17 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
-      - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-
-      - run: npm run staffRequestForMoreInfoAndRejectOnUmp
+      - run: npm run staffActionOnDraftUmpRequest
         if: ${{ always() }}
         env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           BCEID_USER: ${{ secrets.BCEID_USER }}
           BCEID_PASS: ${{ secrets.BCEID_PASS }}
           PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
+          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
-          IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ success() }}
@@ -88,38 +81,15 @@ jobs:
           TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
-      - run: npm run staffIssuePenToStudentAndUnlinkSuite
+      - run: npm run staffForceUnlinkSuite
         if: ${{ always() }}
         env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           BCEID_USER: ${{ secrets.BCEID_USER }}
           BCEID_PASS: ${{ secrets.BCEID_PASS }}
           PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-
-      - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
-        if: ${{ always() }}
-        env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
           PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-          BCEID_USER: ${{ secrets.BCEID_USER }}
-          BCEID_PASS: ${{ secrets.BCEID_PASS }}
-          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
-          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
@@ -133,14 +103,32 @@ jobs:
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-      - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
+
+      - run: npm run insertAndUpdatePenRequestDataToAbandoned
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          BCEID_DIGITAL_ID_DEV: ${{ secrets.BCEID_DIGITAL_ID_DEV }}
+      - run: npm run staffCanNotPerformAnyActionOnAbandonedPenRequest
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+      - run: npm run getAndDeletePenRequestData
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
           
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
@@ -153,7 +141,8 @@ jobs:
         if: always()
         with:
           type: ${{ job.status }}
-          job_name: "DEV Environment Regression Test result --->"
+          job_name: "DEV Environment Regression Part 2 Test result --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+           

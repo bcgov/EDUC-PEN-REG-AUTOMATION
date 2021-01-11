@@ -22,7 +22,7 @@ jobs:
       - run: npm run staffQuickSearchUpdateAndResetStudentInfo
         if: ${{ always() }}
         env:
-          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
@@ -32,7 +32,7 @@ jobs:
       # - run: npm run verifyValidationErrorsAndCreateNewPen
       #   if: ${{ always() }}
       #   env:
-      #     PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+      #     PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
       #     PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
       #     IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
       #     IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
@@ -40,15 +40,15 @@ jobs:
       # - run: npm run getAndDeleteStudentData
       #   if: ${{ always() }}
       #   env:
-      #     TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+      #     TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
       #     TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
       #     TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-      #     TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+      #     TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
 
       - run: npm run comparePens
         if: ${{ always() }}
         env:
-          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
@@ -66,7 +66,7 @@ jobs:
         if: always()
         with:
           type: ${{ job.status }}
-          job_name: "TEST Environment Regression Latest Test result --->"
+          job_name: "DEV Environment Regression Latest Test result --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
