@@ -111,7 +111,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          BCEID_DIGITAL_ID_DEV: ${{ secrets.BCEID_DIGITAL_ID_DEV }}
+          BCEID_DIGITAL_ID_TOOLS: ${{ secrets.BCEID_DIGITAL_ID_TOOLS }}
       - run: npm run staffCanNotPerformAnyActionOnAbandonedPenRequest
         if: ${{ always() }}
         env:
