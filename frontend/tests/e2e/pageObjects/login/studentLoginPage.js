@@ -60,14 +60,12 @@ class studentLoginPage {
     }
 
     async clickGetMyPen() {
-        await t.wait(2000)
-        await t.click(this.goToGmp)
+        await t.click(this.goToGmp , { timeout: 15000 })
         log.info("Get My Pen button is clicked")
     }
 
     async clickUpdateMyPen() {
-        await t.wait(2000)
-        await t.click(this.goToUmp)
+        await t.click(this.goToUmp , { timeout: 15000 })
         log.info("Update My Pen button is clicked")
     }
 
