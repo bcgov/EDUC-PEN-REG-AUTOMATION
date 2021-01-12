@@ -87,30 +87,7 @@ jobs:
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-
-      - run: npm run staffIssuePenToStudentAndUnlinkSuite
-        if: ${{ always() }}
-        env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-          BCEID_USER: ${{ secrets.BCEID_USER }}
-          BCEID_PASS: ${{ secrets.BCEID_PASS }}
-          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
-          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-
+                
       - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
         if: ${{ always() }}
         env:
@@ -141,6 +118,31 @@ jobs:
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
           TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+
+      - run: npm run staffIssuePenToStudentAndUnlinkSuite
+        if: ${{ always() }}
+        env:
+          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
+          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
+          BCEID_USER: ${{ secrets.BCEID_USER }}
+          BCEID_PASS: ${{ secrets.BCEID_PASS }}
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+      - run: npm run getAndDeletePenRequestData
+        if: ${{ success() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
+
+
           
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
