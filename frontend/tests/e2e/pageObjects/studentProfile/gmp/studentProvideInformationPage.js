@@ -60,6 +60,19 @@ class studentProvideInformationPage {
         log.info('Yes, Submit button is clicked')
     }
 
+
+    async reloadPage(){
+        await t.eval(() => location.reload(true))
+        log.info("page reloaded")
+    }
+
+
+    async verifyText(data){
+        const text = Selector('div').withText(data)
+        await t.expect((text).exists).ok()
+        log.info("Following Text verified    " + data)
+    }
+
 }
 
 export default studentProvideInformationPage
