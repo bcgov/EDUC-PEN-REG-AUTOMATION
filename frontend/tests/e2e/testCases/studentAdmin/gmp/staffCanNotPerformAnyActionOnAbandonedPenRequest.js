@@ -15,7 +15,6 @@ fixture`Staff login and can not perform any action on abandoned Pen Request`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
-        await t.setTestSpeed(0.5)
     })
 
 test('Staff login and can not perform any action on abandoned Pen Request test', async t => {
