@@ -60,7 +60,8 @@ class staffStudentSearchPage {
         this.birthMonthEnd = Selector('#end-dob-month')
         this.birthDayEnd = Selector('#end-dob-day')
         this.gender = Selector('#gender')
-
+        this.nameVariantCheckBox = Selector('#input-188')
+        
     }
 
     async setPen(data) {
@@ -171,21 +172,21 @@ class staffStudentSearchPage {
 
         await t.expect(this.usualMiddlenameSearchResult.innerText).eql(data.usualMiddlenameSearchResult)
 
-        // await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
+        await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
 
         await t.expect(this.memoSearchResult.innerText).eql(data.memoSearchResult)
 
         await t.expect(this.dcSearchResult.innerText).eql(data.dcSearchResult)
 
-        // await t.expect(this.localIdSearchResult.innerText).eql(data.localIdSearchResult)
+        await t.expect(this.localIdSearchResult.innerText).eql(data.localIdSearchResult)
 
         await t.expect(this.genderSearchResult.innerText).eql(data.genderSearchResult)
 
         await t.expect(this.birthDateSearchResult.innerText).eql(data.birthDateSearchResult)
 
-        // await t.expect(this.gradeSearchResult.innerText).eql(data.gradeSearchResult)
+        await t.expect(this.gradeSearchResult.innerText).eql(data.gradeSearchResult)
 
-        // await t.expect(this.mincodeSearchResult.innerText).eql(data.mincodeSearchResult)
+        await t.expect(this.mincodeSearchResult.innerText).eql(data.mincodeSearchResult)
 
         await t.expect(this.twinnedSearchResult.innerText).eql(data.twinnedSearchResult)
 
@@ -251,6 +252,17 @@ class staffStudentSearchPage {
         log.info("New Student Search Results Verified")
     }
 
+
+    async clickSearchNameVariantsCheckBox(){
+        await t.click(this.nameVariantCheckBox)
+        log.info("Search name variants checkbox selected")
+    }
+
+    async verifyTableCell(data){
+        const text = Selector('span').withExactText(data)
+        await t.expect((text).exists).ok()
+        log.info("Following Text verified    " + data)
+    }
 
 }
 export default staffStudentSearchPage
