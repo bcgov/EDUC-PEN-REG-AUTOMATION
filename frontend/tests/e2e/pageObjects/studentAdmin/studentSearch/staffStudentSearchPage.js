@@ -80,7 +80,7 @@ class staffStudentSearchPage {
     }
 
     async setLegalGiven(data) {
-        await t.typeText(this.legalGiven, data)
+        await t.typeText(this.legalGiven, data , { replace: true })
         log.info("legal given name is set")
     }
 

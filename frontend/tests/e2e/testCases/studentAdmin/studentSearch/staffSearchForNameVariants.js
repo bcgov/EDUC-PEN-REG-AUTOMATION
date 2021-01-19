@@ -9,13 +9,13 @@ const staffSearch = new staffStudentSearchPage()
 const dashboard = new staffDashboardPage()
 
 
-fixture`Staff login and do advanced search for student`
+fixture`Staff login and search for name variants`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
     })
 
-test('Staff login and do advanced search for student test', async t => {
+test('Staff login and search for name variants test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
@@ -31,21 +31,13 @@ test('Staff login and do advanced search for student test', async t => {
 
     await staffSearch.verifyTableCell(studentData.nameVariant1)
 
-    await staffSearch.clickClearButton()
-
     await staffSearch.setLegalGiven(studentData.name2)
-
-    await staffSearch.clickSearchNameVariantsCheckBox()
 
     await staffSearch.clickSearchButton()
 
     await staffSearch.verifyTableCell(studentData.nameVariant2)
 
-    await staffSearch.clickClearButton()
-
     await staffSearch.setLegalGiven(studentData.name3)
-
-    await staffSearch.clickSearchNameVariantsCheckBox()
 
     await staffSearch.clickSearchButton()
 
