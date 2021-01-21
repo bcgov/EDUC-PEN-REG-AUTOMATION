@@ -33,7 +33,8 @@ class studentDetailsPage {
         this.twinsNumber = Selector('#twins-number')
 
 
-        //Audit History tab related Selectors
+        // tab related Selectors
+        this.demographicsTabLink = Selector('strong').withText('Demographics')
         this.auditHistoryTabLink = Selector('strong').withText('Audit History')
     }
 
@@ -188,6 +189,18 @@ class studentDetailsPage {
     async clickAuditHistoryTab() {
         await t.click(this.auditHistoryTabLink)
         log.info("Audit History tab selected")
+    }
+
+    async verifyAuditHistory(data){
+        const text = Selector('span').withText(data)
+        await t.expect((text).exists).ok()
+        await t.expect(text.count).eql(15)
+        log.info("Following Text verified    " + data)
+    }
+
+    async clickDemographicsTab(){
+        await t.click(this.demographicsTabLink)
+        log.info("Demographics tab selected")
     }
 
     async verifyStudentDetails(penNumber, data) {

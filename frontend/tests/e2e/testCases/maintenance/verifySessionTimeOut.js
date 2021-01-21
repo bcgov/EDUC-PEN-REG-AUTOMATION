@@ -1,36 +1,43 @@
 import staffLoginPage from '../../pageObjects/login/staffLoginPage'
-import { idirAdminCredentials, staffLoginUrl } from '../../config/constants'
-import staffHamburgerMenuPage from '../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage'
+import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../config/constants'
+import studentDetailsData from '../../config/studentData/studentDetails.json'
+import studentDetailsPage from '../../pageObjects/studentAdmin/studentSearch/studentDetailsPage'
 import createNewPenPage from '../../pageObjects/studentAdmin/createNewPen/createNewPenPage'
+import staffDashboardPage from '../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 
 const staffLogin = new staffLoginPage()
-const menu = new staffHamburgerMenuPage()
+const dashboard = new staffDashboardPage()
 const create = new createNewPenPage()
+const studentDetails = new studentDetailsPage()
 
-
-fixture`Staff create New Pen`
+fixture`Session Timeout`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
     })
 
-test('Staff create New Pen test', async t => {
+test('Session Timeout test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials)
 
+    await dashboard.setPenNumber(penNumber)
+
+    await dashboard.clickQuickSearchButton()
+
+    await studentDetails.verifyStudentDetails(penNumber, studentDetailsData)
+
     for (let i = 1; i <= 4; i++) {
 
-    await menu.clickHamburgerMenu()
+        await studentDetails.clickAuditHistoryTab()
 
-    await menu.clickInfrequentProcessLink()
+        await studentDetails.verifyAuditHistory(studentDetailsData.auditHistory)
 
-    await menu.clickCreateNewPenLink()
+        await studentDetails.clickDemographicsTab()
 
-    await create.implicitWait(i)
+        await studentDetails.verifyStudentDetails(penNumber, studentDetailsData)
 
-    await menu.clickHamburgerMenu()
+        await create.implicitWait(i)
 
-    await menu.clickDashboardLink()
 
     }
 })

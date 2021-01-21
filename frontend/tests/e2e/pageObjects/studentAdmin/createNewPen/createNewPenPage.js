@@ -119,18 +119,10 @@ class createNewPenPage {
     }
 
     async implicitWait(i) {
-
-            await t.click(this.enterDataAndSearchButton)
-            log.info("enter data and search button is clicked")
-            await t.wait(5000)
-
-            await t.click(this.cancelButton)
-            log.info("cancel button is clicked")
-
+        
             log.info("Implicit  wait started at "+ await this.time())
             await t.wait(1680000)
             log.info("Implicit wait completed at "+ await this.time())
-
             log.info("Round- " + i + " session verification completed")
 
     }
