@@ -36,6 +36,7 @@
     "staffQuickSearchUpdateAndResetStudentInfo": "node tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js",
     "verifyValidationErrorsAndCreateNewPen": "node tests/e2e/testSuites/createNewPenE2E/verifyValidationErrorsAndCreateNewPenSuite.js",
     "verifySessionTimeOut": "testcafe chrome ./tests/e2e/testCases/maintenance/verifySessionTimeOut.js -e",
+    "verifySessionTimeOutGmp": "testcafe chrome ./tests/e2e/testCases/maintenance/verifySessionTimeOutGmp.js -e",
     "comparePens": "node tests/e2e/testSuites/comparePensE2E/comparePensSuite.js"
   },
   "dependencies": {

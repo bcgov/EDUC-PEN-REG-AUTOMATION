@@ -135,6 +135,7 @@ class staffActionOnPenPage {
         log.info('Request information provided')
     }
 
+
     async clickReturnToStudentButton(data) {
         await t.click(this.returnToStudentButton)
         log.info('Return to student button is clicked')
@@ -269,6 +270,12 @@ class staffActionOnPenPage {
         await t.expect(this.documentType.innerText).eql(type, { timeout: 10000 })
         await t.expect(this.documentName.innerText).eql(name, { timeout: 10000 })
         log.info("uploaded documents by student verified")
+    }
+
+    async waitForRejectButton(){
+        await t.wait(5000)
+        await t.expect(this.rejectPenRequestButton.count).eql(1)
+        log.info("redirect complete")
     }
 
 }

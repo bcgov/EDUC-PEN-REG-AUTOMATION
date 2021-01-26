@@ -127,4 +127,12 @@ class createNewPenPage {
 
     }
 
+    async implicitWaitGmp() {
+        
+        log.info("Implicit  wait started at "+ await this.time())
+        await t.wait(5000)
+        log.info("Implicit wait completed at "+ await this.time())
+
+} 
+
 } export default createNewPenPage

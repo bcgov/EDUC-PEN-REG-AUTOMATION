@@ -46,12 +46,12 @@ class staffPenRetrievalRequestPage {
     }
 
     async setLastNameSearchBar(data) {
-        await t.typeText(this.lastNameSearchBar, data)
+        await t.typeText(this.lastNameSearchBar, data, { replace: true })
         log.info("Entered last name in search bar")
     }
 
     async setFirstNameSearchBar(data) {
-        await t.typeText(this.firstNameSearchBar, data)
+        await t.typeText(this.firstNameSearchBar, data, { replace: true })
         log.info("Entered first name in search bar")
     }
 
