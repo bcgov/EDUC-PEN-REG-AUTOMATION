@@ -11,8 +11,10 @@ module.exports.token_environment = config.get('token:token_environment');
 module.exports.token_client_id = config.get('token:token_client_id');
 module.exports.token_client_secret_tools = config.get('token:token_client_secret_tools');
 module.exports.token_client_secret_dev = config.get('token:token_client_secret_dev');
+module.exports.token_client_secret_test = config.get('token:token_client_secret_test');
 module.exports.bceid_digital_id_tools = config.get('token:bceid_digital_id_tools');
 module.exports.bceid_digital_id_dev = config.get('token:bceid_digital_id_dev');
+module.exports.bceid_digital_id_test = config.get('token:bceid_digital_id_test');
 //Delete Digital ID
 module.exports.delete_digital_id = config.get('token:delete_digital_id');
 module.exports.pen_request_user_type = config.get('token:pen_request_user_type')

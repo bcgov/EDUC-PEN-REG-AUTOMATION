@@ -24,6 +24,10 @@ getToken().then(async (data) => {
         studentData.digitalID = constants.bceid_digital_id_dev
     }
 
+    if (constants.token_environment == "test") {
+        studentData.digitalID = constants.bceid_digital_id_test
+    }
+
     // insert Student record on Student Side
     const insertStudentRecord = await helper.postData(token, `${constants.penRequestApiUrl}`, studentData)
     console.log("Student Information    " + insertStudentRecord.legalLastName, insertStudentRecord.legalFirstName, insertStudentRecord.dob);

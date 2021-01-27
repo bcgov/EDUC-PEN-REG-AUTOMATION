@@ -24,6 +24,13 @@ const utils = {
             return response.data;
 
         }
+
+        if (tokenData.token_environment == "test") {
+            const data = 'grant_type=client_credentials&client_id=' + tokenData.token_client_id + '&client_secret=' + tokenData.token_client_secret_test;
+            const response = await axios.post(tokenData.getTokenUrl, data, params);
+            return response.data;
+
+        }
     }
 }
 module.exports = utils;
