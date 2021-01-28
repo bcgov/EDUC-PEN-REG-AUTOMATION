@@ -8,10 +8,14 @@ module.exports.pen_environment = config.get('url:pen_environment');
 //Token related config
 module.exports.token_namespace = config.get('token:token_namespace');
 module.exports.token_environment = config.get('token:token_environment');
+
 module.exports.token_client_id = config.get('token:token_client_id');
+module.exports.token_client_id_test = config.get('token:token_client_id_test');
+
 module.exports.token_client_secret_tools = config.get('token:token_client_secret_tools');
 module.exports.token_client_secret_dev = config.get('token:token_client_secret_dev');
 module.exports.token_client_secret_test = config.get('token:token_client_secret_test');
+
 module.exports.bceid_digital_id_tools = config.get('token:bceid_digital_id_tools');
 module.exports.bceid_digital_id_dev = config.get('token:bceid_digital_id_dev');
 module.exports.bceid_digital_id_test = config.get('token:bceid_digital_id_test');
@@ -31,6 +35,7 @@ module.exports.studentApiUrl = 'https://student-api-' + module.exports.token_nam
 module.exports.digitalIdApiUrl = 'https://digitalid-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
 module.exports.studentProfileApiUrl = 'https://student-profile-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
 module.exports.penMatchApiUrl = 'https://pen-match-api-' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/pen-match'
+module.exports.penWebUrl = 'https://test.bced.gov.bc.ca/exams/tsw/pen/district/'
 
 
 //Bceid Credentials
@@ -67,3 +72,9 @@ module.exports.mailsacCredentials = Object.freeze({
 // PEN number
 module.exports.penNumber =  config.get('penNumber')
 module.exports.penMerged =  config.get('penMerged')
+
+//School login credentials
+module.exports.penWebCredentials = Object.freeze({
+  username: config.get('PenWeb:user'),
+  password: config.get('PenWeb:pass')
+});
