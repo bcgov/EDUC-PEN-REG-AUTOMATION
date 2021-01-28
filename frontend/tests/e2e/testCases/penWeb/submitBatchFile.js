@@ -8,7 +8,7 @@ const penweb = new penWebPage()
 fixture`School Login and submit batch file`
     .page(penWebUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.maximizeWindow().setTestSpeed(0.5)
     })
 
 test('School Login and submit batch file test', async t => {
@@ -17,6 +17,6 @@ test('School Login and submit batch file test', async t => {
 
     await penweb.clickSubmitPenRequestLink()
 
-    await penWeb.fillOutStudentInfo(studentData)
+    await penweb.fillOutStudentInfo(studentData)
 
 });
