@@ -1,0 +1,13 @@
+{
+    "surname": "test",
+    "firstname": "test",
+    "middlename": "test",
+    "preferredSurname": "test",
+    "preferredFirstname": "test",
+    "preferredMiddlename": "test",
+    "birthDate": "test",
+    "genderM": true,
+    "genderF": false,
+    "postalCode": "test",
+    "localStudentNumber": "test"
+}
