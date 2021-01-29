@@ -17,6 +17,7 @@ class staffDashboardPage {
 
 
     async clickViewGmpButton() {
+        await t.wait(3000)
         await t.click(this.viewGmpButton)
         log.info("View GMP button is clicked")
     }
