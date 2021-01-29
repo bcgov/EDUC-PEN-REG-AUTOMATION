@@ -1,5 +1,5 @@
 import penWebPage from '../../pageObjects/penWeb/penWebPage'
-import {penWebCredentials, penWebUrl} from '../../config/constants'
+import { penWebCredentials, penWebUrl } from '../../config/constants'
 import studentData from '../../config/studentData/penWebData.json'
 
 const penweb = new penWebPage()
@@ -18,5 +18,7 @@ test('School Login and submit batch file test', async t => {
     await penweb.clickSubmitPenRequestLink()
 
     await penweb.fillOutStudentInfo(studentData)
+
+    await penweb.clickAttemptMatchButton()
 
 });

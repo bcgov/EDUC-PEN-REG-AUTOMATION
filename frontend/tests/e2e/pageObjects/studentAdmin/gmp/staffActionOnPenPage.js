@@ -60,7 +60,7 @@ class staffActionOnPenPage {
         log.info("claim button is clicked")
     }
 
-    async clickReleaseButton(){
+    async clickReleaseButton() {
         await t.click(this.releaseButton)
         log.info("clicked release button")
     }
@@ -109,20 +109,26 @@ class staffActionOnPenPage {
 
     async verifyPenDemographics(penNumber, penDemographics) {
 
+
         await t.expect(this.penNumber.innerText).eql(penNumber, { timeout: 180000 })
         log.info("Pen number verified in pen demographics")
 
-        assert.strictEqual(penDemographics.Legal, await this.legal.innerText)
-        log.info("Legal name verified in pen demographics")
-
-        // assert.strictEqual(penDemographics.Usual, await this.usual.innerText)
-        // log.info("Usual name verified in pen demographics")
-
-        assert.strictEqual(penDemographics.DOB, await this.dob.innerText)
-        log.info("DOB verified in pen demographics")
-
-        assert.strictEqual(penDemographics.Gender, await this.gender.innerText)
-        log.info("Gender verified in pen demographics")
+        if (penDemographics.Legal) {
+            assert.strictEqual(penDemographics.Legal, await this.legal.innerText)
+            log.info("Legal name verified in pen demographics")
+        }
+        if (penDemographics.Usual) {
+            assert.strictEqual(penDemographics.Usual, await this.usual.innerText)
+            log.info("Usual name verified in pen demographics")
+        }
+        if (penDemographics.DOB) {
+            assert.strictEqual(penDemographics.DOB, await this.dob.innerText)
+            log.info("DOB verified in pen demographics")
+        }
+        if (penDemographics.Gender) {
+            assert.strictEqual(penDemographics.Gender, await this.gender.innerText)
+            log.info("Gender verified in pen demographics")
+        }
     }
 
     async clickRequestInfoButton() {
@@ -272,7 +278,7 @@ class staffActionOnPenPage {
         log.info("uploaded documents by student verified")
     }
 
-    async waitForRejectButton(){
+    async waitForRejectButton() {
         await t.wait(5000)
         await t.expect(this.rejectPenRequestButton.count).eql(1)
         log.info("redirect complete")

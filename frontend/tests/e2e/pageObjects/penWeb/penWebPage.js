@@ -117,7 +117,11 @@ class penWebPage {
             await t.typeText(this.localStudentNumber, studentData.localStudentNumber)
             log.info("localStudentNumber entered")
         }
+    }
 
+    async clickAttemptMatchButton(){
+        await t.click(this.attemptMatchButton)
+        log.info("Attempt match button clicked")
     }
 
 

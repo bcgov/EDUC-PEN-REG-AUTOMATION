@@ -1,9 +1,9 @@
 {
-    "Legal": "AUTOMATION, TESTER, PEN",
-    "Usual": "AUTOMATION, TESTER, PEN",
+    "Legal": "AUTOMATION, TESTER, (none)",
+    "Usual": "",
     "DOB": "1999-12-01",
     "Gender": "Male",
     "First": "TESTER",
-    "Middle": "PEN",
+    "Middle": "",
     "Last": "AUTOMATION"
 }

@@ -88,59 +88,59 @@ jobs:
           TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
 
-      # - run: npm run staffIssuePenToStudentAndUnlinkSuite
-      #   if: ${{ always() }}
-      #   env:
-      #     PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-      #     PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-      #     BCEID_USER: ${{ secrets.BCEID_USER }}
-      #     BCEID_PASS: ${{ secrets.BCEID_PASS }}
-      #     PEN_ENVIRONMENT: ${{ secrets.UAT_ENVIRONMENT }}
-      #     PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-      #     IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-      #     IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-      #     PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      # - run: npm run getAndDeletePenRequestData
-      #   if: ${{ success() }}
-      #   env:
-      #     TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
-      #     TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-      #     TOKEN_CLIENT_ID_TEST: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
-      #     TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
-      #     DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-      #     PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      #     PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
+      - run: npm run staffIssuePenToStudentAndUnlinkSuite
+        if: ${{ always() }}
+        env:
+          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
+          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
+          BCEID_USER: ${{ secrets.BCEID_USER }}
+          BCEID_PASS: ${{ secrets.BCEID_PASS }}
+          PEN_ENVIRONMENT: ${{ secrets.UAT_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+      - run: npm run getAndDeletePenRequestData
+        if: ${{ success() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID_TEST: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
+          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
-      # - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
-      #   if: ${{ always() }}
-      #   env:
-      #     PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-      #     PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-      #     BCEID_USER: ${{ secrets.BCEID_USER }}
-      #     BCEID_PASS: ${{ secrets.BCEID_PASS }}
-      #     PEN_ENVIRONMENT: ${{ secrets.UAT_ENVIRONMENT }}
-      #     PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-      #     IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-      #     IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-      #     PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      # - run: npm run getAndDeletePenRequestData
-      #   if: ${{ success() }}
-      #   env:
-      #     TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
-      #     TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-      #     TOKEN_CLIENT_ID_TEST: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
-      #     TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
-      #     DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-      #     PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      #     PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-      # - run: npm run getAndDeleteUmpRequestData
-      #   if: ${{ success() }}
-      #   env:
-      #     TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
-      #     TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-      #     TOKEN_CLIENT_ID_TEST: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
-      #     TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
-      #     PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+      - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
+        if: ${{ always() }}
+        env:
+          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
+          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
+          BCEID_USER: ${{ secrets.BCEID_USER }}
+          BCEID_PASS: ${{ secrets.BCEID_PASS }}
+          PEN_ENVIRONMENT: ${{ secrets.UAT_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+      - run: npm run getAndDeletePenRequestData
+        if: ${{ success() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID_TEST: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
+          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
+      - run: npm run getAndDeleteUmpRequestData
+        if: ${{ success() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID_TEST: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
+          TOKEN_CLIENT_SECRET_TEST: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}

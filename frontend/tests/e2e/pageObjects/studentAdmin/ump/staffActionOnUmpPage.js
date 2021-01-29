@@ -40,6 +40,7 @@ class staffActionOnUmpPage {
         //Pen Demographics displayed
         this.penNumber = Selector('#recordedPEN').child('strong')
         this.first = Selector('#legalFirstName').child('strong')
+        this.middle = Selector('#legalMiddleName').child('strong')
         this.last = Selector('#legalLastName').child('strong')
         this.dob = Selector('#studentDOB').child('strong')
         this.gender = Selector('#studentGender').child('strong')
@@ -214,19 +215,26 @@ class staffActionOnUmpPage {
         assert.strictEqual(penNumber, await this.penNumber.innerText)
         log.info("Pen number verified in pen demographics")
 
-        assert.strictEqual(penDemographics.First, await this.first.innerText)
-        log.info("first name verified in pen demographics")
-
-
-        assert.strictEqual(penDemographics.Last, await this.last.innerText)
-
-        log.info("last name verified in pen demographics")
-
-        assert.strictEqual(penDemographics.DOB, await this.dob.innerText)
-        log.info("DOB verified in pen demographics")
-
-        assert.strictEqual(penDemographics.Gender, await this.gender.innerText)
-        log.info("Gender verified in pen demographics")
+        if (penDemographics.First) {
+            assert.strictEqual(penDemographics.First, await this.first.innerText)
+            log.info("first name verified in pen demographics")
+        }
+        if (penDemographics.Middle) {
+            assert.strictEqual(penDemographics.Middle, await this.middle.innerText)
+            log.info("Middle name verified in pen demographics")
+        }
+        if (penDemographics.Last) {
+            assert.strictEqual(penDemographics.Last, await this.last.innerText)
+            log.info("last name verified in pen demographics")
+        }
+        if (penDemographics.DOB) {
+            assert.strictEqual(penDemographics.DOB, await this.dob.innerText)
+            log.info("DOB verified in pen demographics")
+        }
+        if (penDemographics.Gender) {
+            assert.strictEqual(penDemographics.Gender, await this.gender.innerText)
+            log.info("Gender verified in pen demographics")
+        }
     }
 
     async verifyUploadedFiles(type, name) {
