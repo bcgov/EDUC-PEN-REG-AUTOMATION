@@ -28,7 +28,7 @@ getToken().then(async (data) => {
         studentData.digitalID = constants.bceid_digital_id_test
     }
 
-    if (constants.token_environment == "") {
+    if (constants.token_environment == "prod") {
         studentData.digitalID = constants.bceid_digital_id_pre_prod
     }
 

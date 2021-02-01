@@ -32,7 +32,7 @@ const utils = {
 
         }
 
-        if (tokenData.token_environment == "") {
+        if (tokenData.token_environment == "prod") {
             const data = 'grant_type=client_credentials&client_id=' + tokenData.token_client_id_pre_prod + '&client_secret=' + tokenData.token_client_secret_pre_prod;
             const response = await axios.post(tokenData.getTokenUrl, data, params);
             return response.data;
