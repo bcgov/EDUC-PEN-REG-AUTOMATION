@@ -13,8 +13,8 @@ class mailsacPage {
         this.checkTheEmailButton = Selector('button.btn.btn-primary.btn-block')
         this.expectGmpActivateEmail = Selector('tr').withText('Activate your GetMyPEN request within 24 hours of receiving this email')
         this.expectUmpActivateEmail = Selector('tr').withText('Activate your UpdateMyPENInfo request within 24 hours of receiving this email')
-        this.gmpActivateLink = Selector('a').withText('getmypen.gov.bc.ca/api/gmp/verification').filterVisible()
-        this.umpActivateLink = Selector('a').withText('getmypen.gov.bc.ca/api/ump/verification').filterVisible()
+        this.gmpActivateLink = Selector('a').withText('/api/gmp/verification').filterVisible()
+        this.umpActivateLink = Selector('a').withText('/api/ump/verification').filterVisible()
         this.deleteMailButton = Selector('button').withText('Delete').filterVisible()
         this.permanentlyDeleteButton = Selector('button').withText('Permanently delete').filterVisible()
         this.emailVerifiedConformationtext = Selector('p:nth-of-type(1) > strong:nth-of-type(1)')
@@ -70,7 +70,7 @@ class mailsacPage {
         }
 
         const link = this.gmpActivateLink.innerText
-        //log.info(await link)
+        log.info(await link)
         await t.click(this.deleteMailButton)
         await t.wait(3000)
         log.info("Delete Mail button is clicked")
@@ -100,7 +100,7 @@ class mailsacPage {
         }
 
         const link = this.umpActivateLink.innerText
-        //log.info(await link)
+        log.info(await link)
         await t.click(this.deleteMailButton)
         await t.wait(3000)
         log.info("Delete Mail button is clicked")
