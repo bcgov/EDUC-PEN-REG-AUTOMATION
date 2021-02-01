@@ -40,7 +40,7 @@ getToken().then(async (data) => {
 
         // Get Pen Student record on student side
         const response = await helper.getData(token, `${constants.penRequestApiUrl}${penreqId}`)
-        console.log("Student Information    " + response.legalLastName, response.legalFirstName, response.dob);
+        console.log("Student Information    " + response.legalLastName, response.legalFirstName);
 
         //Get Digital ID
         const digitalID = response.digitalID

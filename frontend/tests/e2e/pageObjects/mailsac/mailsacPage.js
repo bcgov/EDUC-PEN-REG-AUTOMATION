@@ -70,7 +70,7 @@ class mailsacPage {
         }
 
         const link = this.gmpActivateLink.innerText
-        log.info(await link)
+        //log.info(await link)
         await t.click(this.deleteMailButton)
         await t.wait(3000)
         log.info("Delete Mail button is clicked")
@@ -100,7 +100,7 @@ class mailsacPage {
         }
 
         const link = this.umpActivateLink.innerText
-        log.info(await link)
+        //log.info(await link)
         await t.click(this.deleteMailButton)
         await t.wait(3000)
         log.info("Delete Mail button is clicked")

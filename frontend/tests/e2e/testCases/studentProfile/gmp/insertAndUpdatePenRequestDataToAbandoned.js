@@ -28,9 +28,13 @@ getToken().then(async (data) => {
         studentData.digitalID = constants.bceid_digital_id_test
     }
 
+    if (constants.token_environment == "") {
+        studentData.digitalID = constants.bceid_digital_id_pre_prod
+    }
+
     // insert Student record on Student Side
     const insertStudentRecord = await helper.postData(token, `${constants.penRequestApiUrl}`, studentData)
-    console.log("Student Information    " + insertStudentRecord.legalLastName, insertStudentRecord.legalFirstName, insertStudentRecord.dob);
+    console.log("Student Information    " + insertStudentRecord.legalLastName, insertStudentRecord.legalFirstName);
 
 
     //add more data to Student data to update the student record
@@ -40,7 +44,7 @@ getToken().then(async (data) => {
 
     //Update the Student record on Student Side
     const updateStudentRecord = await helper.putData(token, `${constants.penRequestApiUrl}`, studentData)
-    console.log("Student Information    " + updateStudentRecord.legalLastName, updateStudentRecord.legalFirstName, updateStudentRecord.dob);
+    console.log("Student Information    " + updateStudentRecord.legalLastName, updateStudentRecord.legalFirstName);
 
 })
 

@@ -5,9 +5,9 @@
     "preferredSurname": "test",
     "preferredFirstname": "test",
     "preferredMiddlename": "test",
-    "birthDate": "test",
+    "birthDate": "19910101",
     "genderM": true,
     "genderF": false,
-    "postalCode": "test",
-    "localStudentNumber": "test"
+    "postalCode": "V1V1V1",
+    "localStudentNumber": "ABC123"
 }

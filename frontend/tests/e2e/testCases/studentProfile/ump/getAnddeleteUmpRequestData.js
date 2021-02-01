@@ -27,10 +27,10 @@ getToken().then(async (data) => {
     if (umpResponse.content && umpResponse.content.length > 0) {
 
         const studentRequestID = umpResponse.content[0].studentRequestID
-        log.info(studentRequestID)
+        //log.info(studentRequestID)
 
         const digitalID = umpResponse.content[0].digitalID
-        log.info(digitalID)
+        //log.info(digitalID)
 
         //Delete Ump Record
         const deleteUmpReqRespone = await helper.deleteData(token, `${constants.studentProfileApiUrl}${studentRequestID}`)

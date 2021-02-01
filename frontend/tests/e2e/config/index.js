@@ -23,14 +23,17 @@ nconf.defaults({
 
     token_client_id: process.env.TOKEN_CLIENT_ID,
     token_client_id_test: process.env.TOKEN_CLIENT_ID_TEST,
+    token_client_id_pre_prod: process.env.TOKEN_CLIENT_ID_PRE_PROD,
 
     token_client_secret_tools: process.env.TOKEN_CLIENT_SECRET_TOOLS,
     token_client_secret_dev: process.env.TOKEN_CLIENT_SECRET_DEV,
     token_client_secret_test: process.env.TOKEN_CLIENT_SECRET_TEST,
+    token_client_secret_pre_prod: process.env.TOKEN_CLIENT_SECRET_PRE_PROD,
 
     bceid_digital_id_tools: process.env.BCEID_DIGITAL_ID_TOOLS,
     bceid_digital_id_dev: process.env.BCEID_DIGITAL_ID_DEV,
     bceid_digital_id_test: process.env.BCEID_DIGITAL_ID_TEST,
+    bceid_digital_id_pre_prod: process.env.BCEID_DIGITAL_ID_PRE_PROD,
 
     delete_digital_id: process.env.DELETE_DIGITAL_ID,
     pen_request_user_type: process.env.PEN_REQUEST_USER_TYPE
