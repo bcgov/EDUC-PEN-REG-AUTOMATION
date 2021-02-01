@@ -62,6 +62,7 @@ nconf.defaults({
   penMerged: process.env.PEN_MERGED,
   
   PenWeb: {
+    url: process.env.PENWEB_URL,
     user: process.env.PENWEB_USER,
     pass: process.env.PENWEB_PASS
   }

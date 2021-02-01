@@ -39,7 +39,7 @@ module.exports.studentApiUrl = 'https://student-api-' + module.exports.token_nam
 module.exports.digitalIdApiUrl = 'https://digitalid-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
 module.exports.studentProfileApiUrl = 'https://student-profile-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
 module.exports.penMatchApiUrl = 'https://pen-match-api-' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/pen-match'
-module.exports.penWebUrl = 'https://test.bced.gov.bc.ca/exams/tsw/pen/district/'
+module.exports.penWebUrl = config.get('PenWeb:url');
 
 
 //Bceid Credentials
