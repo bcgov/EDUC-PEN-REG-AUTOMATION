@@ -36,7 +36,7 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -60,7 +60,7 @@ jobs:
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -71,7 +71,7 @@ jobs:
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
       - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -95,7 +95,7 @@ jobs:
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -117,7 +117,7 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -141,7 +141,7 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -151,7 +151,7 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -172,7 +172,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
       - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -196,7 +196,7 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeleteUmpRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
@@ -218,7 +218,7 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
       - run: npm run getAndDeletePenRequestData
-        if: ${{ success() }}
+        if: ${{ always() }}
         env:
           TOKEN_ENVIRONMENT: ${{ secrets.PROD_ENVIRONMENT }}
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
