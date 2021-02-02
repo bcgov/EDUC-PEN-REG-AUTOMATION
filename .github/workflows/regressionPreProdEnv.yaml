@@ -4,7 +4,7 @@ name: Regression Test PRE PROD Environment
 on:
   schedule:
     # Scheduled job to run every 2 hours
-    - cron: "0 */2 * * *"
+    - cron: "*/59 1-14,16-23 * * *"
   repository_dispatch:
     types: [regressionTest-pre-prod-environment]
   workflow_dispatch: 
