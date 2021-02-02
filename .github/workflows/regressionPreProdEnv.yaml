@@ -32,7 +32,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
@@ -66,7 +66,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
@@ -123,7 +123,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
@@ -147,7 +147,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
@@ -178,7 +178,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
@@ -224,7 +224,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 

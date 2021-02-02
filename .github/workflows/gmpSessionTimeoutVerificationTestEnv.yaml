@@ -1,8 +1,5 @@
 name: Gmp Session Timeout Test Environment
 on:
-  schedule:
-    # Scheduled job to run every day at 12 am
-    - cron: "0 8 * * *"
   workflow_dispatch:  
 jobs:
   Gmp_Session_Timeout_Test_Test_Environment:
