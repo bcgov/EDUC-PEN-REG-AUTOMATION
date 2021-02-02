@@ -23,7 +23,7 @@ class penRequestForm {
 
     }
 
-    async fillRequestForm(studentData, submitBool) {
+    async fillRequestForm(studentData, submitBool, environment) {
 
         await t.click(Selector('input:nth-of-type(1)', { timeout: 1000 }))
         log.info("Top checkbox is clicked")
@@ -87,7 +87,7 @@ class penRequestForm {
             log.info("Gender selected")
         }
         if (studentData.email) {
-            await t.typeText(this.email, studentData.email, { paste: true })
+            await t.typeText(this.email, studentData.email+environment+"@mailsac.com", { paste: true })
             log.info("Email ID entered")
         }
         if (studentData.lastBCSchool) {

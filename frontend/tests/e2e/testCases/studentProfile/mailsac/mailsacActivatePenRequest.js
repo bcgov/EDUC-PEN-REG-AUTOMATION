@@ -1,5 +1,5 @@
 import mailsacPage from '../../../pageObjects/mailsac/mailsacPage'
-import { mailsacUrl, mailsacCredentials } from '../../../config/constants'
+import { mailsacUrl, mailsacCredentials, pen_environment } from '../../../config/constants'
 import studentData from '../../../config/studentData/studentData.json'
 
 
@@ -18,7 +18,7 @@ test('mailsac activate PEN request test', async t => {
 
     await mailsac.clickSubmitButton()
 
-    await mailsac.setMyInboxTextBox(studentData.email)
+    await mailsac.setMyInboxTextBox(studentData.email,pen_environment)
 
     await mailsac.clickCheckTheEmailButton()
 

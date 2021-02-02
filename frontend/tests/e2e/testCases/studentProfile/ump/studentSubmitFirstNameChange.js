@@ -1,5 +1,5 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage'
-import { bceidCredentials, studentProfileUrl, penNumber} from '../../../config/constants'
+import { bceidCredentials, studentProfileUrl, penNumber, pen_environment} from '../../../config/constants'
 import studentData from '../../../config/studentData/studentData.json'
 import updateMyPenInfoPage from '../../../pageObjects/studentProfile/ump/updateMyPenInfoPage'
 
@@ -34,7 +34,7 @@ test('Student submit firstname change test UMPI', async t => {
 
     await updatePage.editFirstName(studentData.legalLastName)
 
-    await updatePage.setEmail(studentData.umpEmail)
+    await updatePage.setEmail(studentData.umpEmail,pen_environment)
 
     await updatePage.clickAccurateCheckBox()
 

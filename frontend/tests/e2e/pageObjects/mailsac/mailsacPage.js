@@ -36,8 +36,8 @@ class mailsacPage {
         log.info("Clicked mailsac submit button")
     }
 
-    async setMyInboxTextBox(data) {
-        await t.typeText(this.myInboxTextBox, data)
+    async setMyInboxTextBox(email , environment) {
+        await t.typeText(this.myInboxTextBox, email+environment+"@mailsac.com")
         log.info("entered inbox email address")
     }
 

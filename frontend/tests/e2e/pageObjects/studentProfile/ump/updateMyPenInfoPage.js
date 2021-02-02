@@ -110,8 +110,8 @@ class updateMyPenInfoPage {
         log.info("edit gender checkbox is clicked")
     }
 
-    async setEmail(data) {
-        await t.typeText(this.email, data)
+    async setEmail(email,environment) {
+        await t.typeText(this.email, email+environment+"@mailsac.com")
         log.info("Email is set")
     }
 

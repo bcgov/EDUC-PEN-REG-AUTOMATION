@@ -1,6 +1,6 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage';
 import penRequestForm from '../../../pageObjects/studentProfile/gmp/penRequestForm';
-import { bceidCredentials, studentProfileUrl } from '../../../config/constants';
+import { bceidCredentials, studentProfileUrl, pen_environment } from '../../../config/constants';
 import studentData from '../../../config/studentData/studentData.json';
 
 
@@ -24,6 +24,6 @@ test('Bceid Login and Fill Pen request form test', async t => {
 
   await studentLogin.overcomeCreateNewPenRequest()
 
-  await penRequest.fillRequestForm(studentData, true);
+  await penRequest.fillRequestForm(studentData, true , pen_environment);
   
 });
