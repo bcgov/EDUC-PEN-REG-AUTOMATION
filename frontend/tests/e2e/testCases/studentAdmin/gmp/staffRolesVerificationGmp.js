@@ -29,7 +29,7 @@ test('Staff login and Can not perform any action on Pen request test', async t =
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement(staffData.Status[0])
+    await penPage.clickStatusResultFirstElement(staffData.Status[0],studentData.legalLastName,studentData.legalFirstName)
 
     await penAction.verifyClaimConformation(staffData.NoOneWorkingOnThis)
 

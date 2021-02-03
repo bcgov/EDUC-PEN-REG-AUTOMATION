@@ -32,7 +32,7 @@ test('Staff login and issue pen to Student test', async t => {
 
     await penPage.verifyDateAndTimeFormat()
 
-    await penPage.clickStatusResultFirstElement(staffData.Status[0])
+    await penPage.clickStatusResultFirstElement(staffData.Status[0],studentData.legalLastName,studentData.legalFirstName)
 
     await penAction.clickClaimButton()
 

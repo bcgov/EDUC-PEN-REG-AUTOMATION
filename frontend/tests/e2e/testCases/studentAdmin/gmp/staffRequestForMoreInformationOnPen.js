@@ -29,7 +29,7 @@ test('Staff login and request more information from student test', async t => {
 
     await penPage.setFirstNameSearchBar(studentData.legalFirstName)
 
-    await penPage.clickStatusResultFirstElement(staffData.Status[0])
+    await penPage.clickStatusResultFirstElement(staffData.Status[0],studentData.legalLastName,studentData.legalFirstName)
 
     await penAction.clickClaimButton()
 

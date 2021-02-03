@@ -65,11 +65,42 @@ class staffPenRetrievalRequestPage {
         log.info(data + "  Entered in reviewer search bar")
     }
 
-    async clickStatusResultFirstElement(data) {
-        this.searchResultFirstElement = Selector('td').withText(data)
-        await t.click(this.searchResultFirstElement)
-        log.info("Clicked on the search result one")
+    // async clickStatusResultFirstElement(data) {
+    //     this.searchResultFirstElement = Selector('td').withText(data)
+    //     await t.click(this.searchResultFirstElement)
+    //     log.info("Clicked on the search result one")
+    // }
+
+
+    async clickStatusResultFirstElement(status, lastname, firstname) {
+        try {
+            await t.wait(2000)
+            this.searchResultFirstElement = Selector('td').withText(status)
+            await t.click(this.searchResultFirstElement)
+            log.info("Clicked on the search result one")
+
+        } catch (err) {
+            await t.eval(() => location.reload(true))
+            log.info("page reloaded")
+
+            await t
+                .click(this.mainSearchBar)
+                .pressKey('backspace').pressKey('backspace').pressKey('backspace');
+            await t.typeText(this.mainSearchBar, status, { replace: true })
+            log.info(status + "  Entered in main status bar")
+
+            await t.click(Selector('span').withText(status))
+
+            await t.typeText(this.lastNameSearchBar, lastname, { replace: true })
+            log.info("Entered last name in search bar")
+
+            await t.typeText(this.firstNameSearchBar, firstname, { replace: true })
+            log.info("Entered first name in search bar")
+
+            await t.click(this.searchResultFirstElement)
+        }
     }
+
 
     async clickStatusResultSecondElement() {
         await t.click(this.statusResultSecondElement)
@@ -99,8 +130,8 @@ class staffPenRetrievalRequestPage {
         if (time && time.match(re)) {
             log.info("valid date format    " + time);
         }
-        else{
-            throw new Error("Not a valid Date and time format    "+  time);
+        else {
+            throw new Error("Not a valid Date and time format    " + time);
         }
     }
 
