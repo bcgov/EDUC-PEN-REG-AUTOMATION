@@ -208,7 +208,7 @@ class staffActionOnUmpPage {
         log.info(await this.status.innerText + ' text is displayed')
     }
 
-    async verifyPenDemographics(penNumber, penDemographics) {
+    async verifyPenDemographics(penNumber, penDemographics, environment) {
 
         await t.wait(2000)
 
@@ -220,8 +220,18 @@ class staffActionOnUmpPage {
             log.info("first name verified in pen demographics")
         }
         if (penDemographics.Middle) {
-            assert.strictEqual(penDemographics.Middle, await this.middle.innerText)
-            log.info("Middle name verified in pen demographics")
+
+            if (environment == "test" || environment == "dev") {
+                assert.strictEqual(penDemographics.Middle, await this.middle.innerText)
+                log.info("Middle name verified in pen demographics")
+            }
+        }
+        if (penDemographics.MiddleUat) {
+
+            if (environment == "uat" || environment == "pre-prod") {
+                assert.strictEqual(penDemographics.MiddleUat, await this.middle.innerText)
+                log.info("Middle name verified in pen demographics")
+            }
         }
         if (penDemographics.Last) {
             assert.strictEqual(penDemographics.Last, await this.last.innerText)

@@ -2,7 +2,7 @@ import staffLoginPage from '../../../pageObjects/login/staffLoginPage';
 import staffUmpRequestsPage from '../../../pageObjects/studentAdmin/ump/staffUmpRequestsPage'
 import staffActionOnUmpPage from '../../../pageObjects/studentAdmin/ump/staffActionOnUmpPage'
 import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
-import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../../config/constants';
+import { idirAdminCredentials, staffLoginUrl, penNumber, pen_environment } from '../../../config/constants';
 import staffData from '../../../config/staffData/staffData.json'
 import penDemographics from '../../../config/staffData/penDemographics.json'
 
@@ -47,6 +47,6 @@ test('Staff login and complete Ump request test', async t => {
 
     await umpAction.actionConfirmationText(idirAdminCredentials.username)
 
-    await umpAction.verifyPenDemographics(penNumber, penDemographics)
+    await umpAction.verifyPenDemographics(penNumber, penDemographics, pen_environment)
 
 });

@@ -33,7 +33,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
@@ -42,7 +42,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
 
       - run: npm run staffRequestForMoreInfoAndRejectOnPen
         if: ${{ always() }}
@@ -58,7 +58,7 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -67,7 +67,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
       - run: npm run getAndDeleteUmpRequestData
@@ -77,7 +77,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
 
       - run: npm run staffRequestForMoreInfoAndRejectOnUmp
         if: ${{ always() }}
@@ -93,7 +93,7 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
@@ -101,7 +101,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
 
       - run: npm run staffIssuePenToStudentAndUnlinkSuite
         if: ${{ always() }}
@@ -115,7 +115,7 @@ jobs:
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -124,7 +124,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
       - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
@@ -139,7 +139,7 @@ jobs:
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -148,7 +148,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
@@ -157,7 +157,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
 
       - run: npm run staffActionOnDraftPenRequest
         if: ${{ always() }}
@@ -179,7 +179,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
       - run: npm run staffActionOnDraftUmpRequest
@@ -194,7 +194,7 @@ jobs:
           PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
@@ -202,7 +202,7 @@ jobs:
           TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
 
       - run: npm run staffForceUnlinkSuite
         if: ${{ always() }}
@@ -216,7 +216,7 @@ jobs:
           PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -225,7 +225,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
 
       - run: npm run insertAndUpdatePenRequestDataToAbandoned
@@ -252,7 +252,7 @@ jobs:
           TOKEN_CLIENT_ID_PRE_PROD: ${{ secrets.TOKEN_CLIENT_ID_PRE_PROD }}
           TOKEN_CLIENT_SECRET_PRE_PROD: ${{ secrets.TOKEN_CLIENT_SECRET_PRE_PROD }}
           DELETE_DIGITAL_ID: ${{secrets.FALSE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER_PRE_PROD }}
           PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
           
       # - uses: actions/upload-artifact@v2

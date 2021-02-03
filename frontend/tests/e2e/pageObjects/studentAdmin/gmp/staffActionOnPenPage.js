@@ -107,20 +107,48 @@ class staffActionOnPenPage {
         log.info(await this.status.innerText + ' text is displayed')
     }
 
-    async verifyPenDemographics(penNumber, penDemographics) {
+    async verifyPenDemographics(penNumber, penDemographics, environment) {
 
 
         await t.expect(this.penNumber.innerText).eql(penNumber, { timeout: 180000 })
         log.info("Pen number verified in pen demographics")
 
         if (penDemographics.Legal) {
-            assert.strictEqual(penDemographics.Legal, await this.legal.innerText)
-            log.info("Legal name verified in pen demographics")
+
+            if (environment == "test" || environment == "dev") {
+
+                assert.strictEqual(penDemographics.Legal, await this.legal.innerText)
+                log.info("Legal name verified in pen demographics")
+
+            }
         }
+        if (penDemographics.LegalUat) {
+
+            if (environment == "uat" || environment == "pre-prod") {
+                assert.strictEqual(penDemographics.LegalUat, await this.legal.innerText)
+                log.info("Legal name verified in pen demographics")
+            }
+        }
+
         if (penDemographics.Usual) {
-            assert.strictEqual(penDemographics.Usual, await this.usual.innerText)
-            log.info("Usual name verified in pen demographics")
+
+            if (environment == "test" || environment == "dev") {
+                assert.strictEqual(penDemographics.Usual, await this.usual.innerText)
+                log.info("Usual name verified in pen demographics")
+
+            }
         }
+        if (penDemographics.UsualUat) {
+            
+            if (environment == "uat" || environment == "pre-prod") {
+
+                assert.strictEqual(penDemographics.UsualUat, await this.usual.innerText)
+                log.info("Usual name verified in pen demographics")
+
+            }
+        }
+
+
         if (penDemographics.DOB) {
             assert.strictEqual(penDemographics.DOB, await this.dob.innerText)
             log.info("DOB verified in pen demographics")

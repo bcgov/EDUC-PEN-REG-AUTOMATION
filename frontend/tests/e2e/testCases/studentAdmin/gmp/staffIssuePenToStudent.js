@@ -2,7 +2,7 @@ import staffLoginPage from '../../../pageObjects/login/staffLoginPage';
 import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import staffPenRetrievalRequestPage from '../../../pageObjects/studentAdmin/gmp/staffPenRetrievalRequestsPage'
 import staffActionOnPenPage from '../../../pageObjects/studentAdmin/gmp/staffActionOnPenPage'
-import { idirAdminCredentials, staffLoginUrl, penNumber } from '../../../config/constants';
+import { idirAdminCredentials, staffLoginUrl, penNumber , pen_environment } from '../../../config/constants';
 import studentData from '../../../config/studentData/studentData.json';
 import staffData from '../../../config/staffData/staffData.json'
 import penDemographics from '../../../config/staffData/penDemographics.json'
@@ -50,6 +50,6 @@ test('Staff login and issue pen to Student test', async t => {
 
     await penAction.actionConfirmationText(idirAdminCredentials.username)
 
-    await penAction.verifyPenDemographics(penNumber,penDemographics)
+    await penAction.verifyPenDemographics(penNumber,penDemographics,pen_environment)
 
 });
