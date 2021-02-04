@@ -55,7 +55,7 @@ class mailsacPage {
 
 
     async activatePenRequest(activationBool) {
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 15; i++) {
 
             if (await this.expectGmpActivateEmail.exists && await this.expectGmpActivateEmail.visible) {
                 await t.click(this.expectGmpActivateEmail)
