@@ -25,7 +25,7 @@ class penRequestForm {
 
     async fillRequestForm(studentData, submitBool, environment) {
 
-        await t.click(Selector('input:nth-of-type(1)', { timeout: 1000 }))
+        await t.click(Selector('input:nth-of-type(1)', { timeout: 5000 }))
         log.info("Top checkbox is clicked")
         await t
             .wait(5)

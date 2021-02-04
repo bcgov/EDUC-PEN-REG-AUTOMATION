@@ -95,7 +95,7 @@ class updateMyPenInfoPage {
     }
 
     async clickIDeclareCheckBox() {
-        await t.click(Selector('#declarationCheckbox', { timeout: 1000 }))
+        await t.click(Selector('#declarationCheckbox', { timeout: 5000 }))
         log.info("I declare check box is clicked")
     }
 
