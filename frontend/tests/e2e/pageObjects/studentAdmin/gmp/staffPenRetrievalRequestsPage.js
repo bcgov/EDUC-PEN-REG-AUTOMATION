@@ -125,7 +125,7 @@ class staffPenRetrievalRequestPage {
 
         const time = await (this.submittedTime).innerText
         log.info("Submitted time    " + time)
-        let re = new RegExp(/\d{4}-\d{2}-\d{2} \d{1,2}:\d{2} [AP]M/g)
+        let re = new RegExp(/\d{4}\/\d{2}\/\d{2} \d{1,2}:\d{2} [AP]M/g)
 
         if (time && time.match(re)) {
             log.info("valid date format    " + time);

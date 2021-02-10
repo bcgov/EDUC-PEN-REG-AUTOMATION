@@ -242,7 +242,7 @@ class staffActionOnPenPage {
             log.info("Time zone set to PST")
         }
 
-        return nodeDate.format(date, 'YYYY-MM-DD')
+        return nodeDate.format(date, 'YYYY/MM/DD')
     }
 
     async verifyasOfDate() {

@@ -8,7 +8,7 @@
     "postalCode": "V2V2V2",
     "gender": "M",
     "birthDate": "19890101",
-    "birthDateSearchResult": "1989-01-01",
+    "birthDateSearchResult": "1989/01/01",
     "grade": "12",
     "mincode": "03939004",
     "legalSurnameError": "AUTOMATION^NEW",
