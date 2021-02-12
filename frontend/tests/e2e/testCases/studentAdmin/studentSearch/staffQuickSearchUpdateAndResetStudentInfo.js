@@ -68,9 +68,9 @@ test('Staff login search update and reset student info test', async t => {
 
     await menu.clickDashboardLink()
 
-    await dashboard.clickFullSearchButton()
+    await menu.clickHamburgerMenu()
 
-    await staffSearch.clickAdvanceSearchButton()
+    await menu.clickStudentSearchLink()
 
     await staffSearch.setPen(penNumber)
 

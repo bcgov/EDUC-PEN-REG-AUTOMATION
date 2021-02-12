@@ -21,8 +21,6 @@ test('Staff login and search for name variants test', async t => {
 
     await dashboard.clickFullSearchButton()
 
-    await staffSearch.clickAdvanceSearchButton()
-
     await staffSearch.setLegalGiven(studentData.name1)
 
     await staffSearch.clickSearchNameVariantsCheckBox()

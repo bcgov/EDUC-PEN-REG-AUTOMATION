@@ -60,7 +60,7 @@ class staffStudentSearchPage {
         this.birthMonthEnd = Selector('#end-dob-month')
         this.birthDayEnd = Selector('#end-dob-day')
         this.gender = Selector('#gender')
-        this.nameVariantCheckBox = Selector('#input-188')
+        this.nameVariantCheckBox = Selector('#input-128')
         
     }
 

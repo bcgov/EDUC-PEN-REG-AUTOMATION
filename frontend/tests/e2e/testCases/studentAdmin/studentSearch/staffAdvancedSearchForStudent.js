@@ -22,10 +22,6 @@ test('Staff login and do advanced search for student test', async t => {
 
     await dashboard.clickFullSearchButton()
 
-    await staffSearch.clickAdvanceSearchButton()
-
-    //await staffSearch.setPen(penNumber)
-
     await staffSearch.setLegalSurname(studentData.legalLastName)
 
     await staffSearch.setLegalGiven(studentData.legalFirstName)
