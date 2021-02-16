@@ -60,7 +60,7 @@ class staffStudentSearchPage {
         this.birthMonthEnd = Selector('#end-dob-month')
         this.birthDayEnd = Selector('#end-dob-day')
         this.gender = Selector('#gender')
-        this.nameVariantCheckBox = Selector('#input-128')
+        this.nameVariantCheckBox = Selector(' div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > input:nth-of-type(1)')
         
     }
 
