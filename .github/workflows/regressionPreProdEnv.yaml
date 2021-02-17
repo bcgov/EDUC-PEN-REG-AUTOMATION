@@ -2,9 +2,7 @@
 # request information, reject,complete, Readonly roles for Ump Request. (Pre prod environment)
 name: Regression Test PRE PROD Environment
 on:
-  schedule:
-    # Scheduled job to run every 2 hours
-    - cron: "0 * * * *"
+
   repository_dispatch:
     types: [regressionTest-pre-prod-environment]
   workflow_dispatch: 
