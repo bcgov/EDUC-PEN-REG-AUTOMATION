@@ -6,13 +6,14 @@ const { getToken } = require('../../../helpers/generateToken')
 
 
 getToken().then(async (data) => {
-
     const token = data.access_token
 
-    //insert student data 
-    const insertStudent = await helper.postStudentData(token, constants.studentApiUrl, payload.data)
-    console.log(insertStudent)
+    for (let i = 0; i <= 99; i++) {
 
+        //insert student data 
+        const insertStudent = await helper.postStudentData(token, constants.studentApiUrl, payload.data[i])
+        console.log(insertStudent)
+    }
 })
 
     .catch((error => {

@@ -8,11 +8,11 @@ getToken().then(async (data) => {
 
     const token = data.access_token
 
+    for (let i = 0; i <= 99; i++) {
+
         let searchListCriteria = []
 
-        //searchListCriteria.push({ key: 'pen', operation: 'eq', value: penNums.pen[i], valueType: 'STRING' });
-        searchListCriteria.push({ key: 'legalLastName', operation: 'eq', value: studentData.legalLastName, valueType: 'STRING' });
-        searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: studentData.legalFirstName, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'pen', operation: 'eq', value: penNums.pen[i], valueType: 'STRING' });
 
         const search = [
             {
@@ -37,6 +37,7 @@ getToken().then(async (data) => {
         const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
         //console.log(deleteStudentService)
 
+    }
 })
 
     .catch((error => {
