@@ -3,7 +3,7 @@ name: Regression Test Test Environment Latest
 on:
   repository_dispatch:
     types: [regressionTest-test-environment-latest]
-  workflow_dispatch: 
+  workflow_dispatch:
 jobs:
   RegressionTest_Test_Environment_Latest:
     runs-on: windows-latest
@@ -29,22 +29,6 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_MERGED: ${{ secrets.PEN_MERGED }}
 
-      # - run: npm run verifyValidationErrorsAndCreateNewPen
-      #   if: ${{ always() }}
-      #   env:
-      #     PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
-      #     PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-      #     IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-      #     IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-
-      # - run: npm run getAndDeleteStudentData
-      #   if: ${{ always() }}
-      #   env:
-      #     TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
-      #     TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-      #     TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-      #     TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
-
       - run: npm run comparePens
         if: ${{ always() }}
         env:
@@ -54,7 +38,46 @@ jobs:
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           PEN_MERGED: ${{ secrets.PEN_MERGED }}
-          
+
+      # - run: npm run deleteStudent
+      #   if: ${{ always() }}
+      #   env:
+      #     TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+      #     TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+      #     TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+      #     TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+      #     DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+      #     PEN_STUDENT_HISTORY: ${{ secrets.PEN_STUDENT_HISTORY }}
+
+      - run: npm run insertStudent
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          PEN_STUDENT_HISTORY: ${{ secrets.PEN_STUDENT_HISTORY }}
+
+      - run: npm run studentAuditHistory
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          PEN_STUDENT_HISTORY: ${{ secrets.PEN_STUDENT_HISTORY }}
+
+      - run: npm run deleteStudent
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
+          PEN_STUDENT_HISTORY: ${{ secrets.PEN_STUDENT_HISTORY }}
+
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
       #   with:
@@ -70,4 +93,3 @@ jobs:
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
-           
