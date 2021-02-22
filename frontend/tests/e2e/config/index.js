@@ -60,6 +60,7 @@ nconf.defaults({
   },
   penNumber: process.env.PEN_NUMBER,
   penMerged: process.env.PEN_MERGED,
+  penStudentHistory: process.env.PEN_STUDENT_HISTORY,
   
   PenWeb: {
     url: process.env.PENWEB_URL,

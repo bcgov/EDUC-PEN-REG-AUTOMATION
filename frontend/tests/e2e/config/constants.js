@@ -76,6 +76,7 @@ module.exports.mailsacCredentials = Object.freeze({
 // PEN number
 module.exports.penNumber =  config.get('penNumber')
 module.exports.penMerged =  config.get('penMerged')
+module.exports.penStudentHistory = config.get('penStudentHistory')
 
 //School login credentials
 module.exports.penWebCredentials = Object.freeze({

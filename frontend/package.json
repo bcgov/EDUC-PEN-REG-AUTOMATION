@@ -37,7 +37,10 @@
     "verifyValidationErrorsAndCreateNewPen": "node tests/e2e/testSuites/createNewPenE2E/verifyValidationErrorsAndCreateNewPenSuite.js",
     "verifySessionTimeOut": "testcafe chrome ./tests/e2e/testCases/maintenance/verifySessionTimeOut.js -e",
     "verifySessionTimeOutGmp": "testcafe chrome ./tests/e2e/testCases/maintenance/verifySessionTimeOutGmp.js -e",
-    "comparePens": "node tests/e2e/testSuites/comparePensE2E/comparePensSuite.js"
+    "comparePens": "node tests/e2e/testSuites/comparePensE2E/comparePensSuite.js",
+    "insertStudent": "node tests/e2e/testCases/studentProfile/gmp/insertStudent.js",
+    "deleteStudent": "node tests/e2e/testCases/studentProfile/gmp/deleteStudent.js",
+    "studentAuditHistory": "node tests/e2e/testSuites/searchE2E/studentAuditHistorySuite.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

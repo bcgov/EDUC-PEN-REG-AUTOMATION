@@ -1,6 +1,5 @@
 const helper = require("../../../helpers/axios-helper")
 const constants = require('../../../config/constants')
-const penNums = require("../../../config/studentData/nums.json")
 const { getToken } = require('../../../helpers/generateToken')
 
 
@@ -10,9 +9,8 @@ getToken().then(async (data) => {
 
         let searchListCriteria = []
 
-        //searchListCriteria.push({ key: 'pen', operation: 'eq', value: penNums.pen[i], valueType: 'STRING' });
-        searchListCriteria.push({ key: 'legalLastName', operation: 'eq', value: studentData.legalLastName, valueType: 'STRING' });
-        searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: studentData.legalFirstName, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'pen', operation: 'eq', value: constants.penStudentHistory , valueType: 'STRING' });
+
 
         const search = [
             {
