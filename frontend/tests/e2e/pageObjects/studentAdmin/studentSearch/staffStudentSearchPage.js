@@ -55,12 +55,14 @@ class staffStudentSearchPage {
         this.birthYearStart = Selector('#start-dob-year')
         this.birthMonthStart = Selector('#start-dob-month')
         this.birthDayStart = Selector('#start-dob-day')
-        this.useRangeCheckBox = Selector('div.v-input--selection-controls__ripple:nth-child(3)')
+        this.useDobCheckBox = Selector('#useDOBCheckbox')
+        this.useRangeCheckBox = Selector('#useDOBRangeCheckbox')
         this.birthYearEnd = Selector('#end-dob-year')
         this.birthMonthEnd = Selector('#end-dob-month')
         this.birthDayEnd = Selector('#end-dob-day')
         this.gender = Selector('#gender')
-        this.nameVariantCheckBox = Selector(' div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > input:nth-of-type(1)')
+        this.nameVariantCheckBox = Selector('#searchNameVariantsCheckbox')
+        this.searchAuditHistoryCheckBox = Selector('#searchAuditHistoryCheckbox')
         
     }
 
@@ -197,7 +199,7 @@ class staffStudentSearchPage {
         await t.typeText(this.birthYearStart, data.birthYearStart)
         await t.typeText(this.birthMonthStart, data.birthMonthStart)
         await t.typeText(this.birthDayStart, data.birthDayStart)
-        await t.click(this.useRangeCheckBox)
+        await t.click(this.useRangeCheckBox, { timeout: 3000 })
         await t.typeText(this.birthYearEnd, data.birthYearEnd)
         await t.typeText(this.birthMonthEnd, data.birthMonthEnd)
         await t.typeText(this.birthDayEnd, data.birthDayEnd)
@@ -254,11 +256,12 @@ class staffStudentSearchPage {
 
 
     async clickSearchNameVariantsCheckBox(){
-        await t.click(this.nameVariantCheckBox)
+        await t.click(this.nameVariantCheckBox, { timeout: 3000 })
         log.info("Search name variants checkbox selected")
     }
 
     async verifyTableCell(data){
+        await t.wait(5000)
         const text = Selector('span').withExactText(data)
         await t.expect((text).exists).ok()
         log.info("Following Text verified    " + data)
