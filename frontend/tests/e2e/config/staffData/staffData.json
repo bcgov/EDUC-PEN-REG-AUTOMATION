@@ -14,5 +14,7 @@
     "NoOneWorkingOnThis": "No one is working on this request",
     "RequestInformation": "Please provide an Identification Document",
     "RejectInformation": "Sorry to Inform, Your Pen Request is rejected because of Identification Issues",
-    "CompleteComment": "Your update my Pen request is approved"
+    "CompleteComment": "Your update my Pen request is approved",
+    "TwinSuccessMessage": "Success! The two records have been twinned.",
+    "TwinFailureMessage": "Error! Records are already twinned."
 }

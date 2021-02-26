@@ -191,14 +191,14 @@ class studentDetailsPage {
         log.info("Audit History tab selected")
     }
 
-    async verifyAuditHistory(data){
+    async verifyAuditHistory(data) {
         const text = Selector('span').withText(data)
         await t.expect((text).exists).ok()
         await t.expect(text.count).eql(15)
         log.info("Following Text verified    " + data)
     }
 
-    async clickDemographicsTab(){
+    async clickDemographicsTab() {
         await t.click(this.demographicsTabLink)
         log.info("Demographics tab selected")
     }
@@ -225,5 +225,21 @@ class studentDetailsPage {
         log.info("Student details verified")
     }
 
+    async clickOnTableCell(data) {
+
+        const split = data.match(/[\s\S]{1,3}/g) || [];
+        const result = split[0]+" "+split[1]+" "+split[2]
+        const element = Selector('td').withText(result)
+        await t.click(element)
+        log.info("clicked on table cell")
+
+    }
+
+    async verifyLegalNames(data){
+        await t.expect(this.legalSurname.value).eql(data.legalLastName)
+        await t.expect(this.legalGiven.value).eql(data.legalFirstName)
+        await t.expect(this.legalMiddle.value).eql(data.legalMiddleNames)
+       log.info("Legal names verified")
+    }
 
 } export default studentDetailsPage

@@ -10,6 +10,13 @@ class comparePenNumbersPage {
         this.addPenButton = Selector('#addPenBtn')
         this.removePenLink = Selector('a').withText('Remove PEN')
         this.clearButton = Selector('#compareClearBtn')
+
+
+        //Twins and merges related
+        this.twinButton = Selector('#twinBtn')
+        this.mergePensButton = Selector('#mergeBtn')
+        this.deMergePensButton = Selector('#demergeBtn')
+
     }
 
 
@@ -31,6 +38,49 @@ class comparePenNumbersPage {
     async clickClearButton() {
         await t.click(this.clearButton)
         log.info("clear button is clicked")
+    }
+
+    async clickTwinButton() {
+        await t.click(this.twinButton)
+        log.info("Twin button clicked")
+        await t.wait(2000)
+    }
+
+    async verifyMessage(data){
+        const element = (Selector('div').withText(data)).exists
+        await t.expect(element).ok()
+        log.info(data+" Message verified")
+    }
+
+    async clickMergePensButton() {
+        await t.click(this.mergePensButton)
+        log.info("Merge Pens button clicked")
+    }
+
+    async clickDeMergeButton() {
+        await t.click(this.deMergePensButton)
+        log.info("De Merge button clicked")
+    }
+
+    async selectStudentRecord(data) {
+        const element = Selector('div:nth-of-type(' + data + ') > div:nth-of-type(1) > span:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > input:nth-of-type(1)')
+        await t.click(element)
+        log.info("Student selected")
+    }
+
+    async verifyTwinButtonDisabled() {
+        await t.expect(this.twinButton.hasAttribute('disabled')).ok();
+        log.info("Twin button is disabled")
+    }
+
+    async verifyMergeButtonDisabled() {
+        await t.expect(this.mergePensButton.hasAttribute('disabled')).ok();
+        log.info("Merge Pens button is disabled")
+    }
+
+    async verifyDemergeButtonDisabled() {
+        await t.expect(this.deMergePensButton.hasAttribute('disabled')).ok();
+        log.info("De Merge Pens button is disabled")
     }
 }
 export default comparePenNumbersPage

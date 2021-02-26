@@ -78,6 +78,18 @@ module.exports.penNumber =  config.get('penNumber')
 module.exports.penMerged =  config.get('penMerged')
 module.exports.penStudentHistory = config.get('penStudentHistory')
 
+//Twin and Merge related Pen numbers
+module.exports.twinOnePen =  config.get('twinOnePen')
+module.exports.twinTwoPen =  config.get('twinTwoPen')
+module.exports.twinThreePen =  config.get('twinThreePen')
+
+module.exports.mergeOnePen =  config.get('mergeOnePen')
+module.exports.mergeTwoPen =  config.get('mergeTwoPen')
+module.exports.mergeThreePen =  config.get('mergeThreePen')
+
+
+
+
 //School login credentials
 module.exports.penWebCredentials = Object.freeze({
   username: config.get('PenWeb:user'),
