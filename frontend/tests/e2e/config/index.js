@@ -61,13 +61,21 @@ nconf.defaults({
   penNumber: process.env.PEN_NUMBER,
   penMerged: process.env.PEN_MERGED,
   penStudentHistory: process.env.PEN_STUDENT_HISTORY,
-  
+
+  twinOnePen: process.env.TWIN_ONE_PEN,
+  twinTwoPen: process.env.TWIN_TWO_PEN,
+  twinThreePen: process.env.TWIN_THREE_PEN,
+
+  mergeOnePen: process.env.MERGE_ONE_PEN,
+  mergeTwoPen: process.env.MERGE_TWO_PEN,
+  mergeThreePen: process.env.MERGE_THREE_PEN,
+
   PenWeb: {
     url: process.env.PENWEB_URL,
     user: process.env.PENWEB_USER,
     pass: process.env.PENWEB_PASS
   }
-  
+
 });
 
 module.exports = nconf;

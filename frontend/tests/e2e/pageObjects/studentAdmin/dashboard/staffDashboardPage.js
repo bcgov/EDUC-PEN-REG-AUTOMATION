@@ -15,6 +15,10 @@ class staffDashboardPage {
 
     }
 
+    async maximizeWindow() {
+        await t.maximizeWindow()
+        log.info("Window maximized")
+    }
 
     async clickViewGmpButton() {
         await t.wait(5000)
@@ -30,7 +34,7 @@ class staffDashboardPage {
 
     async setPenNumber(data) {
         await t.typeText(this.penNumberInput, data)
-        log.info("Pen number is entered")
+        log.info("Pen number is entered")        
     }
 
     async clickQuickSearchButton() {

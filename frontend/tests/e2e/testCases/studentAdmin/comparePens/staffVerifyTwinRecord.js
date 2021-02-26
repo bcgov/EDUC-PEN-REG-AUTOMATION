@@ -32,6 +32,18 @@ test('Staff login and verify twin record  test', async t => {
 
     await studentDetails.clickOnTableCell(constants.twinTwoPen)
 
+    await dashboard.maximizeWindow()
+
     await studentDetails.verifyLegalNames(studentData.data[1])
+
+    await studentDetails.clickOnTwinRecordYes()
+
+    await studentDetails.verifyTwinsNumber("1 Twins")
+
+    await studentDetails.clickOnTableCell(constants.twinOnePen)
+
+    await dashboard.maximizeWindow()
+
+    await studentDetails.verifyLegalNames(studentData.data[0])
 
 });

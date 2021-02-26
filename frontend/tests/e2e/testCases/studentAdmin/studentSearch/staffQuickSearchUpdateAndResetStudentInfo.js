@@ -54,6 +54,8 @@ test('Staff login search update and reset student info test', async t => {
 
     await staffSearch.clickOnFirstSearchResult()
 
+    await dashboard.maximizeWindow()
+
     await studentDetails.setUsualSurname(studentSearchResult.usualSurnameSearchResult)
 
     await studentDetails.setUsualGiven(studentSearchResult.usualGivennameSearchResult)
@@ -63,10 +65,6 @@ test('Staff login search update and reset student info test', async t => {
     await studentDetails.clearMemo()
 
     await studentDetails.clickSaveButton()
-
-    await menu.clickHamburgerMenu()
-
-    await menu.clickDashboardLink()
 
     await menu.clickHamburgerMenu()
 
