@@ -43,7 +43,8 @@
     "studentAuditHistory": "node tests/e2e/testSuites/searchE2E/studentAuditHistorySuite.js",
     "insertTwinAndMergeStudents": "node tests/e2e/testCases/studentProfile/gmp/insertTwinAndMergeStudents.js",
     "deleteTwinAndMergeStudents": "node tests/e2e/testCases/studentProfile/gmp/deleteTwinAndMergeStudents.js",
-    "twinStudents": "node tests/e2e/testSuites/comparePensE2E/twinStudentSuite.js"
+    "twinStudents": "node tests/e2e/testSuites/comparePensE2E/twinStudentSuite.js",
+    "mergeAndDemergeStudents": "node tests/e2e/testSuites/comparePensE2E/mergeAndDemergeStudentsSuite.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

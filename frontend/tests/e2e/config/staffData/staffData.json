@@ -16,5 +16,9 @@
     "RejectInformation": "Sorry to Inform, Your Pen Request is rejected because of Identification Issues",
     "CompleteComment": "Your update my Pen request is approved",
     "TwinSuccessMessage": "Success! The two records have been twinned.",
-    "TwinFailureMessage": "Error! Records are already twinned."
+    "TwinFailureMessage": "Error! Records are already twinned.",
+    "MergeSuccessMessage": "Success! Your request to merge is completed.",
+    "MergeFailureMessage": "Error! PENs cannot be merged, as one of the PENs has a status of merged.",
+    "MergeMemo": "Two students merged",
+    "DemergeSuccessMessage": "Success! Your request to demerge is completed."
 }

@@ -36,6 +36,15 @@ class studentDetailsPage {
         // tab related Selectors
         this.demographicsTabLink = Selector('strong').withText('Demographics')
         this.auditHistoryTabLink = Selector('strong').withText('Audit History')
+
+
+        //Demerge related
+        this.demergeButton = Selector('span').withText('Demerge')
+
+        //Pop up buttons
+        this.noButton = Selector('#rejectBtn')
+        this.yesButton = Selector('#resolveBtn')
+
     }
 
     async setPen(data) {
@@ -228,18 +237,49 @@ class studentDetailsPage {
     async clickOnTableCell(data) {
 
         const split = data.match(/[\s\S]{1,3}/g) || [];
-        const result = split[0]+" "+split[1]+" "+split[2]
+        const result = split[0] + " " + split[1] + " " + split[2]
         const element = Selector('td').withText(result)
         await t.click(element)
         log.info("clicked on table cell")
 
     }
 
-    async verifyLegalNames(data){
+    async verifyLegalNames(data) {
         await t.expect(this.legalSurname.value).eql(data.legalLastName)
         await t.expect(this.legalGiven.value).eql(data.legalFirstName)
         await t.expect(this.legalMiddle.value).eql(data.legalMiddleNames)
-       log.info("Legal names verified")
+        log.info("Legal names verified")
     }
+
+    async verifyMemo(data){
+        await t.expect(this.memo.value).eql(data)
+        log.info("Memo verified")
+    }
+
+    async clickOnMergedFromToData(data) {
+        const split = data.match(/[\s\S]{1,3}/g) || [];
+        const result = split[0] + " " + split[1] + " " + split[2]
+        const element = Selector('a').withText(result)
+        await t.click(element)
+        log.info("clicked on Merged cell")
+    }
+
+    async clickDemergeButton() {
+        await t.click(this.demergeButton)
+        log.info("Demerge button clicked")
+    }
+
+
+    async clickPopUpNoButton() {
+        await t.click(this.noButton)
+        log.info(" pop up no button clicked")
+    }
+
+    async clickPopUpYesButton() {
+        await t.click(this.yesButton)
+        log.info("pop up yes button clicked")
+    }
+
+
 
 } export default studentDetailsPage

@@ -17,6 +17,14 @@ class comparePenNumbersPage {
         this.mergePensButton = Selector('#mergeBtn')
         this.deMergePensButton = Selector('#demergeBtn')
 
+        //Merge screen related
+        this.memo = Selector('#memo')
+        this.mergeButton = Selector('span').withText('Merge')
+
+        //Pop up buttons
+        this.noButton = Selector('#rejectBtn')
+        this.yesButton = Selector('#resolveBtn')
+
     }
 
 
@@ -46,10 +54,11 @@ class comparePenNumbersPage {
         await t.wait(2000)
     }
 
-    async verifyMessage(data){
+    async verifyMessage(data) {
+        await t.wait(2000)
         const element = (Selector('div').withText(data)).exists
         await t.expect(element).ok()
-        log.info(data+" Message verified")
+        log.info(data + " Message verified")
     }
 
     async clickMergePensButton() {
@@ -64,7 +73,7 @@ class comparePenNumbersPage {
 
     async selectStudentRecord(data) {
         const element = Selector('div:nth-of-type(' + data + ') > div:nth-of-type(1) > span:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > input:nth-of-type(1)')
-        await t.click(element)
+        await t.click(element, { timeout: 3000 })
         log.info("Student selected")
     }
 
@@ -81,6 +90,30 @@ class comparePenNumbersPage {
     async verifyDemergeButtonDisabled() {
         await t.expect(this.deMergePensButton.hasAttribute('disabled')).ok();
         log.info("De Merge Pens button is disabled")
+    }
+
+    async setMemo(data) {
+        await t.typeText(this.memo, data)
+        log.info("memo is set")
+    }
+
+    async clickMergeButton() {
+        await t.click(this.mergeButton)
+        log.info("Merge button clicked")
+    }
+
+    async clickPopUpNoButton() {
+        await t.click(this.noButton)
+        log.info(" pop up no button clicked")
+    }
+
+    async clickPopUpYesButton() {
+        await t.click(this.yesButton)
+        log.info("pop up yes button clicked")
+    }
+
+    async verifyMergeMessage() {
+
     }
 }
 export default comparePenNumbersPage

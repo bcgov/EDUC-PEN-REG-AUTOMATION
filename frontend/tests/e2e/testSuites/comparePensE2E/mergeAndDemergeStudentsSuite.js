@@ -16,8 +16,8 @@ createTestCafe('localhost', 1337, 1338)
             .src([
 
                 "tests/e2e/testCases/studentAdmin/comparePens/VerifyThreeStudentsCanNotBeTwinnedOrMerged.js",
-                "tests/e2e/testCases/studentAdmin/comparePens/twinTwoStudentsAndVerify.js",
-                "tests/e2e/testCases/studentAdmin/comparePens/staffVerifyTwinRecord.js"
+                "tests/e2e/testCases/studentAdmin/comparePens/mergeTwoStudentsAndVerify.js",
+                "tests/e2e/testCases/studentAdmin/comparePens/demergeTwoStudents.js"
             ])
             .run();
     })
