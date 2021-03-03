@@ -17,8 +17,8 @@ class staffLoginPage {
     async stafflogin(credentials) {
 
         await t.click(this.login)
-            .typeText(this.username, credentials.username)
-            .typeText(this.password, credentials.password)
+            .typeText(this.username, credentials.username, { timeout: 20000 })
+            .typeText(this.password, credentials.password, { timeout: 20000 })
             .click(this.submitButton);
             log.info("Staff user successfully logged in with IDIR    "+ credentials.username )
 

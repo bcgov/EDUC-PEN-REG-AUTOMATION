@@ -26,8 +26,19 @@ getToken().then(async (data) => {
                 break
         }
 
+
+        function sleep(ms) {
+            return new Promise(
+              resolve => setTimeout(resolve, ms)
+            );
+          }
+
         const insertStudent = await helper.postStudentData(token, constants.studentApiUrl, payload.data[i])
         //console.log(insertStudent)
+        await sleep(1000);
+        
+            
+        
     }
 })
 
