@@ -1,5 +1,5 @@
 {
-    "browsers": "edge",
+    "browsers": "chrome:headless",
     "reporter": "list",
     "screenshots": {
         "path": "tests/e2e/screenshots/",
