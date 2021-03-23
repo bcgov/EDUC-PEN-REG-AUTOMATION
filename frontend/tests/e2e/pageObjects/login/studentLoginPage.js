@@ -42,11 +42,25 @@ class studentLoginPage {
     }
 
     async bceidLogin(credentials) {
+
+        try {
         await t
             .typeText(this.username, credentials.username)
             .typeText(this.password, credentials.password)
-            .click(this.submitButton);
+            .click(this.submitButton)
+            await t.expect((this.goToGmp).exists).ok()
         log.info("Student user successfully logged in with bceid    " + credentials.username)
+        }
+        catch(err){
+            await t.eval(() => location.reload())
+            log.warn("Element not found, Refreshing the page")
+            await t
+            .typeText(this.username, credentials.usernamess)
+            .typeText(this.password, credentials.password)
+            .click(this.submitButton)
+            await t.expect((this.goToGmp).exists).ok()
+        log.info("Student user successfully logged in with bceid    " + credentials.username)
+        }
     }
 
     async bcscLogin(credentials){
