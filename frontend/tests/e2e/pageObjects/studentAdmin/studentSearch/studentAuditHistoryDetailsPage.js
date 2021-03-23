@@ -12,9 +12,9 @@ class studentAuditHistoryDetailsPage {
 
 
         //Student information
-        this.usualSurname = Selector('#usualLastName')
-        this.usualGiven = Selector('#usualFirstName')
-        this.usualMiddle = Selector('#usualMiddleNames')
+        this.usualSurname = Selector('#UsualLastName')
+        this.usualGiven = Selector('#UsualFirstName')
+        this.usualMiddle = Selector('#UsualMiddleNames')
 
     }
 
