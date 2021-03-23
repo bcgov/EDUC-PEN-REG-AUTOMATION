@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "date-and-time": "^0.13.1",
+    "date-and-time": "^0.14.2",
     "dotenv": "^8.2.0",
     "faker": "4.1.0",
     "nconf": "^0.10.0",

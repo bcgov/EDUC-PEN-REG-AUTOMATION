@@ -261,7 +261,7 @@ class staffStudentSearchPage {
     }
 
     async verifyTableCell(data){
-        await t.wait(5000)
+        await t.wait(10000)
         const text = Selector('span').withExactText(data)
         await t.expect((text).exists).ok()
         log.info("Following Text verified    " + data)

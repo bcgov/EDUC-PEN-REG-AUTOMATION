@@ -64,7 +64,7 @@ class mailsacPage {
             }
             else {
                 await t.wait(10000)
-                await t.eval(() => location.reload(true))
+                await t.eval(() => location.reload())
                 log.warn("Element not found, Refreshing the page")
             }
         }
@@ -94,7 +94,7 @@ class mailsacPage {
             }
             else {
                 await t.wait(10000)
-                await t.eval(() => location.reload(true))
+                await t.eval(() => location.reload())
                 log.warn("Element not found, Refreshing the page")
             }
         }
@@ -115,7 +115,7 @@ class mailsacPage {
     }
     async confirmEmailVerified(data) {
         log.info('Email conformation text displayed as    ' + await this.emailVerifiedConformationtext.innerText)
-        assert.equal(data, await this.emailVerifiedConformationtext.innerText)
+        assert.strictEqual(data, await this.emailVerifiedConformationtext.innerText)
 
     }
 
