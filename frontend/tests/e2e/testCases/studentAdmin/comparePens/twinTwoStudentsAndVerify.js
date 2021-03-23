@@ -9,7 +9,7 @@ const menu = new staffHamburgerMenuPage()
 const compare = new comparePenNumbersPage()
 
 
-fixture`Staff Twin Two students and verify messages`
+fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

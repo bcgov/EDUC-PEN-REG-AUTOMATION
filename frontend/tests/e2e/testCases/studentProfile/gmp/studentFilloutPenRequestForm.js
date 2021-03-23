@@ -8,7 +8,7 @@ const studentLogin = new studentLoginPage()
 const penRequest = new penRequestForm()
 
 
-fixture`Bceid Login and Fill Pen request form`
+fixture`Student Profile`
   .page(studentProfileUrl)
   .beforeEach(async t => {
     await t.maximizeWindow()

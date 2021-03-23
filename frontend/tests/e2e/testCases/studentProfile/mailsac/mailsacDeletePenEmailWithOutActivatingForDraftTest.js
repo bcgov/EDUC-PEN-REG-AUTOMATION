@@ -5,7 +5,7 @@ import studentData from '../../../config/studentData/studentData.json'
 const mailsac = new mailsacPage()
 
 
-fixture`mailsac Delete pen activation email with out activating`
+fixture`Mailsac`
     .page(mailsacUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

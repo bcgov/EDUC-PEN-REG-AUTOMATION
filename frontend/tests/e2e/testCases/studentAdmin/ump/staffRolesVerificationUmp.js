@@ -11,7 +11,7 @@ const umpAction = new staffActionOnUmpPage()
 const umpPage = new staffUmpRequestsPage()
 const dashboard = new staffDashboardPage()
 
-fixture`Staff login and Can not perform any action on Ump request`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

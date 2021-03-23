@@ -16,7 +16,7 @@ const dashboard = new staffDashboardPage()
 const studentDetails = new studentDetailsPage()
 
 
-fixture`Staff Merge Two students and verify messages`
+fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

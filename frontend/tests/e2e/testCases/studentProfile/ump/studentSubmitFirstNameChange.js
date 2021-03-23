@@ -6,7 +6,7 @@ import updateMyPenInfoPage from '../../../pageObjects/studentProfile/ump/updateM
 const studentLogin = new studentLoginPage()
 const updatePage = new updateMyPenInfoPage()
 
-fixture`Student submit firstname change UMPI`
+fixture`Student Profile`
     .page(studentProfileUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

@@ -5,7 +5,7 @@ import studentInformationVerificationPage from '../../../pageObjects/studentProf
 const studentLogin = new studentLoginPage()
 const verify = new studentInformationVerificationPage()
 
-fixture`Verify student received pen number`
+fixture`Student Profile`
   .page(studentProfileUrl)
   .beforeEach(async t => {
     await t.maximizeWindow()

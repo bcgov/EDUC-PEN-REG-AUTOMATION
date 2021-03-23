@@ -7,7 +7,7 @@ import updateMyPenInfoPage from '../../../pageObjects/studentProfile/ump/updateM
 const studentLogin = new studentLoginPage()
 const updatePage = new updateMyPenInfoPage()
 
-fixture`Pen approved student submits gender change request`
+fixture`Student Profile`
     .page(studentProfileUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

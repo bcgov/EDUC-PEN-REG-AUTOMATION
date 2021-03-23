@@ -14,7 +14,7 @@ const studentDetails = new studentDetailsPage()
 const menu = new staffHamburgerMenuPage()
 const staffSearch = new staffStudentSearchPage()
 
-fixture`Staff login search update and reset student info`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

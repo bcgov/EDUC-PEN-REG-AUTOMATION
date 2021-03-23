@@ -15,7 +15,7 @@ const compare = new comparePenNumbersPage()
 
 
 
-fixture`Staff Demerge two students`
+fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

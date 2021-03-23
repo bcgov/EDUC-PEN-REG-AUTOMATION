@@ -12,7 +12,7 @@ const umpAction = new staffActionOnUmpPage()
 const dashboard = new staffDashboardPage()
 
 
-fixture`Staff login and request more information from student on Ump request`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

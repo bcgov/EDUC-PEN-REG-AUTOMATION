@@ -13,7 +13,7 @@ const studentDetails = new studentDetailsPage()
 const studentSearch = new staffStudentSearchPage()
 
 
-fixture`Staff create New Pen`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

@@ -10,7 +10,7 @@ const dashboard = new staffDashboardPage()
 const create = new createNewPenPage()
 const studentDetails = new studentDetailsPage()
 
-fixture`Session Timeout`
+fixture`Maintenance`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

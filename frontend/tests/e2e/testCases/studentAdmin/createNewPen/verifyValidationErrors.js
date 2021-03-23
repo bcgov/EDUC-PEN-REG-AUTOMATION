@@ -9,7 +9,7 @@ const menu = new staffHamburgerMenuPage()
 const create = new createNewPenPage()
 
 
-fixture`Staff verify validation errors on create new pen screen`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

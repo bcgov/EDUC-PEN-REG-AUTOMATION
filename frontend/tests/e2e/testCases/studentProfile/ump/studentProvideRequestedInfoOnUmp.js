@@ -7,7 +7,7 @@ import staffData from '../../../config/staffData/staffData.json'
 const studentLogin = new studentLoginPage()
 const provideInfo = new studentProvideInformationPage
 
-fixture`Student provide information UMPI`
+fixture`Student Profile`
     .page(studentProfileUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

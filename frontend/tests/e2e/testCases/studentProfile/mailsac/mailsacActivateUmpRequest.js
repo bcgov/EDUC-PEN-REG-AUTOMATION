@@ -6,7 +6,7 @@ import studentData from '../../../config/studentData/studentData.json'
 const mailsac = new mailsacPage()
 
 
-fixture`mailsac activate UMP request`
+fixture`Mailsac`
     .page(mailsacUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

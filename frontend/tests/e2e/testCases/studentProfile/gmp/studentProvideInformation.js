@@ -8,7 +8,7 @@ const studentLogin = new studentLoginPage()
 const studentProvideInformation = new studentProvideInformationPage
 
 
-fixture`Student respond with uploading identification document`
+fixture`Student Profile`
   .page(studentProfileUrl)
   .beforeEach(async t => {
     await t.maximizeWindow()

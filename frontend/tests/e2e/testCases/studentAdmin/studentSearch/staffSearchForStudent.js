@@ -9,7 +9,7 @@ const staffSearch = new staffStudentSearchPage()
 const dashboard = new staffDashboardPage()
 
 
-fixture`Staff login search for student`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

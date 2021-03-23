@@ -4,7 +4,7 @@ import { bceidCredentials, studentProfileUrl } from '../../../config/constants';
 const studentLogin = new studentLoginPage()
 
 
-fixture`Bceid Login and Verify GMP and UMP navigation`
+fixture`Navigation`
   .page(studentProfileUrl)
   .beforeEach(async t => {
     await t.maximizeWindow().setTestSpeed(0.5)

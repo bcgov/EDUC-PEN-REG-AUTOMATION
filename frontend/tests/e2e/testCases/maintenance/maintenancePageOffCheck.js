@@ -4,7 +4,7 @@ import { studentProfileUrl } from '../../config/constants';
 
 const studentLogin = new studentLoginPage()
 
-fixture`Bceid Login and verify Maintenance Page is Off`
+fixture`Maintenance`
     .page(studentProfileUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

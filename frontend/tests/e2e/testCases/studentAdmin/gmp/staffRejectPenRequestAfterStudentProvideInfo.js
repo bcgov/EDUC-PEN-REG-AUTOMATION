@@ -11,7 +11,7 @@ const penPage = new staffPenRetrievalRequestPage()
 const penAction = new staffActionOnPenPage()
 const dashboard = new staffDashboardPage()
 
-fixture`Staff login and Reject Pen Request after student provided information`
+fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

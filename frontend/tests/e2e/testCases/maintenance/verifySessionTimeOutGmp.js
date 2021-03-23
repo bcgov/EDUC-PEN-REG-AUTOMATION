@@ -14,7 +14,7 @@ const penPage = new staffPenRetrievalRequestPage()
 const penAction = new staffActionOnPenPage()
 const dashboard = new staffDashboardPage()
 
-fixture` Gmp Session Timeout`
+fixture`Maintenance`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

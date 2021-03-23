@@ -10,7 +10,7 @@ const staffSearch = new staffStudentSearchPage()
 const dashboard = new staffDashboardPage()
 const studentDetails = new studentDetailsPage()
 
-fixture`Staff login and verify twin record`
+fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()

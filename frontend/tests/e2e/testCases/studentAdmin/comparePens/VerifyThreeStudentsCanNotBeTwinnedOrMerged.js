@@ -8,7 +8,7 @@ const menu = new staffHamburgerMenuPage()
 const compare = new comparePenNumbersPage()
 
 
-fixture`Staff Verify Three students can not be twinned`
+fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
         await t.maximizeWindow()
