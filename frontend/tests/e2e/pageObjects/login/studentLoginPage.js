@@ -42,44 +42,39 @@ class studentLoginPage {
     }
 
     async bceidLogin(credentials) {
-
-        try {
-        await t
-            .typeText(this.username, credentials.username, { timeout: 20000 })
-            .typeText(this.password, credentials.password, { timeout: 20000 })
-            .click(this.submitButton)
-            await t.expect((this.goToGmp).exists).ok()
-        log.info("Student user successfully logged in with bceid    " + credentials.username)
-        }
-        catch(err){
-            await t.eval(() => location.reload())
-            log.warn("Element not found, Refreshing the page")
-            await t
-            .typeText(this.username, credentials.username, { timeout: 20000 })
-            .typeText(this.password, credentials.password, { timeout: 20000 })
-            .click(this.submitButton)
-            await t.expect((this.goToGmp).exists).ok()
-        log.info("Student user successfully logged in with bceid    " + credentials.username)
+        for (let i = 0; i < 10; i++) {
+            try {
+                await t
+                    .typeText(this.username, credentials.username, { timeout: 20000 })
+                    .typeText(this.password, credentials.password, { timeout: 20000 })
+                    .click(this.submitButton)
+                await t.expect((this.goToGmp).exists).ok()
+                log.info("Student user successfully logged in with bceid    " + credentials.username)
+                break
+            }
+            catch (err) {
+                await t.eval(() => location.reload())
+                log.warn("Element not found, Refreshing the page")
+            }
         }
     }
-
-    async bcscLogin(credentials){
+    async bcscLogin(credentials) {
         await t.click(this.virtualCardButton)
         await t.typeText(this.cardSerialNumberInput, credentials.cardNumber)
         await t.click(this.bcscContinueButton)
         await t.typeText(this.passcodeInput, credentials.passcode)
         await t.click(this.bcscContinueButton2)
         await t.click(this.bcscContinueButton2)
-        log.info("student successfully logged in with BCSC    "+ credentials.cardNumber)
+        log.info("student successfully logged in with BCSC    " + credentials.cardNumber)
     }
 
     async clickGetMyPen() {
-        await t.click(this.goToGmp , { timeout: 15000 })
+        await t.click(this.goToGmp, { timeout: 15000 })
         log.info("Get My Pen button is clicked")
     }
 
     async clickUpdateMyPen() {
-        await t.click(this.goToUmp , { timeout: 15000 })
+        await t.click(this.goToUmp, { timeout: 15000 })
         log.info("Update My Pen button is clicked")
     }
 
@@ -132,17 +127,17 @@ class studentLoginPage {
         }
     }
 
-    async clickOnDisplayName(){
+    async clickOnDisplayName() {
         await t.click(this.displayName)
         log.info("Clicked on display name")
     }
 
-    async clickHomeButton(){
+    async clickHomeButton() {
         await t.click(this.homeButton)
         log.info("Home button is clicked")
     }
 
-    async clickCancelButton(){
+    async clickCancelButton() {
         await t.click(this.cancelButton)
         log.info("Cancel Button is clicked")
     }
