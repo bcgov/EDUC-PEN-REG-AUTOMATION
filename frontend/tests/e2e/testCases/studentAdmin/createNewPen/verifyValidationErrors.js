@@ -17,7 +17,7 @@ fixture`Student Admin`
 
 test('Staff verify validation errors on create new pen screen test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await menu.clickHamburgerMenu()
 

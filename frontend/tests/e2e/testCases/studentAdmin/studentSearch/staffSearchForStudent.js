@@ -17,7 +17,7 @@ fixture`Student Admin`
 
 test('Staff login search for student test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickFullSearchButton()
 

@@ -17,7 +17,7 @@ fixture`Student Admin`
 
 test('Staff compare Pen test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await menu.clickHamburgerMenu()
 

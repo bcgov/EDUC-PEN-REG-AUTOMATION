@@ -18,7 +18,7 @@ fixture`Student Admin`
 
 test('Staff login and verify twin record  test', async t => {
 
-    await staffLogin.stafflogin(constants.idirAdminCredentials)
+    await staffLogin.stafflogin(constants.idirAdminCredentials,constants.staffLoginUrl)
 
     await dashboard.setPenNumber(constants.twinOnePen)
 

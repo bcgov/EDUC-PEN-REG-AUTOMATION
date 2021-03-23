@@ -19,7 +19,7 @@ fixture`Student Admin`
 
 test('Staff login and complete Ump request test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickViewUmpButton()
 

@@ -19,7 +19,7 @@ fixture`Student Admin`
 
 test('Staff login and Reject Pen Request test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickViewGmpButton()
 

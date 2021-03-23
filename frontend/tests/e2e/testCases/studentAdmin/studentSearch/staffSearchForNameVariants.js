@@ -17,7 +17,7 @@ fixture`Student Admin`
 
 test('Staff login and search for name variants test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickFullSearchButton()
 

@@ -18,7 +18,7 @@ fixture`Student Admin`
 
 test('Staff login and Reject Ump Request test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickViewUmpButton()
     

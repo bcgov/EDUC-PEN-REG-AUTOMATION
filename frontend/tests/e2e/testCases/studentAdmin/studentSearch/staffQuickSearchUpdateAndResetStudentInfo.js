@@ -22,7 +22,7 @@ fixture`Student Admin`
 
 test('Staff login search update and reset student info test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.setPenNumber(penNumber)
 

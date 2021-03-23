@@ -19,7 +19,7 @@ fixture`Student Admin`
 
 test('Staff login and Can not perform any action on Ump request test', async t => {
 
-    await staffLogin.stafflogin(idirReadOnlyCredentials)
+    await staffLogin.stafflogin(idirReadOnlyCredentials,staffLoginUrl)
 
     await dashboard.clickViewUmpButton()
 

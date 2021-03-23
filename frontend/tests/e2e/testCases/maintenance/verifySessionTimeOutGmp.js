@@ -22,7 +22,7 @@ fixture`Maintenance`
 
 test('Gmp Session Timeout test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickViewGmpButton()
 

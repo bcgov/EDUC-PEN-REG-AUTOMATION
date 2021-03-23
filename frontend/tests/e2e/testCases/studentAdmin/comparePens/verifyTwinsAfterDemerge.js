@@ -23,7 +23,7 @@ fixture`Student Admin`
 
 test('Staff verify twin records after demerge', async t => {
 
-    await staffLogin.stafflogin(constants.idirAdminCredentials)
+    await staffLogin.stafflogin(constants.idirAdminCredentials,constants.staffLoginUrl)
 
     await dashboard.setPenNumber(constants.mergeOnePen)
 

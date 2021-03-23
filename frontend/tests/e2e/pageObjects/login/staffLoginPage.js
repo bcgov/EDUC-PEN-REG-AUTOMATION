@@ -17,7 +17,7 @@ class staffLoginPage {
 
     }
 
-    async stafflogin(credentials) {
+    async stafflogin(credentials , url) {
 
         for (let i = 0; i < 10; i++) {
             try {
@@ -32,6 +32,9 @@ class staffLoginPage {
             catch (err) {
                 await t.eval(() => location.reload())
                 log.warn("Element not found, Refreshing the page")
+
+                await t.navigateTo(url)
+                log.info("Navigating to student admin")
                 // const getURL = await ClientFunction(() => window.location.href)();
                 // console.log(getURL)
             }

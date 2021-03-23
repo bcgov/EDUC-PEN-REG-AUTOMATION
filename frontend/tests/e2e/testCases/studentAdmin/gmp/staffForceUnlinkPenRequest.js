@@ -19,7 +19,7 @@ fixture`Student Admin`
 
 test('Staff login and issue pen and force unlink student', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickViewGmpButton()
 

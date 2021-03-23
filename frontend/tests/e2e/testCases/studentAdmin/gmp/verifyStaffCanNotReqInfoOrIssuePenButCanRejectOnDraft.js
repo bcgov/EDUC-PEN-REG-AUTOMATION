@@ -19,7 +19,7 @@ fixture`Student Admin`
 
 test('Staff login and can not request more information/issue Pen  but can reject Draft request test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.clickViewGmpButton()
 

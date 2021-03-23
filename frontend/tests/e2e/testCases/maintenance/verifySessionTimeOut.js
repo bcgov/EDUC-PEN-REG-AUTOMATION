@@ -18,7 +18,7 @@ fixture`Maintenance`
 
 test('Session Timeout test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials)
+    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 
     await dashboard.setPenNumber(penNumber)
 

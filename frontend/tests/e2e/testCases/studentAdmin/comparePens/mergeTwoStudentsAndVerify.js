@@ -24,7 +24,7 @@ fixture`Student Admin`
 
 test('Staff Merge Two students and verify messages test', async t => {
 
-    await staffLogin.stafflogin(constants.idirAdminCredentials)
+    await staffLogin.stafflogin(constants.idirAdminCredentials,constants.staffLoginUrl)
 
     await menu.clickHamburgerMenu()
 
