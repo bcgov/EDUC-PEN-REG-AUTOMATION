@@ -45,8 +45,8 @@ class studentLoginPage {
 
         try {
         await t
-            .typeText(this.username, credentials.username)
-            .typeText(this.password, credentials.password)
+            .typeText(this.username, credentials.username, { timeout: 20000 })
+            .typeText(this.password, credentials.password, { timeout: 20000 })
             .click(this.submitButton)
             await t.expect((this.goToGmp).exists).ok()
         log.info("Student user successfully logged in with bceid    " + credentials.username)
@@ -55,8 +55,8 @@ class studentLoginPage {
             await t.eval(() => location.reload())
             log.warn("Element not found, Refreshing the page")
             await t
-            .typeText(this.username, credentials.usernamess)
-            .typeText(this.password, credentials.password)
+            .typeText(this.username, credentials.username, { timeout: 20000 })
+            .typeText(this.password, credentials.password, { timeout: 20000 })
             .click(this.submitButton)
             await t.expect((this.goToGmp).exists).ok()
         log.info("Student user successfully logged in with bceid    " + credentials.username)
