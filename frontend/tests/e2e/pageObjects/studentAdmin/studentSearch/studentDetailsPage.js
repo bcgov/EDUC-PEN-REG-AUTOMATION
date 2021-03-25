@@ -36,6 +36,7 @@ class studentDetailsPage {
         // tab related Selectors
         this.demographicsTabLink = Selector('strong').withText('Demographics')
         this.auditHistoryTabLink = Selector('strong').withText('Audit History')
+        this.sldHistoryTabLink = Selector('strong').withText('SLD History')
 
 
         //Demerge related
@@ -317,5 +318,9 @@ class studentDetailsPage {
     }
 
 
+    async clickSldHistoryTabLink(){
+        await t.click(this.sldHistoryTabLink)
+        log.info("Sld history tab link clicked")
+    }
 
 } export default studentDetailsPage

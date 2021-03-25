@@ -20,5 +20,9 @@
         "usualLastName": "HISTORY",
         "usualFirstName": "HISTORY",
         "usualMiddleNames": "HISTORY"
+    },
+
+    "sld": {
+        "legalFirstName": "SMITH"
     }
 }
