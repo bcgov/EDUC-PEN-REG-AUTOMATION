@@ -57,10 +57,10 @@ class studentAuditHistoryDetailsPage {
         log.info("Updates verified")
     }
 
-    async verifyStudentInformationReverted(){
-        await t.expect(this.usualSurname.value).eql('')
-        await t.expect(this.usualGiven.value).eql('')
-        await t.expect(this.usualMiddle.value).eql('')
+    async verifyStudentInformationReverted(studentData){
+        await t.expect(this.usualSurname.value).eql(studentData.data.usualLastName)
+        await t.expect(this.usualGiven.value).eql(studentData.data.usualFirstName)
+        await t.expect(this.usualMiddle.value).eql(studentData.data.usualMiddleNames)
         log.info("Reverts verified")
     }
 

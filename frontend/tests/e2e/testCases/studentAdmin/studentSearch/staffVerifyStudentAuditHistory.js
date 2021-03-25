@@ -25,6 +25,12 @@ test('Staff login search update and reset student info test', async t => {
 
     await dashboard.clickQuickSearchButton()
 
+    await studentDetails.clickCompareModelButton()
+
+    await studentDetails.verifyUsualNameNotDisplayedOnCompareModel()
+
+    await studentDetails.clickCompareModelCancelButton()
+
     await studentDetails.clickAuditHistoryTab()
 
     await audit.clickOnAuditRecord("STUDENT-API")
@@ -43,6 +49,16 @@ test('Staff login search update and reset student info test', async t => {
 
     await studentDetails.clickAuditHistoryTab()
 
+    await studentDetails.clickDemographicsTab()
+
+    await studentDetails.clickCompareModelButton()
+
+    await studentDetails.verifyUsualNameDisplayedOnCompareModel(studentData)
+
+    await studentDetails.clickCompareModelCancelButton()
+
+    await studentDetails.clickAuditHistoryTab()
+
     await audit.clickOnAuditRecord(idirAdminCredentials.username)
 
     await audit.verifyStudentInformationUpdated(studentData.updates)
@@ -55,6 +71,12 @@ test('Staff login search update and reset student info test', async t => {
 
     await audit.clickOnAuditRecord(idirAdminCredentials.username)
 
-    await audit.verifyStudentInformationReverted()
+    await audit.verifyStudentInformationReverted(studentData)
 
+    await studentDetails.clickDemographicsTab()
+
+    await studentDetails.clickCompareModelButton()
+
+    await studentDetails.verifyUsualNameNotDisplayedOnCompareModel()
+   
 });

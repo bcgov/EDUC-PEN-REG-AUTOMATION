@@ -45,6 +45,10 @@ class studentDetailsPage {
         this.noButton = Selector('#rejectBtn')
         this.yesButton = Selector('#resolveBtn')
 
+        //Compare model 
+        this.compareModelButton = Selector('#studentSearchCompareButton')
+        this.compareModelCancelButton = Selector('#compareModalCancelBtn')
+
     }
 
     async setPen(data) {
@@ -278,6 +282,38 @@ class studentDetailsPage {
     async clickPopUpYesButton() {
         await t.click(this.yesButton)
         log.info("pop up yes button clicked")
+    }
+
+    async clickCompareModelButton(){
+        await t.click(this.compareModelButton)
+        log.info("compare model button clicked")
+    }
+
+    async clickCompareModelCancelButton(){
+        await t.click(this.compareModelCancelButton)
+        log.info("cancel button clicked on compare model")
+    }
+
+    async verifyUsualNameNotDisplayedOnCompareModel(){
+        await t.wait(3000)
+        this.modelUsualLastname = Selector('div:nth-of-type(2) > span:nth-of-type(5)')
+        this.modelUsualFirstname = Selector('div:nth-of-type(2) > span:nth-of-type(6)')
+        this.modelUsualMiddlenames = Selector('div:nth-of-type(2) > span:nth-of-type(7)')
+        await t.expect(this.modelUsualLastname.innerText).eql('')
+        await t.expect(this.modelUsualFirstname.innerText).eql('')
+        await t.expect(this.modelUsualMiddlenames.innerText).eql('')
+        log.info("usual names are not displayed")
+    }
+
+    async verifyUsualNameDisplayedOnCompareModel(studentData){
+        await t.wait(3000)
+        this.modelUsualLastname = Selector('div:nth-of-type(2) > span:nth-of-type(5)')
+        this.modelUsualFirstname = Selector('div:nth-of-type(2) > span:nth-of-type(6)')
+        this.modelUsualMiddlenames = Selector('div:nth-of-type(2) > span:nth-of-type(7)')
+        await t.expect(this.modelUsualLastname.innerText).eql(studentData.updates.usualLastName)
+        await t.expect(this.modelUsualFirstname.innerText).eql(studentData.updates.usualFirstName)
+        await t.expect(this.modelUsualMiddlenames.innerText).eql(studentData.updates.usualMiddleNames)
+        log.info("usual names are not displayed")
     }
 
 
