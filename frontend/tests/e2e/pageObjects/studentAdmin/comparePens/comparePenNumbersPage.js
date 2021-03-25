@@ -55,9 +55,8 @@ class comparePenNumbersPage {
     }
 
     async verifyMessage(data) {
-        await t.wait(2000)
-        const element = (Selector('div').withText(data)).exists
-        await t.expect(element).ok()
+        let element = Selector('div').withText(data).with({timeout: 30000})
+        await t.expect(element.exists).ok({timeout: 30000})
         log.info(data + " Message verified")
     }
 
