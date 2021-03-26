@@ -77,6 +77,7 @@ module.exports.mailsacCredentials = Object.freeze({
 module.exports.penNumber =  config.get('penNumber')
 module.exports.penMerged =  config.get('penMerged')
 module.exports.penStudentHistory = config.get('penStudentHistory')
+module.exports.penSplit = config.get('penSplit')
 
 //Twin and Merge related Pen numbers
 module.exports.twinOnePen =  config.get('twinOnePen')

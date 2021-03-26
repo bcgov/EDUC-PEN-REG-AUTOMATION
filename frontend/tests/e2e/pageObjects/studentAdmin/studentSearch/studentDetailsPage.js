@@ -58,7 +58,7 @@ class studentDetailsPage {
     }
 
     async setLegalSurname(data) {
-        await t.typeText(this.legalSurname, data, { paste: true })
+        await t.typeText(this.legalSurname, data, { replace: true })
         log.info("legal surname is set")
     }
 
@@ -77,7 +77,7 @@ class studentDetailsPage {
     }
 
     async setLegalGiven(data) {
-        await t.typeText(this.legalGiven, data, { paste: true })
+        await t.typeText(this.legalGiven, data, { replace: true })
         log.info("legal given name is set")
     }
 
@@ -96,7 +96,7 @@ class studentDetailsPage {
     }
 
     async setLegalMiddle(data) {
-        await t.typeText(this.legalMiddle, data, { paste: true })
+        await t.typeText(this.legalMiddle, data, { replace: true })
         log.info("legal middle name is set")
     }
 
@@ -250,9 +250,9 @@ class studentDetailsPage {
     }
 
     async verifyLegalNames(data) {
-        await t.expect(this.legalSurname.value).eql(data.legalLastName)
-        await t.expect(this.legalGiven.value).eql(data.legalFirstName)
-        await t.expect(this.legalMiddle.value).eql(data.legalMiddleNames)
+        await t.expect(this.legalSurname.value).eql(data.legalLastName,{ timeout: 30000 })
+        await t.expect(this.legalGiven.value).eql(data.legalFirstName,{ timeout: 10000 })
+        await t.expect(this.legalMiddle.value).eql(data.legalMiddleNames,{ timeout: 10000 })
         log.info("Legal names verified")
     }
 
@@ -321,6 +321,12 @@ class studentDetailsPage {
     async clickSldHistoryTabLink(){
         await t.click(this.sldHistoryTabLink)
         log.info("Sld history tab link clicked")
+    }
+
+    async clickOnTwinPenNumber(){
+        const tableCell = Selector(' table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(1) > td:nth-of-type(2) > a:nth-of-type(1)')
+        await t.click(tableCell)
+        log.info("clicked on twin pen number")
     }
 
 } export default studentDetailsPage

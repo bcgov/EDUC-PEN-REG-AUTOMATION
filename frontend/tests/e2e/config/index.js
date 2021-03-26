@@ -61,6 +61,7 @@ nconf.defaults({
   penNumber: process.env.PEN_NUMBER,
   penMerged: process.env.PEN_MERGED,
   penStudentHistory: process.env.PEN_STUDENT_HISTORY,
+  penSplit: process.env.PEN_SPLIT,
 
   twinOnePen: process.env.TWIN_ONE_PEN,
   twinTwoPen: process.env.TWIN_TWO_PEN,
