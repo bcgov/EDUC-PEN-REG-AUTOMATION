@@ -63,13 +63,9 @@ test('Staff login, search and split students test', async t => {
 
     await audit.clickAcceptSplitPenButton()
 
-
-
-//Need to test the remaining code
+    await dashboard.maximizeWindow()
 
     await studentDetails.verifyLegalNames(studentData.updates)
-
-    await dashboard.maximizeWindow()
 
     await studentDetails.clickOnTwinRecordYes()
 
@@ -77,26 +73,8 @@ test('Staff login, search and split students test', async t => {
 
     await studentDetails.clickOnTableCell(penSplit)
 
+    await dashboard.maximizeWindow()
+
     await studentDetails.verifyLegalNames(studentData.data)
-
-    await dashboard.maximizeWindow()
-
-    await studentDetails.clickAuditHistoryTab()
-
-    await audit.clickOnAuditRecord("Split New")
-
-    await audit.verifyStudentInformationReverted(studentData)
-
-    await studentDetails.clickDemographicsTab()
-
-    await studentDetails.clickOnTwinRecordYes()
-
-    await studentDetails.verifyTwinsNumber("1 Twins")
-
-    await studentDetails.clickOnTwinPenNumber()
-
-    await studentDetails.verifyLegalNames(studentData.updates)
-
-    await dashboard.maximizeWindow()
 
 });
