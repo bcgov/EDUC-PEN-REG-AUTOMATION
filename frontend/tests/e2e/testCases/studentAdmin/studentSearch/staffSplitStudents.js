@@ -73,8 +73,8 @@ test('Staff login, search and split students test', async t => {
 
     await studentDetails.clickOnTableCell(penSplit)
 
-    await dashboard.maximizeWindow()
+    // await dashboard.maximizeWindow()
 
-    await studentDetails.verifyLegalNames(studentData.data)
+    // await studentDetails.verifyLegalNames(studentData.data)
 
 });

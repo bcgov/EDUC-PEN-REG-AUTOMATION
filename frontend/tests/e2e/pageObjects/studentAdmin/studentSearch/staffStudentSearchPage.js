@@ -63,7 +63,7 @@ class staffStudentSearchPage {
         this.gender = Selector('#gender')
         this.nameVariantCheckBox = Selector('#searchNameVariantsCheckbox')
         this.searchAuditHistoryCheckBox = Selector('#searchAuditHistoryCheckbox')
-        
+
     }
 
     async setPen(data) {
@@ -82,7 +82,7 @@ class staffStudentSearchPage {
     }
 
     async setLegalGiven(data) {
-        await t.typeText(this.legalGiven, data , { replace: true })
+        await t.typeText(this.legalGiven, data, { replace: true })
         log.info("legal given name is set")
     }
 
@@ -164,16 +164,21 @@ class staffStudentSearchPage {
 
         await t.expect(this.legalSurnameSearchResult.innerText).eql(data.legalSurnameSearchResult)
 
-        await t.expect(this.usualSurnameSearchResult.innerText).eql(data.usualSurnameSearchResult)
+        if (data.legalSurnameSearchResult != data.usualSurnameSearchResult) {
+            await t.expect(this.usualSurnameSearchResult.innerText).eql(data.usualSurnameSearchResult)
+        }
 
         await t.expect(this.legalGivennameSearchResult.innerText).eql(data.legalGivennameSearchResult)
 
-        await t.expect(this.usualGivennameSearchResult.innerText).eql(data.usualGivennameSearchResult)
+        if (data.legalGivennameSearchResult != data.usualGivennameSearchResult) {
+            await t.expect(this.usualGivennameSearchResult.innerText).eql(data.usualGivennameSearchResult)
+        }
 
         await t.expect(this.legalMiddlenameSearchResult.innerText).eql(data.legalMiddlenameSearchResult)
 
-        await t.expect(this.usualMiddlenameSearchResult.innerText).eql(data.usualMiddlenameSearchResult)
-
+        if (data.legalMiddlenameSearchResult != data.usualMiddlenameSearchResult) {
+            await t.expect(this.usualMiddlenameSearchResult.innerText).eql(data.usualMiddlenameSearchResult)
+        }
         await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
 
         await t.expect(this.memoSearchResult.innerText).eql(data.memoSearchResult)
@@ -209,17 +214,17 @@ class staffStudentSearchPage {
 
     async verifyClearButtonAction() {
         await t
-        .wait(5)
-        .expect(this.birthYearEnd.count).eql(1)
+            .wait(5)
+            .expect(this.birthYearEnd.count).eql(1)
 
         await t.click(this.clearButon)
         await t
-        .wait(5)
-        .expect(this.birthYearEnd.count).eql(0)
+            .wait(5)
+            .expect(this.birthYearEnd.count).eql(0)
         log.info("clear button functionality verified")
     }
 
-    async verifyDetailsOfNewPenCreated(studentData){
+    async verifyDetailsOfNewPenCreated(studentData) {
 
         await t.expect(this.legalSurnameSearchResult.innerText).eql(studentData.legalSurname, { timeout: 15000 })
 
@@ -255,12 +260,12 @@ class staffStudentSearchPage {
     }
 
 
-    async clickSearchNameVariantsCheckBox(){
+    async clickSearchNameVariantsCheckBox() {
         await t.click(this.nameVariantCheckBox, { timeout: 3000 })
         log.info("Search name variants checkbox selected")
     }
 
-    async verifyTableCell(data){
+    async verifyTableCell(data) {
         await t.wait(10000)
         const text = Selector('span').withExactText(data)
         await t.expect((text).exists).ok()
