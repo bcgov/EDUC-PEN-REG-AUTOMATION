@@ -181,7 +181,7 @@ class staffStudentSearchPage {
         }
         await t.expect(this.postalCodeSearchResult.innerText).eql(data.postalCodeSearchResult)
 
-        await t.expect(this.memoSearchResult.innerText).eql(data.memoSearchResult)
+        // await t.expect(this.memoSearchResult.innerText).eql(data.memoSearchResult)
 
         await t.expect(this.dcSearchResult.innerText).eql(data.dcSearchResult)
 
