@@ -111,8 +111,5 @@ class comparePenNumbersPage {
         log.info("pop up yes button clicked")
     }
 
-    async verifyMergeMessage() {
-
-    }
 }
 export default comparePenNumbersPage
