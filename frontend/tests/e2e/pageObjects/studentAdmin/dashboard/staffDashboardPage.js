@@ -11,7 +11,7 @@ class staffDashboardPage {
         this.viewUmpButton = Selector('#UpdateMyPENBtn')
         this.penNumberInput = Selector('#penTextField')
         this.quickSearchButton = Selector('#quickSearchBtn')
-        this.fullSearchButton = Selector('span').withText('Advanced Student Search')
+        this.fullSearchButton = Selector('#advanceSearchBtn')
 
     }
 
