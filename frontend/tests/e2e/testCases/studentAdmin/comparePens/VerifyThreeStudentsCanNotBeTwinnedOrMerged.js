@@ -34,11 +34,11 @@ test('Staff Verify Three students can not be twinned test', async t => {
 
     await compare.clickAddPenButton()
 
+    await compare.selectStudentRecord(3)
+
     await compare.selectStudentRecord(4)
 
     await compare.selectStudentRecord(5)
-
-    await compare.selectStudentRecord(6)
 
     await compare.verifyTwinButtonDisabled()
 

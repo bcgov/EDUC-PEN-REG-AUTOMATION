@@ -39,7 +39,7 @@ test('Staff Demerge two students test', async t => {
 
     await studentDetails.clickPopUpYesButton()
 
-    await compare.verifyMessage(staffData.DemergeSuccessMessage)
+    // await compare.verifyMessage(staffData.DemergeSuccessMessage)
 
     await studentDetails.clickOnTwinRecordYes()
 

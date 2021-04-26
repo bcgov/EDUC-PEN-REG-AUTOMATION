@@ -38,9 +38,9 @@ test('Staff Merge Two students and verify messages test', async t => {
 
     await compare.clickAddPenButton()
 
-    await compare.selectStudentRecord(4)
+    await compare.selectStudentRecord(3)
 
-    await compare.selectStudentRecord(5)
+    await compare.selectStudentRecord(4)
 
     await compare.clickMergePensButton()
 
