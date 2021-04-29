@@ -46,8 +46,8 @@
     "twinStudents": "node tests/e2e/testSuites/comparePensE2E/twinStudentSuite.js",
     "mergeAndDemergeStudents": "node tests/e2e/testSuites/comparePensE2E/mergeAndDemergeStudentsSuite.js",
     "studentSldHistory": "node tests/e2e/testSuites/searchE2E/studentSldHistorySuite.js",
-    "insertStudentForSplit":"node tests/e2e/testCases/studentProfile/gmp/insertStudentForSplit.js",
-    "deleteSplitStudents":"node tests/e2e/testCases/studentProfile/gmp/deleteSplitStudents.js",
+    "insertStudentForSplit": "node tests/e2e/testCases/studentProfile/gmp/insertStudentForSplit.js",
+    "deleteSplitStudents": "node tests/e2e/testCases/studentProfile/gmp/deleteSplitStudents.js",
     "splitStudents": "node tests/e2e/testSuites/searchE2E/staffSplitStudents.js"
   },
   "dependencies": {
@@ -58,7 +58,7 @@
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
     "simple-encryptor": "^4.0.0",
-    "testcafe": "^1.13.0"
+    "testcafe": "^1.14.0"
   },
   "engines": {
     "node": ">= 6.0.0",
