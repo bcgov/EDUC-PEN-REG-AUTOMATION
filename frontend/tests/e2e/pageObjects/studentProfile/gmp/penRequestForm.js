@@ -20,6 +20,7 @@ class penRequestForm {
         this.bottomCheckBox = Selector('#acceptance_chk')
         this.submitForm = Selector('#submit_form')
         this.submitConfirmation = Selector('strong:nth-child(1)')
+        this.nextButton = Selector('#next-step')
 
     }
 
@@ -109,6 +110,8 @@ class penRequestForm {
         if (submitBool === true) {
             await t.click(this.submitForm)
             log.info("Submit button is clicked")
+            await t.click(this.nextButton)
+            log.info("Clicked on next button")
             await t.wait(2000)
             await t.expect(await this.submitConfirmation.innerText).eql(studentData.penRequestSubmissionConfirmationText, { timeout: 180000 })
             log.info('Submit confirmation text displayed')
