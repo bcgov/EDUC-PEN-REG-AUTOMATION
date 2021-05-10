@@ -8,7 +8,7 @@ class comparePenNumbersPage {
 
         this.penNumberTextField = Selector('#enterAPenTxtField')
         this.addPenButton = Selector('#addPenBtn')
-        this.removePenLink = Selector('a').withText('Remove PEN')
+        this.removePenLink = Selector('a').withText('Remove Student')
         this.clearButton = Selector('#compareClearBtn')
 
 
