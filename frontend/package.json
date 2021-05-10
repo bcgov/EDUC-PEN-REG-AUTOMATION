@@ -48,7 +48,9 @@
     "studentSldHistory": "node tests/e2e/testSuites/searchE2E/studentSldHistorySuite.js",
     "insertStudentForSplit": "node tests/e2e/testCases/studentProfile/gmp/insertStudentForSplit.js",
     "deleteSplitStudents": "node tests/e2e/testCases/studentProfile/gmp/deleteSplitStudents.js",
-    "splitStudents": "node tests/e2e/testSuites/searchE2E/staffSplitStudents.js"
+    "splitStudents": "node tests/e2e/testSuites/searchE2E/staffSplitStudents.js",
+    "penMatch": "node tests/e2e/testCases/studentAdmin/penMatch/penMatchVersionTwo.js",
+    "getToken": "node tests/e2e/helpers/getToken.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
