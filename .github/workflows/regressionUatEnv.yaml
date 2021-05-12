@@ -14,8 +14,8 @@ jobs:
         working-directory: frontend
     steps:
       - uses: actions/checkout@v2
-        with:
-         ref: Uat
+        # with:
+        #  ref: Uat
 
       - name: Use Node.js
         uses: actions/setup-node@v1
