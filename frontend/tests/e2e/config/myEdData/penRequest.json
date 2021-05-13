@@ -1,0 +1,35 @@
+{
+  "dataSet": [
+    {
+      "mincode": "08787010",
+      "localStudentID": "A5XJFDTLJ6",
+      "legalSurname": "AUTOMATION",
+      "legalGivenName": "TESTER",
+      "legalMiddleName": "PEN",
+      "usualSurname": null,
+      "usualGivenName": null,
+      "usualMiddleName": null,
+      "birthDate": "19991201",
+      "gender": "M",
+      "enrolledGradeCode": "10",
+      "postalCode": "V1V1V1",
+      "createUser": "E2E",
+      "updateUser": "E2E"
+    },
+    {
+      "validationIssues": null,
+      "mincode": 8787010,
+      "localStudentID": "A5XJFDTLJ6",
+      "legalSurname": "AUTOMATION",
+      "legalGivenName": "TESTER",
+      "legalMiddleName": "PEN",
+      "usualSurname": "AUTOMATION",
+      "usualGivenName": "TESTER",
+      "usualMiddleName": "PEN",
+      "birthDate": "19991201",
+      "gender": "M",
+      "enrolledGradeCode": "10",
+      "postalCode": "V1V1V1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+    "dataSet": [
+        {
+            "districtNumber": "038",
+            "schoolNumber": "96563",
+            "mincode": "03896563"
+        },
+        {
+            "districtNumber": "102",
+            "schoolNumber": "00016",
+            "mincode": "10200016"
+        },
+        {
+            "districtNumber": "062",
+            "schoolNumber": "62021",
+            "mincode": "06262021"
+        },
+        {
+            "districtNumber": "059",
+            "schoolNumber": "59005",
+            "mincode": "05959005"
+        }
+    ]
+}

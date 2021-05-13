@@ -50,7 +50,10 @@
     "deleteSplitStudents": "node tests/e2e/testCases/studentProfile/gmp/deleteSplitStudents.js",
     "splitStudents": "node tests/e2e/testSuites/searchE2E/staffSplitStudents.js",
     "penMatch": "node tests/e2e/testCases/studentAdmin/penMatch/penMatchVersionTwo.js",
-    "getToken": "node tests/e2e/helpers/getToken.js"
+    "getToken": "node tests/e2e/helpers/getToken.js",
+    "myEdPenRequest": "node tests/e2e/testcases/myEd/penRequest.js",
+    "myEdPenCoordinators": "node tests/e2e/testcases/myEd/penCoordinators.js",
+    "mEdStudents": "node tests/e2e/testcases/myEd/students.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
