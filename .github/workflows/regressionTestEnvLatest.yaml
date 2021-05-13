@@ -139,6 +139,32 @@ jobs:
           DELETE_DIGITAL_ID: ${{secrets.TRUE}}
           PEN_SPLIT: ${{ secrets.PEN_SPLIT }}
 
+      - run: npm run myEdPenRequest
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+
+      - run: npm run myEdPenCoordinators
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_DEV }}
+
+      - run: npm run myEdStudents
+        if: ${{ always() }}
+        env:
+          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
+          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+
 
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}

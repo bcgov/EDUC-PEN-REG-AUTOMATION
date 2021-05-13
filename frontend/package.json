@@ -53,7 +53,7 @@
     "getToken": "node tests/e2e/helpers/getToken.js",
     "myEdPenRequest": "node tests/e2e/testcases/myEd/penRequest.js",
     "myEdPenCoordinators": "node tests/e2e/testcases/myEd/penCoordinators.js",
-    "mEdStudents": "node tests/e2e/testcases/myEd/students.js"
+    "myEdStudents": "node tests/e2e/testcases/myEd/students.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
