@@ -19,7 +19,7 @@ class comparePenNumbersPage {
 
         //Merge screen related
         this.memo = Selector('#memo')
-        this.mergeButton = Selector('span').withText('Merge')
+        this.mergeButton = Selector('button.v-btn.v-btn--contained.theme--dark.v-size--default:nth-child(2)')
 
         //Pop up buttons
         this.noButton = Selector('#rejectBtn')
