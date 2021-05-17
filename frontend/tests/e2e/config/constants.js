@@ -36,7 +36,7 @@ module.exports.getTokenUrl = 'https://soam-'+ module.exports.token_environment +
 module.exports.pagenatedUrl = 'https://pen-request-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/paginated';
 module.exports.penRequestApiUrl = 'https://pen-request-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/';
 module.exports.studentApiUrl = 'https://student-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/student/'
-module.exports.digitalIdApiUrl = 'https://digitalid-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
+module.exports.digitalIdApiUrl = 'https://digitalid-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/digital-id/'
 module.exports.studentProfileApiUrl = 'https://student-profile-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
 module.exports.penMatchApiUrl = 'https://pen-match-api-' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/pen-match'
 module.exports.penWebUrl = config.get('PenWeb:url');
@@ -89,11 +89,17 @@ module.exports.mergeOnePen =  config.get('mergeOnePen')
 module.exports.mergeTwoPen =  config.get('mergeTwoPen')
 module.exports.mergeThreePen =  config.get('mergeThreePen')
 
-
-
-
 //School login credentials
 module.exports.penWebCredentials = Object.freeze({
   username: config.get('PenWeb:user'),
   password: config.get('PenWeb:pass')
+});
+
+//JB page related
+module.exports.JB = Object.freeze({
+  jbGmpPage: config.get('JB:jbGmpPage'),
+  jbUmpPage: config.get('JB:jbUmpPage'),
+  jbRegisterPage: config.get('JB:jbRegisterPage'),
+  gmpPage: config.get('JB:gmpPage'),
+  umpPage: config.get('JB:umpPage')
 });

@@ -14,10 +14,13 @@ class staffLoginPage {
         //Dashboard related
         this.viewGmpButton = Selector('#GetMyPENBtn')
 
+        //Jb page related
+        this.registerButton = Selector('a').withText('Register')
+
 
     }
 
-    async stafflogin(credentials , url) {
+    async stafflogin(credentials, url) {
 
         for (let i = 0; i < 10; i++) {
             try {
@@ -39,6 +42,16 @@ class staffLoginPage {
                 // console.log(getURL)
             }
         }
+    }
+
+    async jbPageIdirLogin(credentials) {
+        await t
+            .typeText(this.username, credentials.username, { timeout: 20000 })
+            .typeText(this.password, credentials.password, { timeout: 20000 })
+            .click(this.submitButton)
+
+        await t.expect((this.registerButton).exists).ok()
+        log.info("JB page Idir login successful")
     }
 
 }

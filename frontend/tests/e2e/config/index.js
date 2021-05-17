@@ -75,6 +75,14 @@ nconf.defaults({
     url: process.env.PENWEB_URL,
     user: process.env.PENWEB_USER,
     pass: process.env.PENWEB_PASS
+  },
+
+  JB: {
+    jbGmpPage: process.env.JB_GMP_PAGE_URL,
+    jbUmpPage: process.env.JB_UMP_PAGE_URL,
+    jbRegisterPage: process.env.REGISTER_PAGE_URL,
+    gmpPage: process.env.GMP_PAGE_URL,
+    umpPage: process.env.UMP_PAGE_URL
   }
 
 });

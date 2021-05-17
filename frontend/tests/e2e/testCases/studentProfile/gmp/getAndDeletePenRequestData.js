@@ -94,7 +94,7 @@ getToken().then(async (data) => {
             //console.log(payload)
 
             //Unlink digital ID and student ID
-            const unlinkDigitalID = await helper.putData(token, `${constants.digitalIdApiUrl}`, payload)
+            const unlinkDigitalID = await helper.putData(token, `${constants.digitalIdApiUrl}${digitalID}`, payload)
             console.log(unlinkDigitalID.studentID)
 
             if (constants.delete_digital_id === "true") {
