@@ -142,14 +142,24 @@ class studentLoginPage {
         log.info("Cancel Button is clicked")
     }
 
-    async jbPageBceidLogin(credentials){
-        await t
-        .typeText(this.username, credentials.username, { timeout: 20000 })
-        .typeText(this.password, credentials.password, { timeout: 20000 })
-        .click(this.submitButton)
+    async jbPageBceidLogin(credentials) {
+        for (let i = 0; i < 10; i++) {
+            try {
+                await t
+                    .typeText(this.username, credentials.username, { timeout: 20000 })
+                    .typeText(this.password, credentials.password, { timeout: 20000 })
+                    .click(this.submitButton)
 
-        await t.expect((this.cancelButton).exists).ok()
-        log.info("JB page Bceid login successful")
+                await t.expect((this.cancelButton).exists).ok()
+                log.info("JB page Bceid login successful")
+                break
+            }
+            catch (err) {
+                await t.eval(() => location.reload())
+                log.warn("Element not found, Refreshing the page")
+            }
+        }
+
     }
 }
 
