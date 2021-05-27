@@ -121,7 +121,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_GMP}}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -145,7 +145,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_GMP}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
