@@ -19,9 +19,11 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm install
+        env: 
+          NODE_OPTIONS: '--max-http-header-size=17000'
       - run: echo %NODE_OPTIONS%
       - run: set NODE_OPTIONS="--max-http-header-size=17000"
-      - run: $env:NODE_OPTIONS='--max-http-header-size=17000'
+      - run: $env:NODE_OPTIONS='--max-http-header-size=17000'        
 
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
