@@ -83,7 +83,9 @@ nconf.defaults({
     jbRegisterPage: process.env.REGISTER_PAGE_URL,
     gmpPage: process.env.GMP_PAGE_URL,
     umpPage: process.env.UMP_PAGE_URL
-  }
+  },
+
+  studentEntryPoint : process.env.STUDENT_ENTRY_POINT
 
 });
 

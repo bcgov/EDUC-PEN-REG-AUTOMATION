@@ -29,12 +29,14 @@ module.exports.pen_request_user_type = config.get('token:pen_request_user_type')
 
 //URLs
 module.exports.studentProfileUrl = 'https://'+ module.exports.pen_environment +'.getmypen.gov.bc.ca/api/auth/login_bceid'
+module.exports.studentProfileUrlGmp = 'https://'+ module.exports.pen_environment +'.getmypen.gov.bc.ca/api/auth/logout?loginBceidGMP=true'
+module.exports.studentProfileUrlUmp = 'https://'+ module.exports.pen_environment +'.getmypen.gov.bc.ca/api/auth/logout?loginBceidUMP=true'
 module.exports.studentProfileUrlBcsc = 'https://'+ module.exports.pen_environment +'.getmypen.gov.bc.ca/api/auth/logout?loginBcsc=true'
 module.exports.staffLoginUrl = 'https://student-admin-' + module.exports.pen_namespace + '-' + module.exports.pen_environment + '.apps.silver.devops.gov.bc.ca/';
 module.exports.mailsacUrl = 'https://mailsac.com/login';
 module.exports.getTokenUrl = 'https://soam-'+ module.exports.token_environment +'.apps.silver.devops.gov.bc.ca/auth/realms/master/protocol/openid-connect/token';
-module.exports.pagenatedUrl = 'https://pen-request-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/paginated';
-module.exports.penRequestApiUrl = 'https://pen-request-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/';
+module.exports.pagenatedUrl = 'https://pen-request-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/pen-request/paginated';
+module.exports.penRequestApiUrl = 'https://pen-request-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/pen-request/';
 module.exports.studentApiUrl = 'https://student-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/student/'
 module.exports.digitalIdApiUrl = 'https://digitalid-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/api/v1/digital-id/'
 module.exports.studentProfileApiUrl = 'https://student-profile-api-' + module.exports.token_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
@@ -42,6 +44,8 @@ module.exports.penMatchApiUrl = 'https://pen-match-api-' + module.exports.pen_na
 module.exports.penWebUrl = config.get('PenWeb:url');
 module.exports.myEdUrl = 'https://pen-myed-api-' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/'
 
+//Choose student entry point
+module.exports.studentEntryPoint = config.get('studentEntryPoint')
 
 //Bceid Credentials
 module.exports.bceidCredentials = Object.freeze({

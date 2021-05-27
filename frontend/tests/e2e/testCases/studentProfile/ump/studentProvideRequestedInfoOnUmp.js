@@ -1,5 +1,5 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage'
-import { bceidCredentials, studentProfileUrl } from '../../../config/constants'
+import constants from '../../../config/constants'
 import studentProvideInformationPage from '../../../pageObjects/studentProfile/ump/studentProvideInformationPage'
 import studentData from '../../../config/studentData/studentData.json'
 import staffData from '../../../config/staffData/staffData.json'
@@ -7,17 +7,27 @@ import staffData from '../../../config/staffData/staffData.json'
 const studentLogin = new studentLoginPage()
 const provideInfo = new studentProvideInformationPage
 
-fixture`Student Profile`
-    .page(studentProfileUrl)
-    .beforeEach(async t => {
+if (constants.studentEntryPoint == "landingPage") {
+    fixture`Student Profile`
+      .page(
+        constants.studentProfileUrl)
+      .beforeEach(async t => {
         await t.maximizeWindow()
-    })
-
+      })
+  }
+  else if (constants.studentEntryPoint == "ump") {
+    fixture`Student Profile`
+      .page(
+        constants.studentProfileUrlUmp)
+      .beforeEach(async t => {
+        await t.maximizeWindow()
+      })
+  }
 test('Student provide information UMPI test', async t => {
 
-    await studentLogin.bceidLogin(bceidCredentials)
+    await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
 
-    await studentLogin.clickUpdateMyPen()
+    await studentLogin.clickUpdateMyPen(constants.studentEntryPoint)
 
     await studentLogin.overcomeAccountActivity()
 

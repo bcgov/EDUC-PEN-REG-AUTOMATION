@@ -28,7 +28,7 @@ class staffLoginPage {
                     .typeText(this.username, credentials.username, { timeout: 20000 })
                     .typeText(this.password, credentials.password, { timeout: 20000 })
                     .click(this.submitButton)
-                await t.expect((this.viewGmpButton).exists).ok()
+                await t.expect((this.viewGmpButton).exists).ok({ timeout: 20000 })
                 log.info("Staff user successfully logged in with IDIR    " + credentials.username)
                 break
             }

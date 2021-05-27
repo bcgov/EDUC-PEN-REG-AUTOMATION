@@ -1,6 +1,6 @@
 import studentLoginPage from '../../../pageObjects/login/studentLoginPage';
 import studentProvideInformationPage from '../../../pageObjects/studentProfile/gmp/studentProvideInformationPage'
-import { bceidCredentials, studentProfileUrl } from '../../../config/constants';
+import constants from '../../../config/constants';
 import studentData from '../../../config/studentData/studentData.json';
 import staffData from '../../../config/staffData/staffData.json'
 
@@ -8,19 +8,30 @@ const studentLogin = new studentLoginPage()
 const studentProvideInformation = new studentProvideInformationPage
 
 
-fixture`Student Profile`
-  .page(studentProfileUrl)
-  .beforeEach(async t => {
-    await t.maximizeWindow()
-  })
+if (constants.studentEntryPoint == "landingPage") {
+  fixture`Student Profile`
+    .page(
+      constants.studentProfileUrl)
+    .beforeEach(async t => {
+      await t.maximizeWindow()
+    })
+}
+else if (constants.studentEntryPoint == "gmp") {
+  fixture`Student Profile`
+    .page(
+      constants.studentProfileUrlGmp)
+    .beforeEach(async t => {
+      await t.maximizeWindow()
+    })
+}
 
 test('Student respond with uploading identification document test', async t => {
 
-  await studentLogin.bceidLogin(bceidCredentials)
-
-  await studentLogin.clickGetMyPen()
+  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
 
   await studentLogin.overcomeAccountActivity()
+
+  await studentLogin.clickGetMyPen(constants.studentEntryPoint)
 
   await studentProvideInformation.setRespondHereTextBox(studentData.respondHereText)
 

@@ -41,14 +41,19 @@ class studentLoginPage {
         this.cancelButton = Selector('#cancelButton')
     }
 
-    async bceidLogin(credentials) {
+    async bceidLogin(credentials, studentEntryPoint) {
         for (let i = 0; i < 10; i++) {
             try {
                 await t
                     .typeText(this.username, credentials.username, { timeout: 20000 })
                     .typeText(this.password, credentials.password, { timeout: 20000 })
                     .click(this.submitButton)
-                await t.expect((this.goToGmp).exists).ok()
+                if (studentEntryPoint == "landingPage") {
+                    await t.expect((this.goToGmp).exists).ok({ timeout: 20000 })
+                }
+                else if (studentEntryPoint == "gmp") {
+                    await t.expect((this.displayName).exists).ok({ timeout: 20000 })
+                }
                 log.info("Student user successfully logged in with bceid    " + credentials.username)
                 break
             }
@@ -68,14 +73,25 @@ class studentLoginPage {
         log.info("student successfully logged in with BCSC    " + credentials.cardNumber)
     }
 
-    async clickGetMyPen() {
-        await t.click(this.goToGmp, { timeout: 15000 })
-        log.info("Get My Pen button is clicked")
+    async clickGetMyPen(studentEntryPoint) {
+        if (studentEntryPoint == "landingPage") {
+            await t.click(this.goToGmp, { timeout: 15000 })
+            log.info("Get My Pen Link is clicked")
+        }
+        else {
+            log.info("student Entry point is GMP")
+        }
     }
 
-    async clickUpdateMyPen() {
-        await t.click(this.goToUmp, { timeout: 15000 })
-        log.info("Update My Pen button is clicked")
+    async clickUpdateMyPen(studentEntryPoint) {
+
+        if (studentEntryPoint == "landingPage") {
+            await t.click(this.goToUmp, { timeout: 15000 })
+            log.info("Update My Pen Link is clicked")
+        }
+        else {
+            log.info("student Entry point is UMP")
+        }
     }
 
     async overcomeAccountActivity() {
