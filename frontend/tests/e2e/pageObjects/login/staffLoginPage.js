@@ -38,8 +38,8 @@ class staffLoginPage {
 
                 await t.navigateTo(url)
                 log.info("Navigating to student admin")
-                // const getURL = await ClientFunction(() => window.location.href)();
-                // console.log(getURL)
+
+                await t.expect((this.login).exists).ok({ timeout: 20000 })
             }
         }
     }
