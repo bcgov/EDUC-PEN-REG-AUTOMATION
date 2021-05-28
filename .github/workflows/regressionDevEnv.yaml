@@ -17,14 +17,9 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "12.x"
+          node-version: "14.x"
       - run: npm install
-        env: 
-          NODE_OPTIONS: '--max-http-header-size=17000'
-      - run: echo %NODE_OPTIONS%
-      - run: set NODE_OPTIONS="--max-http-header-size=17000"
-      - run: $env:NODE_OPTIONS='--max-http-header-size=17000'        
-
+      
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
