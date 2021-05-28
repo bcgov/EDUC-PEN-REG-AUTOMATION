@@ -29,11 +29,11 @@ test('Staff login and search for name variants test', async t => {
 
     await staffSearch.verifyTableCell(studentData.nameVariant1)
 
-    await staffSearch.setLegalGiven(studentData.name2)
+    // await staffSearch.setLegalGiven(studentData.name2)
 
-    await staffSearch.clickSearchButton()
+    // await staffSearch.clickSearchButton()
 
-    await staffSearch.verifyTableCell(studentData.nameVariant2)
+    // await staffSearch.verifyTableCell(studentData.nameVariant2)
 
     await staffSearch.setLegalGiven(studentData.name3)
 
