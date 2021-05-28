@@ -26,9 +26,9 @@ test('Verify student unlinked with pen number test', async t => {
 
   await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
 
-  await studentLogin.clickGetMyPen()
-
   await studentLogin.overcomeAccountActivity()
+
+  await studentLogin.clickGetMyPen(constants.studentEntryPoint)
 
   await verify.studentUnlinked()
 
