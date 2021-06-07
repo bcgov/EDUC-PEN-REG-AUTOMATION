@@ -41,7 +41,7 @@ class studentLoginPage {
         this.cancelButton = Selector('#cancelButton')
     }
 
-    async bceidLogin(credentials, studentEntryPoint) {
+    async bceidLogin(credentials, studentEntryPoint, landingPage, GmpOrUmpPage) {
         for (let i = 0; i < 10; i++) {
             try {
                 await t
@@ -51,15 +51,27 @@ class studentLoginPage {
                 if (studentEntryPoint == "landingPage") {
                     await t.expect((this.goToGmp).exists).ok({ timeout: 20000 })
                 }
-                else if (studentEntryPoint == "gmp") {
+                else if (studentEntryPoint == "gmp" || studentEntryPoint == "ump") {
                     await t.expect((this.displayName).exists).ok({ timeout: 20000 })
                 }
                 log.info("Student user successfully logged in with bceid    " + credentials.username)
                 break
             }
             catch (err) {
+
                 await t.eval(() => location.reload())
                 log.warn("Element not found, Refreshing the page")
+
+                if (studentEntryPoint == "landingPage") {
+                    await t.navigateTo(landingPage)
+                    log.info("Navigating to student profile")
+                    await t.expect((this.username).exists).ok({ timeout: 20000 })
+                }
+                else if (studentEntryPoint == "gmp" || studentEntryPoint == "ump") {
+                    await t.navigateTo(GmpOrUmpPage)
+                    log.info("Navigating to student profile")
+                    await t.expect((this.username).exists).ok({ timeout: 20000 })
+                }
             }
         }
     }

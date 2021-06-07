@@ -27,7 +27,7 @@ else if (constants.studentEntryPoint == "gmp") {
 
 test('Student respond with uploading identification document test', async t => {
 
-  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
+  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint , constants.studentProfileUrl, constants.studentProfileUrlGmp)
 
   await studentLogin.overcomeAccountActivity()
 

@@ -24,7 +24,7 @@ else if (constants.studentEntryPoint == "gmp") {
 
 test('Verify student received pen number test', async t => {
 
-  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
+  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint , constants.studentProfileUrl, constants.studentProfileUrlGmp)
 
   await studentLogin.overcomeAccountActivity()
   

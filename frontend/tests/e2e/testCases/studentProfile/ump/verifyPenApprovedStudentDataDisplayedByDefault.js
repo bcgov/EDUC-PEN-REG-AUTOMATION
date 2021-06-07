@@ -25,7 +25,7 @@ if (constants.studentEntryPoint == "landingPage") {
 
 test('Verify default information displayed on UMP screen for Pen approved student test', async t => {
 
-    await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
+  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint, constants.studentProfileUrl, constants.studentProfileUrlUmp)
     
     await studentLogin.clickUpdateMyPen(constants.studentEntryPoint)
 

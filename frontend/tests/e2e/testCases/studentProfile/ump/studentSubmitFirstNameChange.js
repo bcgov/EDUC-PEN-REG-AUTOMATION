@@ -25,7 +25,7 @@ if (constants.studentEntryPoint == "landingPage") {
 
 test('Student submit firstname change test UMPI', async t => {
 
-    await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
+  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint, constants.studentProfileUrl, constants.studentProfileUrlUmp)
     
     await studentLogin.clickUpdateMyPen(constants.studentEntryPoint)
 

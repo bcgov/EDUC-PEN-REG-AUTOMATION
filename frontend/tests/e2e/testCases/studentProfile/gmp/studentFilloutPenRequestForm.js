@@ -26,7 +26,7 @@ else if (constants.studentEntryPoint == "gmp") {
 
 test('Bceid Login and Fill Pen request form test', async t => {
 
-  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
+  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint , constants.studentProfileUrl, constants.studentProfileUrlGmp)
 
   await studentLogin.overcomeAccountActivity()
 
