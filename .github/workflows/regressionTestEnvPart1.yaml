@@ -1,12 +1,12 @@
 # This workflow covers request information, reject,complete, unlink, Readonly roles for Pen Request and
 # request information, reject,complete, Readonly roles for Ump Request. (Test environment)
-name: Regression Test Test Environment
+name: Regression Test Test Environment Part 1
 on:
   repository_dispatch:
-    types: [regressionTest-test-environment]
+    types: [regressionTest-test-environment-part-1]
   workflow_dispatch: 
 jobs:
-  RegressionTest_Test_Environment:
+  RegressionTest_Test_Environment_Part_1:
     runs-on: windows-latest
     defaults:
       run:
@@ -133,7 +133,7 @@ jobs:
         if: success()
         with:
           type: ${{ job.status }}
-          job_name: "TEST Environment Regression Test result --->"
+          job_name: "TEST Environment Regression Part 1 Test result --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
