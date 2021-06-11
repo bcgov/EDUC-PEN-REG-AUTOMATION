@@ -56,6 +56,7 @@ jobs:
           IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER_UAT }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_GMP}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -90,6 +91,7 @@ jobs:
           IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER_UAT }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_UMP}}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
@@ -111,6 +113,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER_UAT }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -134,6 +137,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER_UAT }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -164,6 +168,7 @@ jobs:
           PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_GMP}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
@@ -187,6 +192,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER_UAT }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_UMP}}
       - run: npm run getAndDeleteUmpRequestData
         if: ${{ always() }}
         env:
@@ -208,6 +214,7 @@ jobs:
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER_UAT }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
       - run: npm run getAndDeletePenRequestData
         if: ${{ always() }}
         env:
