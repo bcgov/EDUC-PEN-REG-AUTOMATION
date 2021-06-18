@@ -17,6 +17,7 @@ class studentProvideInformationPage {
         this.closeButton = Selector('button.white--text:nth-child(3)')
         this.doneButton = Selector('div.flex-grow-0:nth-child(2) > button:nth-child(1)')
         this.yesSubmitButton = Selector('button.ma-1:nth-child(2)')
+        this.canNotUploadLargeFileMessage = Selector('.v-messages__message')
 
 
     }
@@ -47,6 +48,15 @@ class studentProvideInformationPage {
         log.info('upload form button is clicked')
         await t.expect(this.uploadConfirmation.innerText).eql("File upload successful.", { timeout: 30000 })
         log.info('upload confirmation verified')
+        await t.click(this.closeButton)
+        log.info('close button is clicked')
+    }
+
+    async verifyMaxFileSizeError(data) {
+        await t.setFilesToUpload((this.selectFile), [data])
+        log.info('file uploaded')
+        await t.expect(this.canNotUploadLargeFileMessage.innerText).eql("File size should not be larger than 10 MB!", { timeout: 30000 })
+        log.info('File size should not be larger than 10 MB! text verified')
         await t.click(this.closeButton)
         log.info('close button is clicked')
     }

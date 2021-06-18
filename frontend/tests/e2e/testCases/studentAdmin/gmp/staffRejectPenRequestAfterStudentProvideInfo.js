@@ -33,7 +33,9 @@ test('Staff login and Reject Pen Request after student provided information', as
 
     await penAction.verifyClaimConformation(staffData.ClaimConformationText)
 
-    await penAction.verifyUploadedFiles(studentData.documentType,studentData.documentName)
+    await penAction.verifyUploadedFiles(1, studentData.documentType,studentData.documentName)
+
+    await penAction.verifyUploadedFiles(2, studentData.documentType2,studentData.documentName2)
 
     await penAction.clickRejectButton()
 

@@ -45,9 +45,6 @@ class staffActionOnUmpPage {
         this.dob = Selector('#studentDOB').child('strong')
         this.gender = Selector('#studentGender').child('strong')
 
-        //Uploaded document related selectors
-        this.documentType = Selector('td.text-start:nth-child(1)')
-        this.documentName = Selector('td.text-start:nth-child(2)')
 
     }
 
@@ -247,10 +244,12 @@ class staffActionOnUmpPage {
         }
     }
 
-    async verifyUploadedFiles(type, name) {
+    async verifyUploadedFiles(tr,type, name) {
+        this.documentType = Selector('tr:nth-child('+tr+') td.text-start:nth-child(1)')
+        this.documentName = Selector('tr:nth-child('+tr+') td.text-start:nth-child(2)')
         await t.expect(this.documentType.innerText).eql(type, { timeout: 10000 })
         await t.expect(this.documentName.innerText).eql(name, { timeout: 10000 })
-        log.info("uploaded documents by student verified")
+        log.info("student uploads verified")
     }
 }
 

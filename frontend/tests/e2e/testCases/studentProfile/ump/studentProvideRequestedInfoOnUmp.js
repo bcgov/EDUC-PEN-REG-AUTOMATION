@@ -39,6 +39,18 @@ test('Student provide information UMPI test', async t => {
   
     await provideInfo.uploadDocument(studentData.uploadFileLocation)
   
+    await provideInfo.clickUploadButton()
+  
+    await provideInfo.setDocumentType(studentData.documentType2)
+  
+    await provideInfo.uploadDocument(studentData.uploadFileLocation2)
+
+    await provideInfo.clickUploadButton()
+  
+    await provideInfo.setDocumentType(studentData.documentType2)
+  
+    await provideInfo.verifyMaxFileSizeError(studentData.uploadFileLocation3)
+
     await provideInfo.clickDoneButton()
   
     await provideInfo.clickYesSubmitButton()

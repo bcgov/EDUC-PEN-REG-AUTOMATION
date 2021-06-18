@@ -27,7 +27,7 @@ else if (constants.studentEntryPoint == "gmp") {
 
 test('Student respond with uploading identification document test', async t => {
 
-  await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint , constants.studentProfileUrl, constants.studentProfileUrlGmp)
+  await studentLogin.bceidLogin(constants.bceidCredentials, constants.studentEntryPoint, constants.studentProfileUrl, constants.studentProfileUrlGmp)
 
   await studentLogin.overcomeAccountActivity()
 
@@ -40,6 +40,18 @@ test('Student respond with uploading identification document test', async t => {
   await studentProvideInformation.setDocumentType(studentData.documentType)
 
   await studentProvideInformation.uploadDocument(studentData.uploadFileLocation)
+
+  await studentProvideInformation.clickUploadButton()
+
+  await studentProvideInformation.setDocumentType(studentData.documentType2)
+
+  await studentProvideInformation.uploadDocument(studentData.uploadFileLocation2)
+
+  await studentProvideInformation.clickUploadButton()
+
+  await studentProvideInformation.setDocumentType(studentData.documentType)
+
+  await studentProvideInformation.verifyMaxFileSizeError(studentData.uploadFileLocation3)
 
   await studentProvideInformation.clickDoneButton()
 
@@ -54,6 +66,8 @@ test('Student respond with uploading identification document test', async t => {
   await studentProvideInformation.verifyText(studentData.respondHereText)
 
   await studentProvideInformation.verifyText(studentData.documentName)
+
+  await studentProvideInformation.verifyText(studentData.documentName2)
 
   await studentProvideInformation.verifyText(staffData.RequestInformation)
 
