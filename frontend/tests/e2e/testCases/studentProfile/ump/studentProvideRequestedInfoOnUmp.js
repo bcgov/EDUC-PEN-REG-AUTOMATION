@@ -64,6 +64,8 @@ test('Student provide information UMPI test', async t => {
     await provideInfo.verifyText(studentData.respondHereText)
   
     await provideInfo.verifyText(studentData.documentName)
+
+    await provideInfo.verifyText(studentData.documentName2)
   
     await provideInfo.verifyText(staffData.RequestInformation)
   
