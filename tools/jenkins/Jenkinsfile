@@ -16,7 +16,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'npm run getAndDeletePenRequestData'
+        sh 'npm run frontend/getAndDeletePenRequestData'
       }
     }
   }
