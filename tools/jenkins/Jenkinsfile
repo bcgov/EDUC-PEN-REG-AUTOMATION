@@ -22,7 +22,7 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
-          sh(script: "testcafe -b", returnStdout: true)
+          sh(script: "testcafe 'chrome' ./tests/e2e/testCases/maintenance/maintenancePageOffCheck.js", returnStdout: true)
           sh(script: "npm run listTestCafeBrowsers", returnStdout: true)
           sh 'npm run studentFilloutAndActivatePenRequest'
         }
