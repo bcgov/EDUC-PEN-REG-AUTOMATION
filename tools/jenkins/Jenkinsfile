@@ -20,9 +20,9 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
-          sh('curl https://raw.githubusercontent.com/dvershinin/apt-get-centos/master/apt-get.sh -o /usr/local/bin/apt-get')
-          sh('chmod 0755 /usr/local/bin/apt-get')
-          sh(script: "testcafe 'chrome' ./tests/e2e/testCases/maintenance/maintenancePageOffCheck.js", returnStdout: true)
+          sh('wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip')
+          sh('unzip chromedriver_linux64.zip')
+          sh('chromedriver --version')
           sh(script: "npm run listTestCafeBrowsers", returnStdout: true)
           sh 'npm run studentFilloutAndActivatePenRequest'
         }
