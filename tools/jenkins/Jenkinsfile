@@ -22,6 +22,7 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
+          sh(script: "testcafe -b", returnStdout: true)
           sh(script: "npm run listTestCafeBrowsers", returnStdout: true)
           sh 'npm run studentFilloutAndActivatePenRequest'
         }
