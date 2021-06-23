@@ -13,8 +13,6 @@ pipeline {
       steps {
         sh 'npm --version'
         dir('frontend') {
-          sh 'npm install chromium -g'
-          sh 'npm install chromium-binary -g'
           sh 'npm install'
         }
       }
@@ -22,6 +20,8 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
+          sh('curl https://raw.githubusercontent.com/dvershinin/apt-get-centos/master/apt-get.sh -o /usr/local/bin/apt-get')
+          sh('chmod 0755 /usr/local/bin/apt-get')
           sh(script: "testcafe 'chrome' ./tests/e2e/testCases/maintenance/maintenancePageOffCheck.js", returnStdout: true)
           sh(script: "npm run listTestCafeBrowsers", returnStdout: true)
           sh 'npm run studentFilloutAndActivatePenRequest'
