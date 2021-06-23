@@ -14,6 +14,7 @@ pipeline {
         sh 'npm --version'
         dir('frontend') {
           sh 'npm install chromium -g'
+          sh 'npm install chromium-binary -g'
           sh 'npm install'
         }
       }
