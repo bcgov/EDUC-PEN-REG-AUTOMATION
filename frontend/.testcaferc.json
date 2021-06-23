@@ -1,5 +1,5 @@
 {
-    "browsers": "firefox",
+    "browsers": "chromium",
     "reporter": "list",
     "screenshots": {
         "path": "tests/e2e/screenshots/",
