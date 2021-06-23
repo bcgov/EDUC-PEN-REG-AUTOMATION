@@ -20,7 +20,7 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
-          sh 'testcafe –list-browsers'
+          sh 'npm run listTestCafeBrowsers'
           sh 'npm run studentFilloutAndActivatePenRequest'
         }
       }
