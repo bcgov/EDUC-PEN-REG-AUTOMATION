@@ -13,8 +13,8 @@ pipeline {
       steps {
         sh 'npm --version'
         dir('frontend') {
-          sh 'npm install chromium -g'
-          sh 'npm install testcafe -g'
+          sh 'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+          sh 'dpkg -i google-chrome*.deb'
           sh 'npm install'
         }
       }
