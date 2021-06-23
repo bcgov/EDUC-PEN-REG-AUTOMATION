@@ -13,7 +13,7 @@ pipeline {
       steps {
         sh 'npm --version'
         dir('frontend') {
-          sh 'npm install chromium-browser'
+          sh 'npm install chromium'
           sh 'npm install'
         }
       }
