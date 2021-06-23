@@ -12,6 +12,8 @@ pipeline {
     stage('build') {
       steps {
         sh 'npm --version'
+        sh 'ls'
+        sh 'cd frontend'
         sh 'npm install'
       }
     }
