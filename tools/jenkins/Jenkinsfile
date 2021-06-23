@@ -20,7 +20,7 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
-          sh 'npm run getAndDeletePenRequestData'
+          sh 'npm run studentFilloutAndActivatePenRequest'
         }
       }
     }
