@@ -14,7 +14,7 @@
     "stopOnFirstFail": true,
     "disablePageCaching": true,
     "speed": 1,
-    "retryTestPages": true,
+    "retryTestPages": false,
     "pageLoadTimeout": 20000,
     "selectorTimeout": 20000
 }
