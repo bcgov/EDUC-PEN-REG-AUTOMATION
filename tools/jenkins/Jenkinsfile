@@ -15,7 +15,7 @@ pipeline {
         dir('frontend') {
           sh 'npm install chromium -g'
           sh 'npm install testcafe -g'
-          sh 'ldd node_modules/chromium/lib/chromium/chrome-linux/chrome'
+          sh 'npm install chrome -g'
           sh 'npm install'
         }
       }
