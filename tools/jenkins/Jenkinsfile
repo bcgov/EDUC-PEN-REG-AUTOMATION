@@ -17,7 +17,7 @@ pipeline {
     stage('test') {
       steps {
         sh 'cd frontend'
-        sh 'npm run frontend/getAndDeletePenRequestData'
+        sh 'npm run getAndDeletePenRequestData'
       }
     }
   }
