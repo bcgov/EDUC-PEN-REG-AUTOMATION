@@ -1,6 +1,11 @@
 #!/usr/bin/env groovy
 pipeline {
-  agent any
+  agent {
+    docker {
+      label dockerserver
+      image 'node:14-alpine'
+    }
+  }
   tools {nodejs "latest"}
   stages {
     stage('preflight') {
