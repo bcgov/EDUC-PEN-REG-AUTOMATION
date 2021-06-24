@@ -8,6 +8,7 @@
     "createStudentData": "node tests/e2e/helpers/createStudentData.js",
     "maintenancePageOn": "testcafe chrome ./tests/e2e/testCases/maintenance/maintenancePageOnCheck.js",
     "maintenancePageOff": "testcafe chrome ./tests/e2e/testCases/maintenance/maintenancePageOffCheck.js",
+    "listTestCafeBrowsers": "testcafe –b",
     "studentFilloutAndActivatePenRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/studentFilloutAndActivatePenRequest.js",
     "studentFilloutAndActivateUmpRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/umpE2E/studentFilloutAndActivateUmpRequest.js",
     "staffRequestForMoreInfoAndRejectOnPen": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffRequestForMoreInfoAndRejectOnPenSuite.js",

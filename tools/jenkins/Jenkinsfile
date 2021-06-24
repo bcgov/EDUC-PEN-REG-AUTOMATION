@@ -13,8 +13,6 @@ pipeline {
       steps {
         sh 'npm --version'
         dir('frontend') {
-          sh 'npm install chromium -g'
-          sh 'npm install testcafe -g'
           sh 'npm install'
         }
       }
@@ -22,7 +20,7 @@ pipeline {
     stage('test') {
       steps {
         dir('frontend') {
-          sh 'npm run studentFilloutAndActivatePenRequest'
+          sh 'npm run getAndDeletePenRequestData'
         }
       }
     }
