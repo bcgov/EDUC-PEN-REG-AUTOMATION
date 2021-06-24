@@ -18,7 +18,7 @@ pipeline {
                   script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode',
                   returnStdout: true
           ).trim()
-          echo "${LOCAL_JSON}" > /var/lib/jenkins/jobs/DEV/jobs/TestCafe/workspace/frontend/tests/e2e/config/index.js
+          echo "${LOCAL_JSON} > /var/lib/jenkins/jobs/DEV/jobs/TestCafe/workspace/frontend/tests/e2e/config/index.js"
         }
       }
     }
