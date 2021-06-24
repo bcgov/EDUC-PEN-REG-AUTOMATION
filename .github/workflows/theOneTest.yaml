@@ -1,8 +1,7 @@
 name: The One Test
 on:
-  schedule:
-    # Scheduled job to run every day at 6 am PST
-    - cron: "0 13 * * *"
+  repository_dispatch:
+    types: [the-one-test]
   workflow_dispatch:  
 jobs:
   The_One_Test:
