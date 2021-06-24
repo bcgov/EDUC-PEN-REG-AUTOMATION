@@ -2,6 +2,9 @@
 pipeline {
   agent any
   tools {nodejs "latest"}
+  environment {
+    LOCAL_JSON = ''
+  }
   stages {
     stage('preflight') {
       steps {
