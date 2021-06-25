@@ -4,6 +4,7 @@ pipeline {
   tools {nodejs "latest"}
   environment {
     LOCAL_JSON = ''
+    extJSHelper = ''
   }
   stages {
     stage('Initialize') {
