@@ -9,14 +9,6 @@ pipeline {
     stage('Initialize') {
       steps {
         script {
-          if(DEBUG_OUTPUT.equalsIgnoreCase('true')) {
-            // Force OpenShift Plugin directives to be verbose
-            openshift.logLevel(1)
-
-            // Print all environment variables
-            echo 'DEBUG - All pipeline environment variables:'
-            echo sh(returnStdout: true, script: 'env')
-          }
           sh "wget -O - https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-deployment/deployHelpers.js > deployHelpers.js"
           extJSHelper = evaluate readFile('deployHelpers.js')
         }
