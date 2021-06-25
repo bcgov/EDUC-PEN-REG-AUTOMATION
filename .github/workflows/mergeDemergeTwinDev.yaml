@@ -1,0 +1,57 @@
+name: Merge Demerge Twin Dev Environment
+on:
+  repository_dispatch:
+    types: [merge-demerge-twin-dev-environment]
+  workflow_dispatch:  
+jobs:
+  Merge_Demerge_Twin_Dev_Environment:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - run: npm install
+
+      - run: npm run twinStudents
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          TWIN_ONE_PEN: ${{ secrets.TWIN_ONE_PEN }}
+          TWIN_TWO_PEN: ${{ secrets.TWIN_TWO_PEN }}
+          TWIN_THREE_PEN: ${{ secrets.TWIN_THREE_PEN }}
+
+      - run: npm run mergeAndDemergeStudents
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          MERGE_ONE_PEN: ${{ secrets.MERGE_ONE_PEN }}
+          MERGE_TWO_PEN: ${{ secrets.MERGE_TWO_PEN }}
+          MERGE_THREE_PEN: ${{ secrets.MERGE_THREE_PEN }}
+        
+      # - uses: actions/upload-artifact@v2
+      #   if: ${{ failure() }}
+      #   with:
+      #     name: Screenshot
+      #     path: D:\a\EDUC-E2E-PEN-REGISTRY\EDUC-E2E-PEN-REGISTRY\frontend\tests\e2e\screenshots\
+
+      - name: Rocket.Chat Notification
+        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@1.1.1
+        if: always()
+        with:
+          type: ${{ job.status }}
+          job_name: "The one test result of Dev environment --->"
+          icon_emoji: ":bell:"
+          channel: "pen-automation-notifications"
+          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
