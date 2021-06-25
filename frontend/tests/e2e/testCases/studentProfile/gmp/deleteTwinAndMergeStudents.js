@@ -1,7 +1,7 @@
 const helper = require("../../../helpers/axios-helper")
 const constants = require('../../../config/constants')
 const { getToken } = require('../../../helpers/generateToken')
-
+const log = require('npmlog')
 
 getToken().then(async (data) => {
 
