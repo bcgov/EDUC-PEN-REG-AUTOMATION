@@ -18,7 +18,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run studentFilloutAndActivatePenRequest
+      - run: npm run staffRequestForMoreInfoAndRejectOnPen
         if: ${{ always() }}
         env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
