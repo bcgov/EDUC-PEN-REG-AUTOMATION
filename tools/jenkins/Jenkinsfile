@@ -46,12 +46,19 @@ pipeline {
         }
       }
     }
+    stage('Cleanup gmp after test') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeletePenRequestData'
+        }
+      }
+    }    
     stage('Cleanup ump after test') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeleteUmpRequestData'
         }
       }
-    }    
+    }        
   }
 }
