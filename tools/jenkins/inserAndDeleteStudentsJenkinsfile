@@ -26,6 +26,7 @@ pipeline {
     stage('insert students') {
       steps {
         dir('frontend') {
+          sh 'npm install'
           sh 'npm run insertAndUpdatePenRequestDataToAbandoned'
         }
       }
