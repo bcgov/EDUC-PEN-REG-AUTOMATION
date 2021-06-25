@@ -30,6 +30,13 @@ pipeline {
         }
       }
     }
+    stage('Cleanup and Prep') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeleteUmpRequestData'
+        }
+      }
+    }    
     stage('Run Workflow') {
       steps {
         script {
@@ -39,5 +46,12 @@ pipeline {
         }
       }
     }
+    stage('Cleanup') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeleteUmpRequestData'
+        }
+      }
+    }    
   }
 }
