@@ -23,16 +23,6 @@ pipeline {
         }
       }
     }
-    stage('build') {
-      steps {
-        dir('frontend') {
-          script {
-            LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
-            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafe/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
-          }
-        }
-      }
-    }
     stage('Cleanup and Prep') {
       steps {
         dir('frontend') {
