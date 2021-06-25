@@ -26,7 +26,7 @@ pipeline {
     stage('insert students') {
       steps {
         dir('frontend') {
-          sh 'npm run insertTwinAndMergeStudents'
+          sh 'npm run insertAndUpdatePenRequestDataToAbandoned'
         }
       }
     }    
@@ -42,7 +42,7 @@ pipeline {
     stage('delete students') {
       steps {
         dir('frontend') {
-          sh 'npm run deleteTwinAndMergeStudents'
+          sh 'npm run getAndDeletePenRequestData'
         }
       }
     }            
