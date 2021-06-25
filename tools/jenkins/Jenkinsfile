@@ -37,9 +37,6 @@ pipeline {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeletePenRequestData'
-          //Call git actions
-          //More cleanup
-          //More git actions
         }
       }
     }
