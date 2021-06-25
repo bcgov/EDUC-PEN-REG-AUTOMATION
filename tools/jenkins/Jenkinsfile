@@ -6,10 +6,26 @@ pipeline {
     LOCAL_JSON = ''
   }
   stages {
-    stage('preflight') {
+    stage('Initialize') {
       steps {
-        echo sh(returnStdout: true, script: 'env')
-        sh 'node -v'
+        script {
+          if(DEBUG_OUTPUT.equalsIgnoreCase('true')) {
+            // Force OpenShift Plugin directives to be verbose
+            openshift.logLevel(1)
+
+            // Print all environment variables
+            echo 'DEBUG - All pipeline environment variables:'
+            echo sh(returnStdout: true, script: 'env')
+          }
+          sh "wget -O - https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-deployment/deployHelpers.js > deployHelpers.js"
+          extJSHelper = evaluate readFile('deployHelpers.js')
+        }
+        dir('frontend') {
+          script {
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafe/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+          }
+        }
       }
     }
     stage('build') {
@@ -17,20 +33,28 @@ pipeline {
         sh 'npm --version'
         dir('frontend') {
           script {
-            sh 'npm install'
             LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
             writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafe/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
       }
     }
-    stage('test') {
+    stage('Cleanup and Prep') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeletePenRequestData'
           //Call git actions
           //More cleanup
           //More git actions
+        }
+      }
+    }
+    stage('Run Workflow') {
+      steps {
+        script {
+          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'smoke-test-admin-dev-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
       }
     }
