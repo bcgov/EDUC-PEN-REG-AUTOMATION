@@ -35,14 +35,14 @@ module.exports.studentProfileUrlBcsc = 'https://'+ module.exports.pen_environmen
 module.exports.staffLoginUrl = 'https://student-admin-' + module.exports.pen_namespace + '-' + module.exports.pen_environment + '.apps.silver.devops.gov.bc.ca/';
 module.exports.mailsacUrl = 'https://mailsac.com/login';
 module.exports.getTokenUrl = 'https://soam-'+ module.exports.token_environment +'.apps.silver.devops.gov.bc.ca/auth/realms/master/protocol/openid-connect/token';
-module.exports.pagenatedUrl = 'https://pen-request-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request/paginated';
-module.exports.penRequestApiUrl = 'https://pen-request-api-master.' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request/';
-module.exports.studentApiUrl = 'https://student-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/student/'
-module.exports.digitalIdApiUrl = 'https://digitalid-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/digital-id/'
-module.exports.studentProfileApiUrl = 'https://student-profile-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/student-profile/'
-module.exports.penMatchApiUrl = 'https://pen-match-api-master' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-match'
+module.exports.pagenatedUrl = 'http://pen-request-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request/paginated';
+module.exports.penRequestApiUrl = 'http://pen-request-api-master.' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request/';
+module.exports.studentApiUrl = 'http://student-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/student/'
+module.exports.digitalIdApiUrl = 'http://digitalid-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/digital-id/'
+module.exports.studentProfileApiUrl = 'http://student-profile-api-master' + module.exports.token_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/student-profile/'
+module.exports.penMatchApiUrl = 'http://pen-match-api-master' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-match'
 module.exports.penWebUrl = config.get('PenWeb:url');
-module.exports.myEdUrl = 'https://pen-myed-api-master' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/'
+module.exports.myEdUrl = 'http://pen-myed-api-master' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/'
 
 http://pen-request-api-master.75e61b-test.svc.cluster.local:8080
 
