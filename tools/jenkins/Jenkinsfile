@@ -6,6 +6,7 @@ pipeline {
     LOCAL_JSON = ''
     extJSHelper = ''
     OWNER = 'bcgov'
+    TESTS_REPO_NAME = 'educ-pen-reg-automation'
   }
   stages {
     stage('Initialize') {
@@ -24,7 +25,6 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'npm --version'
         dir('frontend') {
           script {
             LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
