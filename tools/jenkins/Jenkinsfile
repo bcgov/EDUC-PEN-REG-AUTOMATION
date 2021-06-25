@@ -26,6 +26,7 @@ pipeline {
     stage('Cleanup gmp before test') {
       steps {
         dir('frontend') {
+          sh 'npm install'          
           sh 'npm run getAndDeletePenRequestData'
         }
       }
