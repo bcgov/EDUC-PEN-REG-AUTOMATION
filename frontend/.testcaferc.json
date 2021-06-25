@@ -1,5 +1,5 @@
 {
-    "browsers": "chrome",
+    "browsers": "chrome --incognito",
     "reporter": "list",
     "screenshots": {
         "path": "tests/e2e/screenshots/",
@@ -14,7 +14,7 @@
     "stopOnFirstFail": true,
     "disablePageCaching": true,
     "speed": 1,
-    "retryTestPages": false,
+    "retryTestPages": true,
     "pageLoadTimeout": 20000,
     "selectorTimeout": 20000
 }
