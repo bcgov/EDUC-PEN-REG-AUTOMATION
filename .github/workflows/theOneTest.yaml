@@ -18,7 +18,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run staffRequestForMoreInfoAndRejectOnPen
+      - run: npm run staffRequestForMoreInfoAndRejectOnUmp
         if: ${{ always() }}
         env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
@@ -32,7 +32,7 @@ jobs:
           IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
           IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_GMP}}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
         
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
