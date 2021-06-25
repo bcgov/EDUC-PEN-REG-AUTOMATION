@@ -23,14 +23,14 @@ pipeline {
         }
       }
     }
-    stage('Cleanup and Prep') {
+    stage('Cleanup gmp before test') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeletePenRequestData'
         }
       }
     }
-    stage('Cleanup and Prep') {
+    stage('Cleanup ump before test') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeleteUmpRequestData'
@@ -46,7 +46,7 @@ pipeline {
         }
       }
     }
-    stage('Cleanup') {
+    stage('Cleanup ump after test') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeleteUmpRequestData'
