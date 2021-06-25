@@ -25,7 +25,7 @@ jobs:
           PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           BCEID_USER: ${{ secrets.BCEID_USER }}
           BCEID_PASS: ${{ secrets.BCEID_PASS }}
-          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
