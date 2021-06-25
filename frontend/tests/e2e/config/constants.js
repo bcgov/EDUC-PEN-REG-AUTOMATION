@@ -44,7 +44,6 @@ module.exports.penMatchApiUrl = 'http://pen-match-api-master.' + module.exports.
 module.exports.penWebUrl = config.get('PenWeb:url');
 module.exports.myEdUrl = 'http://pen-myed-api-master.' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/'
 
-http://pen-request-api-master.75e61b-test.svc.cluster.local:8080
 
 //Choose student entry point
 module.exports.studentEntryPoint = config.get('studentEntryPoint')
