@@ -5,6 +5,7 @@ pipeline {
   environment {
     LOCAL_JSON = ''
     extJSHelper = ''
+    OWNER = 'bcgov'
   }
   stages {
     stage('Initialize') {
