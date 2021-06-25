@@ -17,24 +17,8 @@ jobs:
         with:
           node-version: "14.x"
       - run: npm install
-      
-      - run: npm run staffRequestForMoreInfoAndRejectOnPen
-        if: ${{ always() }}
-        env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-          BCEID_USER: ${{ secrets.BCEID_USER }}
-          BCEID_PASS: ${{ secrets.BCEID_PASS }}
-          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
-          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
-          IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
 
-      - run: npm run staffRequestForMoreInfoAndRejectOnUmp
+      - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
         if: ${{ always() }}
         env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
@@ -45,8 +29,6 @@ jobs:
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
-          IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
         
