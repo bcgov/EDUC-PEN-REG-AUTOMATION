@@ -1,0 +1,53 @@
+# This workflow covers request information, reject, Readonly roles for Pen Request 
+
+name: Staff Request More Info and Reject Pen Request Dev Environment
+on:
+  repository_dispatch:
+    types: [staff-request-more-info-and-reject-pen-request-dev-environment]
+  workflow_dispatch: 
+jobs:
+  Regression:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - run: npm install
+
+      - run: npm run staffRequestForMoreInfoAndRejectOnPen
+        if: ${{ always() }}
+        env:
+          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
+          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
+          BCEID_USER: ${{ secrets.BCEID_USER }}
+          BCEID_PASS: ${{ secrets.BCEID_PASS }}
+          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
+          IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
+          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
+
+      # - uses: actions/upload-artifact@v2
+      #   if: ${{ failure() }}
+      #   with:
+      #     name: Screenshot
+      #     path: D:\a\EDUC-E2E-PEN-REGISTRY\EDUC-E2E-PEN-REGISTRY\frontend\tests\e2e\screenshots\
+
+      # - name: Rocket.Chat Notification
+      #   uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@1.1.1
+      #   if: success()
+      #   with:
+      #     type: ${{ job.status }}
+      #     job_name: "DEV Environment Regression Part 1 Test result --->"
+      #     icon_emoji: ":bell:"
+      #     channel: "pen-automation-notifications"
+      #     url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
