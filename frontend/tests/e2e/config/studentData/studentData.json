@@ -24,7 +24,7 @@
     "uploadFileLocation2": "../../../uploads/10MbFile.jpg",
     "uploadFileLocation3": "../../../uploads/15MbFile.pdf",
     "documentType": "Canadian Passport",
-    "documentType2": "BC Services Card w Photo",
+    "documentType2": "Canadian Birth Certificate",
     "documentName": "BC.jpg",
     "documentName2": "10MbFile.jpg",
     "penRequestSubmissionConfirmationText": "You are almost finished. To complete your request, you must verify the email address you provided by completing the following steps:",
