@@ -51,7 +51,6 @@ pipeline {
     stage('get and delete ump request one') {
       steps {
         dir('frontend') {
-          sh 'npm install'
           sh 'npm run getAndDeleteUmpRequestData'
         }
       }
@@ -71,6 +70,29 @@ pipeline {
           sh 'npm run getAndDeleteUmpRequestData'
         }
       }
-    }                
+    }
+    stage('get and delete pen request three') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeletePenRequestData'
+        }
+      }
+    }    
+    stage('Run Gmp Workflow one') {
+      steps {
+        script {
+          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-issue-pen')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+        }
+      }
+    }
+    stage('get and delete pen request four') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeletePenRequestData'
+        }
+      }
+    }                    
   }
 }
