@@ -78,7 +78,7 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp Workflow one') {
+    stage('Run Gmp Workflow two') {
       steps {
         script {
           TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
