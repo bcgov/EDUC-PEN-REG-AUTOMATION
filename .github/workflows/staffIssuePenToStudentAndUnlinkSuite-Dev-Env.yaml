@@ -1,7 +1,7 @@
-name: Staff Issue Pen
+name: Staff Issue Pen and Unlink
 on:
   repository_dispatch:
-    types: [staff-issue-pen-dev-environment]
+    types: [staff-issue-pen-and-unlink-dev-environment]
   workflow_dispatch: 
 jobs:
   Regression:
@@ -18,7 +18,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run staffIssuePenToStudent
+      - run: npm run staffIssuePenToStudentAndUnlinkSuite
         if: ${{ always() }}
         env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
@@ -32,7 +32,6 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
 
-          
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
       #   with:
@@ -44,7 +43,8 @@ jobs:
       #   if: success()
       #   with:
       #     type: ${{ job.status }}
-      #     job_name: "DEV Environment Regression Part 1 Test result --->"
+      #     job_name: "DEV Environment Regression Part 2 Test result --->"
       #     icon_emoji: ":bell:"
       #     channel: "pen-automation-notifications"
       #     url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+           
