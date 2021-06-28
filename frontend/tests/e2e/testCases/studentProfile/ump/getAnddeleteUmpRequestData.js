@@ -51,11 +51,6 @@ getToken().then(async (data) => {
         catch (error) {
             log.info("Digital ID is already deleted")
         }
-
-        setTimeout(function() {
-            log.info('Implicit Wait completed');
-        }, 5000)
-
     }
 
 })

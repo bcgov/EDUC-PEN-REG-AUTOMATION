@@ -107,10 +107,6 @@ getToken().then(async (data) => {
                 log.info("Not to delete the digital ID option is selected")
             }
         }
-        
-        setTimeout(function() {
-            log.info('Implicit Wait completed');
-        }, 5000)
 
     }
 
