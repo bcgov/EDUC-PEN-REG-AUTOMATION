@@ -1,4 +1,4 @@
-name: Staff Issue Pen and Unlink
+name: Staff Issue Pen and Unlink Dev Environment
 on:
   repository_dispatch:
     types: [staff-issue-pen-and-unlink-dev-environment]

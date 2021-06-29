@@ -1,4 +1,4 @@
-name: Staff Can Not Action Abandoned Pen Request
+name: Staff Can Not Action Abandoned Pen Request Dev Environment
 on:
   repository_dispatch:
     types: [staff-can-not-action-abandoned-pen-request-dev-environment]

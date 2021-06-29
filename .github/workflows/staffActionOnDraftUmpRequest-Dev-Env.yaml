@@ -1,4 +1,4 @@
-name: Staff Action On Draft Ump Request
+name: Staff Action On Draft Ump Request Dev Environment
 on:
   repository_dispatch:
     types: [staff-action-on-draft-ump-request-dev-environment]

@@ -1,4 +1,4 @@
-name: Staff Action On Draft Pen Request
+name: Staff Action On Draft Pen Request Dev Environment
 on:
   repository_dispatch:
     types: [staff-action-on-draft-pen-request-dev-environment]

@@ -1,4 +1,4 @@
-name: Staff Issue Pen
+name: Staff Issue Pen Dev Environment
 on:
   repository_dispatch:
     types: [staff-issue-pen-dev-environment]

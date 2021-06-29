@@ -1,4 +1,4 @@
-name: Staff Search Update Reset Student Info
+name: Staff Search Update Reset Student Info Dev Environment
 on:
   repository_dispatch:
     types: [staff-search-update-reset-student-info-dev-environment]

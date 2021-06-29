@@ -1,4 +1,4 @@
-name: Staff Force Unlink
+name: Staff Force Unlink Dev Environment
 on:
   repository_dispatch:
     types: [staff-force-unlink-dev-environment]
