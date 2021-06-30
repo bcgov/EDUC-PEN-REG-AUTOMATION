@@ -12,10 +12,10 @@ pipeline {
     stage('Initialize network') {
       steps {
           script {
-            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-test create -f -', returnStdout: true)
+            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-dev create -f -', returnStdout: true)
           }
       }
-    }
+    }    
     stage('Initialize') {
       steps {
         script {
@@ -24,8 +24,8 @@ pipeline {
         }
         dir('frontend') {
           script {
-            LOCAL_JSON = sh(script: 'oc -n 8878b4-test -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
-            writeFile file: '/var/lib/jenkins/jobs/UAT/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/daily-smoke-test/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/regression-test-part-1/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
       }
@@ -41,8 +41,8 @@ pipeline {
     stage('Run Gmp Workflow one') {
       steps {
         script {
-          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-uat-environment')
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
       }
@@ -65,8 +65,8 @@ pipeline {
     stage('Run Ump Workflow one') {
       steps {
         script {
-          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-uat-environment')
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
       }
@@ -77,6 +77,15 @@ pipeline {
           sh 'npm run getAndDeleteUmpRequestData'
         }
       }
+    }    
+    stage('Run Gmp with ump Workflow one') {
+      steps {
+        script {
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'student-submit-gender-change-after-pen-complete-test-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+        }
+      }
     }
     stage('get and delete pen request three') {
       steps {
@@ -84,29 +93,20 @@ pipeline {
           sh 'npm run getAndDeletePenRequestData'
         }
       }
-    }    
-    stage('Run Gmp Workflow two') {
-      steps {
-        script {
-          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'staff-issue-pen-uat-environment')
-          extJSHelper.waitForWorkflowRunComplete(TOKEN)
-        }
-      }
     }
-    stage('get and delete pen request four') {
+    stage('get and delete ump request three') {
       steps {
         dir('frontend') {
-          sh 'npm run getAndDeletePenRequestData'
+          sh 'npm run getAndDeleteUmpRequestData'
         }
       }
     }
     stage('Tear-down network') {
       steps {
           script {
-            sh(script: 'oc -n 75e61b-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
+            sh(script: 'oc -n 75e61b-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
           }
       }
-    }                    
+    }                            
   }
 }
