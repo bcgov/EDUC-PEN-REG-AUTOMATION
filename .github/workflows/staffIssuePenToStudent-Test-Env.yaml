@@ -1,9 +1,7 @@
-# This workflow covers request information, reject, Readonly roles for Ump Request 
-
-name: Staff Request More Info and Reject Ump Request Test Environment
+name: Staff Issue Pen Test Environment
 on:
   repository_dispatch:
-    types: [staff-request-more-info-and-reject-ump-request-test-environment]
+    types: [staff-issue-pen-test-environment]
   workflow_dispatch: 
 jobs:
   Regression:
@@ -20,7 +18,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run staffRequestForMoreInfoAndRejectOnUmp
+      - run: npm run staffIssuePenToStudent
         if: ${{ always() }}
         env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
@@ -31,11 +29,10 @@ jobs:
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          IDIR_READ_ONLY_USER: ${{ secrets.IDIR_READ_ONLY_USER }}
-          IDIR_READ_ONLY_PASS: ${{ secrets.IDIR_READ_ONLY_PASS }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_UMP}}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
 
+          
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
       #   with:
