@@ -127,7 +127,7 @@ class staffActionOnPenPage {
 
         if (penDemographics.Usual) {
 
-            if (environment == "test" || environment == "dev") {
+            if (environment == "dev") {
                 assert.strictEqual(penDemographics.Usual, await this.usual.innerText)
                 log.info("Usual name verified in pen demographics")
 

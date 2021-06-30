@@ -2,7 +2,7 @@
   "name": "pen-reg-automation",
   "version": "1.0.0",
   "private": true,
-  "description": "PEN request UI.",
+  "description": "pen registry",
   "author": "Revanth Gandra",
   "scripts": {
     "createStudentData": "node tests/e2e/helpers/createStudentData.js",
