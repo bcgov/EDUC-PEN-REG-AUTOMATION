@@ -1,0 +1,13 @@
+#!/usr/bin/env groovy
+pipeline {
+  agent any
+  stages {
+    stage('Initialize network') {
+      steps {
+          script {
+            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-test create -f -', returnStdout: true)
+          }
+      }
+    }
+  }
+}

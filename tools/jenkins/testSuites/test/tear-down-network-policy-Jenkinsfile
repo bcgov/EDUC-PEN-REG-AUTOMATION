@@ -1,0 +1,13 @@
+#!/usr/bin/env groovy
+pipeline {
+  agent any
+  stages {
+    stage('Tear-down network') {
+      steps {
+          script {
+            sh(script: 'oc -n 75e61b-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
+          }
+      }
+    }
+  }
+}
