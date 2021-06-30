@@ -8,14 +8,14 @@ pipeline {
     OWNER = 'bcgov'
     TESTS_REPO_NAME = 'educ-pen-reg-automation'
   }
-  stage('Initialize network') {
+  stages {
+    stage('Initialize network') {
       steps {
           script {
             sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-test create -f -', returnStdout: true)
           }
       }
     }
-  stages {
     stage('Initialize') {
       steps {
         script {
@@ -107,8 +107,6 @@ pipeline {
             sh(script: 'oc -n 75e61b-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
           }
       }
-    }
-  }
-}                    
+    }                    
   }
 }
