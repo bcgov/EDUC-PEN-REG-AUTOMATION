@@ -18,16 +18,16 @@ pipeline {
         dir('frontend') {
           script {
             LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
-            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/InsertAndDeleteScripts/jobs/insertStudentForAuditHistory/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/InsertAndDeleteScripts/jobs/deleteTwinAndMergeStudents/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
       }
     }
-    stage('Get and Delete Pen request data') {
+    stage('Delete twin and merge students') {
       steps {
         dir('frontend') {
           sh 'npm install'
-          sh 'npm run insertStudentForAuditHistory'
+          sh 'npm run deleteTwinAndMergeStudents'
         }
       }
     }                

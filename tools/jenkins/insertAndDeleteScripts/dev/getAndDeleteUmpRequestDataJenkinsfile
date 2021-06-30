@@ -23,7 +23,7 @@ pipeline {
         }
       }
     }
-    stage('Get and Delete Pen request data') {
+    stage('Get and Delete Ump request data') {
       steps {
         dir('frontend') {
           sh 'npm install'
