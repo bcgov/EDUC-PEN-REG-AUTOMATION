@@ -10,7 +10,7 @@ class staffHamburgerMenuPage {
         this.studentSearchLink = Selector('#StudentSearchMenuBtn')
         this.infrequentProcessLink = Selector('#InfrequentProcessesMenuBtn')
         this.createNewPenLink = Selector('#CreateNewPENMenuBtn')
-        this.comparePensLink = Selector('#ComparePENsMenuBtn')
+        this.comparePensLink = Selector('#CompareStudentsMenuBtn')
     }
 
     async clickHamburgerMenu(){
