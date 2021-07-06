@@ -1,5 +1,6 @@
 import { Selector, t } from 'testcafe'
 const log = require("npmlog")
+
 class penRequestForm {
 
     constructor() {
@@ -88,7 +89,7 @@ class penRequestForm {
             log.info("Gender selected")
         }
         if (studentData.email) {
-            await t.typeText(this.email, studentData.email+environment+"@mailsac.com", { paste: true })
+            await t.typeText(this.email, studentData.email + environment + "@mailsac.com", { paste: true })
             log.info("Email ID entered")
         }
         if (studentData.lastBCSchool) {
@@ -179,6 +180,17 @@ class penRequestForm {
 
         }
 
+    }
+
+    async clickCheckBoxOne() {
+        await t.click(this.topCheckBox)
+        log.info("Top checkbox is clicked")
+        await t.expect(this.legaLastlName.count).eql(1)
+    }
+
+    async setLegalLastName(studentData) {
+        await t.typeText(this.legaLastlName, studentData.legalLastName, { paste: true })
+        log.info("Legal LastName entered")
     }
 }
 

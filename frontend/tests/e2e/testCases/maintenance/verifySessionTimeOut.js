@@ -37,7 +37,5 @@ test('Session Timeout test', async t => {
         await studentDetails.verifyStudentDetails(penNumber, studentDetailsData)
 
         await create.implicitWait(i)
-
-
     }
 })
