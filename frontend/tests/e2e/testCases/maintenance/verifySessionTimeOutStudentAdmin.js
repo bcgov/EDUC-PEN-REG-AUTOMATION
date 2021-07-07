@@ -20,7 +20,7 @@ fixture`Maintenance`
         await t.maximizeWindow()
     })
 
-test('Gmp Session Timeout test', async t => {
+test('Session Timeout test student admin', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
 

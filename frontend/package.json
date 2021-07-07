@@ -54,7 +54,8 @@
     "myEdPenRequest": "node tests/e2e/testcases/myEd/penRequest.js",
     "myEdPenCoordinators": "node tests/e2e/testcases/myEd/penCoordinators.js",
     "myEdStudents": "node tests/e2e/testcases/myEd/students.js",
-    "journeyBuilderNavigation": "node tests/e2e/testSuites/navigation/journeyBuilderNavigationSuite.js"
+    "journeyBuilderNavigation": "node tests/e2e/testSuites/navigation/journeyBuilderNavigationSuite.js",
+    "gumpiNavigation": "node tests/e2e/testSuites/navigation/gumpiNavigationSuite.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

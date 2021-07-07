@@ -15,7 +15,7 @@ class studentInformationVerificationPage {
     async studentReceivedPen(data) {
         // assert.equal("Your PEN request is complete. Your PEN is:", await this.penCompleteText.innerText)
         await t.expect(this.penCompleteText.innerText).eql("Your PEN request is complete. Your PEN is:", { timeout: 30000 })
-        assert.equal(data, await this.penNumber.innerText)
+        assert.deepStrictEqual(data, await this.penNumber.innerText)
         log.info("Student received pen number")
     }
 

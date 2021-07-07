@@ -4,7 +4,7 @@ const log = require("npmlog")
 class penRequestForm {
 
     constructor() {
-
+        
         this.topCheckBox = Selector('input:nth-of-type(1)')
         this.legaLastlName = Selector('#legalLastName')
         this.legalFirstName = Selector('#legalFirstName')
@@ -22,7 +22,8 @@ class penRequestForm {
         this.submitForm = Selector('#submit_form')
         this.submitConfirmation = Selector('strong:nth-child(1)')
         this.nextButton = Selector('#next-step')
-
+        this.backButton = Selector('#previous-step')
+        this.comfirmGmpSubmitText = Selector('div.container.pt-0.px-1.container--fluid div.row.no-gutters:nth-child(1) p:nth-child(1) > strong:nth-child(1)')
     }
 
     async fillRequestForm(studentData, submitBool, environment) {
@@ -177,9 +178,7 @@ class penRequestForm {
             await t.wait(2000)
             await t.expect(await this.submitConfirmation.innerText).eql(studentData.penRequestSubmissionConfirmationText, { timeout: 180000 })
             log.info('Submit confirmation text displayed')
-
         }
-
     }
 
     async clickCheckBoxOne() {
@@ -188,12 +187,79 @@ class penRequestForm {
         await t.expect(this.legaLastlName.count).eql(1)
     }
 
+    async clickCheckBoxTwo() {
+        await t.click(this.bottomCheckBox)
+        log.info("Bottom Check box is clicked")
+    }
+
     async setLegalLastName(studentData) {
         await t.typeText(this.legaLastlName, studentData.legalLastName, { paste: true })
         log.info("Legal LastName entered")
     }
+
+    async verifyNextButtonDisabled() {
+        await t.expect(this.submitForm.hasAttribute('disabled')).ok();
+        log.info("Next button is disabled")
+    }
+
+    async verifyNextButtonEnabled() {
+        await t.expect(this.submitForm.hasAttribute('disabled')).notOk();
+        log.info("Next button is enabled")
+    }
+
+    async setPastname(studentData) {
+        await t.typeText(this.pastName, studentData.pastNames, { paste: true })
+        log.info("Past Names entered")
+        await t.pressKey("tab")
+    }
+
+    async setDob(studentData) {
+        const month = studentData.dateOfBirth.month
+        const day = studentData.dateOfBirth.date
+        const year = studentData.dateOfBirth.year
+        var y = year.toString()
+        await t.wait(3000)
+        await t.click((Selector('li').withText(y)).filterVisible())
+            .click(Selector('div.v-date-picker-table').find('.v-btn__content').nth(month - 1))
+            .click(Selector('div.v-date-picker-table').find('.v-btn__content').nth(day - 1))
+        log.info("Birthdate set")
+    }
+
+    async selectGender(studentData) {
+        await t
+            .click(Selector('div.v-select__selections'))
+        await t.wait(2000)
+        await t.click(Selector('div.v-list-item__content').find('.v-list-item__title').nth(studentData.gender))
+        await t.wait(2000)
+        await t.pressKey("tab")
+        log.info("Gender selected")
+    }
+
+    async setEmail(studentData, environment) {
+        await t.typeText(this.email, studentData.email + environment + "@mailsac.com", { paste: true })
+        log.info("Email ID entered")
+    }
+
+    async clickNextButton() {
+        await t.click(this.submitForm)
+        log.info("Next button clicked")
+    }
+
+    async verifyConfirmGmpSubmitText(studentData) {
+        await t.expect(await this.comfirmGmpSubmitText.innerText).eql(studentData.comfirmGmpSubmitText, { timeout: 15000 })
+        log.info('Expected text displayed')
+    }
+
+    async clickBackButton() {
+        await t.click(this.backButton)
+        log.info("Back button cliked")
+    }
+
+    async verifyDataRetained(studentData, environment) {
+        await t.expect(await this.legaLastlName.value).eql(studentData.legalLastName, { timeout: 15000 })
+        await t.expect(await this.pastName.value).eql(studentData.pastNames)
+        await t.expect(await this.email.value).eql(studentData.email + environment + "@mailsac.com")
+        log.info("Data retained successfully")
+    }
 }
-
-
-
 export default penRequestForm

@@ -41,5 +41,6 @@
     "birthMonthEnd": "12",
     "birthDayEnd": "31",
     "legalSurnameWildcard": "aut*",
-    "legalGivenWildcard": "tes*"
+    "legalGivenWildcard": "tes*",
+    "comfirmGmpSubmitText": "Please confirm the information below correctly summarizes your legal names, demographic information and contact information before continuing."
 }
