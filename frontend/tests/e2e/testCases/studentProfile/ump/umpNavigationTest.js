@@ -35,4 +35,24 @@ test('ump navigation test', async t => {
 
     await updatePage.setLegalLastName(studentData.legalLastName)
 
+    await updatePage.setBirthDate(studentData)
+
+    await updatePage.setGender(studentData)
+
+    await updatePage.clickNextButton()
+
+    await updatePage.clickIDeclareCheckBox()
+
+    await updatePage.setEmail(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.VerifyAlertMessage(studentData.umpAlert)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.verifyDataRetainedStep1(studentData)
+
 });

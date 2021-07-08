@@ -42,5 +42,10 @@
     "birthDayEnd": "31",
     "legalSurnameWildcard": "aut*",
     "legalGivenWildcard": "tes*",
-    "comfirmGmpSubmitText": "Please confirm the information below correctly summarizes your legal names, demographic information and contact information before continuing."
+    "comfirmGmpSubmitText": "Please confirm the information below correctly summarizes your legal names, demographic information and contact information before continuing.",
+    "birthdateGmp": "1999-12-01",
+    "birthdateUmp": "December 1, 1999",
+    "retainedGenderGmp": "Male",
+    "retainedGenderUmp": "Gender Diverse",
+    "umpAlert": "You must specify at least one change in order to submit a request."
 }

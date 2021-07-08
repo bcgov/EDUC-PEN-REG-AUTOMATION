@@ -15,7 +15,7 @@ createTestCafe('localhost', 1337, 1338)
             .src([
 
                 "tests/e2e/testCases/studentProfile/gmp/gmpNavigationTest.js",
-                //"tests/e2e/testCases/studentProfile/ump/umpNavigationTest.js"
+                "tests/e2e/testCases/studentProfile/ump/umpNavigationTest.js"
 
             ])
             .run();

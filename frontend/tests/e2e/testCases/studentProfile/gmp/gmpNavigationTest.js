@@ -34,6 +34,8 @@ test('gmp navigation test', async t => {
 
     await studentLogin.overcomeCreateNewPenRequest()
 
+    await penRequest.verifyNextButtonDisabled()
+
     await penRequest.clickCheckBoxOne()
 
     await penRequest.verifyNextButtonDisabled()
@@ -50,6 +52,8 @@ test('gmp navigation test', async t => {
 
     await penRequest.setDob(studentData)
 
+    await penRequest.verifyNextButtonDisabled()
+
     await penRequest.setEmail(studentData, constants.pen_environment)
 
     await penRequest.verifyNextButtonEnabled()
@@ -60,8 +64,57 @@ test('gmp navigation test', async t => {
 
     await penRequest.clickBackButton()
 
-    await penRequest.verifyDataRetained(studentData,constants.pen_environment)
+    await penRequest.verifyDataRetained(studentData, constants.pen_environment)
 
+    await penRequest.verifyNextButtonDisabled()
 
+    await penRequest.clickCheckBoxTwo()
+    
+    await penRequest.clickNextButton()
 
+    await penRequest.verifyConfirmGmpSubmitText(studentData)
+
+    await penRequest.clickBackButton()
+
+    await penRequest.verifyNextButtonDisabled()
+
+    await penRequest.verifyDataRetained(studentData, constants.pen_environment)
+
+    await penRequest.clickCheckBoxTwo()
+
+    await penRequest.clickNextButton()
+
+    await penRequest.verifyConfirmGmpSubmitText(studentData)
+
+    await penRequest.clickBackButton()
+
+    await penRequest.verifyDataRetained(studentData, constants.pen_environment)
+
+    await penRequest.clearLegalLastName()
+
+    await penRequest.setLegalFirstName(studentData)
+
+    await penRequest.verifyNextButtonDisabled()
+
+    await penRequest.clearLegalFirstName()
+
+    await penRequest.setLegalLastName(studentData)
+
+    await penRequest.verifyNextButtonDisabled()
+
+    await penRequest.clickCheckBoxTwo()
+    
+    await penRequest.verifyNextButtonEnabled()
+
+    await penRequest.clickNextButton()
+
+    await penRequest.verifyConfirmGmpSubmitText(studentData)
+
+    await penRequest.clickCancelButton()
+
+    await studentLogin.clickGetMyPen(constants.studentEntryPoint)
+
+    await penRequest.clickCheckBoxOne()
+
+    await penRequest.verifyDataCleared()
 });

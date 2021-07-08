@@ -14,6 +14,8 @@ class updateMyPenInfoPage {
         this.legalFirstNmae = Selector('#recordedLegalFirstName')
         this.legalMiddleName = Selector('#recordedLegalMiddleNames')
         this.legalLastName = Selector('#recordedLegalLastName')
+        this.birthdate = Selector('#birthdate')
+        this.gender  =Selector('div.v-select__selections')
 
 
         //navigtion buttons
@@ -37,6 +39,8 @@ class updateMyPenInfoPage {
         //Step 4 related selectors
         this.submitConfirmation = Selector('strong').withText('You are almost')
 
+        //alert content
+        this.alert = Selector('v-alert--outlined:nth-child(1) div.v-alert__wrapper > div.v-alert__content')
 
     }
 
@@ -136,6 +140,20 @@ class updateMyPenInfoPage {
     async submitConfirmationDisplayed(data) {
         await t.expect(this.submitConfirmation.innerText).eql(data, { timeout: 10000 })
         log.info('Submit confirmation text displayed')
+    }
+
+    async VerifyAlertMessage(data) {
+        this.element = Selector('div').withExactText(data)
+        await t.expect(this.element.exists).ok()
+        log.info("Expected alert message displayed  "+ await this.element.innerText)
+    } 
+
+    async verifyDataRetainedStep1(studentData) {
+        await t.expect(await this.legalLastName.value).eql(studentData.legalLastName, { timeout: 15000 })
+        await t.expect(await this.legalFirstNmae.value).eql(studentData.legalFirstName)
+        await t.expect(await this.birthdate.value).eql(studentData.birthdateUmp)
+        await t.expect(await this.gender.innerText).eql(studentData.retainedGenderUmp)
+        log.info("Data retained successfully")
     }
 
 
