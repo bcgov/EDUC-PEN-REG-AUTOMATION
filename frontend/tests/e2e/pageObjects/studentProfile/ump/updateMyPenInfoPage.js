@@ -15,7 +15,7 @@ class updateMyPenInfoPage {
         this.legalMiddleName = Selector('#recordedLegalMiddleNames')
         this.legalLastName = Selector('#recordedLegalLastName')
         this.birthdate = Selector('#birthdate')
-        this.gender  =Selector('div.v-select__selections')
+        this.gender = Selector('div.v-select__selections')
 
 
         //navigtion buttons
@@ -35,6 +35,7 @@ class updateMyPenInfoPage {
         this.genderEditCheckBox = Selector('#editGenderLabelCheckbox')
         this.email = Selector('#email')
         this.bottomCheckBox = Selector('#acceptance_chk')
+        this.cancelButton = Selector('#cancelButton')
 
         //Step 4 related selectors
         this.submitConfirmation = Selector('strong').withText('You are almost')
@@ -93,6 +94,17 @@ class updateMyPenInfoPage {
         log.info("Next button is clicked")
     }
 
+    async waitForEmailElement(){
+        await t.expect(this.email.exists).ok()
+        log.info("email element visible")
+    } 
+
+    async verifyNextButtonDisabled() {
+        const element = Selector('#next-step')
+        await t.expect(element.hasAttribute('disabled')).ok();
+        log.info("Next button is disabled")
+    }
+
     async clickBackButton() {
         await t.click(this.backButton)
         log.info("Back button is clicked")
@@ -114,8 +126,8 @@ class updateMyPenInfoPage {
         log.info("edit gender checkbox is clicked")
     }
 
-    async setEmail(email,environment) {
-        await t.typeText(this.email, email+environment+"@mailsac.com")
+    async setEmail(email, environment) {
+        await t.typeText(this.email, email + environment + "@mailsac.com")
         log.info("Email is set")
     }
 
@@ -145,8 +157,8 @@ class updateMyPenInfoPage {
     async VerifyAlertMessage(data) {
         this.element = Selector('div').withExactText(data)
         await t.expect(this.element.exists).ok()
-        log.info("Expected alert message displayed  "+ await this.element.innerText)
-    } 
+        log.info("Expected alert message displayed  " + await this.element.innerText)
+    }
 
     async verifyDataRetainedStep1(studentData) {
         await t.expect(await this.legalLastName.value).eql(studentData.legalLastName, { timeout: 15000 })
@@ -155,6 +167,72 @@ class updateMyPenInfoPage {
         await t.expect(await this.gender.innerText).eql(studentData.retainedGenderUmp)
         log.info("Data retained successfully")
     }
+
+
+    async verifyDataCleared(){
+        await t.expect(await this.legalLastName.value).eql('', { timeout: 15000 })
+        await t.expect(await this.legalFirstNmae.value).eql('')
+        await t.expect(await this.birthdate.value).eql('')
+        await t.expect(await this.gender.innerText).eql('')
+        log.info("Data cleared successfully")
+    }
+
+
+    async clickEditMiddleNameCheckbox() {
+        await t.click(this.middleNameEditCheckBox)
+        log.info("Edit legal middle name checkbox clicked")
+    }
+
+    async setLegalMiddleNameStep2(studentData) {
+        await t.typeText(this.middleNameTextBox, studentData.legalMiddleNames)
+        log.info("legal middlename set")
+    }
+
+    async verifyNamesOnSummaryPage(studentData) {
+        const element = Selector('div.row.no-gutters:nth-child(3) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        await t.expect(element.innerText).eql(studentData.legalFirstName + " " + studentData.legalMiddleNames + " " + studentData.legalLastName)
+        log.info("names verified on summary page")
+
+    }
+
+    async verifyBirthdateOnSummaryPage(studentData) {
+        const element = Selector('div.row.no-gutters:nth-child(4) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        await t.expect(element.innerText).eql(studentData.birthdateUmp)
+        log.info("birthdate verified on summary page")
+
+    }
+
+    async verifyGenderOnSummaryPage(data) {
+        const element = Selector('div.row.no-gutters:nth-child(5) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        await t.expect(element.innerText).eql(data)
+        log.info("gender verified on summary page")
+
+    }
+
+
+    async verifyEmailOnSummaryPage(email, environment) {
+        const element = Selector('div.row.no-gutters:nth-child(7) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        await t.expect(element.innerText).eql(email + environment + "@mailsac.com")
+        log.info("email verified on summary page")
+
+    }
+
+    async setGenderStep2(data){
+        await t
+            .click(Selector('div.v-select__selections'));
+        await t.wait(2000)
+        await t.click(Selector('div.v-list-item__content').find('.v-list-item__title').nth(data))
+        await t.wait(2000)
+        await t.pressKey("tab");
+        log.info("Gender selected")
+    }
+
+    async clickCancelButton(){
+        await t.click(this.cancelButton)
+        log.info("Cancel button clicked")
+    }
+
+
 
 
 }

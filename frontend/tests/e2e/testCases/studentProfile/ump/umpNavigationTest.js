@@ -55,4 +55,174 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyDataRetainedStep1(studentData)
 
+    await updatePage.clickNextButton()
+
+    await updatePage.waitForEmailElement()
+
+    await updatePage.verifyNextButtonDisabled()
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.VerifyAlertMessage(studentData.umpAlert)
+
+    await updatePage.clickEditMiddleNameCheckbox()
+
+    await updatePage.setLegalMiddleNameStep2(studentData)
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.verifyNextButtonDisabled()
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.verifyNextButtonDisabled()
+
+    await updatePage.clickeditGenderCheckbox()
+
+    await updatePage.setGenderStep2(studentData.gender)
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderGmp)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.clickeditGenderCheckbox()
+
+    await updatePage.clickEditMiddleNameCheckbox()
+
+    await updatePage.verifyNextButtonDisabled()
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.VerifyAlertMessage(studentData.umpAlert)
+
+    await updatePage.clickCancelButton()
+
+    await studentLogin.clickUpdateMyPen(constants.studentEntryPoint)
+
+    await updatePage.verifyDataCleared()
+
+    await updatePage.setPenNumber(constants.penNumber)
+
+    await updatePage.setLegalFirstName(studentData.legalFirstName)
+
+    await updatePage.setLegalLastName(studentData.legalLastName)
+
+    await updatePage.setBirthDate(studentData)
+
+    await updatePage.clickNextButton()
+
+    await updatePage.clickIDeclareCheckBox()
+
+    await updatePage.setEmail(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickEditMiddleNameCheckbox()
+
+    await updatePage.setLegalMiddleNameStep2(studentData)
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.clickeditGenderCheckbox()
+
+    await updatePage.setGender(studentData)
+
+    await updatePage.verifyNextButtonDisabled()
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.clickeditGenderCheckbox()
+
+    await updatePage.verifyNextButtonDisabled()
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
+    await updatePage.clickBackButton()
+
+    await updatePage.clickBackButton()
+
+    await updatePage.setGender(studentData)
+
+    await updatePage.clickNextButton()
+
+    await updatePage.clickAccurateCheckBox()
+
+    await updatePage.clickNextButton()
+
+    await updatePage.verifyNamesOnSummaryPage(studentData)
+
+    await updatePage.verifyBirthdateOnSummaryPage(studentData)
+
+    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+
 });

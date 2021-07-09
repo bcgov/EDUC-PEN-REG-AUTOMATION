@@ -47,5 +47,6 @@
     "birthdateUmp": "December 1, 1999",
     "retainedGenderGmp": "Male",
     "retainedGenderUmp": "Gender Diverse",
-    "umpAlert": "You must specify at least one change in order to submit a request."
+    "umpAlert": "You must specify at least one change in order to submit a request.",
+    "emptyString": ""
 }
