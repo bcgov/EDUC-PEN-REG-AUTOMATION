@@ -85,29 +85,29 @@ pipeline {
         }
       }
     }
-    // stage('Insert and Update Pen request data to abandoned') {
-    //   steps {
-    //     dir('frontend') {
-    //       sh 'npm run insertAndUpdatePenRequestDataToAbandoned'
-    //     }
-    //   }
-    // }   
-    // stage('staff can not action abandoned pen request') {
-    //   steps {
-    //     script {
-    //       TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-    //       extJSHelper.triggerWorkflow(TOKEN, 'staff-can-not-action-abandoned-pen-request-test-environment')
-    //       extJSHelper.waitForWorkflowRunComplete(TOKEN)
-    //     }
-    //   }
-    // }
-    // stage('get and delete pen request three') {
-    //   steps {
-    //     dir('frontend') {
-    //       sh 'npm run getAndDeletePenRequestData'
-    //     }
-    //   }
-    // }
+    stage('Insert and Update Pen request data to abandoned') {
+      steps {
+        dir('frontend') {
+          sh 'npm run insertAndUpdatePenRequestDataToAbandoned'
+        }
+      }
+    }   
+    stage('staff can not action abandoned pen request') {
+      steps {
+        script {
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-can-not-action-abandoned-pen-request-test-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+        }
+      }
+    }
+    stage('get and delete pen request three') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeletePenRequestData'
+        }
+      }
+    }
     stage('staff issue pen to student and unlink') {
       steps {
         script {
