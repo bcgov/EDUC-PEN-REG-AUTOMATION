@@ -5,7 +5,7 @@ on:
   workflow_dispatch:  
 
 jobs:
-  Saga_Part_One_Test_Environment:
+  Regression:
     runs-on: windows-latest
     defaults:
       run:
