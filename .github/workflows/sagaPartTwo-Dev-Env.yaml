@@ -19,7 +19,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run staffRejectPenRequestTestCase
+      - run: npm run sagaPartTwo
         if: ${{ always() }}
         env:
           PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
