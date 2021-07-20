@@ -58,7 +58,7 @@
     "gumpiNavigation": "node tests/e2e/testSuites/navigation/gumpiNavigationSuite.js",
     "staffVerifyPriorRequestsDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsDisplayedSuite.js",
     "staffVerifyPriorRequestsNotDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsNotDisplayedSuite.js",
-    "getAndUpdatePenRequestDataToPast": ""
+    "getAndUpdatePenRequestDataToPast": "node tests/e2e/testCases/studentProfile/gmp/getAndUpdatePenRequestDataToPast.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
