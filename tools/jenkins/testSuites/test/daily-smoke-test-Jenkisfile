@@ -120,7 +120,7 @@ pipeline {
       steps {
         script {
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'staff-veify-prior-pen-requests-not-displayed-test-environmen')
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-veify-prior-pen-requests-not-displayed-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
       }
