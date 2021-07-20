@@ -48,6 +48,8 @@ class staffActionOnPenPage {
         this.dob = Selector('#studentDOB').child('strong')
         this.gender = Selector('#studentGender').child('strong')
 
+        //Prior pen request
+        this.priorPenRequest = Selector('#prior-pen-count')
     }
 
     async clickClaimButton() {
@@ -134,7 +136,7 @@ class staffActionOnPenPage {
             }
         }
         if (penDemographics.UsualUat) {
-            
+
             if (environment == "uat" || environment == "pre-prod") {
 
                 assert.strictEqual(penDemographics.UsualUat, await this.usual.innerText)
@@ -295,9 +297,9 @@ class staffActionOnPenPage {
         }
     }
 
-    async verifyUploadedFiles(tr,type, name) {
-        this.documentType = Selector('tr:nth-child('+tr+') td.text-start:nth-child(1)')
-        this.documentName = Selector('tr:nth-child('+tr+') td.text-start:nth-child(2)')
+    async verifyUploadedFiles(tr, type, name) {
+        this.documentType = Selector('tr:nth-child(' + tr + ') td.text-start:nth-child(1)')
+        this.documentName = Selector('tr:nth-child(' + tr + ') td.text-start:nth-child(2)')
         await t.expect(this.documentType.innerText).eql(type, { timeout: 10000 })
         await t.expect(this.documentName.innerText).eql(name, { timeout: 10000 })
         log.info("student uploads verified")
@@ -308,6 +310,17 @@ class staffActionOnPenPage {
         await t.expect(this.rejectPenRequestButton.count).eql(1)
         log.info("redirect complete")
     }
+
+    async verifyPriorPenRequests(numberOfRequests) {
+        await t.expect(this.priorPenRequest.innerText).eql(numberOfRequests+ " prior PEN Requests")
+        log.info("Expected number of prior pen requests message dispalyed")
+    }
+
+    async verifyPriorRequestsDonotExists(){
+        await t.expect(this.priorPenRequest.exists).notOk()
+        log.info("No prior requests confirmend")
+    }
+
 
 }
 
