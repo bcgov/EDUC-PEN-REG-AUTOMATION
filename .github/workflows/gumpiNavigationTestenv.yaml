@@ -1,8 +1,8 @@
 name: GUMPI Navigation Test Test Environment
 on:
   schedule:
-    # Scheduled job to run every day at 1 am PST
-    - cron: "0 8 * * *"
+    # Scheduled job to run every day at 8 am PST
+    - cron: "0 15 * * *"
   workflow_dispatch:  
 jobs:
   GUmpi_Navigation_Test_Test_Environment:
