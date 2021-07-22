@@ -106,6 +106,7 @@ class updateMyPenInfoPage {
     }
 
     async clickBackButton() {
+        await t.wait(3000)
         await t.click(this.backButton)
         log.info("Back button is clicked")
     }
