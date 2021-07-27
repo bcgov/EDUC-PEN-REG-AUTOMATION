@@ -16,7 +16,8 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode" : "A"
+            "demogCode" : "A",
+            "statusCode": "A"
         },
         {
             "legalLastName": "TWIN TWO",
@@ -34,7 +35,8 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode" : "A"
+            "demogCode" : "A",
+            "statusCode": "A"
         },
         {
             "legalLastName": "TWIN THREE",
@@ -52,7 +54,8 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode" : "A"
+            "demogCode" : "A",
+            "statusCode": "A"
         },
         {
             "legalLastName": "MERGE ONE",
@@ -70,7 +73,8 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode" : "A"
+            "demogCode" : "A",
+            "statusCode": "A"
         },
         {
             "legalLastName": "MERGE TWO",
@@ -88,7 +92,8 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode" : "A"
+            "demogCode" : "A",
+            "statusCode": "A"
         },
         {
             "legalLastName": "MERGE THREE",
@@ -106,7 +111,8 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode" : "A"
+            "demogCode" : "A",
+            "statusCode": "A"
         }
     ]
 }

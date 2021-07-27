@@ -15,7 +15,8 @@
         "gradeCode": "10",
         "emailVerified": "N",
         "historyActivityCode": "USERNEW",
-        "demogCode" : "A"
+        "demogCode" : "A",
+        "statusCode": "A"
     },
     "updates": {
         "usualLastName": "HISTORY",
