@@ -19,5 +19,8 @@
     "twinned": "",
     "memo":"New Pen Created",
     "nameErrorDescription": "Field contains invalid character",
-    "gradeErrorDescription": "Invalid Grade Code"
+    "gradeErrorDescription": "Invalid Grade Code",
+    "birthYearStart": "1989",
+    "birthMonthStart": "01",
+    "birthDayStart": "01"
 }

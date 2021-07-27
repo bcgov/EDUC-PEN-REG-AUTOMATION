@@ -28,6 +28,8 @@ class staffStudentSearchPage {
         this.standardSearchButton = Selector('#search-type-action')
         this.clearButon = Selector('#search-clear')
         this.searchButton = Selector('#perform-search')
+        this.createNewPenButton = Selector('#create-new-pen')
+        this.createNewPenSubmitButton = Selector('#createNewPENSubmitButton')
 
 
 
@@ -63,6 +65,7 @@ class staffStudentSearchPage {
         this.gender = Selector('#gender')
         this.nameVariantCheckBox = Selector('#searchNameVariantsCheckbox')
         this.searchAuditHistoryCheckBox = Selector('#searchAuditHistoryCheckbox')
+
 
     }
 
@@ -151,6 +154,20 @@ class staffStudentSearchPage {
         log.info("Search button is clicked")
     }
 
+    async clickCreateNewPenButton() {
+        await t.click(this.createNewPenButton)
+        log.info("create new pen button clicked")
+    }
+
+    async verifyCreateNewPenButtonDisabled() {
+        await t.expect(this.createNewPenButton.hasAttribute('disabled')).ok();
+        log.info("create new pen button disabled")
+    }
+
+    async verifyCreateNewPenButtonEnabled() {
+        await t.expect(this.createNewPenButton.hasAttribute('disabled')).notOk();
+        log.info("create new pen button enabled")
+    }
     async clickOnFirstSearchResult() {
         await t.click(this.penSearchResult)
         log.info("clicked on first search result")
@@ -270,6 +287,18 @@ class staffStudentSearchPage {
         const text = Selector('span').withExactText(data)
         await t.expect((text).exists).ok()
         log.info("Following Text verified    " + data)
+    }
+
+    async setDateOfBirth(data) {
+        await t.typeText(this.birthYearStart, data.birthYearStart)
+        await t.typeText(this.birthMonthStart, data.birthMonthStart)
+        await t.typeText(this.birthDayStart, data.birthDayStart)
+        log.info("Birthdate set")
+    }
+
+    async clickCreateNewPenSubmitButton(){
+        await t.click(this.createNewPenSubmitButton)
+        log.info("Create pen button on model clicked")
     }
 
 }

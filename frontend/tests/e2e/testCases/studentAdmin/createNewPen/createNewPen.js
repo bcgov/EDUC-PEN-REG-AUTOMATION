@@ -1,16 +1,16 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
-import { idirAdminCredentials, staffLoginUrl} from '../../../config/constants'
+import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants'
 import staffHamburgerMenuPage from '../../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage'
 import studentData from '../../../config/studentData/createNewPenData.json'
-import createNewPenPage from '../../../pageObjects/studentAdmin/createNewPen/createNewPenPage'
 import studentDetailsPage from '../../../pageObjects/studentAdmin/studentSearch/studentDetailsPage'
 import staffStudentSearchPage from '../../../pageObjects/studentAdmin/studentSearch/staffStudentSearchPage'
+import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 
 const staffLogin = new staffLoginPage()
 const menu = new staffHamburgerMenuPage()
-const create = new createNewPenPage()
 const studentDetails = new studentDetailsPage()
-const studentSearch = new staffStudentSearchPage()
+const dashboard = new staffDashboardPage()
+const staffSearch = new staffStudentSearchPage()
 
 
 fixture`Student Admin`
@@ -21,58 +21,77 @@ fixture`Student Admin`
 
 test('Staff create New Pen test', async t => {
 
-    await staffLogin.stafflogin(idirAdminCredentials,staffLoginUrl)
+    await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
-    await menu.clickHamburgerMenu()
+    await dashboard.clickFullSearchButton()
 
-    await menu.clickInfrequentProcessLink()
+    await staffSearch.verifyCreateNewPenButtonDisabled()
 
-    await menu.clickCreateNewPenLink()
+    await staffSearch.setLegalSurname(studentData.legalSurname)
 
-    await create.clickEnterDataButton()
+    await staffSearch.setLegalGiven(studentData.legalGivenname)
 
-    await create.setLegalSurname(studentData.legalSurname)
+    await staffSearch.clickSearchButton()
 
-    await create.setLegalGivenName(studentData.legalGivenname)
+    await staffSearch.verifyCreateNewPenButtonDisabled()
 
-    await create.setLegalMiddleNames(studentData.legalMiddlename)
+    await staffSearch.setLegalMiddle(studentData.legalMiddlename)
 
-    await create.setUsualSurname(studentData.legalSurname)
+    await staffSearch.setUsualSurname(studentData.usualSurname)
 
-    await create.setUsualGivenName(studentData.legalGivenname)
+    await staffSearch.clickSearchButton()
 
-    await create.setUsualMiddleNames(studentData.legalMiddlename)
+    await staffSearch.verifyCreateNewPenButtonDisabled()
 
-    await create.setBirthDate(studentData.birthDate)
+    await staffSearch.setUsualGiven(studentData.usualGivenname)
 
-    await create.setGender(studentData.gender)
+    await staffSearch.setUsualMiddle(studentData.usualMiddlename)
 
-    await create.setMincode(studentData.mincode)
+    await staffSearch.clickSearchButton()
 
-    await create.setGrade(studentData.grade)
+    await staffSearch.verifyCreateNewPenButtonDisabled()
 
-    await create.setPostalCode(studentData.postalCode)
+    await staffSearch.setGender(studentData.gender)
 
-    await create.clickSearchButton()
+    await staffSearch.clickSearchButton()
 
-    await create.clickIssueNewPenButton()
+    await staffSearch.verifyCreateNewPenButtonDisabled()
+
+    await staffSearch.setDateOfBirth(studentData)
+
+    await staffSearch.clickSearchButton()
+
+    await staffSearch.verifyCreateNewPenButtonEnabled()
+
+    await staffSearch.clickCreateNewPenButton()
+
+    await staffSearch.clickCreateNewPenSubmitButton()
 
     await studentDetails.verifyStudentDetailsPageDisplayed()
 
-    await studentDetails.setMemo(studentData.memo)
 
-    await studentDetails.clickSaveButton()
 
-    await menu.clickHamburgerMenu()
 
-    await menu.clickStudentSearchLink()
 
-    await studentSearch.setLegalSurname(studentData.legalSurname)
 
-    await studentSearch.setLegalGiven(studentData.legalGivenname)
 
-    await studentSearch.clickSearchButton()
 
-    await studentSearch.verifyDetailsOfNewPenCreated(studentData)
+
+
+    // await studentDetails.setMemo(studentData.memo)
+
+    // await studentDetails.clickSaveButton()
+
+    // await menu.clickHamburgerMenu()
+
+    // await menu.clickStudentSearchLink()
+
+    // await studentSearch.setLegalSurname(studentData.legalSurname)
+
+    // await studentSearch.setLegalGiven(studentData.legalGivenname)
+
+    // await studentSearch.clickSearchButton()
+
+    // await studentSearch.verifyDetailsOfNewPenCreated(studentData)
 
 })

@@ -29,7 +29,7 @@
     "insertAndUpdatePenRequestDataToAbandoned": "node tests/e2e/testCases/studentProfile/gmp/insertAndUpdatePenRequestDataToAbandoned.js",
     "getAndDeletePenRequestData": "node tests/e2e/testCases/studentProfile/gmp/getAndDeletePenRequestData.js",
     "getAndDeleteUmpRequestData": "node tests/e2e/testCases/studentProfile/ump/getAnddeleteUmpRequestData.js",
-    "getAndDeleteStudentData": "node tests/e2e/testCases/studentProfile/gmp/getAndDeleteStudentData.js",
+    "deleteNewlyCreatedPen": "node tests/e2e/testCases/studentProfile/gmp/deleteNewlyCreatedPen.js",
     "staffIssuePenToStudentAndUnlinkSuite": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentAndUnlinkSuite.js",
     "staffForceUnlinkSuite": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffForceUnlinkSuite.js",
     "studentSubmitGenderChangeAfterPenCompleteGetsCompleted": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpWithUmpE2E/studentSubmitGenderChangeAfterPenCompleteGetsCompleted.js",
