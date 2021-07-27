@@ -14,7 +14,8 @@
         "localID": "ABC123",
         "gradeCode": "10",
         "emailVerified": "N",
-        "historyActivityCode": "USERNEW"
+        "historyActivityCode": "USERNEW",
+        "demogCode" : "A"
     },
 
     "updates": {
