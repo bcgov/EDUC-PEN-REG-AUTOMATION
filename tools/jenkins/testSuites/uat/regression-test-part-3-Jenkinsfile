@@ -43,8 +43,17 @@ pipeline {
     stage('twin merge demerge audit sld and split') {
       steps {
         script {
-          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'twin-merge-demerge-audit-sld-split-uat-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+        }
+      }
+    }
+    stage('create new pen and verify validation rules') {
+      steps {
+        script {
+          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'validate-and-create-new-pen-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
       }
@@ -55,6 +64,7 @@ pipeline {
           sh 'npm run deleteAuditHistoryStudent'
           sh 'npm run deleteTwinAndMergeStudents'
           sh 'npm run deleteSplitStudents'
+          sh 'npm run deleteNewlyCreatedPen'
         }
       }
     }
