@@ -1,7 +1,7 @@
 name: Smoke Test Student Profile Dev Environment
 on:
   repository_dispatch:
-    types: [smoke-test-student-profile-dev-environment-removeThisLater]
+    types: [smoke-test-student-profile-dev-environment]
   workflow_dispatch:
 
 jobs:
