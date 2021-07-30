@@ -1,7 +1,7 @@
 name: Smoke Test Admin Dev Environment
 on:
   repository_dispatch:
-    types: [smoke-test-admin-dev-environment]
+    types: [smoke-test-admin-dev-environment-removelater]
   workflow_dispatch:  
 
 jobs:
