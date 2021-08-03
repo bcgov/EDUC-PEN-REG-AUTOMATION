@@ -20,7 +20,7 @@ class staffLoginPage {
 
         //session timeout related
         this.sessionExpiredText = Selector('#session-expired-text')
-        this.sessionExpiredDescription = Selector('#session-expired-description')
+        this.sessionExpiredDescription = Selector('#session-expired-descriptor')
         this.loginButton = Selector('#login-button')
 
     }
@@ -72,7 +72,7 @@ class staffLoginPage {
 
     async verifySessionExpired() {
         await t.expect(this.sessionExpiredText.innerText).eql("Session Expired")
-        await t.expect(this.sessionExpiredDescription.innerText).eql("Your secure session has ended as a results of inactivity.")
+        await t.expect(this.sessionExpiredDescription.innerText).eql("Your secure session has ended as a result of inactivity.")
         await t.expect(this.loginButton.exists).ok()
         log.info("Session expired messages verified")
     }
