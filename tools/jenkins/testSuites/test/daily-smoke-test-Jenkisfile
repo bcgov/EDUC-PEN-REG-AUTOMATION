@@ -41,9 +41,14 @@ pipeline {
     stage('Run Gmp Workflow one') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -64,9 +69,14 @@ pipeline {
     stage('Run Ump Workflow one') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -87,9 +97,14 @@ pipeline {
     stage('Run Gmp Workflow two') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-issue-pen-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -103,9 +118,14 @@ pipeline {
     stage('Run Gmp Workflow three') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-veify-prior-pen-requests-displayed-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -119,9 +139,14 @@ pipeline {
     stage('Run Gmp Workflow four') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-veify-prior-pen-requests-not-displayed-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }   
