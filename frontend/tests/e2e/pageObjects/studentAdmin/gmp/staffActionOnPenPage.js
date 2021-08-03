@@ -29,7 +29,7 @@ class staffActionOnPenPage {
         this.returnToStudentButton = Selector('#return-to-student')
 
         //Reject pen related selectors
-        this.rejectButton = Selector('#reject-tab')
+        this.rejectButton = Selector('#reject-tabRemoveLater')
         this.rejectTextBox = Selector('#reject-comment-textarea')
         this.rejectPenRequestButton = Selector('#reject-request')
 
