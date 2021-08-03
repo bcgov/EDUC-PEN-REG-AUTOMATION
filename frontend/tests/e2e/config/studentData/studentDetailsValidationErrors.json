@@ -1,0 +1,20 @@
+{
+    "studentDetails":{
+        "legalLastName": "-AUTOMATION",
+        "legalFirstName": "TES^TER",
+        "legalMiddleNames": "PE_N",
+        "usualLastName": "'",
+        "usualFirstName": "KKKK",
+        "usualMiddleNames": "_PEN",
+        "dob": "18910101"
+    },
+    "validationErrors":{
+        "legalLastNameErrors": "Field begins with one or more special characters",
+        "legalFirstNameErrors": "Field contains invalid character",
+        "legalMiddleNamesErrors": "Field contains invalid character",
+        "usualLastNameErrors": "Field contains only an apostrophe character",
+        "usualFirstNameErrors": "Field contains repeated characters",
+        "usualMiddleNamesErrors": "Field contains invalid character",
+        "dobErrors": "Birthdate before 1900"
+    }
+}

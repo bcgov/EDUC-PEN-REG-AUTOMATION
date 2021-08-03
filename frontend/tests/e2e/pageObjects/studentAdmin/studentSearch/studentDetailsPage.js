@@ -136,7 +136,7 @@ class studentDetailsPage {
     }
 
     async setBirthdate(data) {
-        await t.typeText(this.birthDate, data, { paste: true })
+        await t.typeText(this.birthDate, data, { replace: true })
         log.info("Birthdate is set")
     }
 
@@ -250,13 +250,13 @@ class studentDetailsPage {
     }
 
     async verifyLegalNames(data) {
-        await t.expect(this.legalSurname.value).eql(data.legalLastName,{ timeout: 30000 })
-        await t.expect(this.legalGiven.value).eql(data.legalFirstName,{ timeout: 10000 })
-        await t.expect(this.legalMiddle.value).eql(data.legalMiddleNames,{ timeout: 10000 })
+        await t.expect(this.legalSurname.value).eql(data.legalLastName, { timeout: 30000 })
+        await t.expect(this.legalGiven.value).eql(data.legalFirstName, { timeout: 10000 })
+        await t.expect(this.legalMiddle.value).eql(data.legalMiddleNames, { timeout: 10000 })
         log.info("Legal names verified")
     }
 
-    async verifyMemo(data){
+    async verifyMemo(data) {
         await t.expect(this.memo.value).eql(data)
         log.info("Memo verified")
     }
@@ -285,17 +285,17 @@ class studentDetailsPage {
         log.info("pop up yes button clicked")
     }
 
-    async clickCompareModelButton(){
+    async clickCompareModelButton() {
         await t.click(this.compareModelButton)
         log.info("compare model button clicked")
     }
 
-    async clickCompareModelCancelButton(){
+    async clickCompareModelCancelButton() {
         await t.click(this.compareModelCancelButton)
         log.info("cancel button clicked on compare model")
     }
 
-    async verifyUsualNameNotDisplayedOnCompareModel(){
+    async verifyUsualNameNotDisplayedOnCompareModel() {
         await t.wait(3000)
         this.modelUsualLastname = Selector('div:nth-of-type(2) > span:nth-of-type(5)')
         this.modelUsualFirstname = Selector('div:nth-of-type(2) > span:nth-of-type(6)')
@@ -306,7 +306,7 @@ class studentDetailsPage {
         log.info("usual names are not displayed")
     }
 
-    async verifyUsualNameDisplayedOnCompareModel(studentData){
+    async verifyUsualNameDisplayedOnCompareModel(studentData) {
         await t.wait(3000)
         this.modelUsualLastname = Selector('div:nth-of-type(2) > span:nth-of-type(5)')
         this.modelUsualFirstname = Selector('div:nth-of-type(2) > span:nth-of-type(6)')
@@ -318,15 +318,25 @@ class studentDetailsPage {
     }
 
 
-    async clickSldHistoryTabLink(){
+    async clickSldHistoryTabLink() {
         await t.click(this.sldHistoryTabLink)
         log.info("Sld history tab link clicked")
     }
 
-    async clickOnTwinPenNumber(){
+    async clickOnTwinPenNumber() {
         const tableCell = Selector(' table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(1) > td:nth-of-type(2) > a:nth-of-type(1)')
         await t.click(tableCell)
         log.info("clicked on twin pen number")
+    }
+
+    async verifyValidationErrors(errorMessage, i) {
+        const element = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) >' +
+            'div:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) >' +
+            'div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(' + i + ') > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) >' +
+            'div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1)')
+
+        await t.expect(element.innerText).eql(errorMessage)
+        log.info(await element.innerText + "  Error message verified")
     }
 
 } export default studentDetailsPage
