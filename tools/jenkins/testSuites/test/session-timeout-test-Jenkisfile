@@ -35,7 +35,7 @@ pipeline {
       steps {
         script {
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'session-timeout-verification-test-environment')
+          extJSHelper.triggerWorkflow(TOKEN, 'verify-session-alive-test-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
       }
@@ -49,6 +49,15 @@ pipeline {
         }
       }
     }
+    stage('Run Gmp Workflow one') {
+      steps {
+        script {
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'session-timeout-at-30-verification-test-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+        }
+      }
+    }    
 
     stage('Tear-down network') {
       steps {

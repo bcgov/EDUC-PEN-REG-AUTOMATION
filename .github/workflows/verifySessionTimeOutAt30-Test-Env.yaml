@@ -1,7 +1,7 @@
-name: Session Timeout Verification Test Environment
+name: Session Timeout At 30 Minutes Verification Test Environment
 on:
   repository_dispatch:
-    types: [session-timeout-verification-test-environment] 
+    types: [session-timeout-at-30-verification-test-environment] 
 jobs:
   Regression:
     runs-on: windows-latest
@@ -17,19 +17,13 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run verifySessionTimeOut
+      - run: npm run verifySessionTimeOutAt30
         if: ${{ always() }}
         env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-          BCEID_USER: ${{ secrets.BCEID_USER }}
-          BCEID_PASS: ${{ secrets.BCEID_PASS }}
           PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
 
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}

@@ -16,7 +16,7 @@
     "staffRejectPenRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffRejectPenRequestSuite.js",
     "staffRejectUmpRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/umpE2E/staffRejectUmpRequestSuite.js",
     "sagaPartOne": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/sagaPartOneSuite.js ",
-    "sagaPartTwo": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/sagaPartTwoSuite.js",    
+    "sagaPartTwo": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/sagaPartTwoSuite.js",
     "staffIssuePenToStudent": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentSuite.js",
     "staffIssuePenToBcscStudent": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffIssuePenToBcscStudentSuite.js",
     "staffCompleteUmpRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/umpE2E/staffCompleteUmpRequestSuite.js",
@@ -36,7 +36,6 @@
     "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js",
     "staffQuickSearchUpdateAndResetStudentInfo": "node --max-http-header-size=81000 tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js",
     "verifyValidationErrorsAndCreateNewPen": "node --max-http-header-size=81000 tests/e2e/testSuites/createNewPenE2E/verifyValidationErrorsAndCreateNewPenSuite.js",
-    "verifySessionTimeOut": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/sessionTimeoutStudentProfileAndAdminSuite.js",
     "comparePens": "node --max-http-header-size=81000 tests/e2e/testSuites/comparePensE2E/comparePensSuite.js",
     "insertStudentForAuditHistory": "node tests/e2e/testCases/studentProfile/gmp/insertStudentForAuditHistory.js",
     "deleteAuditHistoryStudent": "node tests/e2e/testCases/studentProfile/gmp/deleteAuditHistoryStudent.js",
@@ -58,7 +57,9 @@
     "gumpiNavigation": "node tests/e2e/testSuites/navigation/gumpiNavigationSuite.js",
     "staffVerifyPriorRequestsDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsDisplayedSuite.js",
     "staffVerifyPriorRequestsNotDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsNotDisplayedSuite.js",
-    "getAndUpdatePenRequestDataToPast": "node tests/e2e/testCases/studentProfile/gmp/getAndUpdatePenRequestDataToPast.js"
+    "getAndUpdatePenRequestDataToPast": "node tests/e2e/testCases/studentProfile/gmp/getAndUpdatePenRequestDataToPast.js",
+    "verifySessionAlive": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/verifySessionAliveStudentProfileAndAdminSuite.js",
+    "verifySessionTimeOutAt30": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/verifySessionTimeOutAt30Suite.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
