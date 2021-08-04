@@ -1,7 +1,8 @@
 name: Session Timeout At 30 Minutes Verification Test Environment
 on:
   repository_dispatch:
-    types: [session-timeout-at-30-verification-test-environment] 
+    types: [session-timeout-at-30-verification-test-environment]
+  workflow_dispatch: 
 jobs:
   Regression:
     runs-on: windows-latest
