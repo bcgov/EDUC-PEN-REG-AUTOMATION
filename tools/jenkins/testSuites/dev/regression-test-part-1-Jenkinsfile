@@ -31,12 +31,18 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp Workflow one') {
+    stage('staff request more info and reject on pen') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -55,12 +61,18 @@ pipeline {
         }
       }
     }    
-    stage('Run Ump Workflow one') {
+    stage('staff request more info and reject on ump') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -71,12 +83,18 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp with ump Workflow one') {
+    stage('staff complete gmp and then complete ump') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'student-submit-gender-change-after-pen-complete-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }

@@ -38,12 +38,18 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp Workflow one') {
+    stage('staff request more info and reject on gmp') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -62,12 +68,18 @@ pipeline {
         }
       }
     }    
-    stage('Run Ump Workflow one') {
+    stage('staff request more info and reject on ump') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -85,12 +97,18 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp Workflow two') {
+    stage('staff issue pen') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-issue-pen-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }

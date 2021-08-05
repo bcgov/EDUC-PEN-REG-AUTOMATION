@@ -48,9 +48,15 @@ pipeline {
     stage('staff action on draft pen request') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-action-on-draft-pen-request-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -72,9 +78,15 @@ pipeline {
     stage('staff action on draft ump request') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-action-on-draft-ump-request-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -95,9 +107,15 @@ pipeline {
     stage('staff can not action abandoned pen request') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-can-not-action-abandoned-pen-request-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
@@ -111,9 +129,15 @@ pipeline {
     stage('staff issue pen to student and unlink') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-issue-pen-and-unlink-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }    
@@ -127,9 +151,15 @@ pipeline {
     stage('staff force unlink') {
       steps {
         script {
+          try{
           TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-force-unlink-uat-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
         }
       }
     }
