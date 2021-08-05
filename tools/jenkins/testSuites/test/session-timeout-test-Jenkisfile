@@ -31,7 +31,7 @@ pipeline {
       }
     }
     
-    stage('Run Gmp Workflow one') {
+    stage('Verify Session alive') {
       steps {
         script {
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
@@ -49,7 +49,7 @@ pipeline {
         }
       }
     }
-    stage('Run Gmp Workflow one') {
+    stage('Verify session expired') {
       steps {
         script {
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
