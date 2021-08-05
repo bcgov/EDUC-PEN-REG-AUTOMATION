@@ -38,7 +38,7 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp Workflow one') {
+    stage('staff request more info and reject on pen') {
       steps {
         script {
           try{
@@ -67,7 +67,7 @@ pipeline {
         }
       }
     }    
-    stage('Run Ump Workflow one') {
+    stage('staff request more info and reject on ump') {
       steps {
         script {
           try{
@@ -96,7 +96,7 @@ pipeline {
         }
       }
     }    
-    stage('Run Gmp Workflow two') {
+    stage('staff issue pen') {
       steps {
         script {
           try{
@@ -118,7 +118,7 @@ pipeline {
         }
       }
     }
-    stage('Run Gmp Workflow three') {
+    stage('staff verify prior pen requests displayed') {
       steps {
         script {
           try{
@@ -140,7 +140,7 @@ pipeline {
         }
       }
     }
-    stage('Run Gmp Workflow four') {
+    stage('staff verify prior pen requests not displayed') {
       steps {
         script {
           try{
