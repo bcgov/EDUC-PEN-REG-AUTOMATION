@@ -47,6 +47,7 @@ pipeline {
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
+            currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }          
         }
@@ -75,6 +76,7 @@ pipeline {
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
+            currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }          
         }
@@ -103,6 +105,7 @@ pipeline {
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
+            currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }          
         }
@@ -124,6 +127,7 @@ pipeline {
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
+            currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }          
         }
@@ -145,6 +149,7 @@ pipeline {
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
+            currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }          
         }
