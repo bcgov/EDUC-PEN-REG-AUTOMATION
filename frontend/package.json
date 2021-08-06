@@ -65,6 +65,7 @@
     "axios": "^0.21.1",
     "date-and-time": "^0.14.2",
     "dotenv": "^8.2.0",
+    "faker": "^5.5.3",
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
     "testcafe": "^1.15.1"
