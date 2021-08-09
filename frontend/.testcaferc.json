@@ -15,6 +15,7 @@
     "disablePageCaching": true,
     "speed": 1,
     "retryTestPages": true,
+    "hostname": "localhost",
     "pageLoadTimeout": 20000,
     "selectorTimeout": 20000
 }
