@@ -1,7 +1,7 @@
 name: Smoke Test Student Profile Dev Environment
 on:
   repository_dispatch:
-    types: [smoke-test-student-profile-dev-environment-removelater]
+    types: [smoke-test-student-profile-dev-environment]
   workflow_dispatch:
 
 jobs:
@@ -19,64 +19,16 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run getAndDeletePenRequestData
+      - run: npm run smokeTestStudentProfile
         if: ${{ always() }}
         env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-      - run: npm run studentFilloutAndActivatePenRequest
-        if: ${{ always() }}
-        env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
           BCEID_USER: ${{ secrets.BCEID_USER }}
           BCEID_PASS: ${{ secrets.BCEID_PASS }}
           PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      - run: npm run getAndDeletePenRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-      - run: npm run getAndDeleteUmpRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      - run: npm run studentFilloutAndActivateUmpRequest
-        if: ${{ always() }}
-        env:
-          PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}
-          PENEMAIL_PASS: ${{ secrets.PENEMAIL_PASS }}
-          BCEID_USER: ${{ secrets.BCEID_USER }}
-          BCEID_PASS: ${{ secrets.BCEID_PASS }}
-          PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
-          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-      - run: npm run getAndDeleteUmpRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
+          STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
+
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
       #   with:

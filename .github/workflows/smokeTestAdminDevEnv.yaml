@@ -1,7 +1,7 @@
 name: Smoke Test Admin Dev Environment
 on:
   repository_dispatch:
-    types: [smoke-test-admin-dev-environment-removelater]
+    types: [smoke-test-admin-dev-environment]
   workflow_dispatch:  
 
 jobs:
@@ -19,41 +19,15 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run getAndDeletePenRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.TRUE}}
-          PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
-      - run: npm run insertAndUpdatePenRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          BCEID_DIGITAL_ID_TOOLS: ${{ secrets.BCEID_DIGITAL_ID_TOOLS }}
-      - run: npm run staffRejectPenRequestTestCase
+      - run: npm run smokeTestStudentAdmin
         if: ${{ always() }}
         env:
           PEN_ENVIRONMENT: ${{ secrets.DEV_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-      - run: npm run getAndDeletePenRequestData
-        if: ${{ always() }}
-        env:
-          TOKEN_ENVIRONMENT: ${{ secrets.TOOLS_ENVIRONMENT }}
-          TOKEN_NAMESPACE: ${{ secrets.TOKEN_NAMESPACE }}
-          TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID }}
-          TOKEN_CLIENT_SECRET_TOOLS: ${{ secrets.TOKEN_CLIENT_SECRET_TOOLS }}
-          DELETE_DIGITAL_ID: ${{secrets.FALSE}}
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
-          PEN_REQUEST_USER_TYPE: ${{ secrets.USER_TYPE_BCEID }}
+
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}
       #   with:
