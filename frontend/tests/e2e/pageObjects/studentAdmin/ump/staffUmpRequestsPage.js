@@ -7,7 +7,7 @@ class staffUmpRequestsPage {
 
     constructor() {
 
-        this.mainSearchBar = Selector('.v-select__selections').filterVisible()
+        this.mainSearchBar = Selector('.v-select__slot').filterVisible()
         this.penSearchBar = Selector('#pen-text-field').filterVisible()
         this.lastNameSearchBar = Selector('#last-name-text-field').filterVisible()
         this.firstNameSearchBar = Selector('#first-name-text-field')

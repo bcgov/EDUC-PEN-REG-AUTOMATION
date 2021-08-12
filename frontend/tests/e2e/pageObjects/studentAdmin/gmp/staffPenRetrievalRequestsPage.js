@@ -8,7 +8,7 @@ class staffPenRetrievalRequestPage {
 
     constructor() {
 
-        this.mainSearchBar = Selector('.v-select__selections').filterVisible()
+        this.mainSearchBar = Selector('.v-select__slot').filterVisible()
         this.lastNameSearchBar = Selector('#last-name-text-field').filterVisible()
         this.firstNameSearchBar = Selector('#first-name-text-field').filterVisible()
         this.reviewerSearchBar = Selector('#review-text-field').filterVisible()
