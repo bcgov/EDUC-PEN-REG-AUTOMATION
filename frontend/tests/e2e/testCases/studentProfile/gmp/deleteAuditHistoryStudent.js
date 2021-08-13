@@ -9,7 +9,7 @@ getToken().then(async (data) => {
 
         let searchListCriteria = []
 
-        searchListCriteria.push({ key: 'pen', operation: 'eq', value: constants.penStudentHistory , valueType: 'STRING' });
+        searchListCriteria.push({ key: 'pen', operation: 'eq', value: constants.mergeThreePen , valueType: 'STRING' });
 
 
         const search = [
