@@ -50,6 +50,6 @@ test('Staff login and issue pen to Student test', async t => {
 
     await penAction.actionConfirmationText(idirAdminCredentials.username)
 
-    await penAction.verifyPenDemographics(penNumber,penDemographics,pen_environment)
+    await penAction.verifyPenDemographics(penNumber,penDemographics)
 
 });

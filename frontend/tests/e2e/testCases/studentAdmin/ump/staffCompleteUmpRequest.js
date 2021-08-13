@@ -47,6 +47,6 @@ test('Staff login and complete Ump request test', async t => {
 
     await umpAction.actionConfirmationText(idirAdminCredentials.username)
 
-    await umpAction.verifyPenDemographics(penNumber, penDemographics, pen_environment)
+    await umpAction.verifyPenDemographics(penNumber, penDemographics)
 
 });
