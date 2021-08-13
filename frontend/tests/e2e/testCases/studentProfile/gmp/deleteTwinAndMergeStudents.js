@@ -5,9 +5,10 @@ const log = require('npmlog')
 
 getToken().then(async (data) => {
 
-    const token = data.access_token
-
+    
     for (let i = 0; i <= 5; i++) {
+
+        const token = data.access_token
 
         let searchListCriteria = []
 
