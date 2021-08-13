@@ -8,7 +8,7 @@ const log = require('npmlog')
 getToken().then(async (data) => {
     const token = data.access_token
 
-    for (let i = 0; i <= 6; i++) {
+    for (let i = 0; i <= 5; i++) {
 
         switch (i) {
 
@@ -24,23 +24,21 @@ getToken().then(async (data) => {
                 break
             case 5: payload.data[i].pen = constants.mergeThreePen
                 break
-            case 6: payload.data[i].pen = constants.penNumber
-                break
         }
 
 
         function sleep(ms) {
             return new Promise(
-                resolve => setTimeout(resolve, ms)
+              resolve => setTimeout(resolve, ms)
             );
-        }
+          }
 
         const insertStudent = await helper.postStudentData(token, constants.studentApiUrl, payload.data[i])
         //console.log(insertStudent)
         await sleep(1000);
-
-
-
+        
+            
+        
     }
 })
 

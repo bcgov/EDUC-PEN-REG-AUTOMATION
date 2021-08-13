@@ -16,7 +16,7 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode": "A",
+            "demogCode" : "A",
             "statusCode": "A"
         },
         {
@@ -35,7 +35,7 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode": "A",
+            "demogCode" : "A",
             "statusCode": "A"
         },
         {
@@ -54,7 +54,7 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode": "A",
+            "demogCode" : "A",
             "statusCode": "A"
         },
         {
@@ -73,7 +73,7 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode": "A",
+            "demogCode" : "A",
             "statusCode": "A"
         },
         {
@@ -92,7 +92,7 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode": "A",
+            "demogCode" : "A",
             "statusCode": "A"
         },
         {
@@ -111,26 +111,7 @@
             "gradeCode": "12",
             "emailVerified": "N",
             "historyActivityCode": "USERNEW",
-            "demogCode": "A",
-            "statusCode": "A"
-        },
-        {
-            "legalLastName": "AUTOMATION",
-            "legalFirstName": "TESTER",
-            "legalMiddleNames": "PEN",
-            "usualLastName": "AUTOMATION",
-            "usualFirstName": "TESTER",
-            "usualMiddleNames": "PEN",
-            "dob": "1999-12-01",
-            "sexCode": "M",
-            "genderCode": "M",
-            "postalCode": "V1V1V1",
-            "mincode": "08787010",
-            "localID": "A5XJFDTLJ6",
-            "gradeCode": "10",
-            "emailVerified": "N",
-            "historyActivityCode": "USERNEW",
-            "demogCode": "A",
+            "demogCode" : "A",
             "statusCode": "A"
         }
     ]
