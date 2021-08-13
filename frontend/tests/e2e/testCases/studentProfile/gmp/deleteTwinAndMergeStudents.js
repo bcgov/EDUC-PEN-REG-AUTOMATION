@@ -5,12 +5,14 @@ const log = require('npmlog')
 
 getToken().then(async (data) => {
 
+    
+
     for (let i = 0; i <= 5; i++) {
 
-        getToken().then((data))
-        
+        data = await getToken()
         const token = data.access_token
 
+        log.info("token  "+ token)
         let searchListCriteria = []
 
         switch (i) {
