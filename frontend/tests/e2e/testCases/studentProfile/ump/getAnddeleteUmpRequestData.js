@@ -8,10 +8,10 @@ getToken().then(async (data) => {
     const token = data.access_token
     let searchListCriteria = []
 
-    //searchListCriteria.push({ key: 'recordedLegalLastName', operation: 'eq', value: "TAGAR", valueType: 'STRING' });
+    searchListCriteria.push({ key: 'recordedLegalLastName', operation: 'eq', value: "AUTOMATION", valueType: 'STRING' });
     //searchListCriteria.push({ key: 'recordedLegalFirstName', operation: 'eq', value: studentData.legalFirstName, valueType: 'STRING' });
     //searchListCriteria.push({ key: 'digitalID', operation: 'eq', value: "ac33a814-72e2-1070-8172-e7b0b453001f", valueType: 'UUID' });
-    searchListCriteria.push({ key: 'recordedPen', operation: 'eq', value: constants.penNumber, valueType: 'STRING' });
+    // searchListCriteria.push({ key: 'recordedPen', operation: 'eq', value: constants.penNumber, valueType: 'STRING' });
 
     const filterParam = {
         params: {
