@@ -112,6 +112,50 @@ pipeline {
         }
       }
     }
+    stage('Insert and Update pen request data') {
+      steps {
+        dir('frontend') {
+          sh 'npm run insertAndUpdatePenRequestData'
+        }
+      }
+    }
+    stage('staff verify prior pen requests displayed') {
+      steps {
+        script {
+          try{
+          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-veify-prior-pen-requests-displayed-uat-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
+        }
+      }
+    }
+    stage('get and update pen request data to past') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndUpdatePenRequestDataToPast'
+        }
+      }
+    }
+    stage('staff verify prior pen requests not displayed') {
+      steps {
+        script {
+          try{
+          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'staff-veify-prior-pen-requests-not-displayed-uat-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
+        }
+      }
+    }    
     stage('get and delete pen request four') {
       steps {
         dir('frontend') {
@@ -119,6 +163,13 @@ pipeline {
         }
       }
     }
+    stage('get and delete pen request five') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeletePenRequestData'
+        }
+      }
+    }    
     stage('Tear-down network') {
       steps {
           script {
