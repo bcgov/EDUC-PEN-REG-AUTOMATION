@@ -2,8 +2,10 @@ const helper = require("../../../helpers/axios-helper")
 const constants = require('../../../config/constants')
 const { getToken } = require('../../../helpers/generateToken')
 
-
 getToken().then(async (data) => {
+    
+    await new Promise(sleep => setTimeout(sleep, 60000));
+    console.log("Implicit wait completed")
 
     const token = data.access_token
 
