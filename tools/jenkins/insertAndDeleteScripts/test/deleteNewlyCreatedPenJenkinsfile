@@ -30,7 +30,7 @@ pipeline {
         }
       }
     }
-    stage('Delete audit history student') {
+    stage('Delete newly created pen') {
       steps {
         dir('frontend') {
           sh 'npm install'
