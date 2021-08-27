@@ -72,7 +72,7 @@ class studentProvideInformationPage {
     }
 
     async reloadPage(){
-        await t.eval(() => location.reload(true))
+        await t.eval(() => location.reload())
         log.info("page reloaded")
     }
 

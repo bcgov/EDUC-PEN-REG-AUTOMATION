@@ -80,7 +80,7 @@ class staffPenRetrievalRequestPage {
             log.info("Clicked on the search result one")
 
         } catch (err) {
-            await t.eval(() => location.reload(true))
+            await t.eval(() => location.reload())
             log.info("page reloaded")
 
             await t

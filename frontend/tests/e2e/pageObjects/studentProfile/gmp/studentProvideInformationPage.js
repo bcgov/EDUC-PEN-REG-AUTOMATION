@@ -60,6 +60,7 @@ class studentProvideInformationPage {
     }
 
     async clickDoneButton() {
+        await t.wait(720000)
         await t.click(this.doneButton)
         log.info('Done button is clicked')
     }
@@ -71,7 +72,7 @@ class studentProvideInformationPage {
 
 
     async reloadPage() {
-        await t.eval(() => location.reload(true))
+        await t.eval(() => location.reload())
         log.info("page reloaded")
     }
 
