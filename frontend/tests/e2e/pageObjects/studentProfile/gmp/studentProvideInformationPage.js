@@ -60,7 +60,6 @@ class studentProvideInformationPage {
     }
 
     async clickDoneButton() {
-        await t.wait(720000)
         await t.click(this.doneButton)
         log.info('Done button is clicked')
     }
