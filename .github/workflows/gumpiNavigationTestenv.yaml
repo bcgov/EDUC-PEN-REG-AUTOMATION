@@ -40,7 +40,7 @@ jobs:
         if: success()
         with:
           type: ${{ job.status }}
-          job_name: "GUMPI navigation test result of Test environment --->"
+          job_name: "GUMPI navigation test - TEST --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}

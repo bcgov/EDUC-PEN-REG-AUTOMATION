@@ -42,7 +42,7 @@ jobs:
         if: always()
         with:
           type: ${{ job.status }}
-          job_name: "Journey builder navigation test result of Test environment --->"
+          job_name: "Journey builder navigation test - TEST --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}

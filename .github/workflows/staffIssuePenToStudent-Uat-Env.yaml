@@ -41,12 +41,12 @@ jobs:
       #     name: Screenshot
       #     path: D:\a\EDUC-E2E-PEN-REGISTRY\EDUC-E2E-PEN-REGISTRY\frontend\tests\e2e\screenshots\
 
-      # - name: Rocket.Chat Notification
-      #   uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@1.1.1
-      #   if: success()
-      #   with:
-      #     type: ${{ job.status }}
-      #     job_name: "DEV Environment Regression Part 1 Test result --->"
-      #     icon_emoji: ":bell:"
-      #     channel: "pen-automation-notifications"
-      #     url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
+      - name: Rocket.Chat Notification
+        uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@1.1.1
+        if: success()
+        with:
+          type: ${{ job.status }}
+          job_name: "Staff complete pen request test - UAT --->"
+          icon_emoji: ":bell:"
+          channel: "pen-automation-notifications"
+          url: ${{ secrets.ROCKETCHAT_WEBHOOK }}

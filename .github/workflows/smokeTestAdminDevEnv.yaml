@@ -39,7 +39,7 @@ jobs:
         if: always()
         with:
           type: ${{ job.status }}
-          job_name: "Smoke Test result of Admin Dev Environment --->"
+          job_name: "Smoke test student admin - DEV --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
