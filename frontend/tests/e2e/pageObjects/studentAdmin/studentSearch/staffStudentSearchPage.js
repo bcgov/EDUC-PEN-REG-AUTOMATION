@@ -212,8 +212,6 @@ class staffStudentSearchPage {
 
         await t.expect(this.mincodeSearchResult.innerText).eql(data.mincodeSearchResult)
 
-        await t.expect(this.twinnedSearchResult.innerText).eql(data.twinnedSearchResult)
-
         log.info("Student Search Results Verified")
     }
 
