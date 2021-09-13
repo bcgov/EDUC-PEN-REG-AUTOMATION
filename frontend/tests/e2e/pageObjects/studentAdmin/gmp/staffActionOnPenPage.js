@@ -50,6 +50,9 @@ class staffActionOnPenPage {
 
         //Prior pen request
         this.priorPenRequest = Selector('#prior-pen-count')
+
+        //Search button
+        this.searchButton = Selector('div.col.col-1 button[title=Search]')
     }
 
     async clickClaimButton() {
@@ -285,6 +288,11 @@ class staffActionOnPenPage {
     async verifyPriorRequestsDonotExists() {
         await t.expect(this.priorPenRequest.exists).notOk()
         log.info("No prior requests confirmend")
+    }
+
+    async clickSearchButton(){
+        await t.click(this.searchButton)
+        log.info("Search button clicked")
     }
 
 

@@ -46,6 +46,20 @@ test('Staff login search update and reset student info test', async t => {
 
     await dashboard.clickFullSearchButton()
 
+    await staffSearch.setUsualSurname(studentUpdatedSearchResult.legalSurnameSearchResult)
+
+    await staffSearch.setUsualGiven(studentUpdatedSearchResult.legalGivennameSearchResult)
+
+    await staffSearch.setUsualMiddle(studentUpdatedSearchResult.legalMiddlenameSearchResult)
+
+    await staffSearch.clickAuditHistoryCheckbox()
+
+    await staffSearch.clickSearchButton()
+
+    await staffSearch.verifyStudentSearchResult(penNumber, studentUpdatedSearchResult)
+
+    await staffSearch.clickClearButton()
+
     await staffSearch.setPen(penNumber)
 
     await staffSearch.clickSearchButton()

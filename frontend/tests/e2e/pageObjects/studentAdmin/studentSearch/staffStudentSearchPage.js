@@ -294,9 +294,14 @@ class staffStudentSearchPage {
         log.info("Birthdate set")
     }
 
-    async clickCreateNewPenSubmitButton(){
+    async clickCreateNewPenSubmitButton() {
         await t.click(this.createNewPenSubmitButton)
         log.info("Create pen button on model clicked")
+    }
+
+    async clickAuditHistoryCheckbox() {
+        await t.click(this.searchAuditHistoryCheckBox)
+        log.info("Audit history checkbox clicked")
     }
 
 }
