@@ -115,6 +115,28 @@ const helper = {
             throw new ApiError(status, { message: 'API Put error' }, e);
         }
     },
+
+    async putBatchData(token, url, data, params) {
+        try {
+            params = setToken(params, token);
+
+            log.info('put Data Url', url);
+            log.verbose('put Data Req', data);
+
+            const response = await axios.put(url, data, params);
+
+            log.info('put Data Status', response.status);
+            log.info('put Data StatusText', response.statusText);
+
+            log.verbose('put Data Res', response.data);
+
+            return response.data;
+        } catch (e) {
+            logApiError(e, 'putData', 'Error during PUT on ' + url);
+            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
+            throw new ApiError(status, { message: 'API Put error' }, e);
+        }
+    },
     async deleteData(token, url, params) {
         try {
             params = setToken(params, token);

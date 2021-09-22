@@ -61,7 +61,9 @@
     "verifySessionAlive": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/verifySessionAliveStudentProfileAndAdminSuite.js",
     "verifySessionTimeOutAt30": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/verifySessionTimeOutAt30Suite.js",
     "smokeTestStudentProfile": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentProfileSuite.js",
-    "smokeTestStudentAdmin": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentAdminSuite.js"
+    "smokeTestStudentAdmin": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentAdminSuite.js",
+    "updateExtractDateToNull": "node tests/e2e/testcases/batch/updateExtractDateToNull.js",
+    "deleteBatch": "node tests/e2e/testcases/batch/deleteBatch.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -70,7 +72,7 @@
     "faker": "^5.5.3",
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
-    "testcafe": "^1.15.1"
+    "testcafe": "^1.16.0"
   },
   "engines": {
     "node": ">= 6.0.0",

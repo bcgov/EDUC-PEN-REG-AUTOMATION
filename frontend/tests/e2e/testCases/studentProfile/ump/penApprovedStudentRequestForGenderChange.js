@@ -26,7 +26,7 @@ if (constants.studentEntryPoint == "landingPage") {
 
 test('Pen approved student submits gender change request test', async t => {
 
-    await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint)
+    await studentLogin.bceidLogin(constants.bceidCredentials , constants.studentEntryPoint, constants.studentProfileUrl, constants.studentProfileUrlUmp)
     
     await studentLogin.clickUpdateMyPen(constants.studentEntryPoint)
 
