@@ -1,0 +1,8 @@
+{
+    "sysMatch": "Matched by system",
+    "userMatch": "Matched by user",
+    "error": "Error",
+    "fixable": "Fixable Request",
+    "systemNewPen": "New PEN by system",
+    "userNewPen": "User issued new PEN"
+}

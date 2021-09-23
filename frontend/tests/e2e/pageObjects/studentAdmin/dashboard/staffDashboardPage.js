@@ -12,6 +12,7 @@ class staffDashboardPage {
         this.penNumberInput = Selector('#penTextField')
         this.quickSearchButton = Selector('#quickSearchBtn')
         this.fullSearchButton = Selector('span').withText('Advanced Student Search')
+        this.advancedArchiveSearch = Selector('span').withText('Advanced Archive Search')
 
     }
 
@@ -34,7 +35,7 @@ class staffDashboardPage {
 
     async setPenNumber(data) {
         await t.typeText(this.penNumberInput, data)
-        log.info("Pen number is entered")        
+        log.info("Pen number is entered")
     }
 
     async clickQuickSearchButton() {
@@ -45,6 +46,11 @@ class staffDashboardPage {
     async clickFullSearchButton() {
         await t.click(this.fullSearchButton)
         log.info("Full search button is clicked")
+    }
+
+    async clickAdvancedArchiveSearch() {
+        await t.click(this.advancedArchiveSearch)
+        log.info("advanced archive search button clicked")
     }
 }
 

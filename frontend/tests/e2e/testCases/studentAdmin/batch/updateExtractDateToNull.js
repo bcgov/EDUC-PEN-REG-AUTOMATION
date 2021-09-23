@@ -1,7 +1,7 @@
-const helper = require("../../helpers/axios-helper");
-const constants = require('../../config/constants')
-const batchFiles = require("../../config/batchData/batchFiles.json")
-const { getToken } = require('../../helpers/generateToken')
+const helper = require("../../../helpers/axios-helper");
+const constants = require('../../../config/constants')
+const batchFiles = require("../../../config/batchData/batchFiles.json")
+const { getToken } = require('../../../helpers/generateToken')
 
 
 getToken().then(async (data) => {
