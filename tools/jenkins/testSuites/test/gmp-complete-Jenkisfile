@@ -33,6 +33,7 @@ pipeline {
     stage('get and delete pen request one') {
       steps {
         dir('frontend') {
+          sh 'npm install'          
           sh 'npm run getAndDeletePenRequestData'
         }
       }
