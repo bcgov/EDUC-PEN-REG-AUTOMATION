@@ -6,14 +6,20 @@ class staffDashboardPage {
     constructor() {
 
 
-        //Dashboard related
+        //GUmpi related
         this.viewGmpButton = Selector('#GetMyPENBtn')
         this.viewUmpButton = Selector('#UpdateMyPENBtn')
+
+        //Search related
         this.penNumberInput = Selector('#penTextField')
         this.quickSearchButton = Selector('#quickSearchBtn')
         this.fullSearchButton = Selector('span').withText('Advanced Student Search')
-        this.advancedArchiveSearch = Selector('span').withText('Advanced Archive Search')
 
+        //Batch related
+        this.viewK12Button = Selector('#K-12Btn')
+        this.viewPsiButton = Selector('#PSIBtn')
+        this.viewErrorsButton = Selector('#ErrorsBtn')
+        this.advancedArchiveSearch = Selector('span').withText('Advanced Archive Search')
     }
 
     async maximizeWindow() {
@@ -50,7 +56,22 @@ class staffDashboardPage {
 
     async clickAdvancedArchiveSearch() {
         await t.click(this.advancedArchiveSearch)
-        log.info("advanced archive search button clicked")
+        log.info("Advanced archive search button clicked")
+    }
+
+    async clickViewK12Button() {
+        await t.click(this.viewK12Button)
+        log.info("View K-12 button clicked")
+    }
+
+    async clickViewPsiButton() {
+        await t.click(this.viewPsiButton)
+        log.info("View PSI button clicked")
+    }
+
+    async clickViewErrorsButton() {
+        await t.click(this.viewErrorsButton)
+        log.info("View Errors button clicked")
     }
 }
 
