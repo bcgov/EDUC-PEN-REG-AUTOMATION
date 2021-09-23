@@ -18,7 +18,7 @@ createTestCafe('localhost', 1337, 1338)
                
                 "tests/e2e/testCases/studentProfile/mailsac/mailsacActivatePenRequest.js",
 
-                "tests/e2e/testCases/studentAdmin/gmp/staffSearchPenRequestData.js",
+                //"tests/e2e/testCases/studentAdmin/gmp/staffSearchPenRequestData.js",
                 
                 "tests/e2e/testCases/studentAdmin/gmp/staffIssuePenToStudent.js"
 
