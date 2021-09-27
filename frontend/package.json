@@ -62,8 +62,8 @@
     "verifySessionTimeOutAt30": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/verifySessionTimeOutAt30Suite.js",
     "smokeTestStudentProfile": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentProfileSuite.js",
     "smokeTestStudentAdmin": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentAdminSuite.js",
-    "updateExtractDateToNull": "node tests/e2e/testcases/batch/updateExtractDateToNull.js",
-    "deleteBatch": "node tests/e2e/testcases/batch/deleteBatch.js",
+    "updateExtractDateToNull": "node tests/e2e/testcases/studentAdmin/batch/updateExtractDateToNull.js",
+    "deleteBatch": "node tests/e2e/testcases/studentAdmin/batch/deleteBatch.js",
     "AUTMN001": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN001Suite.js",
     "AUTMN002": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN002Suite.js"
 
