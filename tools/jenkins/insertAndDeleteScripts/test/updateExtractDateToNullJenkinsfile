@@ -9,6 +9,13 @@ pipeline {
     TESTS_REPO_NAME = 'educ-pen-reg-automation'
   }
   stages {
+    stage('Tear-down network') {
+      steps {
+          script {
+            sh(script: 'oc -n 8878b4-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
+          }
+      }
+    }    
     stage('Initialize network') {
       steps {
           script {
