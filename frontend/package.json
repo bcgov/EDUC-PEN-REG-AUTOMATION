@@ -50,9 +50,9 @@
     "splitStudents": "node --max-http-header-size=81000 tests/e2e/testSuites/searchE2E/staffSplitStudents.js",
     "penMatch": "node tests/e2e/testCases/studentAdmin/penMatch/penMatchVersionTwo.js",
     "getToken": "node tests/e2e/helpers/getToken.js",
-    "myEdPenRequest": "node tests/e2e/testcases/myEd/penRequest.js",
-    "myEdPenCoordinators": "node tests/e2e/testcases/myEd/penCoordinators.js",
-    "myEdStudents": "node tests/e2e/testcases/myEd/students.js",
+    "myEdPenRequest": "node tests/e2e/testCases/myEd/penRequest.js",
+    "myEdPenCoordinators": "node tests/e2e/testCases/myEd/penCoordinators.js",
+    "myEdStudents": "node tests/e2e/testCases/myEd/students.js",
     "journeyBuilderNavigation": "node tests/e2e/testSuites/navigation/journeyBuilderNavigationSuite.js",
     "gumpiNavigation": "node tests/e2e/testSuites/navigation/gumpiNavigationSuite.js",
     "staffVerifyPriorRequestsDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsDisplayedSuite.js",
@@ -62,8 +62,8 @@
     "verifySessionTimeOutAt30": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/verifySessionTimeOutAt30Suite.js",
     "smokeTestStudentProfile": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentProfileSuite.js",
     "smokeTestStudentAdmin": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentAdminSuite.js",
-    "updateExtractDateToNull": "node tests/e2e/testcases/studentAdmin/batch/updateExtractDateToNull.js",
-    "deleteBatch": "node tests/e2e/testcases/studentAdmin/batch/deleteBatch.js",
+    "updateExtractDateToNull": "node tests/e2e/testCases/studentAdmin/batch/updateExtractDateToNull.js",
+    "deleteBatch": "node tests/e2e/testCases/studentAdmin/batch/deleteBatch.js",
     "AUTMN001": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN001Suite.js",
     "AUTMN002": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN002Suite.js"
 
