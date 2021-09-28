@@ -4,5 +4,12 @@
     "error": "Error",
     "fixable": "Fixable Request",
     "systemNewPen": "New PEN by system",
-    "userNewPen": "User issued new PEN"
+    "userNewPen": "User issued new PEN",
+    "filter": {
+        "1": "1 of 5 filtered | Record 1 of 5 (1 file selected)",
+        "2": "2 of 5 filtered | Record 2 of 5 (1 file selected)",
+        "3": "3 of 5 filtered | Record 3 of 5 (1 file selected)",
+        "4": "4 of 5 filtered | Record 4 of 5 (1 file selected)",
+        "5": "5 of 5 filtered | Record 5 of 5 (1 file selected)"
+    }
 }

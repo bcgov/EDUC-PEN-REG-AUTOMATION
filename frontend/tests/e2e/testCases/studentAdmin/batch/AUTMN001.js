@@ -3,10 +3,14 @@ import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staf
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants'
 import archivedPenRequestFilesPage from '../../../pageObjects/studentAdmin/batch/archivedPenRequestFilesPage'
 import batchFiles from '../../../config/batchData/batchFiles.json'
+import batchStatus from '../../../config/batchData/batchStatus.json'
+import penRequestDetailsPage from '../../../pageObjects/studentAdmin/batch/penRequestDetailsPage'
+
 
 const staffLogin = new staffLoginPage()
 const dashboard = new staffDashboardPage()
 const archive = new archivedPenRequestFilesPage()
+const penRequest = new penRequestDetailsPage()
 
 fixture`Student Admin - Batch`
     .page(staffLoginUrl)
@@ -29,5 +33,55 @@ test('AUTMN001', async t => {
     await archive.clickViewButton()
 
     await archive.clickViewList()
+
+    await archive.clickViewDetailsButton()
+
+    await penRequest.verifyTitle(batchStatus.filter[1])
+
+    await penRequest.verifySchoolName(batchFiles.schoolName[1])
+
+    await penRequest.verifyStatusPill(batchStatus.sysMatch)
+
+    await penRequest.verifyThreeButtonsAreDisabled()
+
+    await penRequest.clickNextRecord()
+
+    await penRequest.verifyTitle(batchStatus.filter[2])
+
+    await penRequest.verifySchoolName(batchFiles.schoolName[1])
+
+    await penRequest.verifyStatusPill(batchStatus.sysMatch)
+
+    await penRequest.verifyThreeButtonsAreDisabled()
+
+    await penRequest.clickNextRecord()
+    
+    await penRequest.verifyTitle(batchStatus.filter[3])
+
+    await penRequest.verifySchoolName(batchFiles.schoolName[1])
+
+    await penRequest.verifyStatusPill(batchStatus.sysMatch)
+
+    await penRequest.verifyThreeButtonsAreDisabled()
+
+    await penRequest.clickNextRecord()
+
+    await penRequest.verifyTitle(batchStatus.filter[4])
+
+    await penRequest.verifySchoolName(batchFiles.schoolName[1])
+
+    await penRequest.verifyStatusPill(batchStatus.sysMatch)
+
+    await penRequest.verifyThreeButtonsAreDisabled()
+
+    await penRequest.clickNextRecord()
+
+    await penRequest.verifyTitle(batchStatus.filter[5])
+
+    await penRequest.verifySchoolName(batchFiles.schoolName[1])
+
+    await penRequest.verifyStatusPill(batchStatus.sysMatch)
+
+    await penRequest.verifyThreeButtonsAreDisabled()
 
 });

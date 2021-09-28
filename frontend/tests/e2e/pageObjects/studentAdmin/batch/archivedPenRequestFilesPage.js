@@ -21,7 +21,7 @@ class archivedPenRequestFilesPage {
 
         //action buttons
         this.viewButton = Selector('#view-action')
-        this.viewList = Selector('div').withText('View List')
+        this.viewList = Selector('div#view-list-action')
         this.viewDetails = Selector('#view-details-action')
         this.unArchiveButton = Selector('span').withText('Unarchive')
 
@@ -63,7 +63,7 @@ class archivedPenRequestFilesPage {
     }
 
     async clickCheckBox() {
-        await t.click(this.checkBox)
+        await t.click(this.checkBox , { timeout: 3000 })
         log.info("check box clicked")
     }
 
@@ -86,6 +86,21 @@ class archivedPenRequestFilesPage {
     async clickUnarchiveButton() {
         await t.click(this.unArchiveButton)
         log.info("unarchive button clicked")
+    }
+
+    async selectRequests() {
+        const checkboxes = await Selector('input').withAttribute('type', 'checkbox')
+        const count = await checkboxes.count; //get items count 
+        log.info("selector count    " + count)
+        for (let i = 0; i < count; i++) {
+            await t.click(checkboxes) //click each link 
+        }
+    }
+
+    async clickViewDetailsButton() {
+        const element = await Selector('#viewDetails')
+        await t.click(element)
+        log.info("view details button clicked")
     }
 }
 export default archivedPenRequestFilesPage
