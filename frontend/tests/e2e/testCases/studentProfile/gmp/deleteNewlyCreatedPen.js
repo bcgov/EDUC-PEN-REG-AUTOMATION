@@ -13,8 +13,8 @@ getToken().then(async (data) => {
 
     let searchListCriteria = []
 
-    searchListCriteria.push({ key: 'legalLastName', operation: 'eq', value: "HAMMOND", valueType: 'STRING' });
-    searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: "BRITNEY", valueType: 'STRING' });
+    searchListCriteria.push({ key: 'legalLastName', operation: 'eq', value: studentData.legalSurname, valueType: 'STRING' });
+    searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: studentData.legalGivenname, valueType: 'STRING' });
 
     const search = [
         {
