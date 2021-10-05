@@ -283,6 +283,7 @@ class studentDetailsPage {
     async clickPopUpYesButton() {
         await t.click(this.yesButton)
         log.info("pop up yes button clicked")
+        await t.wait(3000)
     }
 
     async clickCompareModelButton() {

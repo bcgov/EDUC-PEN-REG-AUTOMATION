@@ -40,6 +40,8 @@ test('Staff login search update and reset student info test', async t => {
 
     await studentDetails.clickSaveButton()
 
+    await studentDetails.clickPopUpYesButton()
+
     await menu.clickHamburgerMenu()
 
     await menu.clickDashboardLink()
@@ -79,6 +81,8 @@ test('Staff login search update and reset student info test', async t => {
     await studentDetails.clearMemo()
 
     await studentDetails.clickSaveButton()
+
+    await studentDetails.clickPopUpYesButton()
 
     await menu.clickHamburgerMenu()
 
