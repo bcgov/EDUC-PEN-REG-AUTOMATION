@@ -45,6 +45,8 @@ test('Staff login and verify validation errors test', async t => {
 
     await studentDetails.clickSaveButton()
 
+    await studentDetails.clickPopUpYesButton()
+
     await studentDetails.verifyValidationErrors(studentData.validationErrors.legalLastNameErrors, 1)
 
     await studentDetails.verifyValidationErrors(studentData.validationErrors.legalFirstNameErrors, 2)
