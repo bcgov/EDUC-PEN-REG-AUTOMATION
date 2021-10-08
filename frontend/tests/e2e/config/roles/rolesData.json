@@ -1,0 +1,30 @@
+{
+    "availableRoles": [
+        "NOMINAL_ROLL",
+        "STUDENT_ADMIN_READ_ONLY",
+        "SAGA_DASHBOARD_ROLE",
+        "STUDENT_ADMIN_ADMINISTRATOR",
+        "STUDENT_PROFILE_ADMIN",
+        "PEN_REQUEST_BATCH_ADMIN",
+        "GRAD_PROGRAM_AREA_BA",
+        "STUDENT_SEARCH_ADMIN",
+        "GRAD_SYSTEM_COORDINATOR",
+        "STUDENT_PROFILE_READ_ONLY",
+        "STUDENT_ADMIN",
+        "GRAD_INFO_OFFICER"
+    ],
+    "adminRoles": [
+        "GRAD_INFO_OFFICER",
+        "SAGA_DASHBOARD_ROLE",
+        "STUDENT_ADMIN_ADMINISTRATOR",
+        "STUDENT_PROFILE_ADMIN",
+        "PEN_REQUEST_BATCH_ADMIN",
+        "STUDENT_SEARCH_ADMIN",
+        "STUDENT_ADMIN"
+    ],
+    "readOnlyRoles": [
+        "STUDENT_ADMIN_READ_ONLY",
+        "STUDENT_PROFILE_READ_ONLY",
+        "STUDENT_SEARCH_READ_ONLY"
+    ]
+}

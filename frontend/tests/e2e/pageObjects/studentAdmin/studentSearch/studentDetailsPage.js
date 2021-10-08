@@ -195,8 +195,10 @@ class studentDetailsPage {
         }
     }
 
-    async verifyStudentDetailsPageDisplayed() {
+    async verifyStudentDetailsPageDisplayed(data) {
         await t.expect(this.legalSurname.count).eql(1)
+        await t.hover(this.birthDate)
+        await t.expect(this.dobFull.value).eql(data.dobFull)
         log.info("Student details page displayed")
     }
 
@@ -338,6 +340,19 @@ class studentDetailsPage {
 
         await t.expect(element.innerText).eql(errorMessage)
         log.info(await element.innerText + "  Error message verified")
+    }
+
+    async verifyNewlyCreatedPenStudentDetails(data){
+        await t.expect(this.legalSurname.value).eql(data.legalSurname)
+        await t.expect(this.usualSurname.value).eql(data.usualSurname)
+        await t.expect(this.legalGiven.value).eql(data.legalGivenname)
+        await t.expect(this.usualGiven.value).eql(data.usualGivenname)
+        await t.expect(this.legalMiddle.value).eql(data.legalMiddlename)
+        await t.expect(this.usualMiddle.value).eql(data.usualMiddlename)
+        await t.expect(this.gender.value).eql(data.gender)
+        await t.hover(this.birthDate)
+        await t.expect(this.dobFull.value).eql(data.dobFull)
+        log.info("student details verified")
     }
 
 } export default studentDetailsPage

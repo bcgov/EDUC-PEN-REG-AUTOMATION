@@ -64,6 +64,10 @@
     "smokeTestStudentAdmin": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentAdminSuite.js",
     "updateExtractDateToNull": "node tests/e2e/testCases/studentAdmin/batch/updateExtractDateToNull.js",
     "deleteBatch": "node tests/e2e/testCases/studentAdmin/batch/deleteBatch.js",
+    "deleteBceidFromKC":"node tests/e2e/testCases/studentAdmin/keycloak/deleteBceidFromKC.js",
+    "deleteIDIRFromKC":"node tests/e2e/testCases/studentAdmin/keycloak/deleteIDIRFromKC.js",
+    "updateIDIRRolesInKC":"node tests/e2e/testCases/studentAdmin/keycloak/updateIDIRRolesInKC.js",
+    "unauthorizedAccess": "node --max-http-header-size=81000 tests/e2e/testSuites/keycloakE2E/unauthorizedAccessSuite.js",
     "AUTMN001": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN001Suite.js",
     "AUTMN002": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN002Suite.js"
 

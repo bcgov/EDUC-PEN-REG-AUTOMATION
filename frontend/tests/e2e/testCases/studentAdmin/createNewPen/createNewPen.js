@@ -67,31 +67,7 @@ test('Staff create New Pen test', async t => {
 
     await staffSearch.clickCreateNewPenSubmitButton()
 
-    await studentDetails.verifyStudentDetailsPageDisplayed()
+    await studentDetails.verifyStudentDetailsPageDisplayed(studentData)
 
-
-
-
-
-
-
-
-
-
-    // await studentDetails.setMemo(studentData.memo)
-
-    // await studentDetails.clickSaveButton()
-
-    // await menu.clickHamburgerMenu()
-
-    // await menu.clickStudentSearchLink()
-
-    // await studentSearch.setLegalSurname(studentData.legalSurname)
-
-    // await studentSearch.setLegalGiven(studentData.legalGivenname)
-
-    // await studentSearch.clickSearchButton()
-
-    // await studentSearch.verifyDetailsOfNewPenCreated(studentData)
-
+    await studentDetails.verifyNewlyCreatedPenStudentDetails(studentData)
 })

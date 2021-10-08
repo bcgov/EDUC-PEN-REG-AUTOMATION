@@ -49,6 +49,29 @@ class staffLoginPage {
         }
     }
 
+    async staffUnauthorizedlogin(credentials, url) {
+
+        for (let i = 0; i < 10; i++) {
+            try {
+                await t.click(this.login)
+                    .typeText(this.username, credentials.username, { timeout: 20000 })
+                    .typeText(this.password, credentials.password, { timeout: 20000 })
+                    .click(this.submitButton)
+                log.info("Staff user successfully logged in with IDIR    " + credentials.username)
+                break
+            }
+            catch (err) {
+                await t.eval(() => location.reload())
+                log.warn("Element not found, Refreshing the page")
+
+                await t.navigateTo(url)
+                log.info("Navigating to student admin")
+
+                await t.expect((this.login).exists).ok({ timeout: 20000 })
+            }
+        }
+    }
+
     async jbPageIdirLogin(credentials) {
         await t
             .typeText(this.username, credentials.username, { timeout: 20000 })

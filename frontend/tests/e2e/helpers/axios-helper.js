@@ -72,6 +72,27 @@ const helper = {
         }
     },
 
+    async postKCUser(token, url, data, params) {
+        try {
+            params = setToken(params, token);
+            log.info('post Data Url', url);
+            log.verbose('post Data Req', minify(data));
+
+            const response = await axios.post(url, data, params);
+
+            log.info('post Data Status', response.status);
+            log.info('post Data StatusText', response.statusText);
+
+            log.verbose('post Data Res', response.data);
+
+            return response.data;
+        } catch (e) {
+            logApiError(e, 'postData', 'Error during POST on ' + url);
+            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
+            throw new ApiError(status, { message: 'API Post error' }, e);
+        }
+    },
+
     async postPenMatchData(token, url, data, params) {
         try {
             params = setToken(params, token);
@@ -101,6 +122,28 @@ const helper = {
             log.verbose('put Data Req', data);
 
             data.updateUser = 'E2E';
+            const response = await axios.put(url, data, params);
+
+            log.info('put Data Status', response.status);
+            log.info('put Data StatusText', response.statusText);
+
+            log.verbose('put Data Res', response.data);
+
+            return response.data;
+        } catch (e) {
+            logApiError(e, 'putData', 'Error during PUT on ' + url);
+            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
+            throw new ApiError(status, { message: 'API Put error' }, e);
+        }
+    },
+
+    async putKCData(token, url, data, params) {
+        try {
+            params = setToken(params, token);
+
+            log.info('put Data Url', url);
+            log.verbose('put Data Req', data);
+
             const response = await axios.put(url, data, params);
 
             log.info('put Data Status', response.status);

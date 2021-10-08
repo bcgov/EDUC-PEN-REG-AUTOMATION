@@ -20,6 +20,10 @@ class staffDashboardPage {
         this.viewPsiButton = Selector('#PSIBtn')
         this.viewErrorsButton = Selector('#ErrorsBtn')
         this.advancedArchiveSearch = Selector('span').withText('Advanced Archive Search')
+
+        //Unauthorized Access related
+        this.errorText = Selector('#error_text')
+        this.errorMessage = Selector('#error_message')
     }
 
     async maximizeWindow() {
@@ -72,6 +76,16 @@ class staffDashboardPage {
     async clickViewErrorsButton() {
         await t.click(this.viewErrorsButton)
         log.info("View Errors button clicked")
+    }
+
+    async verifyUnauthorizedErrorText() {
+        await t.expect(this.errorText.innerText).eql("Unauthorized Access")
+        log.info("Error text verified")
+    }
+
+    async verifyUnauthorizedErrorMessage() {
+        await t.expect(this.errorMessage.innerText).eql("You do not have required roles to perform action on this site.")
+        log.info("Error message verified")
     }
 }
 

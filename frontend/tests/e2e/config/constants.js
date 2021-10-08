@@ -43,7 +43,8 @@ module.exports.studentProfileApiUrl = 'http://student-profile-api-master.' + mod
 module.exports.penMatchApiUrl = 'http://pen-match-api-master.' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-match'
 module.exports.penWebUrl = config.get('PenWeb:url');
 module.exports.myEdUrl = 'http://pen-myed-api-master.' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/',
-module.exports.penRegBatchUrl = 'http://pen-reg-batch-api-master.' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request-batch'
+module.exports.penRegBatchUrl = 'http://pen-reg-batch-api-master.' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request-batch',
+module.exports.kcUrl = 'https://soam-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/auth/admin/realms/master/users'
 
 
 //Choose student entry point
