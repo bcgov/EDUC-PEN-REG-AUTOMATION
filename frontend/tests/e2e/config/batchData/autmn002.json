@@ -1,0 +1,64 @@
+{
+    "studentData": [
+        {
+            "current": {
+                "lastname": "Grady",
+                "firstname": "Emmalee",
+                "localID": "000000007128",
+                "mincode": "10200026"
+            },
+            "updates": {
+                "localID": "999999997128",
+                "mincode": "10200024"
+            }
+        },
+        {
+            "current": {
+                "lastname": "Moen",
+                "firstname": "Reinhold",
+                "localID": "000000007129",
+                "mincode": "10200026"
+            },
+            "updates": {
+                "localID": "999999997129",
+                "mincode": "10200024"
+            }
+        },
+        {
+            "current": {
+                "lastname": "Mosciski",
+                "firstname": "Christopher",
+                "localID": "000000007130",
+                "mincode": "10200026"
+            },
+            "updates": {
+                "localID": "999999997130",
+                "mincode": "10200024"
+            }
+        },
+        {
+            "current": {
+                "lastname": "Larkin",
+                "firstname": "Jimmie",
+                "localID": "000000007131",
+                "mincode": "10200026"
+            },
+            "updates": {
+                "localID": "999999997131",
+                "mincode": "10200024"
+            }
+        },
+        {
+            "current": {
+                "lastname": "Thiel",
+                "firstname": "Imani",
+                "localID": "000000007132",
+                "mincode": "10200026"
+            },
+            "updates": {
+                "localID": "999999997132",
+                "mincode": "10200024"
+            }
+        }
+    ]
+}

@@ -66,6 +66,13 @@ class staffStudentSearchPage {
         this.nameVariantCheckBox = Selector('#searchNameVariantsCheckbox')
         this.searchAuditHistoryCheckBox = Selector('#searchAuditHistoryCheckbox')
 
+        //side menu
+        this.hamburgerMenuButton = Selector('#menuBtn')
+        this.dashboardLink = Selector('#DashboardMenuBtn')
+        this.searchResult = Selector('table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(1) > td:nth-of-type(2) > div:nth-of-type(1)')
+        this.fullSearchButton = Selector('span').withText('Advanced Student Search')
+        this.saveButton = Selector('span').withText('Save')
+
 
     }
 
@@ -303,6 +310,65 @@ class staffStudentSearchPage {
         await t.click(this.searchAuditHistoryCheckBox)
         log.info("Audit history checkbox clicked")
     }
+
+    async searchAndUpdateStudent(data) {
+
+        for (let i = 0; i < 5; i++) {
+
+            await t.typeText(this.legalSurname, data[i].current.lastname)
+            await t.typeText(this.legalGiven, data[i].current.firstname)
+            await t.typeText(this.localID, data[i].current.localID)
+            await t.typeText(this.mincode, data[i].current.mincode)
+            await t.click(this.searchButton)
+            await t.click(this.searchResult)
+
+            await t.maximizeWindow()
+            await t.wait(2000)
+
+            await t.typeText(this.localID, data[i].updates.localID, { replace: true })
+            await t.typeText(this.mincode, data[i].updates.mincode, { replace: true })
+
+            await t.click(this.saveButton)
+            log.info("save button is clicked")
+            await t.wait(3000)
+
+            await t.click(this.hamburgerMenuButton)
+            log.info("Hamburger menu button is clicked")
+
+            await t.click(this.dashboardLink)
+            log.info("Dashboard link is clicked")
+
+            await t.click(this.fullSearchButton)
+            log.info("Full search button is clicked")
+        }
+        log.info("batch student details updated")
+    }
+
+    async verifyStudentDetailsUpdated(data) {
+
+        for (let i = 0; i < 5; i++) {
+
+            await t.typeText(this.legalSurname, data[i].current.lastname)
+            await t.typeText(this.legalGiven, data[i].current.firstname)
+            await t.typeText(this.localID, data[i].current.localID)
+            await t.typeText(this.mincode, data[i].current.mincode)
+            await t.click(this.searchButton)
+
+            await t.expect(this.localIdSearchResult.innerText).eql(data[i].current.localID)
+            await t.expect(this.mincodeSearchResult.innerText).eql(data[i].current.mincode)
+
+            await t.click(this.clearButon)
+        }
+        log.info("batch student search results verified")
+    }
+
+    async waitFor14Minutes(){
+        log.info("Implicit wait started")
+        await t.wait(840000)
+        log.info("Implicit wait completed")
+    }
+
+
 
 }
 export default staffStudentSearchPage
