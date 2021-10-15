@@ -23,6 +23,7 @@ class studentDetailsPage {
         this.mincode = Selector('#mincode')
         this.schoolName = Selector('#schoolFill')
         this.gradeLabel = Selector('#gradeLabel')
+        this.genderLabel = Selector('#gradeLabel')
 
         //cancel and save buttons
         this.cancelButton = Selector('span').withText('Cancel')
@@ -349,7 +350,7 @@ class studentDetailsPage {
         await t.expect(this.usualGiven.value).eql(data.usualGivenname)
         await t.expect(this.legalMiddle.value).eql(data.legalMiddlename)
         await t.expect(this.usualMiddle.value).eql(data.usualMiddlename)
-        await t.expect(this.gender.value).eql(data.gender)
+        await t.expect(this.genderLabel.value).eql(data.genderLabel)
         await t.hover(this.birthDate)
         await t.expect(this.dobFull.value).eql(data.dobFull)
         log.info("student details verified")
