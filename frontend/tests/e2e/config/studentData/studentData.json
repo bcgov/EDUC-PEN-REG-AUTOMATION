@@ -13,7 +13,7 @@
         "year": 1999
     },
     "gender": 1,
-    "updatedGender": 2,
+    "updatedGender": 0,
     "email": "penemail",
     "umpEmail": "umpemail",
     "lastBCSchool": "East Jude Middle School",
@@ -46,7 +46,7 @@
     "birthdateGmp": "1999-12-01",
     "birthdateUmp": "December 1, 1999",
     "retainedGenderGmp": "Male",
-    "retainedGenderUmp": "Gender Diverse",
+    "retainedGenderUmp": "Female",
     "umpAlert": "You must specify at least one change in order to submit a request.",
     "emptyString": ""
 }
