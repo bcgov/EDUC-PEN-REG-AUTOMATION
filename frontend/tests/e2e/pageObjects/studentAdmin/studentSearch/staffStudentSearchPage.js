@@ -122,8 +122,12 @@ class staffStudentSearchPage {
     }
 
     async setGender(data) {
-        await t.typeText(this.gender, data)
-        log.info("student gender is set")
+        this.genderDropdown = Selector('#genderCol')
+        await t.click(this.genderDropdown)
+        await t.wait(1000)
+        this.genderData = Selector('div').withExactText(data)
+        await t.click(this.genderData)
+        log.info("gender set")
     }
 
     async setLocalID(data) {
