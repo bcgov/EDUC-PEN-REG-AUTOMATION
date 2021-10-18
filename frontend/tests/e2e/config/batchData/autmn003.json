@@ -1,0 +1,60 @@
+{
+    "1of10": {
+        "fieldName1": "Legal Surname",
+        "errorDescription": "Required field is blank"
+    },
+    "2of10": {
+        "fieldName1": "Legal Given",
+        "errorDescription": "Required field is blank"
+    },
+    "3of10": {
+        "fieldName1": "Usual Surname",
+        "fieldName2": "Legal Given",
+        "fieldName3": "Legal Surname",
+        "fieldName4": "Usual Given",
+        "fieldName5": "Usual Middle",
+        "fieldName6": "Legal Middle",
+        "errorDescription": "Field contains invalid character"
+    },
+    "4of10": {
+        "fieldName1": "Usual Surname",
+        "fieldName2": "Legal Given",
+        "fieldName3": "Usual Middle",
+        "fieldName4": "Usual Given",
+        "fieldName5": "Usual Middle",
+        "fieldName6": "Legal Surname",
+        "errorDescription": "Field begins with one or more special characters"
+    },
+    "5of10": {
+        "fieldName1": "Legal Given",
+        "fieldName2": "Legal Surname",
+        "fieldName3": "Usual Given",
+        "fieldName4": "Usual Surname",
+        "errorDescription": "Field contains repeated characters"
+    },
+    "6of10": {
+        "fieldName1": "Usual Given",
+        "fieldName2": "Legal Middle",
+        "fieldName3": "Legal Given",
+        "fieldName4": "Legal Surname",
+        "fieldName5": "Usual Middle",
+        "fieldName6": "Usual Surname",
+        "errorDescription": "Field starts with XX or ZZ"
+    },
+    "7of10": {
+        "fieldName1": "Gender",
+        "errorDescription": "Invalid Gender code"
+    },
+    "8of10": {
+        "fieldName1": "Birth Date",
+        "errorDescription": "Birthdate before 1900"
+    },
+    "9of10": {
+        "fieldName1": "Birth Date",
+        "errorDescription": "Birthdate is in the future"
+    },
+    "10of10": {
+        "fieldName1": "Birth Date",
+        "errorDescription": "Birthdate is not a valid date"
+    }
+}

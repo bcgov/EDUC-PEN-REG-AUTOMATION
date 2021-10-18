@@ -6,6 +6,7 @@ import batchFiles from '../../../config/batchData/batchFiles.json'
 import batchStatus from '../../../config/batchData/batchStatus.json'
 import penRequestDetailsPage from '../../../pageObjects/studentAdmin/batch/penRequestDetailsPage'
 import penRequestFilesPage from '../../../pageObjects/studentAdmin/batch/penRequestFilesPage'
+import errors from '../../../config/batchData/autmn003.json'
 
 const staffLogin = new staffLoginPage()
 const dashboard = new staffDashboardPage()
@@ -33,12 +34,18 @@ test('AUTMN003', async t => {
 
     await penRequestFiles.clickViewDetailsButton()
 
-    await penRequest.verifyTitle(batchStatus.filter[1])
-
-    await penRequest.verifySchoolName(batchFiles.schoolName[1])
+    await penRequest.verifySchoolName(batchFiles.schoolName[3])
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
     await penRequest.verifyIssueNewPenButtonDisabled()
+
+    await penRequest.VerifyFieldNameAndErrorDescription()
+
+    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['1of10'].fieldName1, errors['1of10'].errorDescription)
+
+    await penRequest.clickNextRecord()
+
+    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['2of10'].fieldName1, errors['1of10'].errorDescription)
 
 });

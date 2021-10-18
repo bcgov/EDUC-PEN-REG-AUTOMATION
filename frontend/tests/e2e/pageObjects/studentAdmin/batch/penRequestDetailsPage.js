@@ -66,17 +66,19 @@ class penRequestDetailsPage {
         log.info("modify search, issue new pen and request info buttons are disabled")
     }
 
-    async verifyIssueNewPenButtonDisabled(){
+    async verifyIssueNewPenButtonDisabled() {
         await t.expect(this.issueNewPenButton.hasAttribute('disabled')).ok();
         log.info("issue new pen button disabled")
     }
 
-    async VerifyFieldNameAndErrorDescription(fieldName , errorDescription, tableCell){
-        const fieldNameElement = Selector()
-        const errorDescriptionElement = Selector()
+    async VerifyFieldNameAndErrorDescription(tableRow, fieldName, errorDescription) {
 
-        await t.expect(fieldNameElement.innerText).eql(fieldName)
-        await t.expect(errorDescriptionElement.innerText).eql(errorDescription)
+        this.fieldNameElement = Selector('table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(1)')
+        this.errorDescriptionElement = Selector('table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(2)')
+
+        await t.expect(this.fieldNameElement.innerText).eql(fieldName)
+        await t.expect(this.errorDescriptionElement.innerText).eql(errorDescription)
+        log.info("error details verified")
     }
 }
 export default penRequestDetailsPage
