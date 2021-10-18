@@ -70,6 +70,14 @@ class penRequestDetailsPage {
         await t.expect(this.issueNewPenButton.hasAttribute('disabled')).ok();
         log.info("issue new pen button disabled")
     }
+
+    async VerifyFieldNameAndErrorDescription(fieldName , errorDescription, tableCell){
+        const fieldNameElement = Selector()
+        const errorDescriptionElement = Selector()
+
+        await t.expect(fieldNameElement.innerText).eql(fieldName)
+        await t.expect(errorDescriptionElement.innerText).eql(errorDescription)
+    }
 }
 export default penRequestDetailsPage
 
