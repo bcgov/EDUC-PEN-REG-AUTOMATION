@@ -16,6 +16,7 @@ class penRequestDetailsPage {
         this.previousRecord = Selector('#preRecord')
         this.nextRecord = Selector('#nextRecord')
         this.schoolName = Selector('div:nth-of-type(2) > span:nth-of-type(1) > strong:nth-of-type(1)')
+
     }
 
     async verifyStatusPill(data) {
@@ -65,6 +66,10 @@ class penRequestDetailsPage {
         log.info("modify search, issue new pen and request info buttons are disabled")
     }
 
+    async verifyIssueNewPenButtonDisabled(){
+        await t.expect(this.issueNewPenButton.hasAttribute('disabled')).ok();
+        log.info("issue new pen button disabled")
+    }
 }
 export default penRequestDetailsPage
 
