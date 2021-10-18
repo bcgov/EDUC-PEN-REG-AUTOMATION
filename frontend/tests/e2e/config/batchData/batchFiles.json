@@ -23,31 +23,6 @@
             "sourceApplication": "PENWEB",
             "studentCount": 5,
             "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732278,
-            "mincode": "00899178",
-            "fileName": "00899178.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-18T14:22:39",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN003",
-            "sourceApplication": "PENWEB",
-            "studentCount": 10,
-            "tswAccount": null
-        },
-
-        {
-            "penWebBlobId": 732250,
-            "mincode": "00899178",
-            "fileName": "00899178.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-18T14:22:39",
-            "extractDateTime": null,
-            "submissionNumber": "FAILFILE",
-            "sourceApplication": "PENWEB",
-            "studentCount": 10,
-            "tswAccount": null
         }
     ],
     "schoolName": {
