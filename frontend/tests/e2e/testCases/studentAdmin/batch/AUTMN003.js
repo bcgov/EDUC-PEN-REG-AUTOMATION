@@ -52,42 +52,42 @@ test('AUTMN003', async t => {
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['3of10'].fieldName1, errors['3of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['3of10'].fieldName2, errors['3of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['3of10'].fieldName3, errors['3of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['3of10'].fieldName4, errors['3of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(5, errors['3of10'].fieldName5, errors['3of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['3of10'].fieldName1, errors['3of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['3of10'].fieldName2, errors['3of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['3of10'].fieldName3, errors['3of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['3of10'].fieldName4, errors['3of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['3of10'].fieldName5, errors['3of10'].errorDescription)
     await penRequest.VerifyFieldNameAndErrorDescription(6, errors['3of10'].fieldName6, errors['3of10'].errorDescription)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['4of10'].fieldName1, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['4of10'].fieldName2, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['4of10'].fieldName3, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['4of10'].fieldName4, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(5, errors['4of10'].fieldName5, errors['4of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName1, errors['4of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName2, errors['4of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName3, errors['4of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName4, errors['4of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName5, errors['4of10'].errorDescription)
     await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName6, errors['4of10'].errorDescription)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['5of10'].fieldName1, errors['5of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['5of10'].fieldName2, errors['5of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['5of10'].fieldName3, errors['5of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['5of10'].fieldName1, errors['5of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['5of10'].fieldName2, errors['5of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['5of10'].fieldName3, errors['5of10'].errorDescription)
     await penRequest.VerifyFieldNameAndErrorDescription(4, errors['5of10'].fieldName4, errors['5of10'].errorDescription)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['6of10'].fieldName1, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['6of10'].fieldName2, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['6of10'].fieldName3, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['6of10'].fieldName4, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(5, errors['6of10'].fieldName5, errors['6of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName1, errors['6of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName2, errors['6of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName3, errors['6of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName4, errors['6of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName5, errors['6of10'].errorDescription)
     await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName6, errors['6of10'].errorDescription)
 
     await penRequest.clickNextRecord()

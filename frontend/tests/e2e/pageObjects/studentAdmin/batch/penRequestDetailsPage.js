@@ -71,14 +71,24 @@ class penRequestDetailsPage {
         log.info("issue new pen button disabled")
     }
 
-    async VerifyFieldNameAndErrorDescription(tableRow, fieldName, errorDescription) {
+    async VerifyFieldNameAndErrorDescription(totalNumberOfErrors, fieldName, errorDescription) {
 
-        const fieldNameElement = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(1)')
-        const errorDescriptionElement = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(2)')
+        for (let i = 1; i <= totalNumberOfErrors; i++) {
 
-        await t.expect(fieldNameElement.innerText).eql(fieldName)
-        await t.expect(errorDescriptionElement.innerText).eql(errorDescription)
-        log.info("error details verified")
+            try {
+
+                const fieldNameElement = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + i + ') > td:nth-of-type(1)')
+                const errorDescriptionElement = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + i + ') > td:nth-of-type(2)')
+
+                await t.expect(fieldNameElement.innerText).eql(fieldName)
+                await t.expect(errorDescriptionElement.innerText).eql(errorDescription)
+                log.info("error details verified")
+                break;
+            }
+            catch (err) {
+                // log.info("Did not find in the expected cell, moving to next cell")
+            }
+        }
     }
 }
 export default penRequestDetailsPage
