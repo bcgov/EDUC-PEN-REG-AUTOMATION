@@ -21,7 +21,7 @@
         "fieldName2": "Legal Given",
         "fieldName3": "Usual Middle",
         "fieldName4": "Usual Given",
-        "fieldName5": "Usual Middle",
+        "fieldName5": "Legal Middle",
         "fieldName6": "Legal Surname",
         "errorDescription": "Field begins with one or more special characters"
     },

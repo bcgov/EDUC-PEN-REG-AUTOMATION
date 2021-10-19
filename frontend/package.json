@@ -71,6 +71,8 @@
     "unauthorizedAccess": "node --max-http-header-size=81000 tests/e2e/testSuites/keycloakE2E/unauthorizedAccessSuite.js",
     "AUTMN001": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN001Suite.js",
     "AUTMN002": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN002Suite.js",
+    "AUTMN003": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN003Suite.js",
+    "AUTMN004": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN004Suite.js",
     "updateStudentDetails": "testcafe chrome:headless --max-http-header-size=81000 tests/e2e/testCases/studentAdmin/batch/updateStudentDetails.js -e",
     "verifyStudentDetailsUpdatesAfterSysmatch": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/verifyStudentDetailsUpdatesAfterSysmatchSuite.js"
 

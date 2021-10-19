@@ -35,11 +35,24 @@
             "sourceApplication": "PENWEB",
             "studentCount": 10,
             "tswAccount": null
+        },
+        {
+            "penWebBlobId": 732265,
+            "mincode": "10200027",
+            "fileName": "10200027.PEN",
+            "fileType": "PEN",
+            "insertDateTime": "2021-10-19T11:56:32",
+            "extractDateTime": null,
+            "submissionNumber": "AUTMN004",
+            "sourceApplication": "PENWEB",
+            "studentCount": 10,
+            "tswAccount": null
         }
     ],
     "schoolName": {
         "1": "00899178 Wildflower",
         "2": "10200026 University of Victoria",
-        "3": "00899298 Sequoia Centre"
+        "3": "00899298 Sequoia Centre",
+        "4": "10200027 Vancouver Community College"
     }
 }

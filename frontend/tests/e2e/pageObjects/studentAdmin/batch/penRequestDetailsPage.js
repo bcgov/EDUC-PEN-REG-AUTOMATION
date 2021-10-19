@@ -73,11 +73,11 @@ class penRequestDetailsPage {
 
     async VerifyFieldNameAndErrorDescription(tableRow, fieldName, errorDescription) {
 
-        this.fieldNameElement = Selector('table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(1)')
-        this.errorDescriptionElement = Selector('table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(2)')
+        const fieldNameElement = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(1)')
+        const errorDescriptionElement = Selector('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(' + tableRow + ') > td:nth-of-type(2)')
 
-        await t.expect(this.fieldNameElement.innerText).eql(fieldName)
-        await t.expect(this.errorDescriptionElement.innerText).eql(errorDescription)
+        await t.expect(fieldNameElement.innerText).eql(fieldName)
+        await t.expect(errorDescriptionElement.innerText).eql(errorDescription)
         log.info("error details verified")
     }
 }

@@ -6,7 +6,7 @@ import batchFiles from '../../../config/batchData/batchFiles.json'
 import batchStatus from '../../../config/batchData/batchStatus.json'
 import penRequestDetailsPage from '../../../pageObjects/studentAdmin/batch/penRequestDetailsPage'
 import penRequestFilesPage from '../../../pageObjects/studentAdmin/batch/penRequestFilesPage'
-import errors from '../../../config/batchData/autmn003.json'
+import errors from '../../../config/batchData/autmn004.json'
 
 const staffLogin = new staffLoginPage()
 const dashboard = new staffDashboardPage()
@@ -20,21 +20,21 @@ fixture`Student Admin - Batch`
         await t.maximizeWindow()
     })
 
-test('AUTMN003', async t => {
+test('AUTMN004', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
-    await dashboard.clickViewK12Button()
+    await dashboard.clickViewPsiButton()
 
     await penRequestFiles.clickFixCheckbox()
 
-    await penRequestFiles.clickOnSubmissionNumber("AUTMN003")
+    await penRequestFiles.clickOnSubmissionNumber("AUTMN004")
 
     await penRequestFiles.maximizeWindow()
 
     await penRequestFiles.clickViewDetailsButton()
 
-    await penRequest.verifySchoolName(batchFiles.schoolName[3])
+    await penRequest.verifySchoolName(batchFiles.schoolName[4])
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
@@ -64,49 +64,42 @@ test('AUTMN003', async t => {
     await penRequest.verifyStatusPill(batchStatus.error)
 
     await penRequest.VerifyFieldNameAndErrorDescription(1, errors['4of10'].fieldName1, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['4of10'].fieldName2, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['4of10'].fieldName3, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['4of10'].fieldName4, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(5, errors['4of10'].fieldName5, errors['4of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['4of10'].fieldName6, errors['4of10'].errorDescription)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
     await penRequest.VerifyFieldNameAndErrorDescription(1, errors['5of10'].fieldName1, errors['5of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['5of10'].fieldName2, errors['5of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['5of10'].fieldName3, errors['5of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['5of10'].fieldName4, errors['5of10'].errorDescription)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['6of10'].fieldName1, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['6of10'].fieldName2, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['6of10'].fieldName3, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['6of10'].fieldName4, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(5, errors['6of10'].fieldName5, errors['6of10'].errorDescription)
-    await penRequest.VerifyFieldNameAndErrorDescription(6, errors['6of10'].fieldName6, errors['6of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['6of10'].fieldName1, errors['6of10'].errorDescription1)
+    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['6of10'].fieldName2, errors['6of10'].errorDescription1)
+    await penRequest.VerifyFieldNameAndErrorDescription(3, errors['6of10'].fieldName3, errors['6of10'].errorDescription2)
+    await penRequest.VerifyFieldNameAndErrorDescription(4, errors['6of10'].fieldName4, errors['6of10'].errorDescription1)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['7of10'].fieldName1, errors['7of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['7of10'].fieldName1, errors['7of10'].errorDescription1)
+    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['7of10'].fieldName2, errors['7of10'].errorDescription2)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
     await penRequest.VerifyFieldNameAndErrorDescription(1, errors['8of10'].fieldName1, errors['8of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['8of10'].fieldName2, errors['8of10'].errorDescription)
 
     await penRequest.clickNextRecord()
 
     await penRequest.verifyStatusPill(batchStatus.error)
 
-    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['9of10'].fieldName1, errors['9of10'].errorDescription)
+    await penRequest.VerifyFieldNameAndErrorDescription(1, errors['9of10'].fieldName1, errors['9of10'].errorDescription1)
+    await penRequest.VerifyFieldNameAndErrorDescription(2, errors['9of10'].fieldName2, errors['9of10'].errorDescription2)
 
     await penRequest.clickNextRecord()
 

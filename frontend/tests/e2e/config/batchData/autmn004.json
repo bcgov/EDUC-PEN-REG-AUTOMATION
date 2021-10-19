@@ -1,0 +1,56 @@
+{
+    "1of10": {
+        "fieldName1": "Legal Given",
+        "errorDescription": "Legal Surname and Given are same."
+    },
+    "2of10": {
+        "fieldName1": "Legal Given",
+        "errorDescription": "Legal Surname and Given are same."
+    },
+    "3of10": {
+        "fieldName1": "Legal Surname",
+        "fieldName2": "Legal Given",
+        "fieldName3": "Legal Middle",
+        "fieldName4": "Usual Given",
+        "fieldName5": "Usual Surname",
+        "fieldName6": "Usual Middle",
+        "errorDescription": "Field contains a number."
+    },
+    "4of10": {
+        "fieldName1": "Gender",
+        "errorDescription": "Invalid Gender code"
+    },
+    "5of10": {
+        "fieldName1": "Gender",
+        "errorDescription": "Invalid Gender code"
+    },
+    "6of10": {
+        "fieldName1": "Legal Given",
+        "fieldName2": "Legal Surname",
+        "fieldName3": "Birth Date",
+        "fieldName4": "Legal Middle",
+        "errorDescription1": "Field contains a number.",
+        "errorDescription2": "Individual is too young to attend school"
+    },
+    "7of10": {
+        "fieldName1": "Legal Given",
+        "fieldName2": "Birth Date",
+        "errorDescription1": "Legal Surname and Given are same.",
+        "errorDescription2": "Individual is too young to attend school"
+    },
+    "8of10": {
+        "fieldName1": "Usual Surname",
+        "fieldName2": "Legal Surname",
+        "errorDescription": "Field starts with XX or ZZ"
+    },
+    "9of10": {
+        "fieldName1": "Legal Middle",
+        "fieldName2": "Legal Surname",
+        "errorDescription1": "Field contains invalid character",
+        "errorDescription2": "Field value is on the list of blocked names, that are either flagged as an error or warning"
+    },
+    "10of10": {
+        "fieldName1": "Legal Given",
+        "errorDescription": "Required field is blank"
+    }
+}
