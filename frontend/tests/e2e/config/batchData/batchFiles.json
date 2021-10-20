@@ -50,13 +50,13 @@
         },
 
         {
-            "penWebBlobId": 732304,
+            "penWebBlobId": 732308,
             "mincode": "00807035",
             "fileName": "00807035.PEN",
             "fileType": "PEN",
-            "insertDateTime": "2021-10-20T12:04:46",
+            "insertDateTime": "2021-10-20T12:22:23",
             "extractDateTime": null,
-            "submissionNumber": "AUTMN005",
+            "submissionNumber": "FIXA0002",
             "sourceApplication": "PENWEB",
             "studentCount": 10,
             "tswAccount": null
