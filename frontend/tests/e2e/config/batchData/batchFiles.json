@@ -50,13 +50,13 @@
         },
 
         {
-            "penWebBlobId": 732303,
-            "mincode": "10200021",
-            "fileName": "10200021.PEN",
+            "penWebBlobId": 732304,
+            "mincode": "00807035",
+            "fileName": "00807035.PEN",
             "fileType": "PEN",
-            "insertDateTime": "2021-10-20T11:42:18",
+            "insertDateTime": "2021-10-20T12:04:46",
             "extractDateTime": null,
-            "submissionNumber": "FIXA0001",
+            "submissionNumber": "AUTMN005",
             "sourceApplication": "PENWEB",
             "studentCount": 10,
             "tswAccount": null
@@ -66,6 +66,7 @@
         "1": "00899178 Wildflower",
         "2": "10200026 University of Victoria",
         "3": "00899298 Sequoia Centre",
-        "4": "10200027 Vancouver Community College"
+        "4": "10200027 Vancouver Community College",
+        "5":""
     }
 }
