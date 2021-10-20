@@ -66,6 +66,13 @@ class penRequestDetailsPage {
         log.info("modify search, issue new pen and request info buttons are disabled")
     }
 
+    async verifyThreeButtonsAreNotDisabled() {
+        await t.expect(this.modifySearchButton.hasAttribute('disabled')).notOk();
+        await t.expect(this.issueNewPenButton.hasAttribute('disabled')).notOk();
+        await t.expect(this.requestInfoButton.hasAttribute('disabled')).notOk();
+        log.info("modify search, issue new pen and request info buttons are not disabled")
+    }
+
     async verifyIssueNewPenButtonDisabled() {
         await t.expect(this.issueNewPenButton.hasAttribute('disabled')).ok();
         log.info("issue new pen button disabled")

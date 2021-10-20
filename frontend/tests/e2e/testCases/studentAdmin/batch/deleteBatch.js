@@ -8,7 +8,7 @@ getToken().then(async (data) => {
 
     const token = data.access_token;
 
-    for (let i = 4; i <= batchFiles.batchData.length-1; i++) {
+    for (let i = 0; i <= batchFiles.batchData.length-1; i++) {
 
         const submissionNumber = batchFiles.batchData[i].submissionNumber
 
