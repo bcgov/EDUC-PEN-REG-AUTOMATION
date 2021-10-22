@@ -40,15 +40,15 @@ getToken().then(async (data) => {
 
         //Get Student record on student service
         const getStudentService = await helper.getData(token, `${constants.studentApiUrl}paginated`, filterParam2)
-        console.log(getStudentService)
+        //console.log(getStudentService)
 
-        //Get Student ID
-        // const studentID = getStudentService.content[0].studentID
-        // //console.log("Student ID" + studentID)
+        // Get Student ID
+        const studentID = getStudentService.content[0].studentID
+        //console.log("Student ID" + studentID)
 
-        // //Delete Student record on student service
-        // const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
-        // //console.log(deleteStudentService)
+        //Delete Student record on student service
+        const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
+        //console.log(deleteStudentService)
 
     }
 

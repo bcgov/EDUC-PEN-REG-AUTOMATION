@@ -1,41 +1,26 @@
 {
     "studentData": [
         {
-            "legalLastName": "OLSON",
-            "legalFirstName": "ALVINA",
-            "legalMiddleNames":"MILLS",
             "localID": "000000007134",
             "createUser": "ALGORITHM",
             "updateUser": "ALGORITHM"
         },
         {
-            "legalLastName": "LANGWORTH",
-            "legalFirstName": "VIVIANE",
-            "legalMiddleNames":"HANSEN",
             "localID": "000000007135",
             "createUser": "ALGORITHM",
             "updateUser": "ALGORITHM"
         },
         {
-            "legalLastName": "NITZSCHE",
-            "legalFirstName": "MARCELINO",
-            "legalMiddleNames":"KLING",
             "localID": "000000007136",
             "createUser": "ALGORITHM",
             "updateUser": "ALGORITHM"
         },
         {
-            "legalLastName": "ZIEME",
-            "legalFirstName": "LOY",
-            "legalMiddleNames":"WALSH",
             "localID": "000000007137",
             "createUser": "ALGORITHM",
             "updateUser": "ALGORITHM"
         },
         {
-            "legalLastName": "DICKI",
-            "legalFirstName": "DAMIEN",
-            "legalMiddleNames":"PARKER",
             "localID": "000000007138",
             "createUser": "ALGORITHM",
             "updateUser": "ALGORITHM"
