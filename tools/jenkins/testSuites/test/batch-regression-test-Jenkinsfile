@@ -82,7 +82,6 @@ pipeline {
           }
       }
     }
-  stages {
     stage('Initialize network part two') {
       steps {
           script {
