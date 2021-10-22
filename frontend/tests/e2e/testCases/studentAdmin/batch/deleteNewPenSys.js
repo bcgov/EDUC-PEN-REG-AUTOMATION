@@ -19,8 +19,8 @@ getToken().then(async (data) => {
         searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: studentDetails.studentData[i].legalFirstName, valueType: 'STRING' });
         searchListCriteria.push({ key: 'legalMiddleNames', operation: 'eq', value: studentDetails.studentData[i].legalMiddleNames, valueType: 'STRING' });
         searchListCriteria.push({ key: 'localID', operation: 'eq', value: studentDetails.studentData[i].localID, valueType: 'STRING' });
-        searchListCriteria.push({ key: 'createUser', operation: 'eq', value: studentDetails.studentData[i].createUser, valueType: 'STRING' });
-        searchListCriteria.push({ key: 'updateUser', operation: 'eq', value: studentDetails.studentData[i].updateUser, valueType: 'STRING' });
+        // searchListCriteria.push({ key: 'createUser', operation: 'eq', value: studentDetails.studentData[i].createUser, valueType: 'STRING' });
+        // searchListCriteria.push({ key: 'updateUser', operation: 'eq', value: studentDetails.studentData[i].updateUser, valueType: 'STRING' });
 
         console.log(studentDetails.studentData[i])
 
