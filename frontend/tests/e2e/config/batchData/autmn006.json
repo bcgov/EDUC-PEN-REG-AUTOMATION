@@ -1,29 +1,39 @@
 {
     "studentData": [
         {
-            "lastname": "OLSON",
-            "firstname": "ALVINA",
-            "localId": "000000007134"
+            "legalLastName": "OLSON",
+            "legalFirstName": "ALVINA",
+            "localID": "000000007134",
+            "createUser": "ALGORITHM",
+            "updateUser": "ALGORITHM"
         },
         {
-            "lastname": "LANGWORTH",
-            "firstname": "VIVIANE",
-            "localId": "000000007135"
+            "legalLastName": "LANGWORTH",
+            "legalFirstName": "VIVIANE",
+            "localID": "000000007135",
+            "createUser": "ALGORITHM",
+            "updateUser": "ALGORITHM"
         },
         {
-            "lastname": "NITZSCHE",
-            "firstname": "MARCELINO",
-            "localId": "000000007136"
+            "legalLastName": "NITZSCHE",
+            "legalFirstName": "MARCELINO",
+            "localID": "000000007136",
+            "createUser": "ALGORITHM",
+            "updateUser": "ALGORITHM"
         },
         {
-            "lastname": "ZIEME",
-            "firstname": "LOY",
-            "localId": "000000007137"
+            "legalLastName": "ZIEME",
+            "legalFirstName": "LOY",
+            "localID": "000000007137",
+            "createUser": "ALGORITHM",
+            "updateUser": "ALGORITHM"
         },
         {
-            "lastname": "DICKI",
-            "firstname": "DAMIEN",
-            "localId": "000000007138"
+            "legalLastName": "DICKI",
+            "legalFirstName": "DAMIEN",
+            "localID": "000000007138",
+            "createUser": "ALGORITHM",
+            "updateUser": "ALGORITHM"
         }
     ]
 }

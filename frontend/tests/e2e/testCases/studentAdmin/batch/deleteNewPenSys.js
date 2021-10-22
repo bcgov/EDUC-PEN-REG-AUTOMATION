@@ -15,9 +15,13 @@ getToken().then(async (data) => {
 
         let searchListCriteria = []
 
-        searchListCriteria.push({ key: 'legalLastName', operation: 'eq', value: studentDetails.studentData[i].lastname, valueType: 'STRING' });
-        searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: studentDetails.studentData[i].firstname, valueType: 'STRING' });
-        searchListCriteria.push({ key: 'localID', operation: 'eq', value: studentDetails.studentData[i].localId, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'legalLastName', operation: 'eq', value: studentDetails.studentData[i].legalLastName, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'legalFirstName', operation: 'eq', value: studentDetails.studentData[i].legalFirstName, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'localID', operation: 'eq', value: studentDetails.studentData[i].localID, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'createUser', operation: 'eq', value: studentDetails.studentData[i].createUser, valueType: 'STRING' });
+        searchListCriteria.push({ key: 'updateUser', operation: 'eq', value: studentDetails.studentData[i].updateUser, valueType: 'STRING' });
+
+        console.log(tudentDetails.studentData[i])
 
         const search = [
             {
