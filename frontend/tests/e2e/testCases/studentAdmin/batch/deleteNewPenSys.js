@@ -22,11 +22,6 @@ getToken().then(async (data) => {
         // searchListCriteria.push({ key: 'createUser', operation: 'eq', value: studentDetails.studentData[i].createUser, valueType: 'STRING' });
         // searchListCriteria.push({ key: 'updateUser', operation: 'eq', value: studentDetails.studentData[i].updateUser, valueType: 'STRING' });
 
-        console.log(studentDetails.studentData[i])
-
-        console.log(searchListCriteria)
-
-
         const search = [
             {
                 searchCriteriaList: searchListCriteria
