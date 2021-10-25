@@ -22,9 +22,9 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentAdmin/studentSearch/verifyStudentDetailsValidationErrors.js",
 
-                "tests/e2e/testCases/studentAdmin/studentSearch/staffQuickSearchUpdateAndResetStudentInfo.js"
+                "tests/e2e/testCases/studentAdmin/studentSearch/staffQuickSearchUpdateAndResetStudentInfo.js",
 
-                //"tests/e2e/testCases/studentAdmin/studentSearch/staffWildCardSearchForStudent.js"
+                "tests/e2e/testCases/studentAdmin/studentSearch/staffWildCardSearchForStudent.js"
             ])
             .run();
     })
