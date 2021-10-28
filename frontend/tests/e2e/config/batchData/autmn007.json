@@ -1,0 +1,184 @@
+{
+    "studentData": [
+        {
+            "beforeScrub": {
+                "legalLastname": "FAY.",
+                "legalFirstname": "A.VERY",
+                "legalMiddlename": "BOY.D",
+                "usualLastname": "HEANE.Y",
+                "usualFirstname": ".AUGUST",
+                "usualMiddlename": "SCHMIDT."
+            },
+            "afterScrub": {
+                "legalLastname": "FAY",
+                "legalFirstname": "AVERY",
+                "legalMiddlename": "BOYD",
+                "usualLastname": "HEANEY",
+                "usualFirstname": "AUGUST",
+                "usualMiddlename": "SCHMIDT"
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "RICE",
+                "legalFirstname": "ROXANNE",
+                "legalMiddlename": "BRAXTON",
+                "usualLastname": "CARTWRIGHT",
+                "usualFirstname": "EMILIANO",
+                "usualMiddlename": "BRAX"
+            },
+            "afterScrub": {
+                "legalLastname": "RICE",
+                "legalFirstname": "ROXANNE",
+                "legalMiddlename": "BRAXTON",
+                "usualLastname": "CARTWRIGHT",
+                "usualFirstname": "EMILIANO",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "KUH IC",
+                "legalFirstname": "MARCELL E",
+                "legalMiddlename": "",
+                "usualLastname": "KOSS",
+                "usualFirstname": "KALLIE",
+                "usualMiddlename": ""
+            },
+            "afterScrub": {
+                "legalLastname": "KUH IC",
+                "legalFirstname": "MARCELL E",
+                "legalMiddlename": "",
+                "usualLastname": "KOSS",
+                "usualFirstname": "KALLIE",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "MORAR - MOR",
+                "legalFirstname": "STANFORD",
+                "legalMiddlename": "",
+                "usualLastname": "KLING - KING",
+                "usualFirstname": "MATHEW",
+                "usualMiddlename": ""
+            },
+            "afterScrub": {
+                "legalLastname": "MORAR-MOR",
+                "legalFirstname": "STANFORD",
+                "legalMiddlename": "",
+                "usualLastname": "KLING-KING",
+                "usualFirstname": "MATHEW",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "GREEN HOLT",
+                "legalFirstname": "OSBALDO",
+                "legalMiddlename": "AMIE",
+                "usualLastname": "SHIE LDS",
+                "usualFirstname": "TOMASA",
+                "usualMiddlename": "DIB BERT"
+            },
+            "afterScrub": {
+                "legalLastname": "GREEN HOLT",
+                "legalFirstname": "OSBALDO",
+                "legalMiddlename": "AMIE",
+                "usualLastname": "SHIE LDS",
+                "usualFirstname": "TOMASA",
+                "usualMiddlename": "DIB BERT"
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "BODE",
+                "legalFirstname": "KAREEM",
+                "legalMiddlename": "JEWELL",
+                "usualLastname": "T",
+                "usualFirstname": "RHIANNA",
+                "usualMiddlename": "B"
+            },
+            "afterScrub": {
+                "legalLastname": "BODE",
+                "legalFirstname": "KAREEM",
+                "legalMiddlename": "JEWELL",
+                "usualLastname": "",
+                "usualFirstname": "RHIANNA",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "PREDOVIC",
+                "legalFirstname": "XAVIER",
+                "legalMiddlename": "DANDRE",
+                "usualLastname": "PREDOVIC",
+                "usualFirstname": "XAVIER",
+                "usualMiddlename": "DANDRE"
+            },
+            "afterScrub": {
+                "legalLastname": "PREDOVIC",
+                "legalFirstname": "XAVIER",
+                "legalMiddlename": "DANDRE",
+                "usualLastname": "",
+                "usualFirstname": "",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "QUIGLEY",
+                "legalFirstname": "ELLIOT",
+                "legalMiddlename": "DAVONTE",
+                "usualLastname": "MILLS",
+                "usualFirstname": "JAQUELINE",
+                "usualMiddlename": "ELLIOT"
+            },
+            "afterScrub": {
+                "legalLastname": "QUIGLEY",
+                "legalFirstname": "ELLIOT",
+                "legalMiddlename": "DAVONTE",
+                "usualLastname": "MILLS",
+                "usualFirstname": "JAQUELINE",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "LOCKMAN",
+                "legalFirstname": "YVETTE",
+                "legalMiddlename": "LEANN",
+                "usualLastname": "HANSEN",
+                "usualFirstname": "NICK",
+                "usualMiddlename": "NICK"
+            },
+            "afterScrub": {
+                "legalLastname": "LOCKMAN",
+                "legalFirstname": "YVETTE",
+                "legalMiddlename": "LEANN",
+                "usualLastname": "HANSEN",
+                "usualFirstname": "NICK",
+                "usualMiddlename": ""
+            }
+        },
+        {
+            "beforeScrub": {
+                "legalLastname": "BEER",
+                "legalFirstname": "FANNIE",
+                "legalMiddlename": "JASMIN",
+                "usualLastname": "GORCZANY",
+                "usualFirstname": "DAPHNEY",
+                "usualMiddlename": "FANNIE JASMIN"
+            },
+            "afterScrub": {
+                "legalLastname": "BEER",
+                "legalFirstname": "FANNIE",
+                "legalMiddlename": "JASMIN",
+                "usualLastname": "GORCZANY",
+                "usualFirstname": "DAPHNEY",
+                "usualMiddlename": ""
+            }
+        }
+    ]
+}

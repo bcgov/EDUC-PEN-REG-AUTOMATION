@@ -5,6 +5,7 @@ import archivedPenRequestFilesPage from '../../../pageObjects/studentAdmin/batch
 import batchFiles from '../../../config/batchData/batchFiles.json'
 import batchStatus from '../../../config/batchData/batchStatus.json'
 import penRequestDetailsPage from '../../../pageObjects/studentAdmin/batch/penRequestDetailsPage'
+import studentData from '../../../config/batchData/autmn007.json'
 
 
 const staffLogin = new staffLoginPage()
@@ -24,7 +25,7 @@ test('AUTMN007', async t => {
 
     await dashboard.clickAdvancedArchiveSearch()
 
-    await archive.setSubmissionNumber(batchFiles.batchData[5].submissionNumber)
+    await archive.setSubmissionNumber(batchFiles.batchData[6].submissionNumber)
 
     await archive.clickSearchButton()
 
@@ -36,20 +37,22 @@ test('AUTMN007', async t => {
 
     await archive.clickViewDetailsButton()
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 0; i <= studentData.studentData.length-1; i++) {
 
-        await penRequest.verifyTitle(batchStatus.filter[i])
-
-        await penRequest.verifySchoolName(batchFiles.schoolName[6])
+        await penRequest.verifySchoolName(batchFiles.schoolName[7])
 
         await penRequest.verifyStatusPill(batchStatus.systemNewPen)
 
         await penRequest.verifyThreeButtonsAreDisabled()
 
-        if (i != 5) {
+        await penRequest.verifyLegalAndUsualNamesInTable1(studentData.studentData[i].beforeScrub)
+
+        await penRequest.verifyLegalAndUsualNamesInTable2(studentData.studentData[i].afterScrub)
+
+        if (i != 9) {
 
             await penRequest.clickNextRecord()
-            
+
         }
     }
 });
