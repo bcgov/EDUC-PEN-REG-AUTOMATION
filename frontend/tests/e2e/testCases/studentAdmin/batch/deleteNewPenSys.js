@@ -1,6 +1,6 @@
 const helper = require("../../../helpers/axios-helper")
 const constants = require('../../../config/constants')
-const studentDetails = require('../../../config/batchData/autmn006.json')
+const studentDetails = require('../../../config/batchData/autmn006and007.json')
 const { getToken } = require('../../../helpers/generateToken')
 
 
@@ -9,7 +9,7 @@ getToken().then(async (data) => {
     await new Promise(sleep => setTimeout(sleep, 60000));
     console.log("Implicit wait completed")
 
-    for (let i = 0; i <= studentDetails.studentData.length - 1; i++) {
+    for (let i = 5; i <= studentDetails.studentData.length - 1; i++) {
 
         const token = data.access_token
 
