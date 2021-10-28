@@ -3,6 +3,7 @@
     "AUTMN002": "PSI Sysmatch file",
     "AUTMN003": "K-12 Error file",
     "AUTMN004": "PSI Error file",
-    "AUTMN005": "K12 Fixable file",
-    "AUTMN006": "PSI New pen file"
+    "AUTMN005": "K-12 Fixable file",
+    "AUTMN006": "PSI New pen file",
+    "AUTMN007": "PSI Data scrubbing file"
 }
