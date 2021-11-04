@@ -17,5 +17,6 @@
     "retryTestPages": true,
     "hostname": "localhost",
     "pageLoadTimeout": 20000,
-    "selectorTimeout": 20000
+    "selectorTimeout": 20000,
+    "disableMultipleWindows": true
 }

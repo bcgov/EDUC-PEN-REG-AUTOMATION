@@ -41,6 +41,8 @@ test('Staff Demerge two students test', async t => {
 
     // await compare.verifyMessage(staffData.DemergeSuccessMessage)
 
+    await dashboard.maximizeWindow()
+
     await studentDetails.clickOnTwinRecordYes()
 
 });

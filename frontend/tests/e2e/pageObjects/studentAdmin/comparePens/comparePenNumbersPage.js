@@ -109,6 +109,7 @@ class comparePenNumbersPage {
     async clickPopUpYesButton() {
         await t.click(this.yesButton)
         log.info("pop up yes button clicked")
+        await t.wait(10000)
     }
 
 }

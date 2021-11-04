@@ -50,23 +50,17 @@ test('Staff Merge Two students and verify messages test', async t => {
 
     await compare.clickPopUpYesButton()
 
-    // await compare.verifyMessage(staffData.MergeSuccessMessage)
-
-    // await studentDetails.verifyLegalNames(studentData.data[3])
-
-    // await menu.clickHamburgerMenu()
-
-    // await menu.clickDashboardLink()
-
-    // await dashboard.setPenNumber(constants.mergeOnePen)
-
-    // await dashboard.clickQuickSearchButton()
+    await dashboard.maximizeWindow()
 
     await studentDetails.verifyLegalNames(studentData.data[3])
 
-    await studentDetails.verifyMemo(staffData.MergeMemo)
+    await menu.clickHamburgerMenu()
 
-    await studentDetails.clickOnMergedFromToData(constants.mergeTwoPen)
+    await menu.clickDashboardLink()
+
+    await dashboard.setPenNumber(constants.mergeTwoPen)
+
+    await dashboard.clickQuickSearchButton()
 
     await studentDetails.verifyLegalNames(studentData.data[4])
 
