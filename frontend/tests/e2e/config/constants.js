@@ -66,13 +66,15 @@ module.exports.bcscCredentials = Object.freeze({
 //IDIR Credentials
 module.exports.idirAdminCredentials = Object.freeze({
   username: config.get('idirAdmin:user'),
-  password: config.get('idirAdmin:pass')
+  password: config.get('idirAdmin:pass'),
+  guid : config.get('idirAdmin:guid')
 });
 
 //IDIR readonly credentials
 module.exports.idirReadOnlyCredentials = Object.freeze({
   username: config.get('idirReadOnly:user'),
-  password: config.get('idirReadOnly:pass')
+  password: config.get('idirReadOnly:pass'),
+  guid : config.get('idirReadOnly:guid')
 });
 
 //Mailsac email credentials

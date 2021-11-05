@@ -7,7 +7,7 @@ getToken().then(async (data) => {
 
     const token = data.access_token
 
-    const kcResponse = await helper.getData(token, `${constants.kcUrl}?username=${constants.idirAdminCredentials.username}@idir`)
+    const kcResponse = await helper.getData(token, `${constants.kcUrl}?username=${constants.idirAdminCredentials.guid}`)
     console.log(kcResponse)
 
     const userId = kcResponse[0].id
