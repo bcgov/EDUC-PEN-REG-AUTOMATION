@@ -19,9 +19,9 @@ test('Staff login and verify batch student details test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
-    await dashboard.clickFullSearchButton()
-
     await staffSearch.waitFor14Minutes()
+
+    await dashboard.clickFullSearchButton()    
 
     await staffSearch.verifyStudentDetailsUpdated(studentDataK12.studentData)
 
