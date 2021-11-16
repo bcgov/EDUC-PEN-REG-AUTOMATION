@@ -15,16 +15,18 @@
         "gradeCode": "10",
         "emailVerified": "N",
         "historyActivityCode": "USERNEW",
-        "demogCode" : "A",
+        "demogCode": "A",
         "statusCode": "A"
     },
     "updates": {
         "usualLastName": "HISTORY",
         "usualFirstName": "HISTORY",
-        "usualMiddleNames": "HISTORY"
+        "usualMiddleNames": "HISTORY",
+        "NewusualFirstName": "STUDENT HISTORY"
     },
-
     "sld": {
-        "legalFirstName": "SMITH"
+        "legalFirstName": "DAVID",
+        "dobYear": "1985",
+        "dobYear2": "1950"
     }
 }

@@ -102,4 +102,28 @@ class studentAuditHistoryDetailsPage {
         log.info("accept split pen button clicked")
     }
 
+    async verifyHiddenDefault(data, count) {
+        const hidden = Selector('button.v-icon.notranslate.v-icon--link.mdi.mdi-chevron-down.theme--light')
+        await t.expect(hidden.exists).ok()
+        log.info("drop down is hidden")
+
+        await t.click(hidden)
+        log.info("drop down is clicked")
+
+        const element = Selector('span').withExactText(data)
+        await t.wait(3000)
+        await t.expect(element.count).eql(count)
+        log.info("element count verified")
+
+        const display = Selector('button.v-icon.notranslate.v-icon--link.mdi.mdi-chevron-up.theme--light')
+        await t.expect(display.exists).ok()
+        log.info("drop down is displayed")
+    }
+
+    async clickonSecondRecord(){
+        const element = Selector('table:nth-of-type(1) > tbody:nth-of-type(1) > tr:nth-of-type(2) > td:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1)')
+        await t.click(element)
+        log.info("Selector clicked")
+    }
+
 } export default studentAuditHistoryDetailsPage

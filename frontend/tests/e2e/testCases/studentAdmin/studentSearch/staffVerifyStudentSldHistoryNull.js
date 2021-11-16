@@ -19,7 +19,7 @@ fixture`Student Admin`
         await t.maximizeWindow()
     })
 
-test('Staff login and verify SLD info is received test', async t => {
+test('Staff login and verify no SLD record present test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
@@ -27,7 +27,7 @@ test('Staff login and verify SLD info is received test', async t => {
 
     await staffSearch.setLegalGiven(studentData.sld.legalFirstName)
 
-    await staffSearch.setDobYear(studentData.sld.dobYear)
+    await staffSearch.setDobYear(studentData.sld.dobYear2)
 
     await staffSearch.clickSearchButton()
 
@@ -37,10 +37,6 @@ test('Staff login and verify SLD info is received test', async t => {
 
     await studentDetails.clickSldHistoryTabLink()
 
-    await sld.verifySldHistoryTableIsNotNull()
-
-    await studentDetails.clickCompareModelButton()
-
-    await studentDetails.clickCompareModelCancelButton()
+    await sld.verifySldHistoryTableIsNull()
 
 });

@@ -15,6 +15,7 @@ createTestCafe('localhost', 1337, 1338)
             .src([
 
                 "tests/e2e/testCases/studentAdmin/studentSearch/staffVerifyStudentSldHistoryNotNull.js",
+                "tests/e2e/testCases/studentAdmin/studentSearch/staffVerifyStudentSldHistoryNull.js",
 
             ])
             .run();

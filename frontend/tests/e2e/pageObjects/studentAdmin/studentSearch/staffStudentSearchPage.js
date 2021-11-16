@@ -372,6 +372,11 @@ class staffStudentSearchPage {
         log.info("Implicit wait completed")
     }
 
+    async setDobYear(data){
+        await t.typeText(this.birthYearStart, data)
+        log.info("dob year set")
+    }
+
 
 
 }

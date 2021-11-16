@@ -24,6 +24,11 @@ class studentSldHistoryPage {
         log.info("table cells are not null")
     }
 
+    async verifySldHistoryTableIsNull() {
+        const element = Selector('td').withExactText('No SLD history found')
+        await t.expect(element.exists).ok()
+        log.info("No SLD history found message verified")
+    }
 
-
-} export default studentSldHistoryPage
+}
+export default studentSldHistoryPage

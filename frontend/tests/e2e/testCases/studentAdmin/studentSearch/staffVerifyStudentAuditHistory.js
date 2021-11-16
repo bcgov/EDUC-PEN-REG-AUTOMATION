@@ -57,9 +57,17 @@ test('Staff login search update and reset student info test', async t => {
 
     await studentDetails.clickCompareModelCancelButton()
 
+    await studentDetails.clickDemographicsTab()
+
+    await studentDetails.setUsualGiven(studentData.updates.NewusualFirstName)
+
+    await studentDetails.clickSaveButton()
+
     await studentDetails.clickAuditHistoryTab()
 
-    await audit.clickOnAuditRecord(idirAdminCredentials.username)
+    await audit.verifyHiddenDefault(idirAdminCredentials.username, 2)
+
+    await audit.clickonSecondRecord()
 
     await audit.verifyStudentInformationUpdated(studentData.updates)
 
