@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: "14.x"
       - run: npm install
+      - run: npx browserslist@latest --update-db
 
       - run: npm run staffIssuePenToStudentAndUnlinkSuite
         if: ${{ always() }}

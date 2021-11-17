@@ -64,10 +64,10 @@
     "smokeTestStudentAdmin": "node --max-http-header-size=81000 tests/e2e/testSuites/smokeTests/smokeTestStudentAdminSuite.js",
     "updateExtractDateToNull": "node tests/e2e/testCases/studentAdmin/batch/updateExtractDateToNull.js",
     "deleteBatch": "node tests/e2e/testCases/studentAdmin/batch/deleteBatch.js",
-    "deleteBceidFromKC":"node tests/e2e/testCases/studentAdmin/keycloak/deleteBceidFromKC.js",
-    "deleteIDIRFromKC":"node tests/e2e/testCases/studentAdmin/keycloak/deleteIDIRFromKC.js",
-    "updateIDIRRolesInKC":"node tests/e2e/testCases/studentAdmin/keycloak/updateIDIRRolesInKC.js",
-    "updateIDIRRolesToReadOnlyInKC":"node tests/e2e/testCases/studentAdmin/keycloak/updateIDIRRolesToReadOnlyInKC.js",
+    "deleteBceidFromKC": "node tests/e2e/testCases/studentAdmin/keycloak/deleteBceidFromKC.js",
+    "deleteIDIRFromKC": "node tests/e2e/testCases/studentAdmin/keycloak/deleteIDIRFromKC.js",
+    "updateIDIRRolesInKC": "node tests/e2e/testCases/studentAdmin/keycloak/updateIDIRRolesInKC.js",
+    "updateIDIRRolesToReadOnlyInKC": "node tests/e2e/testCases/studentAdmin/keycloak/updateIDIRRolesToReadOnlyInKC.js",
     "unauthorizedAccess": "node --max-http-header-size=81000 tests/e2e/testSuites/keycloakE2E/unauthorizedAccessSuite.js",
     "AUTMN001": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN001Suite.js",
     "AUTMN002": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN002Suite.js",
@@ -79,7 +79,6 @@
     "updateStudentDetails": "testcafe chrome:headless --max-http-header-size=81000 tests/e2e/testCases/studentAdmin/batch/updateStudentDetails.js -e",
     "verifyStudentDetailsUpdatesAfterSysmatch": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/verifyStudentDetailsUpdatesAfterSysmatchSuite.js",
     "deleteNewPenSys": "node tests/e2e/testCases/studentAdmin/batch/deleteNewPenSys.js"
-
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -88,7 +87,7 @@
     "faker": "^5.5.3",
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
-    "testcafe": "^1.16.0"
+    "testcafe": "^1.17.1"
   },
   "engines": {
     "node": ">= 6.0.0",
