@@ -10,7 +10,7 @@ getToken().then(async (data) => {
     const token = data.access_token
 
     //insert student data 
-    payload.data.pen = constants.penNumber
+    payload.data.pen = constants.penStudentHistory
     const insertStudent = await helper.postStudentData(token, constants.studentApiUrl, payload.data)
     //console.log(insertStudent)
 
