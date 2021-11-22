@@ -40,11 +40,11 @@ class staffLoginPage {
             catch (err) {
                 await t.eval(() => location.reload())
                 log.warn("Element not found, Refreshing the page")
-
+                await t.wait(2000)
                 await t.navigateTo(url)
                 log.info("Navigating to student admin")
 
-                await t.expect((this.login).exists).ok({ timeout: 20000 })
+                // await t.expect((this.login).exists).ok({ timeout: 20000 })
             }
         }
     }
