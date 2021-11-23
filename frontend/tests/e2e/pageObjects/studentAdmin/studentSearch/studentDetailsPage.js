@@ -311,9 +311,9 @@ class studentDetailsPage {
 
     async verifyUsualNameDisplayedOnCompareModel(studentData) {
         await t.wait(3000)
-        this.modelUsualLastname = Selector('div:nth-of-type(2) > span:nth-of-type(5)')
-        this.modelUsualFirstname = Selector('div:nth-of-type(2) > span:nth-of-type(6)')
-        this.modelUsualMiddlenames = Selector('div:nth-of-type(2) > span:nth-of-type(7)')
+        this.modelUsualLastname = Selector('div:nth-of-type(2) > span:nth-of-type(3)')
+        this.modelUsualFirstname = Selector('div:nth-of-type(2) > span:nth-of-type(4)')
+        this.modelUsualMiddlenames = Selector('div:nth-of-type(2) > span:nth-of-type(5)')
         await t.expect(this.modelUsualLastname.innerText).eql(studentData.updates.usualLastName)
         await t.expect(this.modelUsualFirstname.innerText).eql(studentData.updates.usualFirstName)
         await t.expect(this.modelUsualMiddlenames.innerText).eql(studentData.updates.usualMiddleNames)
