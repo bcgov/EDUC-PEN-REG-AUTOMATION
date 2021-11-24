@@ -1,90 +1,178 @@
 {
-    "batchData": [
-        {
-            "penWebBlobId": 732085,
-            "mincode": "00899178",
-            "fileName": "00899178.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-09-27T15:41:04",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN001",
-            "sourceApplication": "PENWEB",
-            "studentCount": 5,
-            "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732087,
-            "mincode": "10200026",
-            "fileName": "10200026.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-09-27T15:41:04",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN002",
-            "sourceApplication": "PENWEB",
-            "studentCount": 5,
-            "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732284,
-            "mincode": "00899298",
-            "fileName": "00899298.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-18T14:59:51",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN003",
-            "sourceApplication": "PENWEB",
-            "studentCount": 10,
-            "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732265,
-            "mincode": "10200027",
-            "fileName": "10200027.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-19T11:56:32",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN004",
-            "sourceApplication": "PENWEB",
-            "studentCount": 10,
-            "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732335,
-            "mincode": "00886019",
-            "fileName": "00886019.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-20T14:01:28",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN005",
-            "sourceApplication": "PENWEB",
-            "studentCount": 10,
-            "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732351,
-            "mincode": "10200029",
-            "fileName": "10200029.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-22T10:59:37",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN006",
-            "sourceApplication": "PENWEB",
-            "studentCount": 5,
-            "tswAccount": null
-        },
-        {
-            "penWebBlobId": 732418,
-            "mincode": "10200025",
-            "fileName": "10200025.PEN",
-            "fileType": "PEN",
-            "insertDateTime": "2021-10-28T13:14:29",
-            "extractDateTime": null,
-            "submissionNumber": "AUTMN007",
-            "sourceApplication": "PENWEB",
-            "studentCount": 10,
-            "tswAccount": null
-        }
-    ],
+    "batchData": {
+        "test": [
+            {
+                "penWebBlobId": 732085,
+                "mincode": "00899178",
+                "fileName": "00899178.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-09-27T15:41:04",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN001",
+                "sourceApplication": "PENWEB",
+                "studentCount": 5,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 732087,
+                "mincode": "10200026",
+                "fileName": "10200026.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-09-27T15:41:04",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN002",
+                "sourceApplication": "PENWEB",
+                "studentCount": 5,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 732284,
+                "mincode": "00899298",
+                "fileName": "00899298.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-10-18T14:59:51",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN003",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 732265,
+                "mincode": "10200027",
+                "fileName": "10200027.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-10-19T11:56:32",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN004",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 732335,
+                "mincode": "00886019",
+                "fileName": "00886019.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-10-20T14:01:28",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN005",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 732351,
+                "mincode": "10200029",
+                "fileName": "10200029.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-10-22T10:59:37",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN006",
+                "sourceApplication": "PENWEB",
+                "studentCount": 5,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 732418,
+                "mincode": "10200025",
+                "fileName": "10200025.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-10-28T13:14:29",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN007",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            }
+        ],
+        "uat": [
+            {
+                "penWebBlobId": 3184318,
+                "mincode": "00899178",
+                "fileName": "00899178.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-23T11:16:41",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN001",
+                "sourceApplication": "PENWEB",
+                "studentCount": 5,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 3184321,
+                "mincode": "10200026",
+                "fileName": "10200026.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-23T11:23:15",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN002",
+                "sourceApplication": "PENWEB",
+                "studentCount": 5,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 3184322,
+                "mincode": "00899298",
+                "fileName": "00899298.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-23T11:24:33",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN003",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 3184323,
+                "mincode": "10200027",
+                "fileName": "10200027.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-23T11:25:35",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN004",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 3184425,
+                "mincode": "00886019",
+                "fileName": "00886019.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-24T11:21:17",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN005",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 3184426,
+                "mincode": "10200029",
+                "fileName": "10200029.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-24T11:36:02",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN006",
+                "sourceApplication": "PENWEB",
+                "studentCount": 5,
+                "tswAccount": null
+            },
+            {
+                "penWebBlobId": 3184427,
+                "mincode": "10200025",
+                "fileName": "10200025.PEN",
+                "fileType": "PEN",
+                "insertDateTime": "2021-11-24T11:42:31",
+                "extractDateTime": null,
+                "submissionNumber": "AUTMN007",
+                "sourceApplication": "PENWEB",
+                "studentCount": 10,
+                "tswAccount": null
+            }
+        ]
+    },
     "schoolName": {
         "1": "00899178 Wildflower",
         "2": "10200026 University of Victoria",

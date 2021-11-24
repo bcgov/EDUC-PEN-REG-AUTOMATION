@@ -8,13 +8,28 @@ getToken().then(async (data) => {
 
     const token = data.access_token;
 
-    for (let i = 0; i <= batchFiles.batchData.length-1; i++) {
+    if (constants.pen_environment == "test") {
 
-        const sourceId = batchFiles.batchData[i].penWebBlobId;
+        for (let i = 0; i <= batchFiles.batchData.test.length - 1; i++) {
 
-        //Update extract date to null
-        const updateBatchRecord = await helper.putBatchData(token, `${constants.penRegBatchUrl}/source/${sourceId}`, batchFiles.batchData[i] )
-        console.log("extractDateTime  "+ updateBatchRecord.extractDateTime);
+            const sourceId = batchFiles.batchData.test[i].penWebBlobId;
+
+            //Update extract date to null
+            const updateBatchRecord = await helper.putBatchData(token, `${constants.penRegBatchUrl}/source/${sourceId}`, batchFiles.batchData.test[i])
+            console.log("extractDateTime  " + updateBatchRecord.extractDateTime);
+        }
+    }
+
+    if (constants.pen_environment == "uat") {
+
+        for (let i = 0; i <= batchFiles.batchData.uat.length - 1; i++) {
+
+            const sourceId = batchFiles.batchData.uat[i].penWebBlobId;
+
+            //Update extract date to null
+            const updateBatchRecord = await helper.putBatchData(token, `${constants.penRegBatchUrl}/source/${sourceId}`, batchFiles.batchData.uat[i])
+            console.log("extractDateTime  " + updateBatchRecord.extractDateTime);
+        }
     }
 })
 
