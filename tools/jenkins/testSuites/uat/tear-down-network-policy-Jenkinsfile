@@ -9,5 +9,12 @@ pipeline {
           }
       }
     }
+    stage('Tear-down batch network') {
+      steps {
+          script {
+            sh(script: 'oc -n 8878b4-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
+          }
+      }
+    }    
   }
 }
