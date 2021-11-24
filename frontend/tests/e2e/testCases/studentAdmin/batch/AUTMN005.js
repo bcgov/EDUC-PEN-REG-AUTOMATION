@@ -25,7 +25,7 @@ test('AUTMN005', async t => {
 
     await penRequestFiles.clickFixCheckbox()
 
-    await penRequestFiles.clickOnSubmissionNumber(batchFiles.batchData[4].submissionNumber)
+    await penRequestFiles.clickOnSubmissionNumber(batchFiles.batchData.test[4].submissionNumber)
 
     await penRequestFiles.maximizeWindow()
 

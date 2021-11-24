@@ -24,7 +24,7 @@ test('AUTMN001', async t => {
 
     await dashboard.clickAdvancedArchiveSearch()
 
-    await archive.setSubmissionNumber(batchFiles.batchData[0].submissionNumber)
+    await archive.setSubmissionNumber(batchFiles.batchData.test[0].submissionNumber)
 
     await archive.clickSearchButton()
 
