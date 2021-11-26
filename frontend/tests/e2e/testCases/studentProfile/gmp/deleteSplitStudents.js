@@ -12,7 +12,7 @@ getToken().then(async (data) => {
     const token = data.access_token
 
 
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 0; i <= 1; i++) {
 
         let searchListCriteria = []
 
