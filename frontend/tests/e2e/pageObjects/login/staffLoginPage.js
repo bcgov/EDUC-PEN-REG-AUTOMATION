@@ -27,7 +27,7 @@ class staffLoginPage {
 
     async stafflogin(credentials, url) {
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i <= 10; i++) {
             try {
                 await t.click(this.login)
                     .typeText(this.username, credentials.username, { timeout: 20000 })
