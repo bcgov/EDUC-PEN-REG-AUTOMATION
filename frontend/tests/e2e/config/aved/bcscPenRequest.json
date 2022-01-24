@@ -1,0 +1,16 @@
+{
+    "dataSet": [
+        {
+            "did": "THISISNOTAVALIDDID",
+            "userDisplayName": "Tester Automation",
+            "birthDate": "19991201",
+            "gender": "M",
+            "givenName": "Tester",
+            "surname": "Automation",
+            "postalCode": "V1V1V1",
+            "givenNames": "Tester Pen",
+            "identityAssuranceLevel": "1",
+            "email": "Automation@someplace.com"
+        }
+    ]
+}

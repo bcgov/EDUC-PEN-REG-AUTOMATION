@@ -1,0 +1,12 @@
+{
+    "dataSet": [
+        {
+            "birthDate": "19991201",
+            "gender": "M",
+            "postalCode": "V1V1V1",
+            "legalSurname": "Automation",
+            "legalGivenName": "Tester",
+            "legalMiddleName": "Pen"
+          }
+    ]
+  }

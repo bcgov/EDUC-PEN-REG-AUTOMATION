@@ -53,7 +53,7 @@
     "myEdPenRequest": "node tests/e2e/testCases/myEd/penRequest.js",
     "myEdPenCoordinators": "node tests/e2e/testCases/myEd/penCoordinators.js",
     "myEdStudents": "node tests/e2e/testCases/myEd/students.js",
-    "journeyBuilderNavigation": "node tests/e2e/testSuites/navigation/journeyBuilderNavigationSuite.js",
+    "journeyBuilderNavigation": "node --max-http-header-size=81000 tests/e2e/testSuites/navigation/journeyBuilderNavigationSuite.js",
     "gumpiNavigation": "node tests/e2e/testSuites/navigation/gumpiNavigationSuite.js",
     "staffVerifyPriorRequestsDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsDisplayedSuite.js",
     "staffVerifyPriorRequestsNotDisplayed": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffVerifyPriorRequestsNotDisplayedSuite.js",
@@ -87,7 +87,7 @@
     "faker": "^5.5.3",
     "nconf": "^0.10.0",
     "npmlog": "^4.1.2",
-    "testcafe": "^1.17.1"
+    "testcafe": "^1.18.2"
   },
   "engines": {
     "node": ">= 6.0.0",
