@@ -5,7 +5,7 @@ import studentData from '../../../config/studentData/studentData.json'
 import staffData from '../../../config/staffData/staffData.json'
 
 const studentLogin = new studentLoginPage()
-const provideInfo = new studentProvideInformationPage
+const provideInfo = new studentProvideInformationPage()
 
 if (constants.studentEntryPoint == "landingPage") {
     fixture`Student Profile`

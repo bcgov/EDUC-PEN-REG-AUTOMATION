@@ -4,7 +4,7 @@
         "legalFirstName": "TES^TER",
         "legalMiddleNames": "PE_N",
         "usualLastName": "'",
-        "usualFirstName": "KKKK",
+        "usualFirstName": "*TESTER",
         "usualMiddleNames": "_PEN",
         "dob": "18910101"
     },
@@ -13,7 +13,7 @@
         "legalFirstNameErrors": "Field contains invalid character",
         "legalMiddleNamesErrors": "Field contains invalid character",
         "usualLastNameErrors": "Field contains only an apostrophe character",
-        "usualFirstNameErrors": "Field contains repeated characters",
+        "usualFirstNameErrors": "Field begins with one or more special characters",
         "usualMiddleNamesErrors": "Field contains invalid character",
         "dobErrors": "Birthdate before 1900"
     }

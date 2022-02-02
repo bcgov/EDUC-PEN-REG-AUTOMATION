@@ -47,6 +47,12 @@ test('Student submit firstname change test UMPI', async t => {
 
     await updatePage.setEmail(studentData.umpEmail,constants.pen_environment)
 
+    await updatePage.clickUploadButton()
+
+    await updatePage.setDocumentType(studentData.documentType)
+
+    await updatePage.uploadDocument(studentData.uploadFileLocation)
+
     await updatePage.clickAccurateCheckBox()
 
     await updatePage.clickNextButton()
