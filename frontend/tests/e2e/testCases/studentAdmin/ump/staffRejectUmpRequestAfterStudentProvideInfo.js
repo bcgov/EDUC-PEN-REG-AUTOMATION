@@ -33,7 +33,9 @@ test('Staff login and Reject Ump Request after student provided information test
 
     await umpAction.verifyUploadedFiles(1,studentData.documentType,studentData.documentName)
 
-    await umpAction.verifyUploadedFiles(2,studentData.documentType2,studentData.documentName2)
+    await umpAction.verifyUploadedFiles(2,studentData.documentType,studentData.documentName)
+
+    await umpAction.verifyUploadedFiles(3,studentData.documentType2,studentData.documentName2)
 
     await umpAction.clickRejectButton()
 

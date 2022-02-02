@@ -38,6 +38,12 @@ test('Pen approved student submits gender change request test', async t => {
 
     await updatePage.setGender(studentData)
 
+    await updatePage.clickUploadButton()
+
+    await updatePage.setDocumentType(studentData.documentType)
+
+    await updatePage.uploadDocument(studentData.uploadFileLocation)
+
     await updatePage.clickAccurateCheckBox()
 
     await updatePage.clickNextButton()
