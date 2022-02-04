@@ -19,7 +19,7 @@ test('Staff login and verify batch student details test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
-    await staffSearch.waitFor14Minutes()
+    // await staffSearch.waitFor14Minutes()
 
     await dashboard.clickFullSearchButton()    
 

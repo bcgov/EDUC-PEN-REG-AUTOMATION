@@ -5,6 +5,8 @@ import archivedPenRequestFilesPage from '../../../pageObjects/studentAdmin/batch
 import batchFiles from '../../../config/batchData/batchFiles.json'
 import batchStatus from '../../../config/batchData/batchStatus.json'
 import penRequestDetailsPage from '../../../pageObjects/studentAdmin/batch/penRequestDetailsPage'
+import staffStudentSearchPage from '../../../pageObjects/studentAdmin/studentSearch/staffStudentSearchPage'
+const staffSearch = new staffStudentSearchPage()
 
 
 const staffLogin = new staffLoginPage()
@@ -21,6 +23,8 @@ fixture`Student Admin - Batch`
 test('AUTMN001', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
+
+    await staffSearch.waitFor14Minutes()
 
     await dashboard.clickAdvancedArchiveSearch()
 
