@@ -218,9 +218,16 @@ class updateMyPenInfoPage {
 
     }
 
+    async verifyUploadOnSummaryPage(data) {
+        const element = Selector('div.row.no-gutters:nth-child(7) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        await t.expect(element.innerText).eql(data)
+        log.info("upload verified on summary page")
+
+    }
+
 
     async verifyEmailOnSummaryPage(email, environment) {
-        const element = Selector('div.row.no-gutters:nth-child(7) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        const element = Selector('div.row.no-gutters:nth-child(9) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
         await t.expect(element.innerText).eql(email + environment + "@mailsac.com")
         log.info("email verified on summary page")
 

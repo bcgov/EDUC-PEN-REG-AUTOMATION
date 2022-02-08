@@ -48,5 +48,6 @@
     "retainedGenderGmp": "Male",
     "retainedGenderUmp": "Female",
     "umpAlert": "You must specify at least one change in order to submit a request.",
-    "emptyString": ""
+    "emptyString": "",
+    "uploadDocAlert": "You must upload an image of supporting legal identification to submit a request."
 }

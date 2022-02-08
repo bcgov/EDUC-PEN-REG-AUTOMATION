@@ -43,7 +43,7 @@ test('ump navigation test', async t => {
 
     await updatePage.clickIDeclareCheckBox()
 
-    await updatePage.setEmail(studentData.umpEmail,constants.pen_environment)
+    await updatePage.setEmail(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickAccurateCheckBox()
 
@@ -73,13 +73,25 @@ test('ump navigation test', async t => {
 
     await updatePage.clickNextButton()
 
+    await updatePage.VerifyAlertMessage(studentData.uploadDocAlert)
+
+    await updatePage.clickUploadButton()
+
+    await updatePage.setDocumentType(studentData.documentType)
+
+    await updatePage.uploadDocument(studentData.uploadFileLocation)
+
+    await updatePage.clickNextButton()
+
     await updatePage.verifyNamesOnSummaryPage(studentData)
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
     await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickBackButton()
 
@@ -95,7 +107,9 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickBackButton()
 
@@ -115,7 +129,9 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderGmp)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickBackButton()
 
@@ -149,7 +165,7 @@ test('ump navigation test', async t => {
 
     await updatePage.clickIDeclareCheckBox()
 
-    await updatePage.setEmail(studentData.umpEmail,constants.pen_environment)
+    await updatePage.setEmail(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickEditMiddleNameCheckbox()
 
@@ -157,6 +173,16 @@ test('ump navigation test', async t => {
 
     await updatePage.clickAccurateCheckBox()
 
+    await updatePage.clickNextButton()    
+
+    await updatePage.VerifyAlertMessage(studentData.uploadDocAlert)
+
+    await updatePage.clickUploadButton()
+
+    await updatePage.setDocumentType(studentData.documentType)
+
+    await updatePage.uploadDocument(studentData.uploadFileLocation)
+
     await updatePage.clickNextButton()
 
     await updatePage.verifyNamesOnSummaryPage(studentData)
@@ -165,7 +191,9 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickBackButton()
 
@@ -185,7 +213,9 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickBackButton()
 
@@ -203,7 +233,9 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
     await updatePage.clickBackButton()
 
@@ -223,6 +255,8 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
-    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail,constants.pen_environment)
+    await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
+
+    await updatePage.verifyEmailOnSummaryPage(studentData.umpEmail, constants.pen_environment)
 
 });
