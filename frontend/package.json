@@ -28,6 +28,7 @@
     "insertAndUpdatePenRequestData": "node tests/e2e/testCases/studentProfile/gmp/insertAndUpdatePenRequestData.js",
     "insertAndUpdatePenRequestDataToAbandoned": "node tests/e2e/testCases/studentProfile/gmp/insertAndUpdatePenRequestDataToAbandoned.js",
     "getAndDeletePenRequestData": "node tests/e2e/testCases/studentProfile/gmp/getAndDeletePenRequestData.js",
+    "getAndDeleteBcscPenRequestData": "node tests/e2e/testCases/studentProfile/gmp/getAndDeleteBcscPenRequestData.js",
     "getAndDeleteUmpRequestData": "node tests/e2e/testCases/studentProfile/ump/getAnddeleteUmpRequestData.js",
     "deleteNewlyCreatedPen": "node tests/e2e/testCases/studentProfile/gmp/deleteNewlyCreatedPen.js",
     "staffIssuePenToStudentAndUnlinkSuite": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentAndUnlinkSuite.js",
@@ -78,7 +79,8 @@
     "AUTMN007": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/AUTMN007Suite.js",
     "updateStudentDetails": "testcafe chrome:headless --max-http-header-size=81000 tests/e2e/testCases/studentAdmin/batch/updateStudentDetails.js -e",
     "verifyStudentDetailsUpdatesAfterSysmatch": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/verifyStudentDetailsUpdatesAfterSysmatchSuite.js",
-    "deleteNewPenSys": "node tests/e2e/testCases/studentAdmin/batch/deleteNewPenSys.js"
+    "deleteNewPenSys": "node tests/e2e/testCases/studentAdmin/batch/deleteNewPenSys.js",
+    "MobileGmpNavigation": "testcafe chrome:emulation:device=iphone 13 ./tests/e2e/testCases/studentProfile/ump/umpNavigationTest.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
