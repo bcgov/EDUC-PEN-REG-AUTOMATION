@@ -125,7 +125,7 @@ class penRequestForm {
 
     }
 
-    async bcscFillPenRequestForm(studentData, submitBool) {
+    async bcscFillPenRequestForm(studentData, submitBool, environment) {
 
         await t.click(this.topCheckBox)
         log.info("Top checkbox is clicked")
@@ -156,7 +156,7 @@ class penRequestForm {
         }
 
         if (studentData.email) {
-            await t.typeText(this.email, studentData.email, { replace: true })
+            await t.typeText(this.email, studentData.email + environment + "@mailsac.com", { replace: true })
             log.info("Email ID entered")
         }
         if (studentData.lastBCSchool) {
@@ -178,6 +178,8 @@ class penRequestForm {
         if (submitBool === true) {
             await t.click(this.submitForm)
             log.info("Submit button is clicked")
+            await t.click(this.nextButton)
+            log.info("Clicked on next button")
             await t.wait(2000)
             await t.expect(await this.submitConfirmation.innerText).eql(studentData.penRequestSubmissionConfirmationText, { timeout: 180000 })
             log.info('Submit confirmation text displayed')
@@ -267,7 +269,7 @@ class penRequestForm {
         log.info("Data retained successfully")
     }
 
-    async verifyDataCleared(){
+    async verifyDataCleared() {
         await t.expect(await this.legaLastlName.value).eql('', { timeout: 15000 })
         await t.expect(await this.pastName.value).eql('')
         await t.expect(await this.email.value).eql('')
@@ -283,19 +285,19 @@ class penRequestForm {
         log.info("legal lastname input cleared")
     }
 
-    async clearLegalFirstName(){
+    async clearLegalFirstName() {
         await t
-        .click(this.legalFirstName)
-        .pressKey('ctrl+a delete')
-    log.info("legal First name input cleared")
+            .click(this.legalFirstName)
+            .pressKey('ctrl+a delete')
+        log.info("legal First name input cleared")
     }
 
-    async setLegalFirstName(studentData){
+    async setLegalFirstName(studentData) {
         await t.typeText(this.legalFirstName, studentData.legalFirstName, { paste: true })
-            log.info("Legal FirstName entered")
+        log.info("Legal FirstName entered")
     }
 
-    async clickCancelButton(){
+    async clickCancelButton() {
         await t.click(this.cancelButton)
         log.info("cancel button clicked")
     }
