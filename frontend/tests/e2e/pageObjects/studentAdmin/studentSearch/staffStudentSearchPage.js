@@ -186,7 +186,7 @@ class staffStudentSearchPage {
 
     async verifyStudentSearchResult(penNumber, data) {
 
-        await t.expect(this.penSearchResult.innerText).eql(penNumber, { timeout: 100000 })
+        await t.expect(this.penSearchResult.innerText).eql(penNumber+" ", { timeout: 100000 })
 
         await t.expect(this.mergedSearchResult.innerText).eql(data.mergedSearchResult)
 
