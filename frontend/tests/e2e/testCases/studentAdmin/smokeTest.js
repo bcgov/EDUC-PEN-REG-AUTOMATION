@@ -21,7 +21,7 @@ fixture`Student Admin`
         await t.maximizeWindow()
     })
 
-test('Staff login and issue pen to Student test', async t => {
+test('Smoke test', async t => {
 
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
