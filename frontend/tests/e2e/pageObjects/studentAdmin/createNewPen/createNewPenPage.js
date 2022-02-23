@@ -124,9 +124,16 @@ class createNewPenPage {
 
     async implicitWait(i) {        
             log.info("Implicit  wait started at "+ await this.time())
-            await t.wait(1680000)
+            await t.wait(5000)
             log.info("Implicit wait completed at "+ await this.time())
             log.info("Round- " + i + " session verification completed")
     }
+
+    async implicitWaitStudentAdmin(i) {        
+        log.info("Implicit  wait started at "+ await this.time())
+        await t.wait(1680000)
+        log.info("Implicit wait completed at "+ await this.time())
+        log.info("Round- " + i + " session verification completed")
+}
     
 } export default createNewPenPage

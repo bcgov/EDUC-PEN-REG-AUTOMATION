@@ -26,7 +26,7 @@ test('Session Timeout test student admin', async t => {
 
     await dashboard.clickViewGmpButton()
 
-    await create.implicitWait(1)
+    await create.implicitWaitStudentAdmin(1)
 
     await penPage.setMainStatusBar(staffData.Status[0])
 
@@ -51,7 +51,7 @@ test('Session Timeout test student admin', async t => {
     //Round one complete
 
 
-    await create.implicitWait(2)
+    await create.implicitWaitStudentAdmin(2)
 
     await penPage.setMainStatusBar(staffData.Status[6])
 
@@ -72,7 +72,7 @@ test('Session Timeout test student admin', async t => {
     //Round two complete    
 
 
-    await create.implicitWait(3)
+    await create.implicitWaitStudentAdmin(3)
 
     await penPage.setMainStatusBar(staffData.Status[4])
 
@@ -95,7 +95,7 @@ test('Session Timeout test student admin', async t => {
     //Round Three complete
 
 
-    await create.implicitWait(4)
+    await create.implicitWaitStudentAdmin(4)
 
     await penPage.setMainStatusBar(staffData.Status[6])
 
