@@ -83,15 +83,15 @@ class penRequestForm {
                 .click(Selector('div.v-date-picker-table').find('.v-btn__content').nth(day - 1))
             log.info("Birthdate entered")
         }
-        if (studentData.gender) {
-            await t
-                .click(Selector('div.v-select__selections'))
-            await t.wait(2000)
-            await t.click(Selector('div.v-list-item__content').find('.v-list-item__title').nth(studentData.gender))
-            await t.wait(2000)
-            await t.pressKey("tab")
-            log.info("Gender selected")
-        }
+        // if (studentData.gender) {
+        //     await t
+        //         .click(Selector('div.v-select__selections'))
+        //     await t.wait(2000)
+        //     await t.click(Selector('div.v-list-item__content').find('.v-list-item__title').nth(studentData.gender))
+        //     await t.wait(2000)
+        //     await t.pressKey("tab")
+        //     log.info("Gender selected")
+        // }
         if (studentData.email) {
             await t.typeText(this.email, studentData.email + environment + "@mailsac.com", { paste: true })
             log.info("Email ID entered")

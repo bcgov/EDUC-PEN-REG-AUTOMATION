@@ -37,7 +37,7 @@ test('Student submit firstname change test UMPI', async t => {
 
     await updatePage.setBirthDate(studentData)
 
-    await updatePage.setGender(studentData)
+    // await updatePage.setGender(studentData)
 
     await updatePage.clickNextButton()
 
