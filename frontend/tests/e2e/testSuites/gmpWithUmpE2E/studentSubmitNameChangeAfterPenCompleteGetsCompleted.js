@@ -20,7 +20,7 @@ createTestCafe('localhost', 1337, 1338)
 
                 "tests/e2e/testCases/studentAdmin/gmp/staffIssuePenToStudent.js",
                 
-                "tests/e2e/testCases/studentProfile/ump/penApprovedStudentRequestForGenderChange.js",
+                "tests/e2e/testCases/studentProfile/ump/penApprovedStudentRequestForNameChange.js",
 
                 "tests/e2e/testCases/studentAdmin/ump/staffCompleteUmpRequest.js",
 

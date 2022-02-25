@@ -1,7 +1,7 @@
-name: Student Submit Gender Change After Pen Complete Test Environment 
+name: Student Submit Name Change After Pen Complete Test Environment 
 on:
   repository_dispatch:
-    types: [student-submit-gender-change-after-pen-complete-test-environment]
+    types: [student-submit-name-change-after-pen-complete-test-environment]
   workflow_dispatch: 
 jobs:
   Regression:
@@ -18,7 +18,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
       
-      - run: npm run studentSubmitGenderChangeAfterPenCompleteGetsCompleted
+      - run: npm run studentSubmitNameChangeAfterPenCompleteGetsCompleted
         if: ${{ always() }}
         env:
           PENEMAIL_USER: ${{ secrets.PENEMAIL_USER }}

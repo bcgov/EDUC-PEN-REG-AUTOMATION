@@ -33,7 +33,7 @@
     "deleteNewlyCreatedPen": "node tests/e2e/testCases/studentProfile/gmp/deleteNewlyCreatedPen.js",
     "staffIssuePenToStudentAndUnlinkSuite": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffIssuePenToStudentAndUnlinkSuite.js",
     "staffForceUnlinkSuite": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffForceUnlinkSuite.js",
-    "studentSubmitGenderChangeAfterPenCompleteGetsCompleted": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpWithUmpE2E/studentSubmitGenderChangeAfterPenCompleteGetsCompleted.js",
+    "studentSubmitNameChangeAfterPenCompleteGetsCompleted": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpWithUmpE2E/studentSubmitNameChangeAfterPenCompleteGetsCompleted.js",
     "staffCanNotPerformAnyActionOnAbandonedPenRequest": "node --max-http-header-size=81000 tests/e2e/testSuites/gmpE2E/staffCanNotPerformAnyActionOnAbandonedPenRequestSuite.js",
     "staffQuickSearchUpdateAndResetStudentInfo": "node --max-http-header-size=81000 tests/e2e/testSuites/searchE2E/staffQuickSearchUpdateAndResetStudentInfoSuite.js",
     "verifyValidationErrorsAndCreateNewPen": "node --max-http-header-size=81000 tests/e2e/testSuites/createNewPenE2E/verifyValidationErrorsAndCreateNewPenSuite.js",
