@@ -18,14 +18,6 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run verifyStudentDetailsUpdatesAfterSysmatch
-        if: ${{ always() }}
-        env:
-          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
-          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
-          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
-
       - run: npm run AUTMN001
         if: ${{ always() }}
         env:
@@ -80,7 +72,15 @@ jobs:
           PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
-          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}                 
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+
+      - run: npm run verifyStudentDetailsUpdatesAfterSysmatch
+        if: ${{ always() }}
+        env:
+          PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
+          PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
+          IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
+          IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}                      
           
       # - uses: actions/upload-artifact@v2
       #   if: ${{ failure() }}

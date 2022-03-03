@@ -19,5 +19,6 @@
     "pageLoadTimeout": 20000,
     "selectorTimeout": 20000,
     "disableMultipleWindows": true,
-    "skipUncaughtErrors": true
+    "skipUncaughtErrors": true,
+    "browserInitTimeout": 480000
 }

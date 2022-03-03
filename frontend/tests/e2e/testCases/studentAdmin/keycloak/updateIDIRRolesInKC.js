@@ -21,7 +21,7 @@ getToken().then(async (data) => {
 
         if (rolesAvailable[i].name == rolesData.adminRoles[0] || rolesAvailable[i].name == rolesData.adminRoles[1] || rolesAvailable[i].name == rolesData.adminRoles[2]
             || rolesAvailable[i].name == rolesData.adminRoles[3] || rolesAvailable[i].name == rolesData.adminRoles[4] || rolesAvailable[i].name == rolesData.adminRoles[5]
-            || rolesAvailable[i].name == rolesData.adminRoles[6]) {
+            || rolesAvailable[i].name == rolesData.adminRoles[6] || rolesAvailable[i].name == rolesData.adminRoles[7] || rolesAvailable[i].name == rolesData.adminRoles[8]) {
 
             //roles added to array    
             console.log(rolesAvailable[i].name)

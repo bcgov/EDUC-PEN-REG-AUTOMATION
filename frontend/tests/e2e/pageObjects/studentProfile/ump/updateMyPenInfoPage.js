@@ -173,7 +173,7 @@ class updateMyPenInfoPage {
         await t.expect(await this.legalLastName.value).eql(studentData.legalLastName, { timeout: 15000 })
         await t.expect(await this.legalFirstNmae.value).eql(studentData.legalFirstName)
         await t.expect(await this.birthdate.value).eql(studentData.birthdateUmp)
-        await t.expect(await this.gender.innerText).eql(studentData.retainedGenderUmp)
+        //await t.expect(await this.gender.innerText).eql(studentData.retainedGenderUmp)
         log.info("Data retained successfully")
     }
 
@@ -182,7 +182,7 @@ class updateMyPenInfoPage {
         await t.expect(await this.legalLastName.value).eql('', { timeout: 15000 })
         await t.expect(await this.legalFirstNmae.value).eql('')
         await t.expect(await this.birthdate.value).eql('')
-        await t.expect(await this.gender.innerText).eql('')
+        //await t.expect(await this.gender.innerText).eql('')
         log.info("Data cleared successfully")
     }
 
@@ -219,7 +219,7 @@ class updateMyPenInfoPage {
     }
 
     async verifyUploadOnSummaryPage(data) {
-        const element = Selector('div.row.no-gutters:nth-child(7) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        const element = Selector('div.row.no-gutters:nth-child(6) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
         await t.expect(element.innerText).eql(data)
         log.info("upload verified on summary page")
 
@@ -227,7 +227,7 @@ class updateMyPenInfoPage {
 
 
     async verifyEmailOnSummaryPage(email, environment) {
-        const element = Selector('div.row.no-gutters:nth-child(9) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
+        const element = Selector('div.row.no-gutters:nth-child(8) > div.col-sm-8.col-md-9.col-lg-9.col-xl-9.col')
         await t.expect(element.innerText).eql(email + environment + "@mailsac.com")
         log.info("email verified on summary page")
 

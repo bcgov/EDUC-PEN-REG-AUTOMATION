@@ -46,7 +46,7 @@ test('gmp navigation test', async t => {
 
     await penRequest.setLegalLastName(studentData)
 
-    await penRequest.selectGender(studentData)
+    //await penRequest.selectGender(studentData)
 
     await penRequest.setPastname(studentData)
 

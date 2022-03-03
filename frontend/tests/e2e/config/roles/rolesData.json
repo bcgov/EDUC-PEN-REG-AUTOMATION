@@ -20,7 +20,9 @@
         "STUDENT_PROFILE_ADMIN",
         "PEN_REQUEST_BATCH_ADMIN",
         "STUDENT_SEARCH_ADMIN",
-        "STUDENT_ADMIN"
+        "STUDENT_ADMIN",
+        "STUDENT_ANALYTICS_STUDENT_PROFILE",
+        "STUDENT_ANALYTICS_BATCH"
     ],
     "readOnlyRoles": [
         "STUDENT_ADMIN_READ_ONLY",

@@ -37,7 +37,7 @@ test('ump navigation test', async t => {
 
     await updatePage.setBirthDate(studentData)
 
-    await updatePage.setGender(studentData)
+    //await updatePage.setGender(studentData)
 
     await updatePage.clickNextButton()
 
@@ -87,7 +87,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 
@@ -105,7 +105,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 
@@ -115,9 +115,9 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyNextButtonDisabled()
 
-    await updatePage.clickeditGenderCheckbox()
+    // await updatePage.clickeditGenderCheckbox()
 
-    await updatePage.setGenderStep2(studentData.gender)
+    // await updatePage.setGenderStep2(studentData.gender)
 
     await updatePage.clickAccurateCheckBox()
 
@@ -127,7 +127,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderGmp)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderGmp)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 
@@ -135,7 +135,7 @@ test('ump navigation test', async t => {
 
     await updatePage.clickBackButton()
 
-    await updatePage.clickeditGenderCheckbox()
+    //await updatePage.clickeditGenderCheckbox()
 
     await updatePage.clickEditMiddleNameCheckbox()
 
@@ -189,7 +189,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 
@@ -197,9 +197,9 @@ test('ump navigation test', async t => {
 
     await updatePage.clickBackButton()
 
-    await updatePage.clickeditGenderCheckbox()
+    //await updatePage.clickeditGenderCheckbox()
 
-    await updatePage.setGender(studentData)
+    //await updatePage.setGender(studentData)
 
     await updatePage.verifyNextButtonDisabled()
 
@@ -211,7 +211,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 
@@ -219,7 +219,7 @@ test('ump navigation test', async t => {
 
     await updatePage.clickBackButton()
 
-    await updatePage.clickeditGenderCheckbox()
+    //await updatePage.clickeditGenderCheckbox()
 
     await updatePage.verifyNextButtonDisabled()
 
@@ -231,7 +231,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.emptyString)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 
@@ -241,7 +241,7 @@ test('ump navigation test', async t => {
 
     await updatePage.clickBackButton()
 
-    await updatePage.setGender(studentData)
+    //await updatePage.setGender(studentData)
 
     await updatePage.clickNextButton()
 
@@ -253,7 +253,7 @@ test('ump navigation test', async t => {
 
     await updatePage.verifyBirthdateOnSummaryPage(studentData)
 
-    await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
+    //await updatePage.verifyGenderOnSummaryPage(studentData.retainedGenderUmp)
 
     await updatePage.verifyUploadOnSummaryPage(studentData.documentName)
 

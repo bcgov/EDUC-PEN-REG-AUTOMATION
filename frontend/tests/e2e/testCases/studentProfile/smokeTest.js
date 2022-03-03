@@ -52,7 +52,7 @@ test('Smoke test', async t => {
 
   await updatePage.setBirthDate(studentData)
 
-  await updatePage.setGender(studentData)
+  //await updatePage.setGender(studentData)
 
   await updatePage.clickNextButton()
 

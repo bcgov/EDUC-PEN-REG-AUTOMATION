@@ -1,8 +1,8 @@
 name: GUMPI Navigation Test Uat Environment
 on:
-  schedule:
-    # Scheduled job to run every day at 7 am PST
-    - cron: "0 14 * * *"
+  # schedule:
+  #   # Scheduled job to run every day at 7 am PST
+  #   - cron: "0 14 * * *"
   workflow_dispatch:  
 jobs:
   GUmpi_Navigation_Test_Uat_Environment:
