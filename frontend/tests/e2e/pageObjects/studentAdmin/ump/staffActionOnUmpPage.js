@@ -222,8 +222,8 @@ class staffActionOnUmpPage {
         assert.strictEqual(penDemographics.DOB, await this.dob.innerText)
         log.info("DOB verified in pen demographics")
 
-        assert.strictEqual(penDemographics.Gender, await this.gender.innerText)
-        log.info("Gender verified in pen demographics")
+        // assert.strictEqual(penDemographics.Gender, await this.gender.innerText)
+        // log.info("Gender verified in pen demographics")
 
     }
 
