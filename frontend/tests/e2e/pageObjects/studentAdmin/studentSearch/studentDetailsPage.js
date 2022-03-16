@@ -106,6 +106,8 @@ class studentDetailsPage {
         await t.click(this.usualMiddle)
         await t.typeText(this.usualMiddle, data, { paste: true })
         log.info("usual middle name is set")
+        await t.click(this.legalMiddle)
+        await t.wait(2000)
     }
 
     async clearUsualMiddle() {
@@ -160,7 +162,7 @@ class studentDetailsPage {
     async clickSaveButton() {
         await t.click(this.saveButton)
         log.info("save button is clicked")
-        await t.wait(3000)
+        await t.wait(5000)
     }
 
     async clickOnTwinRecordYes() {
@@ -289,6 +291,7 @@ class studentDetailsPage {
     }
 
     async clickCompareModelButton() {
+        await t.wait(5000)
         await t.click(this.compareModelButton)
         log.info("compare model button clicked")
     }
