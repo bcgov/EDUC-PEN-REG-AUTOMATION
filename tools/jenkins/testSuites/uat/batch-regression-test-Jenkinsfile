@@ -30,21 +30,21 @@ pipeline {
         }
       }
     } 
-    stage('update student details before system match') {
-      steps {
-        script {
-          try{
-          TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'update-student-details-uat-environment')
-          extJSHelper.waitForWorkflowRunComplete(TOKEN)
-          }
-          catch(err){
-            currentBuild.result = 'FAILURE'
-            echo "Error detected, Continue to the next step"
-          }          
-        }
-      }
-    }
+    // stage('update student details before system match') {
+    //   steps {
+    //     script {
+    //       try{
+    //       TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+    //       extJSHelper.triggerWorkflow(TOKEN, 'update-student-details-uat-environment')
+    //       extJSHelper.waitForWorkflowRunComplete(TOKEN)
+    //       }
+    //       catch(err){
+    //         currentBuild.result = 'FAILURE'
+    //         echo "Error detected, Continue to the next step"
+    //       }          
+    //     }
+    //   }
+    // }
     stage('update extract date to null') {
       steps {
         dir('frontend') {
