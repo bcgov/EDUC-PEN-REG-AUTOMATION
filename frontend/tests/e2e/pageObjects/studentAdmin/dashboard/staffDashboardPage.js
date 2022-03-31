@@ -24,6 +24,9 @@ class staffDashboardPage {
         //Unauthorized Access related
         this.errorText = Selector('#error_text')
         this.errorMessage = Selector('#error_message')
+
+        //secure exchange
+        this.viewPenInboxButton = Selector('#PENTeamInboxBtn')
     }
 
     async maximizeWindow() {
@@ -86,6 +89,11 @@ class staffDashboardPage {
     async verifyUnauthorizedErrorMessage() {
         await t.expect(this.errorMessage.innerText).eql("You do not have required roles to perform action on this site.")
         log.info("Error message verified")
+    }
+
+    async clickViewPenInboxButton() {
+        await t.click(this.viewPenInboxButton())
+        log.info("View PEN inbox button clicked")
     }
 }
 
