@@ -25,53 +25,23 @@ pipeline {
         dir('frontend') {
           script {
             LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
-            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/batch-regression-test/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/view-pen-inbox-test/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
       }
-    } 
-    stage('update student details before system match') {
+    }
+    stage('view pen inbox test') {
       steps {
         script {
           try{
           TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'update-student-details-test-environment')
+          extJSHelper.triggerWorkflow(TOKEN, 'view-pen-inbox-test')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
             currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }          
-        }
-      }
-    }
-    stage('update extract date to null') {
-      steps {
-        dir('frontend') {
-          sh 'npm install'
-          sh 'npm run updateExtractDateToNull'
-        }
-      }
-    }    
-    stage('batch regression') {
-      steps {
-        script {
-          try{
-          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'batch-regression-test-environment')
-          extJSHelper.waitForWorkflowRunComplete(TOKEN)
-          }
-          catch(err){
-            currentBuild.result = 'FAILURE'
-            echo "Error detected, Continue to the next step"
-          }          
-        }
-      }
-    }
-    stage('delete batch') {
-      steps {
-        dir('frontend') {
-          sh 'npm run deleteBatch'
         }
       }
     }
@@ -82,26 +52,5 @@ pipeline {
           }
       }
     }
-    stage('Initialize network part two') {
-      steps {
-          script {
-            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-dev create -f -', returnStdout: true)
-          }
-      }
-    }
-    stage('delete new pens created by batch') {
-      steps {
-        dir('frontend') {
-          sh 'npm run deleteNewPenSys'
-        }
-      }
-    }    
-    stage('Tear-down network part two') {
-      steps {
-          script {
-            sh(script: 'oc -n 75e61b-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
-          }
-      }
-    }                                    
   }
 }
