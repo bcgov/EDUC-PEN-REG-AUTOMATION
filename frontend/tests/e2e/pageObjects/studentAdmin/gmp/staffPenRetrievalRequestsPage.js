@@ -81,6 +81,7 @@ class staffPenRetrievalRequestPage {
 
         } catch (err) {
             await t.eval(() => location.reload())
+            await t.wait(5000)
             log.info("page reloaded")
 
             await t
