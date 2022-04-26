@@ -81,7 +81,8 @@
     "verifyStudentDetailsUpdatesAfterSysmatch": "node --max-http-header-size=81000 tests/e2e/testSuites/batchE2E/verifyStudentDetailsUpdatesAfterSysmatchSuite.js",
     "deleteNewPenSys": "node tests/e2e/testCases/studentAdmin/batch/deleteNewPenSys.js",
     "MobileGmpNavigation": "testcafe chrome:emulation:device=iphone 13 ./tests/e2e/testCases/studentProfile/ump/umpNavigationTest.js",
-    "viewPenInbox": "node tests/e2e/testSuites/edxE2E/edxNavigationTest.js"
+    "viewPenInbox": "node tests/e2e/testSuites/edxE2E/edxNavigationTest.js",
+    "deletePenInboxNewMessage": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteNewExchange.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
