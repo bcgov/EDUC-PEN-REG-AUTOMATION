@@ -1,7 +1,7 @@
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
 
-class newMessagePage {
+class NewMessagePage {
   constructor() {
 
     this.schoolNameTextField = Selector('#schoolNameTxtField')
@@ -36,4 +36,4 @@ class newMessagePage {
   }
 }
 
-export default newMessagePage
+export default NewMessagePage

@@ -34,8 +34,7 @@ getToken().then(async (data) => {
   //console.log("Secure Exchange ID" + secureExchangeID)
 
   //Delete Secure Exchange Record on EDX service
-  const deleteEDXService = await helper.deleteData(token, `${constants.EDXApiUrl}${secureExchangeID}`)
-  //console.log(deleteEDXService)
+  await helper.deleteData(token, `${constants.EDXApiUrl}${secureExchangeID}`)
 
 })
 

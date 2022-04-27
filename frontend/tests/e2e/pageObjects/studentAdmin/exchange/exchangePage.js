@@ -1,7 +1,7 @@
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
 
-class exchangePage {
+class ExchangePage {
   constructor() {
 
     //search boxes
@@ -40,4 +40,4 @@ class exchangePage {
   }
 }
 
-export default exchangePage
+export default ExchangePage

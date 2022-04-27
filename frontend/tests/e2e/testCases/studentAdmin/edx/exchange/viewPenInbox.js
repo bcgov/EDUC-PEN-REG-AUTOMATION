@@ -1,16 +1,16 @@
 import staffLoginPage from '../../../../pageObjects/login/staffLoginPage'
 import { idirAdminCredentials, staffLoginUrl } from '../../../../config/constants'
 import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
-import exchangePage from '../../../../pageObjects/studentAdmin/exchange/exchangePage'
-import newMessagePage from '../../../../pageObjects/studentAdmin/exchange/newMessagePage'
-import messageDetailPage
+import ExchangePage from '../../../../pageObjects/studentAdmin/exchange/exchangePage'
+import NewMessagePage from '../../../../pageObjects/studentAdmin/exchange/newMessagePage'
+import MessageDetailPage
   from "../../../../pageObjects/studentAdmin/exchange/messageDetailPage";
 
 const staffLogin = new staffLoginPage()
-const exchange = new exchangePage()
+const exchange = new ExchangePage()
 const dashboard = new staffDashboardPage()
-const newMessage = new newMessagePage()
-const messageDetail = new messageDetailPage()
+const newMessage = new NewMessagePage()
+const messageDetail = new MessageDetailPage()
 
 
 fixture`Student Admin`
@@ -42,4 +42,4 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.clickNthRow(1)
   await messageDetail.verifyMessageDetail()
 
-}).after(t => {console.log('could run cleanup here');})
+})
