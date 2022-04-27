@@ -8,7 +8,7 @@ pipeline {
     OWNER = 'bcgov'
     TESTS_REPO_NAME = 'educ-pen-reg-automation'
   }
-  stages {    
+  stages {
     stage('Initialize network') {
       steps {
           script {
@@ -25,23 +25,16 @@ pipeline {
         dir('frontend') {
           script {
             LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
-            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/view-pen-inbox-test/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/InsertAndDeleteScripts/jobs/deletePenInboxNewMessage/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
       }
     }
-    stage('view pen inbox test') {
+    stage('Delete batch') {
       steps {
-        script {
-          try{
-          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'view-pen-inbox-test')
-          extJSHelper.waitForWorkflowRunComplete(TOKEN)
-          }
-          catch(err){
-            currentBuild.result = 'FAILURE'
-            echo "Error detected, Continue to the next step"
-          }          
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deletePenInboxNewMessage'
         }
       }
     }
@@ -51,6 +44,6 @@ pipeline {
             sh(script: 'oc -n 8878b4-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
           }
       }
-    }
+    }                    
   }
 }

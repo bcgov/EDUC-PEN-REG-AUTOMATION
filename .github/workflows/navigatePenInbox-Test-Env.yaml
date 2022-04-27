@@ -1,7 +1,7 @@
 name: View Pen Inbox Test
 on:
   repository_dispatch: #for jenkins
-    types: [view-pen-inbox-test]
+    types: [navigate-pen-inbox-test-environment]
   workflow_dispatch:  #for github actions
 
 jobs:

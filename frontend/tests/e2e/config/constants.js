@@ -4,6 +4,7 @@ const faker = require('faker');
 //Pen namespcae and environment related config
 module.exports.pen_namespace = config.get('url:pen_namespace');
 module.exports.pen_environment = config.get('url:pen_environment');
+module.exports.edx_namespace = config.get('url:edx_namespace');
 
 //Token related config
 module.exports.token_namespace = config.get('token:token_namespace');
@@ -46,7 +47,7 @@ module.exports.myEdUrl = 'http://pen-myed-api-master.' + module.exports.pen_name
 module.exports.penRegBatchUrl = 'http://pen-reg-batch-api-master.' + module.exports.pen_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/pen-request-batch',
 module.exports.kcUrl = 'https://soam-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/auth/admin/realms/master/users'
 module.exports.avedUrl = 'https://educ-pen-aved-'+ module.exports.pen_environment +'-api-gov-bc-ca.test.api.gov.bc.ca/'
-
+module.exports.EDXApiUrl = 'http://edx-api-master.' + module.exports.edx_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/edx/'
 
 //Choose student entry point
 module.exports.studentEntryPoint = config.get('studentEntryPoint')
