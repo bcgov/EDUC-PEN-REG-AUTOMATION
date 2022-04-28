@@ -3,10 +3,6 @@ const constants = require('../../../../config/constants')
 const { getToken } = require('../../../../helpers/generateToken')
 
 getToken().then(async (data) => {
-
-  await new Promise(sleep => setTimeout(sleep, 60000));
-  console.log("Implicit wait completed")
-
   const token = data.access_token
 
   let searchListCriteria = []
@@ -28,13 +24,16 @@ getToken().then(async (data) => {
   //Get Exchange message on EDX service
   const getEDXService = await helper.getData(token, `${constants.EDXApiUrl}paginated`, filterParam)
   //console.log(getEDXService)
+  if (getEDXService.content && getEDXService.content.length > 0) {
+    //Get Secure Exchange ID
+    const secureExchangeID = getEDXService.content[0].secureExchangeID
+    //console.log("Secure Exchange ID" + secureExchangeID)
 
-  //Get Secure Exchange ID
-  const secureExchangeID = getEDXService.content[0].secureExchangeID
-  //console.log("Secure Exchange ID" + secureExchangeID)
-
-  //Delete Secure Exchange Record on EDX service
-  await helper.deleteData(token, `${constants.EDXApiUrl}${secureExchangeID}`)
+    //Delete Secure Exchange Record on EDX service
+    await helper.deleteData(token, `${constants.EDXApiUrl}${secureExchangeID}`)
+  } else {
+    console.log('unable to find exchange message to delete')
+  }
 
 })
 
