@@ -25,7 +25,7 @@ getToken().then(async (data) => {
     //console.log("Secure Exchange ID" + secureExchangeID)
 
     //Delete Secure Exchange Record on EDX service
-    await helper.deleteData(token, `${constants.EDXApiUrl}${secureExchangeID}`)
+    await helper.deleteData(token, `${constants.EDXApiUrl}exchange/${secureExchangeID}`)
   } else {
     console.log('unable to find exchange message to delete')
   }
