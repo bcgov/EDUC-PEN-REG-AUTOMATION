@@ -22,7 +22,7 @@ getToken().then(async (data) => {
   }
 
   //Get Exchange message on EDX service
-  const getEDXService = await helper.getData(token, `${constants.EDXApiUrl}paginated`, filterParam)
+  const getEDXService = await helper.getData(token, `${constants.EDXApiUrl}exchange/paginated`, filterParam)
   //console.log(getEDXService)
   if (getEDXService.content && getEDXService.content.length > 0) {
     //Get Secure Exchange ID
