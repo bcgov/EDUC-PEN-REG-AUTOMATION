@@ -41,6 +41,7 @@ pipeline {
     stage('delete new exchange message created') {
       steps {
         dir('frontend') {
+          sh 'npm install'
           sh 'npm run deletePenInboxNewMessage'
         }
       }
