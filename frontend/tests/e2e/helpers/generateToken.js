@@ -5,8 +5,6 @@ const tokenData = require('../config/constants');
 
 const utils = {
     async getToken() {
-        console.log('environment' + tokenData.token_environment)
-        console.log('environment' + tokenData.getTokenUrl)
         const params = {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
