@@ -10,14 +10,9 @@ getToken().then(async (data) => {
   searchListCriteria.push({ key: 'subject', operation: 'eq', value: 'automation test' , valueType: 'STRING' });
   searchListCriteria.push({ key: 'reviewer', operation: 'eq', value: constants.idirAdminCredentials.username , valueType: 'STRING' });
 
-  const search = [
-    {
-      searchCriteriaList: searchListCriteria
-    }
-  ]
   const filterParam = {
     params: {
-      searchCriteriaList: JSON.stringify(search)
+      searchCriteriaList: JSON.stringify(searchListCriteria)
     }
   }
 
