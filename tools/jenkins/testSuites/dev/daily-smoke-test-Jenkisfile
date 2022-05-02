@@ -17,7 +17,7 @@ pipeline {
         }
         dir('frontend') {
           script {
-            LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
             writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/daily-smoke-test/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
@@ -35,7 +35,7 @@ pipeline {
       steps {
         script {
           try{
-          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
@@ -65,7 +65,7 @@ pipeline {
       steps {
         script {
           try{
-          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
@@ -108,7 +108,7 @@ pipeline {
       steps {
         script {
           try{
-          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'unauthorized-access-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
@@ -130,7 +130,7 @@ pipeline {
       steps {
         script {
           try{
-          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'staff-issue-pen-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
