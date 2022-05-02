@@ -23,7 +23,8 @@
         "STUDENT_ADMIN",
         "STUDENT_ANALYTICS_STUDENT_PROFILE",
         "STUDENT_ANALYTICS_BATCH",
-        "SECURE_EXCHANGE"
+        "SECURE_EXCHANGE",
+        "PEN_TEAM_ROLE"
     ],
     "readOnlyRoles": [
         "STUDENT_ADMIN_READ_ONLY",

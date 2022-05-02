@@ -28,7 +28,7 @@ test('Staff view Pen inbox navigation test', async t => {
   //create a new exchange message
   await exchange.clickNewMessageButton()
   await newMessage.clickSetSchoolName()
-  await newMessage.selectSchoolNameOption('Victoria High (06161018)')
+  await newMessage.selectSchoolNameOptionByIndex(0)
   await newMessage.setSubject('automation test')
   await newMessage.setNewMessageText('automation test')
   await newMessage.clickNewMessagePostButton()

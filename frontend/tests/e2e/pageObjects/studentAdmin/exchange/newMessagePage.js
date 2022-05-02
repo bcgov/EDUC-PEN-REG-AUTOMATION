@@ -20,9 +20,11 @@ class NewMessagePage {
     log.info("sending new exchange message button clicked")
   }
 
-  async selectSchoolNameOption(data) {
-    await t.click(Selector('div.v-list-item__title').withText(data));
-    log.info('school name option selected')
+  async selectSchoolNameOptionByIndex(index = 0) {
+    const schoolOption = await Selector('div.v-select-list').nth(index);
+    const schoolOptionSelectedText = await schoolOption.innerText;
+    await t.click(schoolOption);
+    log.info(`school option ${schoolOptionSelectedText} selected`)
   }
 
   async setNewMessageText(data) {
