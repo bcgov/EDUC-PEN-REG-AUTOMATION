@@ -17,7 +17,7 @@ pipeline {
         }
         dir('frontend') {
           script {
-            LOCAL_JSON = sh(script: 'oc -n 8878b4-tools -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
             writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/saga-part-one/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
@@ -41,7 +41,7 @@ pipeline {
     stage('Run Gmp Workflow one') {
       steps {
         script {
-          TOKEN = sh( script: "oc -n 8878b4-tools -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
           extJSHelper.triggerWorkflow(TOKEN, 'saga-part-one-dev-environment')
           extJSHelper.waitForWorkflowRunComplete(TOKEN)
         }
