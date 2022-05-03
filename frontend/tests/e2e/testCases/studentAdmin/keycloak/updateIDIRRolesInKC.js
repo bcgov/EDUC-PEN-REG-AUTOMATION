@@ -18,7 +18,7 @@ getToken().then(async (data) => {
     var rolesRequired = []
 
     for (let i = 0; i < rolesAvailable.length; i++) {
-        if (rolesData.adminRoles.some(role => role === rolesAvailable[i])) {
+        if (rolesData.adminRoles.some(role => role === rolesAvailable[i].name)) {
             //roles added to array    
             console.log(rolesAvailable[i].name)
             rolesRequired.push(rolesAvailable[i])
