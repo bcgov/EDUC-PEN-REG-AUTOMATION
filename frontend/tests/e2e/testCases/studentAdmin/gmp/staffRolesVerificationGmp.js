@@ -41,8 +41,6 @@ test('Staff login and Can not perform any action on Pen request test', async t =
 
     await penAction.clickRequestInfoButton()
 
-    //await penAction.verifyReturnToStudentButtonDisabled()
-
     await penAction.clickReturnToStudentButtonReadOnly(staffData.Status[0])
 
 });
