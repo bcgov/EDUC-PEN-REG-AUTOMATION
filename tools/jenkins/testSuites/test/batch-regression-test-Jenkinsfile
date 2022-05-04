@@ -8,14 +8,7 @@ pipeline {
     OWNER = 'bcgov'
     TESTS_REPO_NAME = 'educ-pen-reg-automation'
   }
-  stages {    
-    stage('Initialize network') {
-      steps {
-          script {
-            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 8878b4-test create -f -', returnStdout: true)
-          }
-      }
-    }    
+  stages {
     stage('Initialize') {
       steps {
         script {
@@ -75,33 +68,12 @@ pipeline {
         }
       }
     }
-    stage('Tear-down network') {
-      steps {
-          script {
-            sh(script: 'oc -n 8878b4-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
-          }
-      }
-    }
-    stage('Initialize network part two') {
-      steps {
-          script {
-            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-test create -f -', returnStdout: true)
-          }
-      }
-    }
     stage('delete new pens created by batch') {
       steps {
         dir('frontend') {
           sh 'npm run deleteNewPenSys'
         }
       }
-    }    
-    stage('Tear-down network part two') {
-      steps {
-          script {
-            sh(script: 'oc -n 75e61b-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
-          }
-      }
-    }                                    
+    }
   }
 }
