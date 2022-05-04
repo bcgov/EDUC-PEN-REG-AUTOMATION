@@ -12,7 +12,7 @@ pipeline {
     stage('Initialize network') {
       steps {
           script {
-            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-dev create -f -', returnStdout: true)
+            sh(script: 'oc process -f https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-ns/ocp4/knp/common-ns-policies-e2e.yaml -p COMMON_NAMESPACE_PREFIX=8878b4 -p ENVIRONMENT=tools | oc -n 75e61b-test create -f -', returnStdout: true)
           }
       }
     }    
@@ -24,7 +24,7 @@ pipeline {
         }
         dir('frontend') {
           script {
-            LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-test -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
             writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/InsertAndDeleteScripts/jobs/insertAndUpdatePenRequestDataToAbandoned/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
@@ -41,7 +41,7 @@ pipeline {
     stage('Tear-down network') {
       steps {
           script {
-            sh(script: 'oc -n 75e61b-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
+            sh(script: 'oc -n 75e61b-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
           }
       }
     }                    

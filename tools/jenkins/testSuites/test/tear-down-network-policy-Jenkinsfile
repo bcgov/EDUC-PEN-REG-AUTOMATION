@@ -5,7 +5,7 @@ pipeline {
     stage('Tear-down network') {
       steps {
           script {
-            sh(script: 'oc -n 75e61b-dev delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
+            sh(script: 'oc -n 75e61b-test delete networkpolicy -l name=allow-traffic-from-jenkins-pen-tools', returnStdout: true)
           }
       }
     }
