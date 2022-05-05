@@ -28,7 +28,6 @@ getToken().then(async (data) => {
         studentData.digitalID = constants.bceid_digital_id_test
     }
 
-    
     if (constants.token_environment == "prod") {
         studentData.digitalID = constants.bceid_digital_id_pre_prod
     }
@@ -48,6 +47,7 @@ getToken().then(async (data) => {
     //Update the Student record on Student Side
     const updateStudentRecord = await helper.putData(token, `${constants.penRequestApiUrl}`, studentData)
     console.log("Student Information    " + updateStudentRecord.legalLastName, updateStudentRecord.legalFirstName);
+    console.log(studentData);
 
 })
 
