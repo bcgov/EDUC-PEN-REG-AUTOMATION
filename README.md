@@ -69,3 +69,13 @@ Set NODE_ENV in Linux Shells:
 ``` bash
 export NODE_ENV=local
 ```
+
+to Launch testCafe with a GUI browser to see what is happening.
+Go into the .testcaferc.json file and add this
+```
+"browsers": "chrome --incognito",
+```
+instead of 
+```
+"browsers": "chrome:headless --incognito",
+```
