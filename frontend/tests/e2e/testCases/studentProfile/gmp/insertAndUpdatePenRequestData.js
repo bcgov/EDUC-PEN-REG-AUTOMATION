@@ -15,23 +15,37 @@ getToken().then(async (data) => {
     let yesterday = nodeDate.format(d, 'YYYY-MM-DDTHH:mm:ss')
     console.log(yesterday)
 
+    const tempDigitalID = {
+        identityTypeCode: "BASIC",
+        identityValue: "e2etesting",
+        lastAccessDate: "2022-05-09T01:01:01",
+        lastAccessChannelCode: "OSPR"
+    }
+
+    // create temp digitalID to create the request
+    const newDigitalID = await helper.postData(token, `${constants.digitalIdApiUrl}`, tempDigitalID);
+    console.log('digitalID created it is...');
+    console.log(newDigitalID);
+
     // Choose the Digital ID
-    if (constants.token_environment == "tools") {
-        studentData.digitalID = constants.bceid_digital_id_tools
-    }
 
-    if (constants.token_environment == "dev") {
-        studentData.digitalID = constants.bceid_digital_id_dev
-    }
+    // if (constants.token_environment == "tools") {
+    //     studentData.digitalID = constants.bceid_digital_id_tools
+    // }
+    //
+    // if (constants.token_environment == "dev") {
+    //     studentData.digitalID = constants.bceid_digital_id_dev
+    // }
+    //
+    // if (constants.token_environment == "test") {
+    //     studentData.digitalID = constants.bceid_digital_id_test
+    // }
+    //
+    // if (constants.token_environment == "prod") {
+    //     studentData.digitalID = constants.bceid_digital_id_pre_prod
+    // }
 
-    if (constants.token_environment == "test") {
-        studentData.digitalID = constants.bceid_digital_id_test
-    }
-
-    
-    if (constants.token_environment == "prod") {
-        studentData.digitalID = constants.bceid_digital_id_pre_prod
-    }
+    studentData.digitalID = newDigitalID.digitalID;
 
     // insert Student record on Student Side
     const insertStudentRecord = await helper.postData(token, `${constants.penRequestApiUrl}`, studentData)
