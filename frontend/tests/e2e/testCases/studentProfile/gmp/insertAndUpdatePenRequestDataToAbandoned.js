@@ -1,6 +1,7 @@
 const helper = require("../../../helpers/axios-helper");
 const constants = require('../../../config/constants')
 const studentData = require("../../../config/studentData/insertStudentData.json")
+const digitalIDData = require("../../../config/digitalIDData/digitalIDData")
 const { getToken } = require('../../../helpers/generateToken')
 let nodeDate = require('date-and-time')
 
@@ -15,34 +16,12 @@ getToken().then(async (data) => {
     let yesterday = nodeDate.format(d, 'YYYY-MM-DDTHH:mm:ss')
     console.log(yesterday)
 
-    const tempDigitalID = {
-        identityTypeCode: "BASIC",
-        identityValue: "e2etesting",
-        lastAccessDate: yesterday,
-        lastAccessChannelCode: "OSPR"
-    }
-
     // create temp digitalID to create the request
-    const newDigitalID = await helper.postData(token, `${constants.digitalIdApiUrl}`, tempDigitalID);
-    console.log('digitalID created it is...');
+    const newDigitalID = await helper.postData(token, `${constants.digitalIdApiUrl}`, digitalIDData);
+    console.log('digitalID created');
+    console.log(digitalIDData);
     console.log(newDigitalID);
     studentData.digitalID = newDigitalID.digitalID;
-    // Choose the Digital ID
-    // if (constants.token_environment == "tools") {
-    //     studentData.digitalID = constants.bceid_digital_id_tools
-    // }
-    //
-    // if (constants.token_environment == "dev") {
-    //     studentData.digitalID = constants.bceid_digital_id_dev
-    // }
-    //
-    // if (constants.token_environment == "test") {
-    //     studentData.digitalID = constants.bceid_digital_id_test
-    // }
-    //
-    // if (constants.token_environment == "prod") {
-    //     studentData.digitalID = constants.bceid_digital_id_pre_prod
-    // }
 
     // insert Student record on Student Side
     const insertStudentRecord = await helper.postData(token, `${constants.penRequestApiUrl}`, studentData)
