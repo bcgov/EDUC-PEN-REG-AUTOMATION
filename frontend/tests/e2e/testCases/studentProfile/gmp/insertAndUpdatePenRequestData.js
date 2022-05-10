@@ -16,11 +16,9 @@ getToken().then(async (data) => {
     let yesterday = nodeDate.format(d, 'YYYY-MM-DDTHH:mm:ss')
     console.log(yesterday)
 
-    // create temp digitalID to create the request
+    // create a temporary digitalID to add to the student record
     const newDigitalID = await helper.postData(token, `${constants.digitalIdApiUrl}`, digitalIDData);
     console.log('digitalID created');
-    console.log(digitalIDData);
-    console.log(newDigitalID);
 
     studentData.digitalID = newDigitalID.digitalID;
 
@@ -39,7 +37,6 @@ getToken().then(async (data) => {
     //Update the Student record on Student Side
     const updateStudentRecord = await helper.putData(token, `${constants.penRequestApiUrl}`, studentData)
     console.log("Student Information    " + updateStudentRecord.legalLastName, updateStudentRecord.legalFirstName);
-
 })
 
     .catch((error => {
