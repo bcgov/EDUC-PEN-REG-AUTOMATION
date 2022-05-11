@@ -19,18 +19,6 @@ getToken().then(async (data) => {
             console.log("extractDateTime  " + updateBatchRecord.extractDateTime);
         }
     }
-
-    if (constants.pen_environment == "uat") {
-
-        for (let i = 0; i <= batchFiles.batchData.uat.length - 1; i++) {
-
-            const sourceId = batchFiles.batchData.uat[i].penWebBlobId;
-
-            //Update extract date to null
-            const updateBatchRecord = await helper.putBatchData(token, `${constants.penRegBatchUrl}/source/${sourceId}`, batchFiles.batchData.uat[i])
-            console.log("extractDateTime  " + updateBatchRecord.extractDateTime);
-        }
-    }
 })
 
     .catch((error => {
