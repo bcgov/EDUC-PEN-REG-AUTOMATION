@@ -1,5 +1,4 @@
 const config =require( '../config/index');
-const faker = require('faker');
 
 //Pen namespcae and environment related config
 module.exports.pen_namespace = config.get('url:pen_namespace');
