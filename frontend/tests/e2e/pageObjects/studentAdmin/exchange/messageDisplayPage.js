@@ -1,7 +1,7 @@
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
 
-class MessageDetailPage {
+class MessageDisplayPage {
 
   async verifyMessageDetail() {
     await t.expect(Selector('.v-card__text')
@@ -11,4 +11,4 @@ class MessageDetailPage {
   }
 }
 
-export default MessageDetailPage
+export default MessageDisplayPage

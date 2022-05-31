@@ -2,20 +2,19 @@ import staffLoginPage from '../../../../pageObjects/login/staffLoginPage'
 import { idirAdminCredentials, staffLoginUrl } from '../../../../config/constants'
 import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import ExchangePage from '../../../../pageObjects/studentAdmin/exchange/exchangePage'
-import NewMessagePage from '../../../../pageObjects/studentAdmin/exchange/newMessagePage'
-import MessageDetailPage
-  from "../../../../pageObjects/studentAdmin/exchange/messageDetailPage";
+import MessageDisplayPage
+  from "../../../../pageObjects/studentAdmin/exchange/messageDisplayPage";
 
 const staffLogin = new staffLoginPage()
 const exchange = new ExchangePage()
 const dashboard = new staffDashboardPage()
-const newMessage = new NewMessagePage()
-const messageDetail = new MessageDetailPage()
+const messageDetail = new MessageDisplayPage()
 
 
 fixture`Student Admin`
 .page(staffLoginUrl)
 .beforeEach(async t => {
+  // await t.setTestSpeed(0.9)
   await t.maximizeWindow()
 })
 
@@ -27,16 +26,23 @@ test('Staff view Pen inbox navigation test', async t => {
 
   //create a new exchange message
   await exchange.clickNewMessageButton()
-  await newMessage.clickSetSchoolName()
-  await newMessage.selectSchoolNameOptionByIndex(0)
-  await newMessage.setSubject('automation test')
-  await newMessage.setNewMessageText('automation test')
-  await newMessage.clickNewMessagePostButton()
+  await exchange.clickSetSchoolName()
+  await exchange.selectSchoolNameOptionByIndex(0)
+  await exchange.setSubject('automation test')
+  await exchange.setNewMessageText('automation test')
+  await exchange.clickNewMessagePostButton()
 
   //search for exchange message and check search results
+  await exchange.clickMoreFilterButton()
   await exchange.setSubjectSearch('automation test')
-  await exchange.setReviewerSearch('PENREG1')
+  await exchange.setClaimedBy('PENREG1')
+  await exchange.clickSearchFilterButton()
   await exchange.verifySearchResults()
+
+  //claim the message
+  await exchange.selectFirstTableRow()
+  await exchange.clickClaimButton()
+  await exchange.verifyClaimSnackbar();
 
   //verify message details are correct
   await exchange.clickNthRow(1)
