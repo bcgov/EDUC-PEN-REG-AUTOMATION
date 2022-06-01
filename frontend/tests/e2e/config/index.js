@@ -5,8 +5,7 @@ const path = require('path');
 dotenv.config();
 
 //switch to local if running locally
-const env = process.env.NODE_ENV;
-//const env = 'local'
+const env = process.env.NODE_ENV || 'local';
 
 nconf.argv()
   .env()
@@ -81,7 +80,7 @@ nconf.defaults({
     umpPage: process.env.UMP_PAGE_URL
   },
 
-  studentEntryPoint : process.env.STUDENT_ENTRY_POINT
+  studentEntryPoint : process.env.STUDENT_ENTRY_POINT,
 
 });
 
