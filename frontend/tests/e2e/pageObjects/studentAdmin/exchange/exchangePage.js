@@ -21,6 +21,26 @@ class ExchangePage {
     this.newMessageTextArea = Selector('#newMessageTextArea')
     this.subjectTextField = Selector('#subjectTxtField')
     this.newMessagePostButton = Selector('#newMessagePostBtn')
+
+    this.statusSelector = Selector('#statusSelector').parent('div[role="button"]');
+    this.statusBox = Selector('div[role="listbox"]');
+
+    this.messageDateFilter = Selector('#messageDateTextField')
+    var now = new Date()
+    this.messageDateNumber = Selector('div').child('.v-date-picker-table').find('.v-btn__content').withText(now.getDate().toString())
+  }
+
+  async selectStatus(status){
+    await t.click(this.statusSelector).wait(100);
+    await t.expect(this.statusBox().exists).ok();
+    await t.click(this.statusBox.find('span').withExactText(status).parent('div.row'));
+    log.info("Status " + status + " selected");
+  }
+
+  async selectMessageDate() {
+    await t.click(this.messageDateFilter())
+    await t.click(this.messageDateNumber())
+    log.info("Message date selected")
   }
 
   async clickSearchFilterButton() {
