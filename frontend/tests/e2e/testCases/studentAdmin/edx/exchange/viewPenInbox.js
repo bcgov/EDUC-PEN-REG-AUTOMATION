@@ -27,7 +27,7 @@ test('Staff view Pen inbox navigation test', async t => {
   //create a new exchange message
   await exchange.clickNewMessageButton()
   await exchange.clickSetSchoolName()
-  await exchange.selectSchoolNameOptionByIndex(0)
+  await exchange.selectSchoolByName('Wildflower')
   await exchange.setSubject('automation test')
   await exchange.setNewMessageText('automation test')
   await exchange.clickNewMessagePostButton()
@@ -38,6 +38,7 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.setClaimedBy('PENREG1')
   await exchange.selectStatus('In Progress')
   await exchange.selectMessageDate()
+  await exchange.selectContactFilterSchoolByName('Wildflower')
   await exchange.clickSearchFilterButton()
   await exchange.verifySearchResults()
 

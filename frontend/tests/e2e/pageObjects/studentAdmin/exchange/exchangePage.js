@@ -14,6 +14,10 @@ class ExchangePage {
     //Filter
     this.moreFilterButton = Selector('#filterid')
     this.searchButton = Selector('#searchButton')
+    this.contactFilter = Selector('#schoolName')
+    this.messageDateFilter = Selector('#messageDateTextField')
+    var now = new Date()
+    this.messageDateNumber = Selector('div').child('.v-date-picker-table').find('.v-btn__content').withText(now.getDate().toString())
 
     //new message
     this.newMessageButton = Selector('#newMessageBtn')
@@ -24,10 +28,6 @@ class ExchangePage {
 
     this.statusSelector = Selector('#statusSelector').parent('div[role="button"]');
     this.statusBox = Selector('div[role="listbox"]');
-
-    this.messageDateFilter = Selector('#messageDateTextField')
-    var now = new Date()
-    this.messageDateNumber = Selector('div').child('.v-date-picker-table').find('.v-btn__content').withText(now.getDate().toString())
   }
 
   async selectStatus(status){
@@ -35,6 +35,16 @@ class ExchangePage {
     await t.expect(this.statusBox().exists).ok();
     await t.click(this.statusBox.find('span').withExactText(status).parent('div.row'));
     log.info("Status " + status + " selected");
+  }
+
+  async selectContactFilterSchoolByName(contactName) {
+    await t.typeText(this.contactFilter, contactName)
+    await t.click(Selector('div').child('.v-list-item__title').find('.v-list-item__mask').withText(contactName));
+  }
+
+  async selectSchoolByName(contactName) {
+    await t.typeText(this.schoolNameTextField, contactName)
+    await this.selectSchoolNameOptionByIndex(0);
   }
 
   async selectMessageDate() {
@@ -112,7 +122,13 @@ class ExchangePage {
     const schoolOption = await Selector('div.v-select-list').nth(index);
     const schoolOptionSelectedText = await schoolOption.innerText;
     await t.click(schoolOption);
-    log.info(`school option ${schoolOptionSelectedText} selected`)
+    log.info(`School option ${schoolOptionSelectedText} selected`)
+  }
+
+  async selectContactNameOptionByIndex(index = 0) {
+    const schoolOption = await Selector('div.v-list').nth(index);
+    await t.click(schoolOption);
+    log.info(`Contact option ${schoolOptionSelectedText} selected`)
   }
 
   async setNewMessageText(data) {
