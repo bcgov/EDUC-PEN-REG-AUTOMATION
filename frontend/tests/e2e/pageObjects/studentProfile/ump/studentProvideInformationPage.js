@@ -46,7 +46,8 @@ class studentProvideInformationPage {
         log.info('file uploaded')
         await t.click(this.uploadFormButton)
         log.info('upload form button is clicked')
-        await t.expect((await this.uploadConfirmation.innerText).trim()).eql("File upload successful.", { timeout: 60000 })
+        await t.expect(this.uploadConfirmation.innerText).eql("File upload successful.", { timeout: 60000 })
+        await t.expect(this.uploadFormButton.innerText).eql("Upload", { timeout: 60000 })
         log.info('upload confirmation verified')
         await t.click(this.closeButton)
         log.info('close button is clicked')
@@ -75,7 +76,6 @@ class studentProvideInformationPage {
         await t.eval(() => location.reload())
         log.info("page reloaded")
     }
-
 
     async verifyText(data){
         const text = Selector('div').withText(data)
