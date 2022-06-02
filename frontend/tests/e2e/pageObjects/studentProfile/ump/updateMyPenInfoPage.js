@@ -266,7 +266,7 @@ class updateMyPenInfoPage {
         log.info('file uploaded')
         await t.click(this.uploadFormButton)
         log.info('upload form button is clicked')
-        await t.expect(this.uploadConfirmation.innerText).eql("File upload successful.", { timeout: 30000 })
+        await t.expect(this.uploadConfirmation.innerText).eql("File upload successful.", { timeout: 60000 })
         log.info('upload confirmation verified')
         await t.click(this.closeButton)
         log.info('close button is clicked')
