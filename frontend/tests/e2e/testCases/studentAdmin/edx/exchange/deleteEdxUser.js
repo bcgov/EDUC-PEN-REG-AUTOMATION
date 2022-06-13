@@ -25,4 +25,4 @@ getToken().then(async (data) => {
 .catch((error => {
   console.log(error)
   throw new Error("delete EDX user failed")
-}))
+}));
