@@ -1,0 +1,35 @@
+#!/usr/bin/env groovy
+pipeline {
+  agent any
+  tools {nodejs "latest"}
+  environment {
+    LOCAL_JSON = ''
+    extJSHelper = ''
+    OWNER = 'bcgov'
+    TESTS_REPO_NAME = 'educ-pen-reg-automation'
+  }
+  stages {
+    stage('Initialize') {
+      steps {
+        script {
+          sh "wget -O - https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-deployment/deployHelpers.js > deployHelpers.js"
+          extJSHelper = evaluate readFile('deployHelpers.js')
+        }
+        dir('frontend') {
+          script {
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-test -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/InsertAndDeleteScripts/jobs/deleteEDXUser/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+          }
+        }
+      }
+    }
+    stage('Delete EDX User') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deleteEDXUser'
+        }
+      }
+    }
+  }
+}
