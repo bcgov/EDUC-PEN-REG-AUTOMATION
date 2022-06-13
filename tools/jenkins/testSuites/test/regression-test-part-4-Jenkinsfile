@@ -1,0 +1,84 @@
+#!/usr/bin/env groovy
+//Test will cover the following:
+//Secure Exchange - Manually create new message, verify that the message was created and then delete it.
+//EDX Access Management - Insert new EDX user, verify the user exists with permissions and then delete the edx user.
+pipeline {
+  agent any
+  tools {nodejs "latest"}
+  environment {
+    LOCAL_JSON = ''
+    extJSHelper = ''
+    OWNER = 'bcgov'
+    TESTS_REPO_NAME = 'educ-pen-reg-automation'
+  }
+  stages {
+    stage('Initialize') {
+      steps {
+        script {
+          sh "wget -O - https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-deployment/deployHelpers.js > deployHelpers.js"
+          extJSHelper = evaluate readFile('deployHelpers.js')
+        }
+        dir('frontend') {
+          script {
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-test -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            writeFile file: '/var/lib/jenkins/jobs/TEST/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/regression-test-part-4/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+          }
+        }
+      }
+    }
+    stage('view pen inbox test') {
+      steps {
+        script {
+          try{
+            TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+            extJSHelper.triggerWorkflow(TOKEN, 'navigate-pen-inbox-test-environment')
+            extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }
+        }
+      }
+    }
+    stage('delete new exchange message created') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deletePenInboxNewMessage'
+        }
+      }
+    }
+    stage('insert new edx user with permissions') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run insertEDXUserWithRolesPermissions'
+        }
+      }
+    }
+    stage('verify edx access management test') {
+      steps {
+        script {
+          try{
+            TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+            extJSHelper.triggerWorkflow(TOKEN, 'verify-edx-access-management-test-environment')
+            extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }
+        }
+      }
+    }
+    stage('delete inserted edx user') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deleteEDXUser'
+        }
+      }
+    }
+  }
+}
