@@ -82,7 +82,10 @@
     "deleteNewPenSys": "node tests/e2e/testCases/studentAdmin/batch/deleteNewPenSys.js",
     "MobileGmpNavigation": "testcafe chrome:emulation:device=iphone 13 ./tests/e2e/testCases/studentProfile/ump/umpNavigationTest.js",
     "viewPenInbox": "node tests/e2e/testSuites/edxE2E/edxNavigationTest.js",
-    "deletePenInboxNewMessage": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteNewExchange.js"
+    "deletePenInboxNewMessage": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteNewExchange.js",
+    "edxAccessManagement": "node tests/e2e/testSuites/edxE2E/edxAccessManagementTest.js",
+    "insertEDXUserWithRolesPermissions": "node tests/e2e/testCases/studentAdmin/edx/exchange/insertEDXUserWithRolesPermissions.js",
+    "deleteEDXUser": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteEdxUser.js"
   },
   "dependencies": {
     "axios": "^0.27.2",

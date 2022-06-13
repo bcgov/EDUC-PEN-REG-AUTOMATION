@@ -11,6 +11,8 @@ class staffHamburgerMenuPage {
         this.infrequentProcessLink = Selector('#InfrequentProcessesMenuBtn')
         this.createNewPenLink = Selector('#CreateNewPENMenuBtn')
         this.comparePensLink = Selector('#CompareStudentsMenuBtn')
+        this.administrationMenuOption = Selector('#AdministrationMenuBtn')
+        this.accessManagementMenuLink = Selector('#AccessManagementMenuBtn')
     }
 
     async clickHamburgerMenu(){
@@ -41,6 +43,16 @@ class staffHamburgerMenuPage {
     async clickComparePensLink(){
         await t.click(this.comparePensLink)
         log.info("Compare pens link is clicked")
+    }
+
+    async clickAdministrationMenuOption(){
+        await t.click(this.administrationMenuOption)
+        log.info("Administration menu option is clicked")
+    }
+
+    async clickAccessManagementMenuLink(){
+        await t.click(this.accessManagementMenuLink)
+        log.info("Administrative access management link is clicked")
     }
 
 } export default staffHamburgerMenuPage
