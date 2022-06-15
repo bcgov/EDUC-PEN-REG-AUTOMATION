@@ -12,7 +12,7 @@ class staffHamburgerMenuPage {
         this.createNewPenLink = Selector('#CreateNewPENMenuBtn')
         this.comparePensLink = Selector('#CompareStudentsMenuBtn')
         this.administrationMenuOption = Selector('#AdministrationMenuBtn')
-        this.accessManagementMenuLink = Selector('#AccessManagementMenuBtn')
+        this.edxAccessMenuLink = Selector('#EDXAccessMenuBtn')
     }
 
     async clickHamburgerMenu(){
@@ -50,9 +50,9 @@ class staffHamburgerMenuPage {
         log.info("Administration menu option is clicked")
     }
 
-    async clickAccessManagementMenuLink(){
-        await t.click(this.accessManagementMenuLink)
-        log.info("Administrative access management link is clicked")
+    async clickEDXAccessMenuLink(){
+        await t.click(this.edxAccessMenuLink)
+        log.info("Administrative EDX management link is clicked")
     }
 
 } export default staffHamburgerMenuPage

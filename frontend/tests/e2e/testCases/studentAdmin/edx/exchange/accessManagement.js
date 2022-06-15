@@ -25,7 +25,7 @@ test('Staff view Pen inbox navigation test', async () => {
   //access the access management page
   await menu.clickHamburgerMenu();
   await menu.clickAdministrationMenuOption();
-  await menu.clickAccessManagementMenuLink();
+  await menu.clickEDXAccessMenuLink();
 
   //select school option
   await access.setSchoolName('wildflower');
