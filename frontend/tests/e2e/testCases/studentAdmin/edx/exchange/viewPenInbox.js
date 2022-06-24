@@ -36,7 +36,7 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.clickMoreFilterButton()
   await exchange.setSubjectSearch('automation test')
   await exchange.setClaimedBy('PENREG1')
-  await exchange.selectStatus('In Progress')
+  await exchange.selectStatus('Open')
   await exchange.selectMessageDate()
   await exchange.selectContactFilterSchoolByName('Wildflower')
   await exchange.clickSearchFilterButton()
