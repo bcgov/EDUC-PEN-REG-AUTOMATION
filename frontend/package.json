@@ -84,6 +84,7 @@
     "viewPenInbox": "node tests/e2e/testSuites/edxE2E/edxNavigationTest.js",
     "deletePenInboxNewMessage": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteNewExchange.js",
     "edxAccessManagement": "node tests/e2e/testSuites/edxE2E/edxAccessManagementTest.js",
+    "inviteNewEDXUser": "node tests/e2e/testSuites/edxE2E/edxInviteNewUserTest.js",
     "insertEDXUserWithRolesPermissions": "node tests/e2e/testCases/studentAdmin/edx/exchange/insertEDXUserWithRolesPermissions.js",
     "deleteEDXUser": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteEdxUser.js"
   },

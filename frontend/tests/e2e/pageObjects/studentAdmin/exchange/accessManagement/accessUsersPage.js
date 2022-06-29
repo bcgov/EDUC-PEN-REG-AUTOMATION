@@ -8,7 +8,10 @@ class AccessUsersPage {
 
     //buttons
     this.searchButton = Selector('#user-search-button');
-
+    this.newUserBtn = Selector('#new-user-button');
+    this.navTitle = Selector('#navTitle');
+    this.newUserVCard= Selector('#newUserInviteVCard');
+    this.vCardTitle = Selector(('#newUserInviteVCardTitle'));
   }
 
   async setName(name) {
@@ -19,6 +22,10 @@ class AccessUsersPage {
   async clickSearchButton() {
     await t.click(this.searchButton);
     log.info(`search button clicked`);
+  }
+  async clickNewUserButton(){
+    await t.click(this.newUserBtn);
+    log.info(`New User button clicked`);
   }
 
   async verifyUserAccessAndSearchResults() {
