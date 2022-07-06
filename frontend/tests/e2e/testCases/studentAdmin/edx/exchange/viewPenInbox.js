@@ -53,7 +53,7 @@ test('Staff view Pen inbox navigation test', async t => {
 
 });
 
-test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async t => {
+test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
   await dashboard.clickViewPenInboxButton();
