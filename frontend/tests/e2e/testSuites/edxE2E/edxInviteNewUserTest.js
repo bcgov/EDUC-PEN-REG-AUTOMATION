@@ -8,7 +8,6 @@ Object.defineProperty(log, 'heading', {
 log.headingStyle = {bg: '', fg: 'blue'}
 
 let testcafe = null;
-//
 createTestCafe('localhost', 1337, 1338)
   .then(tc => {
     testcafe = tc;
