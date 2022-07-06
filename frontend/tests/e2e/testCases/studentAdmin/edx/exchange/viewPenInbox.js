@@ -51,4 +51,27 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.clickNthRow(1)
   await messageDetail.verifyMessageDetail()
 
-})
+});
+
+test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
+
+  await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+  await dashboard.clickViewPenInboxButton();
+
+  //filter to the message at the message already exists from previous test
+  await exchange.clickMoreFilterButton();
+  await exchange.setSubjectSearch('automation test');
+  await exchange.setClaimedBy('PENREG1');
+  await exchange.selectStatus('Open');
+  await exchange.selectMessageDate();
+  await exchange.selectContactFilterSchoolByName('Wildflower');
+  await exchange.clickSearchFilterButton();
+  await exchange.verifySearchResults();
+
+  await exchange.selectFirstTableRow();
+  await exchange.clickNthRow(1);
+  await messageDetail.clickOnNewMessage();
+  await messageDetail.sendANewMessageToTheExistingExchange();
+  await messageDetail.verifyNewCommentSent();
+
+});
