@@ -36,4 +36,20 @@ test('Staff view Pen inbox navigation test', async () => {
   await accessUsers.setName('automation tester');
   await accessUsers.clickSearchButton();
   await accessUsers.verifyUserAccessAndSearchResults();
+
+  //verify Primary EDX Activation Code
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogDoesNotExist();
+  await access.clickToggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton();
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogExists();
+  await access.clickToggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton();
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogDoesNotExist();
+  await access.clickToggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton();
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogExists();
+  await access.clickCloseGenerateNewPrimaryEdxActivationCodeDialogButton();
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogDoesNotExist();
+  await access.clickToggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton();
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogExists();
+  await access.clickDoGeneratePrimaryEdxActivationCodeButton();
+  await access.verifyGenerateNewPrimaryEdxActivationCodeDialogDoesNotExist()
+  await access.verifyPrimaryEdxActivationCodeChanged();
 });
