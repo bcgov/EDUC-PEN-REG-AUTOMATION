@@ -91,6 +91,16 @@ class staffDashboardPage {
         log.info("Error message verified")
     }
 
+    async verifyPenInboxButtonIsAvailable() {
+        await t.expect(this.viewPenInboxButton.exists).ok();
+        log.info("Verified View Pen Inbox Button exists.");
+    }
+
+    async verifyPenInboxButtonIsNotAvailable() {
+        await t.expect(this.viewPenInboxButton.exists).notOk();
+        log.info("Verified View Pen Inbox Button does not exists.");
+    }
+
     async clickViewPenInboxButton() {
         await t.click(this.viewPenInboxButton())
         log.info("View PEN inbox button clicked")

@@ -1,14 +1,17 @@
 import staffLoginPage from '../../../../pageObjects/login/staffLoginPage'
-import { idirAdminCredentials, staffLoginUrl } from '../../../../config/constants'
+import { idirAdminCredentials, idirReadOnlyCredentials, staffLoginUrl } from '../../../../config/constants'
 import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import ExchangePage from '../../../../pageObjects/studentAdmin/exchange/exchangePage'
 import MessageDisplayPage
   from "../../../../pageObjects/studentAdmin/exchange/messageDisplayPage";
+import UnauthorizedPage from "../../../../pageObjects/errors/UnauthorizedPage";
 
 const staffLogin = new staffLoginPage()
 const exchange = new ExchangePage()
 const dashboard = new staffDashboardPage()
 const messageDetail = new MessageDisplayPage()
+
+const unauthorizedPage = new UnauthorizedPage();
 
 
 fixture`Student Admin`
@@ -56,6 +59,7 @@ test('Staff view Pen inbox navigation test', async t => {
 test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+  await dashboard.verifyPenInboxButtonIsAvailable();
   await dashboard.clickViewPenInboxButton();
 
   //filter to the message at the message already exists from previous test
@@ -74,4 +78,13 @@ test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async
   await messageDetail.sendANewMessageToTheExistingExchange();
   await messageDetail.verifyNewCommentSent();
 
+});
+
+test('Only authenticated staff can view PEN Team Inbox', async _t => {
+  await staffLogin.stafflogin(idirReadOnlyCredentials, staffLoginUrl);
+  await dashboard.verifyPenInboxButtonIsNotAvailable();
+  await unauthorizedPage.forceNavigate(`${staffLoginUrl}edx/exchange/PEN_TEAM_ROLE`);
+  await unauthorizedPage.verifyIsOnUnauthorizedPage();
+  await unauthorizedPage.verifyErrorText();
+  await unauthorizedPage.verifyErrorMessage();
 });
