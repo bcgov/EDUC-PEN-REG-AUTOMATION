@@ -24,6 +24,7 @@ class ExchangePage {
     this.schoolNameTextField = Selector('#schoolNameTxtField')
     this.newMessageTextArea = Selector('#newMessageTextArea')
     this.subjectTextField = Selector('#subjectTxtField')
+    this.attachFileButton = Selector('#attachFileID')
     this.newMessagePostButton = Selector('#newMessagePostBtn')
 
     this.statusSelector = Selector('#statusSelector').parent('div[role="button"]');
@@ -117,6 +118,11 @@ class ExchangePage {
     await t.click(this.newMessagePostButton())
     log.info("sending new exchange message button clicked")
   }
+
+  async clickAttachFileButton() {
+    await t.click(this.attachFileButton());
+    log.info("attach file button clicked");
+  };
 
   async selectSchoolNameOptionByIndex(index = 0) {
     const schoolOption = await Selector('div.v-select-list').nth(index);
