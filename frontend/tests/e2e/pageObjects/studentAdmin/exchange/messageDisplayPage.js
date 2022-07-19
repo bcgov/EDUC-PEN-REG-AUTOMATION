@@ -15,16 +15,18 @@ class MessageDisplayPage {
     //timeout added to allow for large file to upload before checking text
     await t.expect(Selector('.v-card__text')
     .withExactText('automation test').count)
-    .eql(1, {timeout: 60000})
-    log.info("Exchange message detail first comment found")
+    .eql(1, {timeout: 60000});
+    log.info("Exchange message detail first comment found");
+
     await t.expect(Selector('.v-card__text')
     .withExactText('BC.jpg').count)
-    .eql(1)
-    log.info("Exchange message attachment during create found")
+    .eql(1);
+    log.info("Exchange message attachment during create found");
+
     await t.expect(Selector('.v-card__text')
     .withExactText('10MbFile.jpg').count)
-    .eql(1)
-    log.info("Exchange message attachment added after create found")
+    .eql(1);
+    log.info("Exchange message attachment added after create found");
   }
 
   async clickOnNewMessage(){
@@ -39,7 +41,7 @@ class MessageDisplayPage {
 
   async clickAttachmentsButton(){
     await t.click(this.addAttachmentButton);
-    log.info('Add attachment menu option clicked')
+    log.info('Add attachment menu option clicked');
   }
 
   async sendANewMessageToTheExistingExchange(){

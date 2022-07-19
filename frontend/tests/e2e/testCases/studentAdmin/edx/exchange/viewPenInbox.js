@@ -43,7 +43,7 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.clickAttachFileButton();
   await documentUpload.uploadDocument(exchangeData.uploadFileLocation15MbPdf);
   await documentUpload.verifyMaxFileSizeError();
-  await documentUpload.clickCancelButton()
+  await documentUpload.clickCancelButton();
   await exchange.clickNewMessagePostButton()
 
   //search for exchange message and check search results

@@ -122,7 +122,7 @@ class ExchangePage {
   async clickAttachFileButton() {
     await t.click(this.attachFileButton());
     log.info("attach file button clicked");
-  };
+  }
 
   async selectSchoolNameOptionByIndex(index = 0) {
     const schoolOption = await Selector('div.v-select-list').nth(index);

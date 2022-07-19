@@ -18,7 +18,7 @@ class DocumentUploadPage {
   async clickUploadButton() {
     await t.click(this.uploadFormButton);
     log.info("Upload button is clicked");
-  };
+  }
 
   async clickCancelButton() {
     await t.click(this.closeFormButton);
