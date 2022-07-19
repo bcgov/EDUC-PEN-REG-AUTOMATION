@@ -5,11 +5,16 @@ import ExchangePage from '../../../../pageObjects/studentAdmin/exchange/exchange
 import MessageDisplayPage
   from "../../../../pageObjects/studentAdmin/exchange/messageDisplayPage";
 import UnauthorizedPage from "../../../../pageObjects/errors/UnauthorizedPage";
+import DocumentUploadPage
+  from "../../../../pageObjects/studentAdmin/common/documentUploadPage";
+
+import exchangeData from '../../../../config/exchangeData/exchangeSecureMessageData.json'
 
 const staffLogin = new staffLoginPage()
 const exchange = new ExchangePage()
 const dashboard = new staffDashboardPage()
 const messageDetail = new MessageDisplayPage()
+const documentUpload = new DocumentUploadPage();
 
 const unauthorizedPage = new UnauthorizedPage();
 
@@ -17,7 +22,6 @@ const unauthorizedPage = new UnauthorizedPage();
 fixture`Student Admin`
 .page(staffLoginUrl)
 .beforeEach(async t => {
-  // await t.setTestSpeed(0.8)
   await t.maximizeWindow()
 })
 
@@ -27,12 +31,19 @@ test('Staff view Pen inbox navigation test', async t => {
 
   await dashboard.clickViewPenInboxButton()
 
-  //create a new exchange message
+  //create a new exchange message with attachment
   await exchange.clickNewMessageButton()
   await exchange.clickSetSchoolName()
   await exchange.selectSchoolByName('Wildflower')
   await exchange.setSubject('automation test')
   await exchange.setNewMessageText('automation test')
+  await exchange.clickAttachFileButton();
+  await documentUpload.uploadDocument(exchangeData.uploadFileLocation);
+  await documentUpload.clickUploadButton();
+  await exchange.clickAttachFileButton();
+  await documentUpload.uploadDocument(exchangeData.uploadFileLocation15MbPdf);
+  await documentUpload.verifyMaxFileSizeError();
+  await documentUpload.clickCancelButton();
   await exchange.clickNewMessagePostButton()
 
   //search for exchange message and check search results
@@ -50,10 +61,13 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.clickClaimButton()
   await exchange.verifyClaimSnackbar();
 
-  //verify message details are correct
-  await exchange.clickNthRow(1)
-  await messageDetail.verifyMessageDetail()
-
+  //verify message details are correct and attach a document
+  await exchange.clickNthRow(1);
+  await messageDetail.clickEditOptionsMenu();
+  await messageDetail.clickAttachmentsButton();
+  await documentUpload.uploadDocument(exchangeData.uploadFileLocation10MbJpg);
+  await documentUpload.clickUploadButton();
+  await messageDetail.verifyMessageDetail();
 });
 
 test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
