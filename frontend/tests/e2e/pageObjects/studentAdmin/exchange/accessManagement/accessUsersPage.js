@@ -29,7 +29,7 @@ class AccessUsersPage {
   }
 
   async verifyUserAccessAndSearchResults() {
-    await t.expect(Selector('.v-card', {timeout: 3000}).count).eql(1);
+    await t.expect((Selector('.v-card .v-card__title').withText('automation tester').count)).eql(1, {timeout: 3000});
     log.info("one user found after search");
     await t.expect(Selector('.v-card .v-card__title').innerText).contains('automation tester');
     log.info("correct user found")
