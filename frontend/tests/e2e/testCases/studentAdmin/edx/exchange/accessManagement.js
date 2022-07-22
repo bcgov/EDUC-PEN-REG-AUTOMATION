@@ -18,7 +18,7 @@ fixture`Student Admin`
   await t.maximizeWindow()
 });
 
-test('Staff view Pen inbox navigation test', async () => {
+test('Staff view Pen inbox access management test', async () => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
