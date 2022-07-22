@@ -72,11 +72,12 @@ pipeline {
         }
       }
     }
-    stage('delete inserted edx user') {
+    stage('delete inserted edx user and primary activation code') {
       steps {
         dir('frontend') {
           sh 'npm install'
           sh 'npm run deleteEDXUser'
+          sh 'npm run deleteSchoolPrimaryActivationCode'
         }
       }
     }
