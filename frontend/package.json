@@ -86,7 +86,8 @@
     "edxAccessManagement": "node tests/e2e/testSuites/edxE2E/edxAccessManagementTest.js",
     "inviteNewEDXUser": "node tests/e2e/testSuites/edxE2E/edxInviteNewUserTest.js",
     "insertEDXUserWithRolesPermissions": "node tests/e2e/testCases/studentAdmin/edx/exchange/insertEDXUserWithRolesPermissions.js",
-    "deleteEDXUser": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteEdxUser.js"
+    "deleteEDXUser": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteEdxUser.js",
+    "deleteSchoolPrimaryActivationCode": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteSchoolPrimaryActivationCode.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
