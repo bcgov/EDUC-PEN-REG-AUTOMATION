@@ -28,15 +28,7 @@ fixture`Student Admin`
 })
 
 test('Staff view Pen inbox navigation test', async t => {
-
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
-
-  await staffHamburgerMenuPage.clickHamburgerMenu();
-  await staffHamburgerMenuPage.verifyEdxInboxMenuOptionIsAvailable();
-  await staffHamburgerMenuPage.clickEdxInboxMenuOption();
-  await staffHamburgerMenuPage.verifyEdxPenTeamInboxLinkIsAvailable();
-  await staffHamburgerMenuPage.clickHamburgerMenu();
-
   await dashboard.verifyPenInboxButtonIsAvailable();
   await dashboard.clickViewPenInboxButton()
 
@@ -80,15 +72,7 @@ test('Staff view Pen inbox navigation test', async t => {
 });
 
 test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
-
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
-
-  await staffHamburgerMenuPage.clickHamburgerMenu();
-  await staffHamburgerMenuPage.verifyEdxInboxMenuOptionIsAvailable();
-  await staffHamburgerMenuPage.clickEdxInboxMenuOption();
-  await staffHamburgerMenuPage.verifyEdxPenTeamInboxLinkIsAvailable();
-  await staffHamburgerMenuPage.clickHamburgerMenu();
-
   await dashboard.verifyPenInboxButtonIsAvailable();
   await dashboard.clickViewPenInboxButton();
 
