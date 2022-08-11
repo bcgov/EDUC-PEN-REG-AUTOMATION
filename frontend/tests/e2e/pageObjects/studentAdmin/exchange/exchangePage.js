@@ -4,6 +4,8 @@ const log = require('npmlog')
 class ExchangePage {
   constructor() {
 
+    this.ministryTeamInboxTitle = Selector('#ministryTeamInboxTitle');
+
     //Buttons
     this.claimButton = Selector('#claimBTN')
 
@@ -16,7 +18,7 @@ class ExchangePage {
     this.searchButton = Selector('#searchButton')
     this.contactFilter = Selector('#schoolName')
     this.messageDateFilter = Selector('#messageDateTextField')
-    var now = new Date()
+    let now = new Date()
     this.messageDateNumber = Selector('div').child('.v-date-picker-table').find('.v-btn__content').withText(now.getDate().toString())
 
     //new message
@@ -29,6 +31,11 @@ class ExchangePage {
 
     this.statusSelector = Selector('#statusSelector').parent('div[role="button"]');
     this.statusBox = Selector('div[role="listbox"]');
+  }
+
+  async verifyMinistryTeamInboxTitle(title) {
+    await t.expect(this.ministryTeamInboxTitle.innerText).eql(title);
+    log.info('Verified Ministry Team Inbox Title.');
   }
 
   async selectStatus(status){
