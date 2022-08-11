@@ -1,17 +1,19 @@
-import staffLoginPage from '../../../../pageObjects/login/staffLoginPage'
-import { idirAdminCredentials, idirReadOnlyCredentials, staffLoginUrl } from '../../../../config/constants'
-import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
-import ExchangePage from '../../../../pageObjects/studentAdmin/exchange/exchangePage'
+import staffLoginPage from '../../../../pageObjects/login/staffLoginPage';
+import { idirAdminCredentials, idirReadOnlyCredentials, staffLoginUrl } from '../../../../config/constants';
+import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage';
+import ExchangePage from '../../../../pageObjects/studentAdmin/exchange/exchangePage';
 import MessageDisplayPage
   from "../../../../pageObjects/studentAdmin/exchange/messageDisplayPage";
 import UnauthorizedPage from "../../../../pageObjects/errors/UnauthorizedPage";
 import DocumentUploadPage
   from "../../../../pageObjects/studentAdmin/common/documentUploadPage";
 
-import exchangeData from '../../../../config/exchangeData/exchangeSecureMessageData.json'
+import exchangeData from '../../../../config/exchangeData/exchangeSecureMessageData.json';
+import StaffHamburgerMenuPage from '../../../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage';
 
-const staffLogin = new staffLoginPage()
-const exchange = new ExchangePage()
+const staffLogin = new staffLoginPage();
+const exchange = new ExchangePage();
+const staffHamburgerMenuPage = new StaffHamburgerMenuPage();
 const dashboard = new staffDashboardPage()
 const messageDetail = new MessageDisplayPage()
 const documentUpload = new DocumentUploadPage();
@@ -22,13 +24,20 @@ const unauthorizedPage = new UnauthorizedPage();
 fixture`Student Admin`
 .page(staffLoginUrl)
 .beforeEach(async t => {
-  await t.maximizeWindow()
+  await t.maximizeWindow();
 })
 
 test('Staff view Pen inbox navigation test', async t => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl)
 
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+  await staffHamburgerMenuPage.verifyEdxInboxMenuOptionIsAvailable();
+  await staffHamburgerMenuPage.clickEdxInboxMenuOption();
+  await staffHamburgerMenuPage.verifyEdxPenTeamInboxLinkIsAvailable();
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+
+  await dashboard.verifyPenInboxButtonIsAvailable();
   await dashboard.clickViewPenInboxButton()
 
   //create a new exchange message with attachment
@@ -73,6 +82,13 @@ test('Staff view Pen inbox navigation test', async t => {
 test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+  await staffHamburgerMenuPage.verifyEdxInboxMenuOptionIsAvailable();
+  await staffHamburgerMenuPage.clickEdxInboxMenuOption();
+  await staffHamburgerMenuPage.verifyEdxPenTeamInboxLinkIsAvailable();
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+
   await dashboard.verifyPenInboxButtonIsAvailable();
   await dashboard.clickViewPenInboxButton();
 
@@ -96,9 +112,27 @@ test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async
 
 test('Only authenticated staff can view PEN Team Inbox', async _t => {
   await staffLogin.stafflogin(idirReadOnlyCredentials, staffLoginUrl);
+
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+  await staffHamburgerMenuPage.verifyEdxInboxMenuOptionIsNotAvailable();
+  await staffHamburgerMenuPage.verifyEdxPenTeamInboxLinkIsNotAvailable();
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+
   await dashboard.verifyPenInboxButtonIsNotAvailable();
   await unauthorizedPage.forceNavigate(`${staffLoginUrl}edx/exchange/PEN_TEAM_ROLE`);
   await unauthorizedPage.verifyIsOnUnauthorizedPage();
   await unauthorizedPage.verifyErrorText();
   await unauthorizedPage.verifyErrorMessage();
+});
+
+test('Navigate to PEN Team Inbox via Hamburger', async _t => {
+  await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+
+  await staffHamburgerMenuPage.clickHamburgerMenu();
+  await staffHamburgerMenuPage.verifyEdxInboxMenuOptionIsAvailable();
+  await staffHamburgerMenuPage.clickEdxInboxMenuOption();
+  await staffHamburgerMenuPage.verifyEdxPenTeamInboxLinkIsAvailable();
+  await staffHamburgerMenuPage.clickEdxPenTeamInboxLink();
+
+  await exchange.verifyMinistryTeamInboxTitle('PEN Team Inbox');
 });

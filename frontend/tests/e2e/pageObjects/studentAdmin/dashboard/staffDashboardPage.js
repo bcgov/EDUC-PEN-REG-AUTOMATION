@@ -102,8 +102,8 @@ class staffDashboardPage {
     }
 
     async clickViewPenInboxButton() {
-        await t.click(this.viewPenInboxButton())
-        log.info("View PEN inbox button clicked")
+        await t.click(this.viewPenInboxButton);
+        log.info("View PEN inbox button clicked");
     }
 }
 
