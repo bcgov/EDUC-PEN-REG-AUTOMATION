@@ -25,7 +25,8 @@
         "STUDENT_ANALYTICS_BATCH",
         "SECURE_EXCHANGE",
         "PEN_TEAM_ROLE",
-        "EDX_ADMIN"
+        "EDX_SCHOOL_ADMIN",
+        "EDX_DISTRICT_ADMIN"
     ],
     "readOnlyRoles": [
         "STUDENT_ADMIN_READ_ONLY",
