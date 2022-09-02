@@ -26,12 +26,12 @@ test('Staff_Add_New_User_Edx_Invite', async t => {
   //access the access management page
   await menu.clickHamburgerMenu();
   await menu.clickAdministrationMenuOption();
-  await menu.clickEDXAccessMenuLink();
+  await menu.clickEDXSchoolAccessMenuLink();
 
   //select school option
-  await access.setSchoolName('wildflower');
-  await access.selectSchoolNameOptionByIndex(0);
-  await access.clickManageSchoolButton();
+  await access.setInstituteName('wildflower');
+  await access.selectInstituteNameOptionByIndex(0);
+  await access.clickManageInstituteButton();
 
   //click New User and Enter Details and Invite
   await accessUsers.clickNewUserButton();

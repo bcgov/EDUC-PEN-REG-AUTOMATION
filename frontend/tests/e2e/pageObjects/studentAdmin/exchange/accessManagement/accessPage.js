@@ -4,10 +4,10 @@ const log = require('npmlog')
 class AccessPage {
   constructor() {
     //inputs
-    this.selectSchool = Selector('#selectSchoolName');
+    this.selectInstitute = Selector('#selectInstituteName');
 
     //buttons
-    this.manageSchoolButton = Selector('#manageSchoolButton');
+    this.manageInstituteButton = Selector('#manageInstituteButton');
     this.toggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton = Selector("#toggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton");
     this.doGeneratePrimaryEdxActivationCodeButton = Selector("#doGeneratePrimaryEdxActivationCodeButton");
     this.closeGenerateNewPrimaryEdxActivationCodeDialogButton = Selector("#closeGenerateNewPrimaryEdxActivationCodeDialogButton");
@@ -20,21 +20,21 @@ class AccessPage {
     this.knownPrimaryEdxActivationCode = '';
   }
 
-  async setSchoolName(schoolName) {
-    await t.typeText(this.selectSchool, schoolName)
-    log.info(`school name ${schoolName} text entered`)
+  async setInstituteName(instituteName) {
+    await t.typeText(this.selectInstitute, instituteName)
+    log.info(`Institute name ${instituteName} text entered`)
   }
 
-  async selectSchoolNameOptionByIndex(index = 0) {
-    const schoolOption = await Selector('div.v-select-list').nth(index);
-    const schoolOptionSelectedText = await schoolOption.innerText;
-    await t.click(schoolOption);
-    log.info(`school option ${schoolOptionSelectedText} selected`);
+  async selectInstituteNameOptionByIndex(index = 0) {
+    const instituteOption = await Selector('div.v-select-list').nth(index);
+    const instituteOptionSelectedText = await instituteOption.innerText;
+    await t.click(instituteOption);
+    log.info(`Institute option ${instituteOptionSelectedText} selected`);
   }
 
-  async clickManageSchoolButton() {
-    await t.click(this.manageSchoolButton());
-    log.info('manage school button clicked');
+  async clickManageInstituteButton() {
+    await t.click(this.manageInstituteButton());
+    log.info('Manage institute button clicked');
   }
 
   async verifyGenerateNewPrimaryEdxActivationCodeDialogExists() {
@@ -58,7 +58,7 @@ class AccessPage {
   }
 
   async clickCloseGenerateNewPrimaryEdxActivationCodeDialogButton() {
-    this.knownPrimaryEdxActivationCode = this.primaryEdxActivationCode().innerText;
+    this.knownPrimaryEdxActivationCode = this.primaryEdxActivationCode.innerText;
     log.info(`Remembered ${this.knownPrimaryEdxActivationCode} as the Primary EDX Activation Code.`);
     await t.click(this.closeGenerateNewPrimaryEdxActivationCodeDialogButton);
     log.info('closeGenerateNewPrimaryEdxActivationCodeDialogButton clicked.');

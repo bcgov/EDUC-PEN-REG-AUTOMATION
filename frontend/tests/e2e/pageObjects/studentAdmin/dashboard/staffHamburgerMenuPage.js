@@ -14,7 +14,7 @@ class staffHamburgerMenuPage {
         this.edxInboxMenuOption = Selector('#SecureMessagingInboxMenuBtn');
         this.edxPenTeamInboxLink = Selector('#PENTeamInboxMenuBtn');
         this.administrationMenuOption = Selector('#AdministrationMenuBtn')
-        this.edxAccessMenuLink = Selector('#EDXAccessMenuBtn')
+        this.edxSchoolAccessMenuLink = Selector('#EDXSchoolAccessMenuBtn')
     }
 
     async clickHamburgerMenu(){
@@ -82,9 +82,9 @@ class staffHamburgerMenuPage {
         log.info("Administration menu option is clicked")
     }
 
-    async clickEDXAccessMenuLink(){
-        await t.click(this.edxAccessMenuLink)
-        log.info("Administrative EDX management link is clicked")
+    async clickEDXSchoolAccessMenuLink(){
+        await t.click(this.edxSchoolAccessMenuLink)
+        log.info("School administrative EDX management link is clicked")
     }
 
 } export default staffHamburgerMenuPage

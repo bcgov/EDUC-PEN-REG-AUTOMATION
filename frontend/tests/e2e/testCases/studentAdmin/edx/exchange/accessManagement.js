@@ -25,12 +25,12 @@ test('Staff view Pen inbox access management test', async () => {
   //access the access management page
   await menu.clickHamburgerMenu();
   await menu.clickAdministrationMenuOption();
-  await menu.clickEDXAccessMenuLink();
+  await menu.clickEDXSchoolAccessMenuLink();
 
   //select school option
-  await access.setSchoolName('wildflower');
-  await access.selectSchoolNameOptionByIndex(0);
-  await access.clickManageSchoolButton();
+  await access.setInstituteName('wildflower');
+  await access.selectInstituteNameOptionByIndex(0);
+  await access.clickManageInstituteButton();
 
   //verify user access exists
   await accessUsers.setName('automation tester');
