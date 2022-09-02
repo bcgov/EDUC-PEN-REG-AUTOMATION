@@ -13,13 +13,38 @@ getToken().then(async (data) => {
     email: "tester@test.com"
   };
 
+  //this will give us the school wildflower
+  const schoolSearchCriteria = [{
+    condition: null,
+    searchCriteriaList: [
+      {
+        key: "schoolNumber",
+        operation: "eq",
+        value: "99178",
+        valueType: "STRING",
+        condition: null
+      }
+    ]
+  }];
+
+  const schoolSearchParam = {
+    params: {
+      searchCriteriaList: JSON.stringify(schoolSearchCriteria)
+    }
+  };
+
+  const userSchoolResult = await helper.getData(token, `${constants.instituteApiUrl}school/paginated`, schoolSearchParam);
+  console.log('school result found');
+  const userSchool = userSchoolResult.content[0];
+
   // create EDX User
   const edxUser = await helper.postData(token, `${constants.EDXApiUrl}users`, edxUserInfo);
   log.info('edxUser created');
 
   const edxSchoolInfo = {
     edxUserID: edxUser.edxUserID,
-    mincode: "00899178"
+    mincode: userSchool.mincode,
+    schoolID: userSchool.schoolId
   }
 
   //associate EDXUser to school
