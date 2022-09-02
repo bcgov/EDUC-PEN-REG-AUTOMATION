@@ -50,10 +50,10 @@ class MessageDisplayPage {
   }
 
   async verifyNewCommentSent() {
-        await t.expect(Selector('.v-card__text')
-        .withExactText('Test-Automation Message 2').count)
-        .eql(1)
-        log.info("exchange message detail new comment history verified")
+    await t.expect(Selector('.v-card__text')
+    .withExactText('Test-Automation Message 2').count)
+    .eql(1)
+    log.info("exchange message detail new comment history verified")
   }
 }
 
