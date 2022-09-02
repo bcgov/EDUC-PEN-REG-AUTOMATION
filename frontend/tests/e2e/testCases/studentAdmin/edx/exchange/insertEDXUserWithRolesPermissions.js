@@ -33,7 +33,7 @@ getToken().then(async (data) => {
     }
   };
 
-  const userSchoolResult = await helper.getData(token, `${constants.InstituteApiUrl}school/paginated`, schoolSearchParam);
+  const userSchoolResult = await helper.getData(token, `${constants.instituteApiUrl}school/paginated`, schoolSearchParam);
   console.log('school result found');
   const userSchool = userSchoolResult.content[0];
 

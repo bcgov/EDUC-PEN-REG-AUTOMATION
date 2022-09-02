@@ -27,7 +27,7 @@ getToken().then(async (data) => {
   };
 
   try {
-    const schoolResult = await helper.getData(token, `${constants.InstituteApiUrl}school/paginated`, schoolSearchParam);
+    const schoolResult = await helper.getData(token, `${constants.instituteApiUrl}school/paginated`, schoolSearchParam);
     console.log('school result found');
     const school = schoolResult.content[0];
     // get school's primary activation code
