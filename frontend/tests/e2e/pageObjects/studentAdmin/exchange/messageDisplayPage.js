@@ -26,7 +26,7 @@ class MessageDisplayPage {
     await t.expect(Selector('.v-card__text')
     .withExactText('10MbFile.jpg').count)
     .eql(1);
-    log.info("Exchange message attachment added after create found");
+    log.info("10Mb Exchange message attachment added after create found");
   }
 
   async clickOnNewMessage(){
@@ -51,8 +51,8 @@ class MessageDisplayPage {
 
   async verifyNewCommentSent() {
     await t.expect(Selector('.v-card__text')
-      .withExactText('Test-Automation Message 2').count)
-      .eql(1)
+    .withExactText('Test-Automation Message 2').count)
+    .eql(1)
     log.info("exchange message detail new comment history verified")
   }
 }
