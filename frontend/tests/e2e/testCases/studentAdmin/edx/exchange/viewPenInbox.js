@@ -86,7 +86,6 @@ test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async
   await exchange.clickSearchFilterButton();
   await exchange.verifySearchResults();
 
-  await exchange.selectFirstTableRow();
   await exchange.clickNthRow(1);
   await messageDetail.clickOnNewMessage();
   await messageDetail.sendANewMessageToTheExistingExchange();
