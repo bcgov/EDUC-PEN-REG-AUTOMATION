@@ -69,28 +69,11 @@ test('Staff view Pen inbox navigation test', async t => {
   await documentUpload.uploadDocument(exchangeData.uploadFileLocation10MbJpg);
   await documentUpload.clickUploadButton();
   await messageDetail.verifyMessageDetail();
-});
 
-test('Staff view Pen inbox and Add a new comment to an Existing Exchange', async _t => {
-  await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
-  await dashboard.verifyPenInboxButtonIsAvailable();
-  await dashboard.clickViewPenInboxButton();
-
-  //filter to the message at the message already exists from previous test
-  await exchange.clickMoreFilterButton();
-  await exchange.setSubjectSearch('automation test');
-  await exchange.setClaimedBy('PENREG1');
-  await exchange.selectStatus('Open');
-  await exchange.selectMessageDate();
-  await exchange.selectContactFilterSchoolByName('Wildflower');
-  await exchange.clickSearchFilterButton();
-  await exchange.verifySearchResults();
-
-  await exchange.clickNthRow(1);
+  //verify that we can add a new comment to an existing exchange
   await messageDetail.clickOnNewMessage();
   await messageDetail.sendANewMessageToTheExistingExchange();
   await messageDetail.verifyNewCommentSent();
-
 });
 
 test('Only authenticated staff can view PEN Team Inbox', async _t => {

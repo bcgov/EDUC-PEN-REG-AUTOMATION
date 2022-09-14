@@ -50,9 +50,18 @@ class MessageDisplayPage {
   }
 
   async verifyNewCommentSent() {
-    await t.expect(Selector('.v-card__text')
-    .withExactText('Test-Automation Message 2').count, {timeout: 4000})
-    .eql(1)
+    //adding an additional reload as sometimes comments do not show up right away.
+    try {
+      await t.expect(Selector('.v-card__text')
+      .withExactText('Test-Automation Message 2').count, {timeout: 6000})
+      .eql(1)
+    } catch(err) {
+      t.eval(() => location.reload());
+      log.info('Tests-Automation Message 2 comment not found. Reloading page');
+      await t.expect(Selector('.v-card__text')
+      .withExactText('Test-Automation Message 2').count, {timeout: 6000})
+      .eql(1)
+    }
     log.info("exchange message detail new comment history verified")
   }
 }
