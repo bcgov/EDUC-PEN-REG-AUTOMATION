@@ -7,7 +7,7 @@ getToken().then(async (data) => {
   const token = data.access_token
 
   const edxUserInfo = {
-    digitalIdentityID: "964b3509-2b54-4374-9db2-21916f553c05",
+    digitalIdentityID: "0a617b66-8332-17f5-8183-38da9c080005",
     firstName: "automation",
     lastName: "tester",
     email: "tester@test.com"
@@ -34,8 +34,8 @@ getToken().then(async (data) => {
   };
 
   const userSchoolResult = await helper.getData(token, `${constants.instituteApiUrl}school/paginated`, schoolSearchParam);
-  console.log('school result found');
   const userSchool = userSchoolResult.content[0];
+  log.info('school result found');
 
   // create EDX User
   const edxUser = await helper.postData(token, `${constants.EDXApiUrl}users`, edxUserInfo);
