@@ -26,7 +26,7 @@ class AccessPage {
   }
 
   async selectInstituteNameOptionByIndex(index = 0) {
-    const instituteOption = await Selector('div.v-select-list').nth(index);
+    const instituteOption = Selector('div.v-select-list').nth(index);
     const instituteOptionSelectedText = await instituteOption.innerText;
     await t.click(instituteOption);
     log.info(`Institute option ${instituteOptionSelectedText} selected`);
