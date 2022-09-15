@@ -86,9 +86,9 @@ test('Only authenticated staff can view PEN Team Inbox', async _t => {
 
   await dashboard.verifyPenInboxButtonIsNotAvailable();
   await unauthorizedPage.forceNavigate(`${staffLoginUrl}edx/exchange/PEN_TEAM_ROLE`);
-  await unauthorizedPage.verifyIsOnUnauthorizedPage();
   await unauthorizedPage.verifyErrorText();
   await unauthorizedPage.verifyErrorMessage();
+  await unauthorizedPage.verifyIsOnUnauthorizedPage();
 });
 
 test('Navigate to PEN Team Inbox via Hamburger', async _t => {

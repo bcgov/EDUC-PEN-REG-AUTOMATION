@@ -13,7 +13,8 @@ class UnauthorizedPage {
     }
 
     async verifyIsOnUnauthorizedPage() {
-        await t.expect((await TestCafeHelperFunctions.getCurrentLocation()()).endsWith('unauthorized-page')).ok();
+        const location = TestCafeHelperFunctions.getCurrentLocation()();
+        await t.expect(location).contains('unauthorized-page');
         log.info("Verified current page is the unauthorized page.");
     }
 
