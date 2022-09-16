@@ -15,6 +15,10 @@ class staffHamburgerMenuPage {
         this.edxPenTeamInboxLink = Selector('#PENTeamInboxMenuBtn');
         this.administrationMenuOption = Selector('#AdministrationMenuBtn')
         this.edxSchoolAccessMenuLink = Selector('#EDXSchoolAccessMenuBtn')
+        //institution options
+        this.institutionsMenuOption = Selector('#InstitutionsMenuBtn');
+        this.institutionsDistrictLink = Selector('#DistrictsMenuBtn');
+
     }
 
     async clickHamburgerMenu(){
@@ -85,6 +89,16 @@ class staffHamburgerMenuPage {
     async clickEDXSchoolAccessMenuLink(){
         await t.click(this.edxSchoolAccessMenuLink)
         log.info("School administrative EDX management link is clicked")
+    }
+
+    async clickInstitutionsMenuOption(){
+        await t.click(this.institutionsMenuOption);
+        log.info("Institution menu option is clicked");
+    }
+
+    async clickInstitutionsDistrictLink(){
+        await t.click(this.institutionsDistrictLink);
+        log.info("Institution district link is clicked");
     }
 
 } export default staffHamburgerMenuPage
