@@ -1,11 +1,13 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage';
 import staffHamburgerMenuPage from '../../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage';
+import DistrictsPage from '../../../pageObjects/studentAdmin/institute/districtsPage';
 
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants';
 
 
 const staffLogin = new staffLoginPage();
 const menu = new staffHamburgerMenuPage();
+const districtsPage = new DistrictsPage();
 
 
 fixture`Student Admin`
@@ -22,5 +24,10 @@ test('Staff view institutes test', async () => {
   await menu.clickHamburgerMenu();
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsDistrictLink();
+
+  await districtsPage.setName('arrow');
+  await districtsPage.clickSearchButton();
+  await districtsPage.verifyDistrictSearchResults();
+
 });
 
