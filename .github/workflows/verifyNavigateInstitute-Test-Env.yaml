@@ -38,7 +38,7 @@ jobs:
         if: always()
         with:
           type: ${{ job.status }}
-          job_name: "Verify EDX Access Management of DEV Environment --->"
+          job_name: "Verify Navigate Institute of Test Environment --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
