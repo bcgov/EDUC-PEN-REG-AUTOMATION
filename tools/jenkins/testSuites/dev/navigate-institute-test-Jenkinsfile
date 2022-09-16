@@ -1,0 +1,43 @@
+#!/usr/bin/env groovy
+//helper file to isolate navigate institute tests from others for debugging on jenkins
+pipeline {
+  agent any
+  tools {nodejs "latest"}
+  environment {
+    LOCAL_JSON = ''
+    extJSHelper = ''
+    OWNER = 'bcgov'
+    TESTS_REPO_NAME = 'educ-pen-reg-automation'
+  }
+  stages {
+    stage('Initialize') {
+      steps {
+        script {
+          sh "wget -O - https://raw.githubusercontent.com/bcgov/EDUC-INFRA-COMMON/master/openshift/common-deployment/deployHelpers.js > deployHelpers.js"
+          extJSHelper = evaluate readFile('deployHelpers.js')
+        }
+        dir('frontend') {
+          script {
+            LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
+            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/navigate-pen-inbox-test/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+          }
+        }
+      }
+    }
+    stage('verify navigate institute test') {
+      steps {
+        script {
+          try{
+          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+          extJSHelper.triggerWorkflow(TOKEN, 'verify-navigate-institute-dev-environment')
+          extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }          
+        }
+      }
+    }
+  }
+}
