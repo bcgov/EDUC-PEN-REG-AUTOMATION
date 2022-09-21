@@ -28,6 +28,13 @@ class ExchangePage {
     this.subjectTextField = Selector('#subjectTxtField')
     this.attachFileButton = Selector('#attachFileID')
     this.newMessagePostButton = Selector('#newMessagePostBtn')
+    this.searchPenButton = Selector('#searchPenBtn');
+    this.addStudentButton = Selector('#addStudentID');
+    this.studentPenTextField = Selector('#studentPenTextField');
+    this.addStudentToNewMessageButton = Selector('#addStudentToNewMessageBtn');
+    this.newMessageStudentChip = Selector('#studentChip-0');
+    this.addStudentAlert = Selector('#addStudentAlert');
+    this.cancelAddStudentButton = Selector('#cancelAddStudentBtn');
 
     this.statusSelector = Selector('#statusSelector').parent('div[role="button"]');
     this.statusBox = Selector('div[role="listbox"]');
@@ -153,6 +160,79 @@ class ExchangePage {
     await t.typeText(this.subjectTextField, data)
     log.info("new message subject text entered")
   }
+
+  async checkAddStudentButtonToMsgIsDisabled() {
+    await t.expect(this.addStudentButton.visible).ok();
+    const button = this.addStudentButton.with({visibilityCheck: true}).withExactText('Add Student');
+    await t.expect(button.hasAttribute('disabled')).ok();
+  }
+
+  async clickOnAddStudentButtonInNewMessage() {
+    await t.expect(this.addStudentButton.visible).ok().click(this.addStudentButton);
+    log.info('Add Student Button Clicked');
+  }
+
+  async addStudentPenToSearchInNewMessage(pen) {
+    await t.click(this.studentPenTextField);
+    await t.typeText(this.studentPenTextField, pen);
+    log.info('Pen details input in Add Student');
+  }
+
+  async checkSearchPenButtonIsDisabled() {
+    await t.expect(this.searchPenButton.visible).ok();
+    const button = this.searchPenButton.with({visibilityCheck: true}).withExactText('Search');
+    await t.expect(button.hasAttribute('disabled')).ok();
+  }
+
+  async checkAddStudentButtonIsDisabled() {
+    await t.expect(this.addStudentToNewMessageButton.visible).ok();
+    const button = this.addStudentToNewMessageButton.with({visibilityCheck: true}).withExactText('Add');
+    await t.expect(button.hasAttribute('disabled')).ok();
+  }
+
+  async clearPenSearchText() {
+    await t
+        .selectText(this.studentPenTextField)
+        .pressKey('delete');
+    log.info('Pen Details cleared from Search field');
+  }
+
+  async checkSearchPenButtonIsEnabled() {
+    await t.expect(this.searchPenButton.visible).ok();
+    const button = this.searchPenButton.with({visibilityCheck: true}).withExactText('Search');
+    await t.expect(button.hasAttribute('disabled')).notOk();
+  }
+
+  async clickPenSearchButton() {
+    await t.click(this.searchPenButton());
+    log.info('Pen Search Button Clicked');
+  }
+
+  async checkAddStudentButtonIsEnabled() {
+    await t.expect(this.addStudentToNewMessageButton.visible).ok();
+    const button = this.addStudentToNewMessageButton.with({visibilityCheck: true}).withExactText('Add');
+    await t.expect(button.hasAttribute('disabled')).notOk();
+  }
+
+  async clickAddStudentButton() {
+    await t.click(this.addStudentToNewMessageButton);
+    log.info('Add Student To New Message Button clicked');
+  }
+
+  async studentAddedToNewMessageWithPen(pen) {
+    await t.expect(this.newMessageStudentChip.innerText).contains(pen);
+    log.info('Student details added to the New Message');
+  }
+
+  async assertAlertMessageAtAddStudent(message) {
+    await t.expect(this.addStudentAlert.innerText).contains(message, {timeout: 10000});
+  }
+
+  async clickCancelAddStudentButton() {
+    await t.click(this.cancelAddStudentButton());
+    log.info('Cancel Add Student button clicked');
+  }
+
 }
 
 export default ExchangePage

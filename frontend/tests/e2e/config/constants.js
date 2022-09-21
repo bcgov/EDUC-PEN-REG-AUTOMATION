@@ -85,6 +85,7 @@ module.exports.penNumber =  config.get('penNumber')
 module.exports.penMerged =  config.get('penMerged')
 module.exports.penStudentHistory = config.get('penStudentHistory')
 module.exports.penSplit = config.get('penSplit')
+module.exports.student_penList = config.get('student:penList');
 
 //Twin and Merge related Pen numbers
 module.exports.twinOnePen =  config.get('twinOnePen')

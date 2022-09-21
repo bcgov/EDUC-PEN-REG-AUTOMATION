@@ -13,8 +13,7 @@ class staffLoginPage {
         this.submitButton = Selector('input[name=\'btnSubmit\']')
 
         //Dashboard related
-        this.viewGmpButton = Selector('#GetMyPENBtn')
-
+        this.viewGmpButton = Selector('#PENTeamInboxBtn')
         //Jb page related
         this.registerButton = Selector('a').withText('Register')
 

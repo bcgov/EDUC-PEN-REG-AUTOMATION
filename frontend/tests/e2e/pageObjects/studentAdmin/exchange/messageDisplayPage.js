@@ -9,6 +9,9 @@ class MessageDisplayPage {
     this.newMessageTextArea = Selector ('#newMessageToConvTextArea');
     this.sendMessageButton = Selector('#newMessagePostBtn');
     this.addAttachmentButton = Selector('#addAttachmentConvButton');
+    this.addNoteButton = Selector('#addNoteConvButton');
+    this.noteTextArea = Selector('#newNoteToConvTextArea');
+    this.savenoteButton = Selector('#newNotePostBtn');
   }
 
   async verifyMessageDetail() {
@@ -43,6 +46,19 @@ class MessageDisplayPage {
     await t.click(this.addAttachmentButton);
     log.info('Add attachment menu option clicked');
   }
+  async clickNoteButton(){
+    await t.click(this.addNoteButton);
+  }
+
+  async setNoteText(data){
+    await t.typeText(this.noteTextArea, data)
+    log.info("Note text entered")
+  }
+
+  async clickSaveNoteButton(){
+    await t.click(this.savenoteButton)
+    log.info('Note save button clicked');
+  }
 
   async sendANewMessageToTheExistingExchange(){
     await t.click(this.newMessageTextArea).typeText(this.newMessageTextArea(), 'Test-Automation Message 2', {timeout: 20000});
@@ -63,6 +79,21 @@ class MessageDisplayPage {
       .eql(1)
     }
     log.info("exchange message detail new comment history verified")
+  }
+
+  async verifyNewNoteSent() {
+    try {
+      await t.expect(Selector('.v-card__text')
+          .withExactText('Note text from automation test.').count, {timeout: 6000})
+          .eql(1)
+    } catch(err) {
+      t.eval(() => location.reload());
+      log.info('Note text from automation test. note not found. Reloading page');
+      await t.expect(Selector('.v-card__text')
+          .withExactText('Note text from automation test.').count, {timeout: 6000})
+          .eql(1)
+    }
+    log.info("exchange message detail new note history verified")
   }
 }
 
