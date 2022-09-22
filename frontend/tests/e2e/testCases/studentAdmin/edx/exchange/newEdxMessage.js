@@ -7,7 +7,8 @@ import Inbox from '../../../../pageObjects/studentAdmin/exchange/exchangePage';
 import MessageDisplayPage from "../../../../pageObjects/studentAdmin/exchange/messageDisplayPage";
 import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
 import {t} from "testcafe";
-//import DocumentUploadPage  from "../../page_models/common/documentUploadPage";
+import DocumentUploadPage  from "../../../../pageObjects/studentAdmin/common/documentUploadPage";
+import AddStudentPage  from "../../../../pageObjects/studentAdmin/common/addStudentPage";
 
 const staffLogin = new staffLoginPage();
 const testExchangeSubject = 'Created by test automation';
@@ -16,7 +17,8 @@ const testNoteText = 'Note text from automation test.';
 const dashboard = new staffDashboardPage();
 const inbox = new Inbox();
 const messageDisplay = new MessageDisplayPage();
-//const documentUpload = new DocumentUploadPage();
+const documentUpload = new DocumentUploadPage();
+const addStudent = new AddStudentPage();
 /**
  * Tests to run against the admin inbox page
  */
@@ -26,7 +28,7 @@ fixture`school-inbox-new-message`
   .beforeEach(async t => {
     //await t.maximizeWindow();
   });
-/*
+
 test('test-send-new-message-with-students', async t => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
@@ -47,7 +49,7 @@ test('test-send-new-message-with-students', async t => {
   await inbox.checkAddStudentButtonIsDisabled();
 
   //test valid pen number input
-  await inbox.clearPenSearchText();
+  await addStudent.clearPenSearchText();
   await inbox.addStudentPenToSearchInNewMessage(penArr[0]);
   await inbox.checkSearchPenButtonIsEnabled();
   await inbox.checkAddStudentButtonIsDisabled();
@@ -76,7 +78,7 @@ test('test-send-new-message-with-students', async t => {
 
   await inbox.clickNewMessagePostButton();
   log.info('Message created.');
-});*/
+});
 
 test('test-add-note-to-message', async t => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
@@ -100,33 +102,30 @@ test('test-add-note-to-message', async t => {
 
   await messageDisplay.verifyNewNoteSent();
 });
-/*
-test('test-send-new-message-with-attachment', async t => {
-  await t.navigateTo(base_url);
-  await dashboard.clickSchoolInboxCard();
 
-  await inbox.createANewMessage(testExchangeSubject);
+test('test-send-new-message-with-attachment', async t => {
+  await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+  await dashboard.verifyPenInboxButtonIsAvailable();
+  await dashboard.clickViewPenInboxButton();
+
+  await inbox.clickNewMessageButton();
+  await inbox.checkAddStudentButtonToMsgIsDisabled();
+  await inbox.setSubject(testExchangeSubject);
+  await inbox.setNewMessageText(testExchangeMessage);
+  await inbox.clickSetSchoolName();
+  await inbox.selectSchoolNameOptionByIndex();
   await inbox.clickAttachFileButton();
 
-  //attach document
-  await documentUpload.clickDocumentTypeSelect();
-  await documentUpload.selectDocumentTypeByName('Canadian Citizenship Card')
-  await documentUpload.uploadDocument('../../uploads/BC.jpg');
+  await documentUpload.uploadDocument('../../../../uploads/BC.jpg');
   await documentUpload.clickUploadButton();
+
   await inbox.clickNewMessagePostButton();
+  await t.wait(2000)
+  await inbox.clickNthRow(1);
+  await messageDisplay.verifyAttachmentSent('BC.jpg');
 
-  //find the message
-  await inbox.clickFiltersToggle();
-  await inbox.inputSubject('Created by test automation');
-  await inbox.selectContactName('PEN Team');
-  await inbox.selectStatus('Open');
-  await inbox.clickSearchButton();
-  await inbox.clickNthTableRow(0);
-
-  //verify message detail
-  await messageDisplay.verifyTimelineAttachmentByText('BC.jpg');
 });
-*/
+
 
 
 

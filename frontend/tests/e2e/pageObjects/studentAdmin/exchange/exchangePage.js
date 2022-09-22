@@ -27,6 +27,8 @@ class ExchangePage {
     this.newMessageTextArea = Selector('#newMessageTextArea')
     this.subjectTextField = Selector('#subjectTxtField')
     this.attachFileButton = Selector('#attachFileID')
+    //this.selectFileInputButton = Selector('#selectFileInput');
+    this.selectFileInputButton = Selector('div').find('.fa-paperclip');
     this.newMessagePostButton = Selector('#newMessagePostBtn')
     this.searchPenButton = Selector('#searchPenBtn');
     this.addStudentButton = Selector('#addStudentID');
@@ -138,6 +140,11 @@ class ExchangePage {
     log.info("attach file button clicked");
   }
 
+  async clickSelectFileInputButton() {
+    await t.click(this.selectFileInputButton());
+    log.info("attach file prompt button clicked");
+  }
+
   async selectSchoolNameOptionByIndex(index = 0) {
     const schoolOption = await Selector('div.v-select-list').nth(index);
     const schoolOptionSelectedText = await schoolOption.innerText;
@@ -182,12 +189,14 @@ class ExchangePage {
     await t.expect(this.searchPenButton.visible).ok();
     const button = this.searchPenButton.with({visibilityCheck: true}).withExactText('Search');
     await t.expect(button.hasAttribute('disabled')).ok();
+    log.info('Check Search PEN button is disabled');
   }
 
   async checkAddStudentButtonIsDisabled() {
     await t.expect(this.addStudentToNewMessageButton.visible).ok();
     const button = this.addStudentToNewMessageButton.with({visibilityCheck: true}).withExactText('Add');
     await t.expect(button.hasAttribute('disabled')).ok();
+    log.info('Check Add Student button is disabled');
   }
 
   async clearPenSearchText() {

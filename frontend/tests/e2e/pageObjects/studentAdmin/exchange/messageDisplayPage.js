@@ -95,6 +95,21 @@ class MessageDisplayPage {
     }
     log.info("exchange message detail new note history verified")
   }
+
+  async verifyAttachmentSent(fileName) {
+    try {
+      await t.expect(Selector('.v-card__text')
+          .withExactText(fileName).count, {timeout: 6000})
+          .eql(1)
+    } catch(err) {
+      t.eval(() => location.reload());
+      log.info('Message attached file missing. Reloading page');
+      await t.expect(Selector('.v-card__text')
+          .withExactText(fileName).count, {timeout: 6000})
+          .eql(1)
+    }
+    log.info("exchange message file attachment verified")
+  }
 }
 
 export default MessageDisplayPage

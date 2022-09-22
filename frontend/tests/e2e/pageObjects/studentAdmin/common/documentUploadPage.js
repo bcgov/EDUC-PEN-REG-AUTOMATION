@@ -10,6 +10,7 @@ class DocumentUploadPage {
 
     //inputs
     this.selectFile = Selector('#selectFileInput');
+    this.documentTypeSelect = Selector('#uploadDocumentTypeCodeSelect').parent('div[role="button"]');
 
     //response fields
     this.uploadAlert = Selector('.v-messages__message');
@@ -23,6 +24,18 @@ class DocumentUploadPage {
   async clickCancelButton() {
     await t.click(this.closeFormButton);
     log.info("Cancel button is clicked");
+  }
+
+  async clickDocumentTypeSelect() {
+    await t.click(this.documentTypeSelect);
+    log.info("Document type selector clicked");
+  }
+
+  async selectDocumentTypeByName(name) {
+    const documentTypeOption = await Selector('div.v-select-list .v-list-item__content').withExactText(name);
+    const documentTypeOptionSelectedText = await documentTypeOption.innerText;
+    await t.click(documentTypeOption);
+    log.info(`Document type option ${documentTypeOptionSelectedText} selected`);
   }
 
   async uploadDocument(data) {
