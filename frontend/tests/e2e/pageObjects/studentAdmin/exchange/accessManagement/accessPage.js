@@ -8,6 +8,7 @@ class AccessPage {
 
     //buttons
     this.manageInstituteButton = Selector('#manageInstituteButton');
+    this.copyPrimaryEdxActivationCodeButton = Selector("#copyPrimaryEdxActivationCodeButton");
     this.toggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton = Selector("#toggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton");
     this.doGeneratePrimaryEdxActivationCodeButton = Selector("#doGeneratePrimaryEdxActivationCodeButton");
     this.closeGenerateNewPrimaryEdxActivationCodeDialogButton = Selector("#closeGenerateNewPrimaryEdxActivationCodeDialogButton");
@@ -67,6 +68,22 @@ class AccessPage {
   async verifyPrimaryEdxActivationCodeChanged() {
     await t.expect(this.primaryEdxActivationCode.innerText).notEql(this.knownPrimaryEdxActivationCode);
     log.info('Verified that the Primary EDX Activation Code changed.');
+  }
+
+  async verifyCopyPrimaryEdxActivationCodeButtonExists() {
+    await t.expect(this.copyPrimaryEdxActivationCodeButton.exists).ok();
+    log.info('Verified that the Copy Primary EDX Activation Code Button exists.');
+  }
+
+  async verifyCopyPrimaryEdxActivationCodeButtonDoesNotExist() {
+    await t.expect(this.copyPrimaryEdxActivationCodeButton.exists).notOk();
+    log.info('Verified that the Copy Primary EDX Activation Code Button does not exist.');
+  }
+
+  async verifyCopyPrimaryEdxActivationCodeButtonValueMatchesPrimaryEdxActivationCode() {
+    let primaryEdxActivationCode = (await this.primaryEdxActivationCode.innerText).replace('Primary Activation Code:', '').trim();
+    await t.expect(this.copyPrimaryEdxActivationCodeButton.withAttribute('title', `copy ${primaryEdxActivationCode} to clipboard`).exists).ok();
+    log.info('Verified that the Copy Primary EDX Activation Code Button\'s value matches the Primary Edx Activation Code.');
   }
 }
 
