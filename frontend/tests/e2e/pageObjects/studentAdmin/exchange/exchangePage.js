@@ -27,7 +27,6 @@ class ExchangePage {
     this.newMessageTextArea = Selector('#newMessageTextArea')
     this.subjectTextField = Selector('#subjectTxtField')
     this.attachFileButton = Selector('#attachFileID')
-    //this.selectFileInputButton = Selector('#selectFileInput');
     this.selectFileInputButton = Selector('div').find('.fa-paperclip');
     this.newMessagePostButton = Selector('#newMessagePostBtn')
     this.searchPenButton = Selector('#searchPenBtn');

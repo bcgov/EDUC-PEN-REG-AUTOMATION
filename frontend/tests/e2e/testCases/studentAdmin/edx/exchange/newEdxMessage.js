@@ -6,7 +6,6 @@ import log from 'npmlog';
 import Inbox from '../../../../pageObjects/studentAdmin/exchange/exchangePage';
 import MessageDisplayPage from "../../../../pageObjects/studentAdmin/exchange/messageDisplayPage";
 import staffDashboardPage from '../../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
-import {t} from "testcafe";
 import DocumentUploadPage  from "../../../../pageObjects/studentAdmin/common/documentUploadPage";
 import AddStudentPage  from "../../../../pageObjects/studentAdmin/common/addStudentPage";
 
@@ -26,7 +25,6 @@ const addStudent = new AddStudentPage();
 fixture`school-inbox-new-message`
   .page(staffLoginUrl)
   .beforeEach(async t => {
-    //await t.maximizeWindow();
   });
 
 test('test-send-new-message-with-students', async t => {
