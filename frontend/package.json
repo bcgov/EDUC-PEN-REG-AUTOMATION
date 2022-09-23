@@ -88,7 +88,8 @@
     "insertEDXUserWithRolesPermissions": "node tests/e2e/testCases/studentAdmin/edx/exchange/insertEDXUserWithRolesPermissions.js",
     "deleteEDXUser": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteEdxUser.js",
     "deleteSchoolPrimaryActivationCode": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteSchoolPrimaryActivationCode.js",
-    "navigateInstitute": "node tests/e2e/testSuites/instituteE2E/instituteNavigationTest.js"
+    "navigateInstitute": "node tests/e2e/testSuites/instituteE2E/instituteNavigationTest.js",
+    "createNewMessageWNote": "node tests/e2e/testSuites/edxE2E/edxMessageTest.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
