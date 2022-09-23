@@ -52,4 +52,7 @@ test('Staff view Pen inbox access management test', async () => {
   await access.clickDoGeneratePrimaryEdxActivationCodeButton();
   await access.verifyGenerateNewPrimaryEdxActivationCodeDialogDoesNotExist()
   await access.verifyPrimaryEdxActivationCodeChanged();
+
+  await access.verifyCopyPrimaryEdxActivationCodeButtonExists();
+  await access.verifyCopyPrimaryEdxActivationCodeButtonValueMatchesPrimaryEdxActivationCode();
 });
