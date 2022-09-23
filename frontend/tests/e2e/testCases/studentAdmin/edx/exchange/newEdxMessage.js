@@ -60,7 +60,6 @@ test('test-send-new-message-with-students', async t => {
 
   //test adding additional pen number which does not belong to the same mincode
   await inbox.clickOnAddStudentButtonInNewMessage();
-  await inbox.assertAlertMessageAtAddStudent('Additional students should only be added if the details are relevant to this request. Requests for separate students should be sent in a new message.');
   await inbox.addStudentPenToSearchInNewMessage(penArr[1]);
   await inbox.checkSearchPenButtonIsEnabled();
   await inbox.clickPenSearchButton();
@@ -69,10 +68,9 @@ test('test-send-new-message-with-students', async t => {
 
   //test adding a student that doesn't exist
   await inbox.clickOnAddStudentButtonInNewMessage();
-  await inbox.assertAlertMessageAtAddStudent('Additional students should only be added if the details are relevant to this request. Requests for separate students should be sent in a new message.');
   await inbox.addStudentPenToSearchInNewMessage(penArr[2]);
   await inbox.clickPenSearchButton();
-  await inbox.assertAlertMessageAtAddStudent('No student record was found for pen :: 191900943');
+  await inbox.assertAlertMessageAtAddStudent('PEN must be a valid PEN associated with a student');
   await inbox.checkAddStudentButtonIsDisabled();
   await inbox.clickCancelAddStudentButton();
 
