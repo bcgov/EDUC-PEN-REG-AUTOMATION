@@ -1,4 +1,4 @@
-name: Navigate Pen Inbox Dev Environment
+name: Navigate EDX District Management on Test Environment
 on:
   repository_dispatch: #for jenkins
     types: [verify-edx-district-access-management-test-environment]
