@@ -6,8 +6,7 @@ class NewUserPage {
     this.firstNameInput = Selector('#newUserFirstName');
     this.lastNameInput = Selector('#newUserLastName');
     this.emailInput = Selector('#newUserEmail');
-    this.schoolNameMincodeInput = Selector('#newUserSchool');
-    this.rolesSelector = Selector('#newSchoolUserRolesSelect');
+    this.rolesSelector = Selector('#instituteNewUserRolesSelect');
     this.rolesSelectorBox = Selector('div[role="listbox"]');
     this.inviteBtn=Selector('#newUserInvitePostBtn');
   }
@@ -19,12 +18,12 @@ class NewUserPage {
     await t.click(this.emailInput());
   }
 
-  async verifyAccessAndUserInviteOperation() {
+  async verifyAccessAndUserInviteOperation(role) {
     await t.typeText(this.firstNameInput(), 'TestUserFirstName', {timeout: 20000})
       .typeText(this.lastNameInput(), 'TestUserLastName', {timeout: 20000})
       .typeText(this.emailInput(), 'penemail@mailsac.com', {timeout: 2000});
 
-    await this.selectRole('Secure Exchange');
+    await this.selectRole(role);
     await t.click(this.inviteBtn());
   }
 }
