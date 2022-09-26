@@ -1,4 +1,4 @@
-name: Navigate Pen Inbox Dev Environment
+name: Navigate EDX School Management Test Environment
 on:
   repository_dispatch: #for jenkins
     types: [verify-edx-access-management-test-environment]
