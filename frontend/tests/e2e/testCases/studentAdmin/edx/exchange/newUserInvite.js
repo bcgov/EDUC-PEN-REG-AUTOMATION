@@ -36,6 +36,6 @@ test('Staff_Add_New_User_Edx_Invite', async t => {
   //click New User and Enter Details and Invite
   await accessUsers.clickNewUserButton();
   await t.expect(accessUsers.vCardTitle.innerText).contains('New User');
-  await newUserInvitePage.verifyAccessAndUserInviteOperation('EDX District Administrator');
+  await newUserInvitePage.verifyAccessAndUserInviteOperation('EDX School Administrator');
 
 });
