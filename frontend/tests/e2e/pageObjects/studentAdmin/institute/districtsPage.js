@@ -8,7 +8,7 @@ class DistrictsPage {
     this.districtSearchButton = Selector('#district-search-button');
 
     //search results
-    this.districtSearchResultsText = Selector('.v-card .v-card__text');
+    this.districtSearchResultsText = Selector('tr td');
   }
 
   async clickSearchButton() {
@@ -31,7 +31,7 @@ class DistrictsPage {
   async verifyDistrictSearchResults() {
     await t.expect(this.districtSearchResultsText.withText('Arrow').count).eql(1, {timeout: 3000});
     log.info("One district found after search");
-    await t.expect(this.districtSearchResultsText.innerText).contains('Arrow');
+    await t.expect(this.districtSearchResultsText.nth(0).innerText).contains('Arrow');
     log.info('District search result verified');
   }
 }
