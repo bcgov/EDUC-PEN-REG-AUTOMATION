@@ -73,6 +73,21 @@ pipeline {
         }
       }
     }
+    stage('invite new edx school user') {
+      steps {
+        script {
+          try{
+            TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+            extJSHelper.triggerWorkflow(TOKEN, 'verify-edx-school-user-invite-test-environment')
+            extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }
+        }
+      }
+    }
     stage('delete inserted edx user and primary activation code') {
       steps {
         dir('frontend') {
@@ -107,9 +122,16 @@ pipeline {
     }
     stage('invite new edx district user') {
       steps {
-        dir('frontend') {
-          sh 'npm install'
-          sh 'npm run inviteNewEDXDistrictUser'
+        script {
+          try{
+            TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+            extJSHelper.triggerWorkflow(TOKEN, 'verify-edx-district-user-invite-test-environment')
+            extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }
         }
       }
     }
