@@ -43,7 +43,6 @@ getToken().then(async (data) => {
 
   const edxSchoolInfo = {
     edxUserID: edxUser.edxUserID,
-    mincode: userSchool.mincode,
     schoolID: userSchool.schoolId
   }
 

@@ -7,7 +7,7 @@ getToken().then(async (data) => {
   const token = data.access_token
 
   // get EDX Users at school
-  const edxUsers = await helper.getData(token, `${constants.EDXApiUrl}users`, {params: {mincode: "00899178"}});
+  const edxUsers = await helper.getData(token, `${constants.EDXApiUrl}users`, {params: {firstName: "automation"}});
   log.info('edxUsers list obtained');
 
   const edxUserID = edxUsers.find(edxUser => edxUser.firstName === "automation" && edxUser.lastName === "tester")?.edxUserID;
