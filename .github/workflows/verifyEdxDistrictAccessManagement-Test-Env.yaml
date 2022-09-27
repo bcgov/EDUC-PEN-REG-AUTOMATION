@@ -1,7 +1,7 @@
-name: Navigate EDX School Management Test Environment
+name: Navigate EDX District Management on Test Environment
 on:
   repository_dispatch: #for jenkins
-    types: [verify-edx-access-management-test-environment]
+    types: [verify-edx-district-access-management-test-environment]
   workflow_dispatch:  #for github actions
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run edxAccessManagement
+      - run: npm run edxDistrictAccessManagement
         if: ${{ always() }}
         env:
           PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
@@ -38,7 +38,7 @@ jobs:
         if: always()
         with:
           type: ${{ job.status }}
-          job_name: "Verify EDX Access Management of TEST Environment --->"
+          job_name: "Verify EDX District Access Management of TEST Environment --->"
           icon_emoji: ":bell:"
           channel: "pen-automation-notifications"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK }}
