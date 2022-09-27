@@ -22,7 +22,7 @@ class AccessPage {
   }
 
   async setInstituteName(instituteName) {
-    await t.wait(1000); //provides additional time for the institute list to load in
+    await t.wait(2000); //provides time to load up the list of institutes list to load in
     await t.typeText(this.selectInstitute, instituteName)
     log.info(`Institute name ${instituteName} text entered`)
   }
