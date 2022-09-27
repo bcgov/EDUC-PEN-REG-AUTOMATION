@@ -26,6 +26,7 @@ test('Staff view institutes test', async () => {
   await menu.clickInstitutionsDistrictLink();
 
   await districtsPage.setName('arrow');
+  await districtsPage.selectNameOptionByIndex(0);
   await districtsPage.clickSearchButton();
   await districtsPage.verifyDistrictSearchResults();
 

@@ -8,7 +8,7 @@ class DistrictsPage {
     this.districtSearchButton = Selector('#district-search-button');
 
     //search results
-    this.districtSearchResultsText = Selector('.v-card .v-card__text');
+    this.districtSearchResultsText = Selector('tr td');
   }
 
   async clickSearchButton() {
@@ -21,10 +21,17 @@ class DistrictsPage {
     log.info(`District name:: ${text} entered`);
   }
 
+  async selectNameOptionByIndex(index = 0) {
+    const option = Selector('div.v-select-list').nth(index);
+    const optionSelectedText = await option.innerText;
+    await t.click(option);
+    log.info(`option ${optionSelectedText} selected`);
+  }
+
   async verifyDistrictSearchResults() {
     await t.expect(this.districtSearchResultsText.withText('Arrow').count).eql(1, {timeout: 3000});
     log.info("One district found after search");
-    await t.expect(this.districtSearchResultsText.innerText).contains('Arrow');
+    await t.expect(this.districtSearchResultsText.nth(0).innerText).contains('Arrow');
     log.info('District search result verified');
   }
 }
