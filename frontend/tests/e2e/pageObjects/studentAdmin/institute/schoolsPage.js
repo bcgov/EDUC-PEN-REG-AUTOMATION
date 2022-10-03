@@ -18,7 +18,7 @@ class SchoolsPage {
   }
 
   async setName(text) {
-    await t.typeText(this.schoolNameTextField, text).wait(10000);
+    await t.typeText(this.schoolNameTextField, text);
     log.info(`School name:: ${text} entered`);
   }
 
@@ -30,7 +30,7 @@ class SchoolsPage {
   }
 
   async selectStatus(index = 0){
-    await t.click(this.schoolStatusSelectField).wait(5000);
+    await t.click(this.schoolStatusSelectField);
     const option = Selector('div.v-select-list').child(0).nth(index);
     const optionSelectedText = await option.innerText;
     await t.click(option);
