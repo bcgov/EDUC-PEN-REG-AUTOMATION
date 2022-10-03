@@ -93,7 +93,8 @@
     "deleteEDXDistrictUser": "node tests/e2e/testCases/studentAdmin/edx/exchange/district/deleteEdxDistrictUser.js",
     "deleteSchoolPrimaryActivationCode": "node tests/e2e/testCases/studentAdmin/edx/exchange/deleteSchoolPrimaryActivationCode.js",
     "navigateInstitute": "node tests/e2e/testSuites/instituteE2E/instituteNavigationTest.js",
-    "createNewMessageWNote": "node tests/e2e/testSuites/edxE2E/edxMessageTest.js"
+    "createNewMessageWNote": "node tests/e2e/testSuites/edxE2E/edxMessageTest.js",
+    "viewSchoolContacts": "node tests/e2e/testSuites/instituteE2E/viewSchoolContactsTest.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
