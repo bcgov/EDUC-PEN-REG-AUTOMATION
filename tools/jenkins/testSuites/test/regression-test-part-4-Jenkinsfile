@@ -2,7 +2,6 @@
 //Test will cover the following:
 //Secure Exchange - Manually create new message, verify that the message was created and then delete it.
 //EDX Access Management - Insert new EDX user, verify the user exists with permissions and then delete the edx user.
-//Institute Navigation - View and search district list.
 pipeline {
   agent any
   tools {nodejs "latest"}
@@ -140,21 +139,6 @@ pipeline {
         dir('frontend') {
           sh 'npm install'
           sh 'npm run deleteEDXDistrictUser'
-        }
-      }
-    }
-    stage('verify navigate institute test') {
-      steps {
-        script {
-          try{
-            TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-            extJSHelper.triggerWorkflow(TOKEN, 'verify-navigate-institute-test-environment')
-            extJSHelper.waitForWorkflowRunComplete(TOKEN)
-          }
-          catch(err){
-            currentBuild.result = 'FAILURE'
-            echo "Error detected, Continue to the next step"
-          }
         }
       }
     }
