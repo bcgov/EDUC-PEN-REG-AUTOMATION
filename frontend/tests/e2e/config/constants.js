@@ -50,7 +50,8 @@ module.exports.studentEntryPoint = config.get('studentEntryPoint')
 //Bceid Credentials
 module.exports.bceidCredentials = Object.freeze({
   username: config.get('bceid:user'),
-  password: config.get('bceid:pass')
+  password: config.get('bceid:pass'),
+  guid: config.get('bceid:guid')
 });
 
 //BCSC Credentials
