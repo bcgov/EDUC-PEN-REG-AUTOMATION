@@ -45,8 +45,7 @@ const helper = {
             return response.data;
         } catch (e) {
             logApiError(e, 'getData', 'Error during GET on ' + url);
-            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
-            throw new ApiError(status, { message: 'API Get error' }, e);
+            throw e;
         }
     },
     async postData(token, url, data, params) {
