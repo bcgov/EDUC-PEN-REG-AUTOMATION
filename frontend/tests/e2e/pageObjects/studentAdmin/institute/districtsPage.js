@@ -28,11 +28,16 @@ class DistrictsPage {
     log.info(`option ${optionSelectedText} selected`);
   }
 
-  async verifyDistrictSearchResults() {
-    await t.expect(this.districtSearchResultsText.withText('Arrow').count).eql(1, {timeout: 3000});
+  async verifyDistrictSearchResults(districtName) {
+    await t.expect(this.districtSearchResultsText.withText(districtName).count).eql(1, {timeout: 3000});
     log.info("One district found after search");
-    await t.expect(this.districtSearchResultsText.nth(0).innerText).contains('Arrow');
+    await t.expect(this.districtSearchResultsText.nth(0).innerText).contains(districtName);
     log.info('District search result verified');
+  }
+
+  async clickDistrictSearchResult(districtName){
+    await t.click(this.districtSearchResultsText.withText(districtName));
+    log.info("District information was clicked");
   }
 }
 
