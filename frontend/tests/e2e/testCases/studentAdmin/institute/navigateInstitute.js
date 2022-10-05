@@ -27,11 +27,11 @@ test('Staff view districts test', async () => {
   await menu.clickHamburgerMenu();
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsDistrictLink();
-
-  await districtsPage.setName('arrow');
+  const districtName = 'Arrow';
+  await districtsPage.setName(districtName);
   await districtsPage.selectNameOptionByIndex(0);
   await districtsPage.clickSearchButton();
-  await districtsPage.verifyDistrictSearchResults();
+  await districtsPage.verifyDistrictSearchResults(districtName);
 
 });
 
