@@ -19,6 +19,7 @@ class staffHamburgerMenuPage {
         //institution options
         this.institutionsMenuOption = Selector('#InstitutionsMenuBtn');
         this.institutionsDistrictLink = Selector('#DistrictsMenuBtn');
+        this.institutionsAuthoritiesLink = Selector('#AuthoritiesMenuBtn');
         this.institutionsSchoolLink = Selector('#SchoolsMenuBtn');
     }
 
@@ -100,6 +101,11 @@ class staffHamburgerMenuPage {
     async clickInstitutionsDistrictLink(){
         await t.click(this.institutionsDistrictLink);
         log.info("Institution district link is clicked");
+    }
+
+    async clickInstitutionsAuthoritiesLink(){
+      await t.click(this.institutionsAuthoritiesLink);
+      log.info("Institution authorities link is clicked");
     }
 
     async clickEDXDistrictAccessMenuLink(){
