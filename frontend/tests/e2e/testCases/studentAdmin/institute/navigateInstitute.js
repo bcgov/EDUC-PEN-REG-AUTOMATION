@@ -1,6 +1,7 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage';
 import staffHamburgerMenuPage from '../../../pageObjects/studentAdmin/dashboard/staffHamburgerMenuPage';
 import DistrictsPage from '../../../pageObjects/studentAdmin/institute/districtsPage';
+import AuthoritiesPage from '../../../pageObjects/studentAdmin/institute/authoritiesPage';
 import SchoolsPage from '../../../pageObjects/studentAdmin/institute/schoolsPage';
 
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants';
@@ -9,6 +10,7 @@ import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants';
 const staffLogin = new staffLoginPage();
 const menu = new staffHamburgerMenuPage();
 const districtsPage = new DistrictsPage();
+const authoritiesPage = new AuthoritiesPage();
 const schoolsPage = new SchoolsPage();
 
 fixture`Student Admin`
@@ -17,7 +19,7 @@ fixture`Student Admin`
   await t.maximizeWindow()
 });
 
-test('Staff view institutes test', async () => {
+test('Staff view districts test', async () => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
@@ -31,6 +33,35 @@ test('Staff view institutes test', async () => {
   await districtsPage.clickSearchButton();
   await districtsPage.verifyDistrictSearchResults();
 
+});
+
+test('Staff search authorities test', async () => {
+  await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+
+  //access district list
+  await menu.clickHamburgerMenu();
+  await menu.clickInstitutionsMenuOption();
+  await menu.clickInstitutionsAuthoritiesLink();
+
+  await authoritiesPage.setName('agassiz');
+  await authoritiesPage.selectNameOptionByIndex(0);
+  await authoritiesPage.clickSearchButton();
+  await authoritiesPage.verifyAuthoritySearchResults('Agassiz Christian School Society');
+
+  await authoritiesPage.clickClearButton();
+  await authoritiesPage.selectStatus('Open');
+  await authoritiesPage.setName('Haahuupayak');
+  await authoritiesPage.selectNameOptionByIndex(0);
+  await authoritiesPage.clickSearchButton();
+  await authoritiesPage.verifyAuthoritySearchResults('Haahuupayak Society');
+
+  await authoritiesPage.clickClearButton();
+  await authoritiesPage.selectStatus('Closed');
+  await authoritiesPage.selectAuthorityType('Independent');
+  await authoritiesPage.setName('Hands On');
+  await authoritiesPage.selectNameOptionByIndex(0);
+  await authoritiesPage.clickSearchButton();
+  await authoritiesPage.verifyAuthoritySearchResults('Hands On Summer Camp Society');
 });
 
 test('Staff view school contacts test', async () => {
