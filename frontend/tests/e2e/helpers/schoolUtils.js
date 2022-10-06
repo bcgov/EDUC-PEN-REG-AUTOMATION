@@ -12,7 +12,7 @@ const schoolUtils = {
         const token = data.access_token;
         let schoolID = await getSchoolIDBySchoolCode(schoolNumber);
         const url = `${constants.instituteApiUrl}school/${schoolID}`;
-        return await restUtils.getData(token, url);
+        return restUtils.getData(token, url);
     },
     async getSchoolPrincipalDetails(schoolNumber){
         let schoolPrincipal = '';
