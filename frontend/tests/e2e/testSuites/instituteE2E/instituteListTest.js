@@ -13,7 +13,7 @@ createTestCafe('localhost', 1337, 1338)
   return runner
   // list multiple test files
   .src([
-    "tests/e2e/testCases/studentAdmin/institute/navigateInstitute.js",
+    "tests/e2e/testCases/studentAdmin/institute/instituteList.js",
   ])
   .run();
 })

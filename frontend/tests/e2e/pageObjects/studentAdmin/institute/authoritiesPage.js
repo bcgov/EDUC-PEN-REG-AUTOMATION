@@ -5,9 +5,12 @@ class AuthoritiesPage {
   constructor() {
     //search box
     this.authorityNameTextField = Selector('#authority-text-field');
-    this.authorityStatusSelectField = Selector('#status-select-field');
     this.authoritySearchButton = Selector('#user-search-button');
     this.authorityClearButton = Selector('#user-clear-button');
+
+    this.authorityDetailsSelect = Selector('#authorityDetailsSelect');
+
+    this.authorityContactsSelect = Selector('#authorityContacts');
 
     this.statusSelector = Selector('#status-select-field').parent('div[role="button"]');
     this.statusBox = Selector('div[role="listbox"]');
@@ -46,6 +49,16 @@ class AuthoritiesPage {
     await t.expect(this.statusBox().exists).ok();
     await t.click(this.statusBox.find('div').withExactText(status).parent('div.v-list-item__content'));
     log.info("Status " + status + " selected");
+  }
+
+  async clickAuthorityDetails(){
+    await t.click(this.authorityDetailsSelect).wait(100);
+    log.info("Authority details selected");
+  }
+
+  async clickAuthorityContacts(){
+    await t.click(this.authorityContactsSelect).wait(100);
+    log.info("Authority contacts selected");
   }
 
   async selectAuthorityType(authType){

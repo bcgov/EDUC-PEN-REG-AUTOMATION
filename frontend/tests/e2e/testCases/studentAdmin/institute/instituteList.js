@@ -6,7 +6,6 @@ import SchoolsPage from '../../../pageObjects/studentAdmin/institute/schoolsPage
 
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants';
 
-
 const staffLogin = new staffLoginPage();
 const menu = new staffHamburgerMenuPage();
 const districtsPage = new DistrictsPage();
@@ -14,24 +13,23 @@ const authoritiesPage = new AuthoritiesPage();
 const schoolsPage = new SchoolsPage();
 
 fixture`Student Admin`
-.page(staffLoginUrl)
-.beforeEach(async t => {
-  await t.maximizeWindow()
-});
+  .page(staffLoginUrl)
+  .beforeEach(async t => {
+    await t.maximizeWindow()
+  });
 
-test('Staff view districts test', async () => {
-
+test('Staff search districts test', async () => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
   //access district list
   await menu.clickHamburgerMenu();
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsDistrictLink();
-  const districtName = 'Arrow';
-  await districtsPage.setName(districtName);
+
+  await districtsPage.setName('arrow');
   await districtsPage.selectNameOptionByIndex(0);
   await districtsPage.clickSearchButton();
-  await districtsPage.verifyDistrictSearchResults(districtName);
+  await districtsPage.verifyDistrictSearchResults('Arrow Lakes');
 
 });
 
@@ -64,8 +62,7 @@ test('Staff search authorities test', async () => {
   await authoritiesPage.verifyAuthoritySearchResults('Hands On Summer Camp Society');
 });
 
-test('Staff view school contacts test', async () => {
-
+test('Staff search schools test', async () => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
   await menu.clickHamburgerMenu();

@@ -25,12 +25,12 @@ pipeline {
         }
       }
     }
-    stage('verify navigate institute test') {
+    stage('verify institute list test') {
       steps {
         script {
           try{
             TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-            extJSHelper.triggerWorkflow(TOKEN, 'verify-navigate-institute-test-environment')
+            extJSHelper.triggerWorkflow(TOKEN, 'verify-institute-list-test-environment')
             extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){
@@ -40,12 +40,27 @@ pipeline {
         }
       }
     }
-    stage('verify navigate institute details test') {
+    stage('verify institute details test') {
       steps {
         script {
           try{
             TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-            extJSHelper.triggerWorkflow(TOKEN, 'verify-navigate-institute-details-test-environment')
+            extJSHelper.triggerWorkflow(TOKEN, 'verify-institute-details-test-environment')
+            extJSHelper.waitForWorkflowRunComplete(TOKEN)
+          }
+          catch(err){
+            currentBuild.result = 'FAILURE'
+            echo "Error detected, Continue to the next step"
+          }
+        }
+      }
+    }
+    stage('verify institute contacts test') {
+      steps {
+        script {
+          try{
+            TOKEN = sh( script: "oc -n 8878b4-test -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
+            extJSHelper.triggerWorkflow(TOKEN, 'verify-institute-contacts-test-environment')
             extJSHelper.waitForWorkflowRunComplete(TOKEN)
           }
           catch(err){

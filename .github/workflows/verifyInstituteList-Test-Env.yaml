@@ -1,7 +1,7 @@
 name: Navigate Institute Test Environment
 on:
   repository_dispatch: #for jenkins
-    types: [verify-navigate-institute-test-environment]
+    types: [verify-institute-list-test-environment]
   workflow_dispatch:  #for github actions
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           node-version: "14.x"
       - run: npm install
 
-      - run: npm run navigateInstitute
+      - run: npm run instituteList
         if: ${{ always() }}
         env:
           PEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
