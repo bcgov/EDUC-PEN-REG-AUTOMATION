@@ -5,9 +5,6 @@ const log = require('npmlog')
 
 getToken().then(async (data) => {
 
-    await new Promise(sleep => setTimeout(sleep, 60000));
-    console.log("Implicit wait completed")
-    
     for (let i = 0; i <= 5; i++) {
 
         data = await getToken()
