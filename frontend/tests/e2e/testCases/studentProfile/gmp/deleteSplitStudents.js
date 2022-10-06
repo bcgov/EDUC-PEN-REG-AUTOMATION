@@ -6,9 +6,6 @@ const studentData = require('../../../config/studentData/insertStudentForSplit.j
 
 getToken().then(async (data) => {
 
-    await new Promise(sleep => setTimeout(sleep, 60000));
-    console.log("Implicit wait completed")
-    
     const token = data.access_token
 
 

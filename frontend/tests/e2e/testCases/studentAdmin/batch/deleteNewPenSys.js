@@ -6,9 +6,6 @@ const { getToken } = require('../../../helpers/generateToken')
 
 getToken().then(async (data) => {
 
-    await new Promise(sleep => setTimeout(sleep, 60000));
-    console.log("Implicit wait completed")
-
     for (let i = 0; i <= studentDetails.studentData.length - 1; i++) {
 
         const token = data.access_token
