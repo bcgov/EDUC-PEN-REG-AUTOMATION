@@ -44,6 +44,11 @@ class SchoolsPage {
     await t.expect(this.schoolSearchResultsText.nth(0).innerText).contains('Mount Baker Secondary');
     log.info('School search result verified');
   }
+
+  async clickSchoolSearchResult() {
+    await t.click(this.schoolSearchResultsText.nth(0));
+    log.info("School Result Clicked");
+  }
 }
 
 export default SchoolsPage
