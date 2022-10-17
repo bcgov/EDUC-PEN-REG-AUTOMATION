@@ -26,6 +26,7 @@ jobs:
           PEN_NAMESPACE: ${{ secrets.PEN_NAMESPACE }}
           IDIR_ADMIN_USER: ${{ secrets.IDIR_ADMIN_USER }}
           IDIR_ADMIN_PASS: ${{ secrets.IDIR_ADMIN_PASS }}
+          EDX_NAMESPACE: ${{ secrets.EDX_NAMESPACE }}
           TOKEN_ENVIRONMENT: ${{ secrets.TEST_ENVIRONMENT }}
           TOKEN_CLIENT_ID: ${{ secrets.TOKEN_CLIENT_ID_TEST }}
           TOKEN_CLIENT_SECRET_DEV: ${{ secrets.TOKEN_CLIENT_SECRET_TEST }}
