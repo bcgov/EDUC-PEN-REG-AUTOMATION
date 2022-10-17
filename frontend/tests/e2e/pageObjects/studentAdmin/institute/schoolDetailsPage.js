@@ -13,6 +13,14 @@ class SchoolDetailsPage {
         this.schoolGradesOffered = Selector('span');
         this.schoolOrganization = Selector('span');
         this.schoolMailingAddress = Selector('span');
+
+        this.schoolNotesTimeline = Selector("#schoolNotesTimeline");
+
+        this.addNewNoteButton = Selector('#addNewNoteButton');
+        this.newNoteSheet = Selector('#newNoteSheet');
+        this.newNoteTextArea = Selector('#newNoteTextArea');
+        this.cancelNewNoteButton = Selector('#cancelNote');
+        this.saveNewNoteButton = Selector('#saveNote');
     }
 
     async verifySchoolDetails(schoolNumber) {
@@ -74,6 +82,101 @@ class SchoolDetailsPage {
         await t.expect(this.schoolMailingAddress.withText(addressLine2).innerText).contains(addressLine2);
         await t.expect(this.schoolMailingAddress.withText(schoolMailingAddress.postal).innerText).contains(schoolMailingAddress.postal);
         log.info("School Mailing Address Verified");
+    }
+
+    async verifySchoolNotesTimelineExists() {
+        await t.expect(this.schoolNotesTimeline.exists).ok();
+        log.info("Verified School Notes Timeline exists.");
+    }
+
+    async verifySchoolNotesTimelineContainsItemWithText(textToVerify) {
+        await t.expect(this.schoolNotesTimeline.find('.v-card__text.activityContent').withText(textToVerify).exists).ok();
+        log.info("Verified that the specified text was found as an item within the School Notes Timeline.");
+    }
+
+    async verifyAddNewNoteButtonExists() {
+        await t.expect(this.addNewNoteButton.exists).ok();
+        log.info("Verified Add New Note Button exists.");
+    }
+
+    async verifyAddNewNoteButtonEnabled() {
+        await t.expect(this.addNewNoteButton.hasAttribute('disabled')).notOk();
+        log.info("Verified Add New Note Button is enabled.");
+    }
+
+    async verifyAddNewNoteButtonDisabled() {
+        await t.expect(this.addNewNoteButton.hasAttribute('disabled')).ok();
+        log.info("Verified Add New Note Button is disabled.");
+    }
+
+    async clickAddNewNoteButton() {
+        await t.click(this.addNewNoteButton);
+        log.info('Add New Note Button clicked.')
+    }
+
+    async verifyNewNoteSheetExists() {
+        await t.expect(this.newNoteSheet.exists).ok();
+        log.info("Verified New Note Sheet exists.");
+    }
+
+    async verifyNewNoteSheetDoesNotExist() {
+        await t.expect(this.newNoteSheet.exists).notOk();
+        log.info("Verified New Note Sheet does not exist.");
+    }
+
+    async verifyNewNoteTextAreaExists() {
+        await t.expect(this.newNoteTextArea.exists).ok();
+        log.info("Verified New Note Text Area exists.");
+    }
+
+    async setNewNoteTextAreaText(value) {
+        await t.typeText(this.newNoteTextArea, value);
+        log.info('Typed text into the New Note Text Area.');
+    }
+
+    async verifyNewNoteTextAreaText(value) {
+        await t.expect(this.newNoteTextArea.innerText).eql(value);
+        log.info('Verified New Note Text Area text value.');
+    }
+
+    async verifyCancelNewNoteButtonExists() {
+        await t.expect(this.cancelNewNoteButton.exists).ok();
+        log.info("Verified Cancel New Note Button exists.");
+    }
+
+    async verifyCancelNewNoteButtonEnabled() {
+        await t.expect(this.cancelNewNoteButton.hasAttribute('disabled')).notOk();
+        log.info("Verified Cancel New Note Button is enabled.");
+    }
+
+    async verifyCancelNewNoteButtonDisabled() {
+        await t.expect(this.cancelNewNoteButton.hasAttribute('disabled')).ok();
+        log.info("Verified Cancel New Note Button is disabled.");
+    }
+
+    async clickCancelNewNoteButton() {
+        await t.click(this.cancelNewNoteButton);
+        log.info("Cancel New Note Button clicked.");
+    }
+
+    async verifySaveNewNoteButtonExists() {
+        await t.expect(this.saveNewNoteButton.exists).ok();
+        log.info("Verified Save New Note Button exists.");
+    }
+
+    async verifySaveNewNoteButtonEnabled() {
+        await t.expect(this.saveNewNoteButton.hasAttribute('disabled')).notOk();
+        log.info("Verified Save New Note Button is enabled.");
+    }
+
+    async verifySaveNewNoteButtonDisabled() {
+        await t.expect(this.saveNewNoteButton.hasAttribute('disabled')).ok();
+        log.info("Verified Save New Note Button is disabled.");
+    }
+
+    async clickSaveNewNoteButton() {
+        await t.click(this.saveNewNoteButton);
+        log.info("Save New Note Button clicked.");
     }
 
 }
