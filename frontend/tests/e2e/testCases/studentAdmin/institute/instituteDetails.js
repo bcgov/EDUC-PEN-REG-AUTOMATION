@@ -7,6 +7,7 @@ import AuthoritiesPage from '../../../pageObjects/studentAdmin/institute/authori
 import { idirAdminCredentials, staffLoginUrl } from '../../../config/constants';
 import DistrictDetails from '../../../pageObjects/studentAdmin/institute/districtDetails';
 import AuthoritiesDetailsPage from "../../../pageObjects/studentAdmin/institute/authoritiesDetailsPage";
+import crypto from 'crypto';
 
 const authoritiesDetailsPage = new AuthoritiesDetailsPage();
 const authoritiesPage = new AuthoritiesPage();
@@ -76,4 +77,65 @@ test('Staff view school details test', async () => {
 
     await schoolDetailsPage.verifySchoolDetails('02001');
 
+});
+
+test('Add a note to a school', async () => {
+    //Navigate to a school details page.
+    const schoolName = 'Mount Baker Secondary';
+    await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+
+    await menu.clickHamburgerMenu();
+    await menu.clickInstitutionsMenuOption();
+    await menu.clickInstitutionsSchoolLink();
+
+    await schoolsPage.setName(schoolName);
+    await schoolsPage.selectNameOptionByIndex(1);
+    await schoolsPage.selectStatus(1);
+    await schoolsPage.clickSearchButton();
+    await schoolsPage.clickSchoolSearchResult();
+
+    //Verify the initial school notes timeline state.
+    await schoolDetailsPage.verifySchoolNotesTimelineExists();
+    await schoolDetailsPage.verifyAddNewNoteButtonExists();
+    await schoolDetailsPage.verifyAddNewNoteButtonEnabled();
+    await schoolDetailsPage.verifyNewNoteSheetDoesNotExist();
+
+    //Verify the initial new note form state.
+    await schoolDetailsPage.clickAddNewNoteButton();
+    await schoolDetailsPage.verifyNewNoteSheetExists();
+    await schoolDetailsPage.verifyNewNoteTextAreaExists();
+    await schoolDetailsPage.verifyCancelNewNoteButtonExists();
+    await schoolDetailsPage.verifySaveNewNoteButtonExists();
+    await schoolDetailsPage.verifyCancelNewNoteButtonEnabled();
+    await schoolDetailsPage.verifySaveNewNoteButtonDisabled();
+
+    //Verify that the cancel button works.
+    await schoolDetailsPage.clickCancelNewNoteButton();
+    await schoolDetailsPage.verifyNewNoteSheetDoesNotExist();
+
+    //Verify interactions with the new note form.
+    const noteMessage = `Placed by an automated test of adding a note to a school. ${crypto.randomUUID()}`;
+    await schoolDetailsPage.clickAddNewNoteButton();
+    await schoolDetailsPage.verifyNewNoteSheetExists();
+    await schoolDetailsPage.verifySaveNewNoteButtonDisabled();
+    //Verify that the save button enables when text is entered.
+    await schoolDetailsPage.setNewNoteTextAreaText(noteMessage);
+    await schoolDetailsPage.verifySaveNewNoteButtonEnabled();
+    //Verify that the save button disables when text is cleared.
+    await schoolDetailsPage.setNewNoteTextAreaText('');
+    await schoolDetailsPage.verifySaveNewNoteButtonDisabled();
+    //Verify saving a new note.
+    await schoolDetailsPage.setNewNoteTextAreaText(noteMessage);
+    await schoolDetailsPage.verifySaveNewNoteButtonEnabled();
+    await schoolDetailsPage.clickSaveNewNoteButton();
+
+    //Verify that the note has been added.
+    await schoolDetailsPage.verifyNewNoteSheetDoesNotExist();
+    await schoolDetailsPage.verifySchoolNotesTimelineContainsItemWithText(noteMessage);
+
+    //Verify that the form has been reset after saving a new note.
+    await schoolDetailsPage.clickAddNewNoteButton();
+    await schoolDetailsPage.verifyNewNoteSheetExists();
+    await schoolDetailsPage.verifyNewNoteTextAreaText('');
+    await schoolDetailsPage.verifySaveNewNoteButtonDisabled();
 });
