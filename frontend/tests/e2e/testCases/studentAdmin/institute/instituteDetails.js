@@ -118,12 +118,11 @@ test('Add a note to a school', async () => {
     await schoolDetailsPage.clickAddNewNoteButton();
     await schoolDetailsPage.verifyNewNoteSheetExists();
     await schoolDetailsPage.verifySaveNewNoteButtonDisabled();
+
     //Verify that the save button enables when text is entered.
     await schoolDetailsPage.setNewNoteTextAreaText(noteMessage);
     await schoolDetailsPage.verifySaveNewNoteButtonEnabled();
-    //Verify that the save button disables when text is cleared.
-    await schoolDetailsPage.setNewNoteTextAreaText('');
-    await schoolDetailsPage.verifySaveNewNoteButtonDisabled();
+
     //Verify saving a new note.
     await schoolDetailsPage.setNewNoteTextAreaText(noteMessage);
     await schoolDetailsPage.verifySaveNewNoteButtonEnabled();
