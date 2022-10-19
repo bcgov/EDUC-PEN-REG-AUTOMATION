@@ -5,7 +5,7 @@ class SchoolsPage {
   constructor() {
     //search box
     this.schoolNameTextField = Selector('#name-text-field');
-    this.schoolStatusSelectField = Selector('#status-select-field');
+    this.schoolStatusSelectField = Selector('#status-select-field').parent('div[role="button"]');
     this.schoolSearchButton = Selector('#user-clear-button');
 
     //search results
