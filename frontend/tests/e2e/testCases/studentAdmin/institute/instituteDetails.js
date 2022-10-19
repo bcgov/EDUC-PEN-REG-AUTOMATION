@@ -75,7 +75,7 @@ test('Staff view school details test', async () => {
 
     await schoolsPage.clickSchoolSearchResult();
 
-    await schoolDetailsPage.verifySchoolDetails('02001');
+    await schoolDetailsPage.verifySchoolDetails();
 
 });
 

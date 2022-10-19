@@ -1,7 +1,5 @@
 import { Selector, t } from 'testcafe'
 const log = require('npmlog')
-import {DateTimeFormatter, LocalDateTime} from '@js-joda/core';
-const {getSchoolDetails,getFacilityTypeDisplayValue,getSchoolCategoryDisplayValue,getSchoolGradeListFormatted,getSchoolOrganizationDisplayValue,getSchoolMailingAddress} = require('../../../helpers/schoolUtils');
 
 class SchoolDetailsPage {
     constructor() {
@@ -23,17 +21,15 @@ class SchoolDetailsPage {
         this.saveNewNoteButton = Selector('#saveNote');
     }
 
-    async verifySchoolDetails(schoolNumber) {
+    async verifySchoolDetails() {
 
-        let schoolDetails = await getSchoolDetails(schoolNumber);
-
-        await this.verifySchoolMincodeName(schoolDetails.mincode, schoolDetails.displayName);
-        await this.verifyOpenDate(schoolDetails.openedDate);
-        await this.verifyFacilityType(schoolDetails.facilityTypeCode);
-        await this.verifySchoolCategory(schoolDetails.schoolCategoryCode);
-        await this.verifyGradesOffered(schoolDetails.grades);
-        await this.verifyOrganization(schoolDetails.schoolOrganizationCode);
-        await this.verifyMailingAddress(schoolDetails.addresses);
+        await this.verifySchoolMincodeName('00502001', 'Mount Baker Secondary');
+        await this.verifyOpenDate('1951/09/01');
+        await this.verifyFacilityType('Standard');
+        await this.verifySchoolCategory('Public');
+        await this.verifyGradesOffered('10, 11, 12');
+        await this.verifyOrganization('Two Semesters');
+        await this.verifyMailingAddress('Cranbrook, BC, CA');
 
     }
 
@@ -44,43 +40,32 @@ class SchoolDetailsPage {
     }
 
     async verifyOpenDate(openDate) {
-        let parsedOpenDate = new LocalDateTime.parse(openDate, DateTimeFormatter.ofPattern('uuuu-MM-dd\'T\'HH:mm:ss'));
-        let openDateString = parsedOpenDate.format(DateTimeFormatter.ofPattern('uuuu/MM/dd'));
-        await t.expect(this.schoolOpenDate.withText(openDateString).innerText).contains(openDateString);
+        await t.expect(this.schoolOpenDate.withText(openDate).innerText).contains(openDate);
         log.info("School Open Date Verified");
     }
 
     async verifyFacilityType(typeCode) {
-        let facilityTypeDisplayValue = await getFacilityTypeDisplayValue(typeCode);
-        await t.expect(this.schoolFacilityType.withText(facilityTypeDisplayValue).innerText).contains(facilityTypeDisplayValue);
+        await t.expect(this.schoolFacilityType.withText(typeCode).innerText).contains(typeCode);
         log.info("School Facility Type Verified");
     }
 
     async verifySchoolCategory(categoryCode) {
-        let categoryCodeDisplayValue = await getSchoolCategoryDisplayValue(categoryCode);
-        await t.expect(this.schoolCategory.withText(categoryCodeDisplayValue).innerText).contains(categoryCodeDisplayValue);
+        await t.expect(this.schoolCategory.withText(categoryCode).innerText).contains(categoryCode);
         log.info("School Category Verified");
     }
 
     async verifyGradesOffered(grades) {
-        let formattedGradeList = await getSchoolGradeListFormatted(grades);
-        await t.expect(this.schoolGradesOffered.withText(formattedGradeList).innerText).contains(formattedGradeList);
+        await t.expect(this.schoolGradesOffered.withText(grades).innerText).contains(grades);
         log.info("School Grades Offered Verified");
     }
 
     async verifyOrganization(organizationCode) {
-        let organizationDisplayValue = await getSchoolOrganizationDisplayValue(organizationCode);
-        await t.expect(this.schoolOrganization.withText(organizationDisplayValue).innerText).contains(organizationDisplayValue);
+        await t.expect(this.schoolOrganization.withText(organizationCode).innerText).contains(organizationCode);
         log.info("School Organization Verified");
     }
 
     async verifyMailingAddress(addresses) {
-        let schoolMailingAddress = await getSchoolMailingAddress(addresses);
-        let addressLine2 = schoolMailingAddress.city +', '+ schoolMailingAddress.provinceCode + ', ' + schoolMailingAddress.countryCode;
-
-        await t.expect(this.schoolMailingAddress.withText(schoolMailingAddress.addressLine1).innerText).contains(schoolMailingAddress.addressLine1);
-        await t.expect(this.schoolMailingAddress.withText(addressLine2).innerText).contains(addressLine2);
-        await t.expect(this.schoolMailingAddress.withText(schoolMailingAddress.postal).innerText).contains(schoolMailingAddress.postal);
+        await t.expect(this.schoolMailingAddress.withText(addresses).innerText).contains(addresses);
         log.info("School Mailing Address Verified");
     }
 
