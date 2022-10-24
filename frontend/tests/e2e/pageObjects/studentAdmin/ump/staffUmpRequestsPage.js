@@ -39,7 +39,7 @@ class staffUmpRequestsPage {
             log.info("Clicked on the search result one")
 
         } catch (err) {
-            log.info('Error was: ' + err);
+            log.info('Error was: ' + JSON.stringify(err));
             await t.eval(() => location.reload())
             log.info("page reloaded")
 
