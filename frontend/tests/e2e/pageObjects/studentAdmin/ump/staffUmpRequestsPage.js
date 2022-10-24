@@ -5,6 +5,7 @@ const log = require('npmlog')
 class staffUmpRequestsPage {
 
 
+
     constructor() {
 
         this.mainSearchBar = Selector('.v-select__slot').filterVisible()
@@ -40,7 +41,13 @@ class staffUmpRequestsPage {
 
         } catch (err) {
             log.info('Error was: ' + JSON.stringify(err));
-            await t.eval(() => location.reload())
+          const getPageHTML = ClientFunction(() => {
+            return document.documentElement.outerHTML;
+          });
+
+          console.log(await getPageHTML());
+
+          await t.eval(() => location.reload())
             log.info("page reloaded")
 
             await t
