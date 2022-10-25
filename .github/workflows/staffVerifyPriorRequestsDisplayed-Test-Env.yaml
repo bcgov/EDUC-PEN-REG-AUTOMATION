@@ -52,5 +52,5 @@ jobs:
           type: ${{ job.status }}
           job_name: "Prior pen requests displayed test - TEST --->"
           icon_emoji: ":bell:"
-          channel: "pen-automation-notifications"
+          channel: "educ-automation-failures"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK_FAILURES }}

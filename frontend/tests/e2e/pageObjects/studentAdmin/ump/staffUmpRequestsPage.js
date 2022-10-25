@@ -1,4 +1,4 @@
-import { Selector, t } from 'testcafe'
+import { Selector, t, ClientFunction  } from 'testcafe'
 const log = require('npmlog')
 
 
@@ -40,8 +40,16 @@ class staffUmpRequestsPage {
             log.info("Clicked on the search result one")
 
         } catch (err) {
+          log.info('Error was: ' + JSON.stringify(err));
+          const getPageHTML = ClientFunction(() => {
+            return document.documentElement.outerHTML;
+          });
+
+          console.log(await getPageHTML());
+
             await t.eval(() => location.reload())
             log.info("page reloaded")
+
 
             await t
                 .click(this.mainSearchBar)
