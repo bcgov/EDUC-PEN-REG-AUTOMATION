@@ -18,7 +18,6 @@ class staffUmpRequestsPage {
 
 
     async setMainStatusBar(data) {
-
         await t
             .click(this.mainSearchBar)
             .pressKey('backspace').pressKey('backspace').pressKey('backspace');
