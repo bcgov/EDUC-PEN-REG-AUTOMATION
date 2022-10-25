@@ -1,4 +1,4 @@
-import { Selector, t } from 'testcafe'
+import { Selector, t, ClientFunction  } from 'testcafe'
 const log = require('npmlog')
 
 
