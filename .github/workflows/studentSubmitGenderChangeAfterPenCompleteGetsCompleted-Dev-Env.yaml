@@ -54,7 +54,7 @@ jobs:
         if:  failure()
         with:
           type: ${{ job.status }}
-          job_name: "Prior pen requests not displayed test - TEST --->"
+          job_name: "Staff complete gmp and ump test - DEV --->"
           icon_emoji: ":bell:"
           channel: "educ-automation-failures"
           url: ${{ secrets.ROCKETCHAT_WEBHOOK_FAILURES }}
