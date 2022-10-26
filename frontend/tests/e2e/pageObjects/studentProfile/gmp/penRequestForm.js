@@ -109,7 +109,7 @@ class penRequestForm {
             log.info("Current School entered")
         }
 
-        await t.click(Selector('#acceptance_chk', { timeout: 1000 }))
+        await t.expect(Selector("#acceptance_chk").visible).ok().click(Selector('#acceptance_chk'))
         log.info("Bottom Check box is clicked")
 
         if (submitBool === true) {
