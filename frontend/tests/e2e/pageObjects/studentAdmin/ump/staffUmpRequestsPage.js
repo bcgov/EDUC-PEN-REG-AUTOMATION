@@ -56,7 +56,7 @@ class staffUmpRequestsPage {
     }
 
     async setPenNumberSearchBar(data) {
-        await t.typeText(this.penSearchBar, data).takeScreenshot()
+        await t.typeText(this.penSearchBar, data)
         log.info("Pen number search bar is set")
     }
 
