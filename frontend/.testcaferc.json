@@ -4,8 +4,8 @@
     "screenshots": {
         "path": "tests/e2e/screenshots/",
         "pathPattern": "${DATE}_${TIME}/test-${TEST_INDEX}/${USERAGENT}/${TEST}.png",
-        "takeOnFails": false,
-        "fullPage": false
+        "takeOnFails": true,
+        "fullPage": true
     },
     "quarantineMode": false,
     "developmentMode": true,

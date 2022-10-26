@@ -36,11 +36,11 @@ jobs:
           PEN_NUMBER: ${{ secrets.PEN_NUMBER }}
           STUDENT_ENTRY_POINT: ${{secrets.STUDENT_ENTRY_POINT_LANDING_PAGE}}
 
-      # - uses: actions/upload-artifact@v2
-      #   if: ${{ failure() }}
-      #   with:
-      #     name: Screenshot
-      #     path: D:\a\EDUC-E2E-PEN-REGISTRY\EDUC-E2E-PEN-REGISTRY\frontend\tests\e2e\screenshots\
+      - uses: actions/upload-artifact@v2
+        if: ${{ failure() }}
+        with:
+          name: Screenshot
+          path: D:\a\EDUC-PEN-REG-AUTOMATION\EDUC-PEN-REG-AUTOMATION\frontend\tests\e2e\screenshots\
 
       - name: Rocket.Chat Notification
         uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@1.1.1
