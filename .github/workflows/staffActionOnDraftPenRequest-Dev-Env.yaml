@@ -39,7 +39,7 @@ jobs:
 
       - name: Rocket.Chat Notification
         uses: RocketChat/Rocket.Chat.GitHub.Action.Notification@1.1.1
-        if: always()
+        if: success()
         with:
           type: ${{ job.status }}
           job_name: "Staff action on draft pen request test - DEV --->"
