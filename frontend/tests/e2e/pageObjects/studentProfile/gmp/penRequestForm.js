@@ -109,7 +109,8 @@ class penRequestForm {
             log.info("Current School entered")
         }
 
-        await t.click(Selector('div').child('#acceptance_chk'))
+        await t.scrollIntoView(this.bottomCheckBox);
+        await t.click(this.bottomCheckBox)
         log.info("Bottom Check box is clicked")
 
         if (submitBool === true) {
