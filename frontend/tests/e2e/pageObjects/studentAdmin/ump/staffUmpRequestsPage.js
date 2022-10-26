@@ -15,15 +15,16 @@ class staffUmpRequestsPage {
         //this.searchResultFirstElement = Selector('td').withText(data)
     }
 
-
-
     async setMainStatusBar(data) {
-        await t
-            .click(this.mainSearchBar)
-            .pressKey('backspace').pressKey('backspace').pressKey('backspace');
-        await t.typeText(this.mainSearchBar, data, { replace: true })
-        log.info(data + "  Entered in main status bar")
+      await t
+        .click(this.mainSearchBar)
+        .pressKey('backspace').pressKey('backspace').pressKey('backspace');
+      await t
+        .click(this.mainSearchBar)
+        .pressKey('delete').pressKey('delete').pressKey('delete');
+        //await t.typeText(this.mainSearchBar, data, { replace: true })
         await t.click(Selector('span').withText(data))
+        log.info(data + "  selected in main status bar")
     }
 
     async setLastNameSearchBar(data) {
