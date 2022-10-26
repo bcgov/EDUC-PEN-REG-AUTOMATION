@@ -66,8 +66,7 @@ const helper = {
             return response.data;
         } catch (e) {
             logApiError(e, 'postData', 'Error during POST on ' + url);
-            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
-            throw new ApiError(status, { message: 'API Post error' }, e);
+            throw e;
         }
     },
 
@@ -190,8 +189,7 @@ const helper = {
             return response.data;
         } catch (e) {
             logApiError(e, 'deleteData', 'Error during DELETE on ' + url);
-            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
-            throw new ApiError(status, { message: 'API DELETE error' }, e);
+            throw e;
         }
     },
 
