@@ -26,7 +26,7 @@ pipeline {
         }
       }
     }
-    stage('delete new exchange message created') {
+    stage('pre-delete new exchange message created') {
       steps {
         dir('frontend') {
           sh 'npm install'
