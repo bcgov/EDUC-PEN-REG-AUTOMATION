@@ -59,7 +59,7 @@ class ExchangePage {
   }
 
   async selectSchoolByName(contactName) {
-    await t.typeText(this.schoolNameTextField, contactName)
+    await t.typeText(this.schoolNameTextField, contactName).takeScreenshot();
     await this.selectSchoolNameOptionByIndex(0);
   }
 
@@ -125,7 +125,7 @@ class ExchangePage {
   }
 
   async clickSetSchoolName() {
-    await t.click(this.schoolNameTextField)
+    await t.click(this.schoolNameTextField).takeScreenshot();
     log.info("select school name clicked")
   }
 
@@ -163,7 +163,7 @@ class ExchangePage {
   }
 
   async setSubject(data) {
-    await t.typeText(this.subjectTextField, data)
+    await t.typeText(this.subjectTextField, data).takeScreenshot();
     log.info("new message subject text entered")
   }
 
