@@ -7,7 +7,7 @@ getToken().then(async (data) => {
   const token = data.access_token
 
   const edxUserInfo = {
-    digitalIdentityID: "0a617b66-8332-17f5-8183-38da9c080005",
+    digitalIdentityID: "0a617b66-8332-17f5-8183-38da9c080007",
     firstName: "automation",
     lastName: "tester",
     email: "tester@test.com"

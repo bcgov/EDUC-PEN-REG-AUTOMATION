@@ -109,6 +109,7 @@ class penRequestForm {
             log.info("Current School entered")
         }
 
+        await t.pressKey('tab')
         await t.click(Selector('#acceptance_chk', { timeout: 1000 }))
         log.info("Bottom Check box is clicked")
 

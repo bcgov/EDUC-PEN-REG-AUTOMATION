@@ -1,4 +1,4 @@
-import { Selector, t, ClientFunction  } from 'testcafe'
+import { Selector, t  } from 'testcafe'
 const log = require('npmlog')
 
 
@@ -15,15 +15,12 @@ class staffUmpRequestsPage {
         //this.searchResultFirstElement = Selector('td').withText(data)
     }
 
-
-
     async setMainStatusBar(data) {
-        await t
-            .click(this.mainSearchBar)
-            .pressKey('backspace').pressKey('backspace').pressKey('backspace');
-        await t.typeText(this.mainSearchBar, data, { replace: true })
-        log.info(data + "  Entered in main status bar")
-        await t.click(Selector('span').withText(data))
+        await t.click(this.mainSearchBar).pressKey('backspace').pressKey('backspace').pressKey('backspace');
+        await t.click(this.mainSearchBar).pressKey('delete').pressKey('delete').pressKey('delete');
+        await t.click(Selector('div').child('.v-list-item__title').withText(data))
+        await t.click(this.mainSearchBar).pressKey('esc');
+        log.info(data + " selected in main status bar")
     }
 
     async setLastNameSearchBar(data) {
@@ -39,16 +36,8 @@ class staffUmpRequestsPage {
             log.info("Clicked on the search result one")
 
         } catch (err) {
-          log.info('Error was: ' + JSON.stringify(err));
-          const getPageHTML = ClientFunction(() => {
-            return document.documentElement.outerHTML;
-          });
-
-          console.log(await getPageHTML());
-
             await t.eval(() => location.reload())
             log.info("page reloaded")
-
 
             await t
                 .click(this.mainSearchBar)
@@ -64,7 +53,7 @@ class staffUmpRequestsPage {
     }
 
     async setPenNumberSearchBar(data) {
-        await t.typeText(this.penSearchBar, data).takeScreenshot()
+        await t.typeText(this.penSearchBar, data)
         log.info("Pen number search bar is set")
     }
 

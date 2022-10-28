@@ -23,14 +23,12 @@ class staffPenRetrievalRequestPage {
         this.lastNameTextOfStudent2 = Selector('div.v-application--wrap tr:nth-of-type(2) td:nth-of-type(3)')
     }
 
-
     async setMainStatusBar(data) {
-        await t
-            .click(this.mainSearchBar)
-            .pressKey('backspace').pressKey('backspace').pressKey('backspace');
-        await t.typeText(this.mainSearchBar, data, { replace: true })
-        log.info(data + "  Entered in main status bar")
-        await t.click(Selector('span').withText(data))
+      await t.click(this.mainSearchBar).pressKey('backspace').pressKey('backspace').pressKey('backspace');
+      await t.click(this.mainSearchBar).pressKey('delete').pressKey('delete').pressKey('delete');
+      await t.click(Selector('div').child('.v-list-item__title').withText(data))
+      await t.click(this.mainSearchBar).pressKey('esc');
+      log.info(data + " selected in main status bar")
     }
 
     async clearMainStatusBar() {

@@ -26,6 +26,14 @@ pipeline {
         }
       }
     }
+    stage('pre-delete new exchange message created') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deletePenInboxNewMessage'
+        }
+      }
+    }
     stage('view pen inbox test') {
       steps {
         script {
