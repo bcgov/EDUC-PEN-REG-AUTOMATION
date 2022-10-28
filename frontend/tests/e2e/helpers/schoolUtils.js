@@ -2,7 +2,7 @@ const {getToken} = require('./generateToken');
 const {getSchoolIDBySchoolCode} = require('../services/institute-api-service');
 const constants = require('../config/constants');
 const restUtils = require('./axios-helper');
-import {DateTimeFormatter, LocalDateTime} from '@js-joda/core';
+const {DateTimeFormatter, LocalDateTime} = require('@js-joda/core');
 
 const schoolUtils = {
 
@@ -22,12 +22,13 @@ const schoolUtils = {
     },
 
     async setupSchoolPrincipal(){
-        await schoolUtils.createSchoolPrincipal('02001');
-        return await schoolUtils.getSchoolPrincipalDetails('02001');
+        await schoolUtils.createSchoolPrincipal('99999');
+        return await schoolUtils.getSchoolPrincipalDetails('99999');
     },
 
-    async teardownSchoolPrincipal(contactId){
-        await schoolUtils.deleteSchoolPrincipal('02001', contactId);
+    async teardownSchoolPrincipal(){
+        let principal = await schoolUtils.getSchoolPrincipalDetails('99999');
+        await schoolUtils.deleteSchoolPrincipal('99999', principal.schoolContactId);
     },
 
     async createSchoolToTest(){
@@ -118,8 +119,8 @@ const schoolUtils = {
                     alternatePhoneExtension: '321',
                     publiclyAvailable: true,
                     email: 'test@test.com',
-                    firstName: 'Tim',
-                    lastName: 'AutoTestingSetup',
+                    firstName: 'Automation',
+                    lastName: 'Testing',
                     effectiveDate: '2022-10-25T00:00:00',
                     expiryDate: null
                 };
