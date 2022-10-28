@@ -2,6 +2,7 @@ const log = require('npmlog');
 const axios = require('axios');
 const lodash = require('lodash');
 const {ApiError} = require('./error');
+const HttpStatus = require('http-status-codes');
 
 function logApiError(e, functionName, message) {
     if (message) {

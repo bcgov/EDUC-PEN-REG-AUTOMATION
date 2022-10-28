@@ -3,7 +3,7 @@
 const HttpStatus = require('http-status-codes');
 
 class ApiError extends Error {
-    constructor(status = HttpStatus.INTERNAL_SERVER_ERROR, data, reason, ...params) {
+    constructor(status, data, reason, ...params) {
         super(...params);
 
         // Maintains proper stack trace for where our error was thrown (only available on V8)
