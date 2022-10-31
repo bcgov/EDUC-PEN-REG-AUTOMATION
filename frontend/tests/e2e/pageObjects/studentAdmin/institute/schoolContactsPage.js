@@ -76,7 +76,7 @@ class SchoolDetailsPage {
         await t.expect(this.principalContactName.withText('Tony Hawk').innerText).contains('Tony Hawk');
         log.info("Contact Name Verified");
     }
-    async verifyContactEmail(email){
+    async verifyContactEmail(){
         await t.expect(this.principalContactEmail.withText('thawk@test.com').innerText).contains('thawk@test.com');
         log.info("Contact Email Verified");
     }
