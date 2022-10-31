@@ -1,9 +1,6 @@
 const log = require('npmlog');
 const axios = require('axios');
 const lodash = require('lodash');
-const {ApiError} = require('./error');
-const HttpStatus = require('http-status-codes');
-
 function logApiError(e, functionName, message) {
     if (message) {
         log.error(message);
@@ -48,8 +45,7 @@ const helper = {
             return response.data;
         } catch (e) {
             logApiError(e, 'getData', 'Error during GET on ' + url);
-            const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
-            throw new ApiError(status, { message: 'API Post error' }, e);
+            throw e;
         }
     },
     async postData(token, url, data, params) {
@@ -195,7 +191,7 @@ const helper = {
         } catch (e) {
             logApiError(e, 'deleteData', 'Error during DELETE on ' + url);
             const status = e.response ? e.response.status : HttpStatus.INTERNAL_SERVER_ERROR;
-            throw new ApiError(status, { message: 'API Post error' }, e);
+            throw new ApiError(status, { message: 'API DELETE error' }, e);
         }
     },
 
