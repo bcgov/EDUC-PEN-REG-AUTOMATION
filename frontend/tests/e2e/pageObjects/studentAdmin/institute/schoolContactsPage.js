@@ -63,42 +63,42 @@ class SchoolDetailsPage {
 
     async verifySchoolContactDetails() {
 
-        await this.verifyContactName();
-        await this.verifyContactEmail();
-        await this.verifyContactPhoneNum();
-        await this.verifyContactPhoneNumExt();
-        await this.verifyContactAltPhoneNum();
-        await this.verifyContactAltPhoneNumExt();
-        await this.verifyContactStartDate();
+        await this.verifyContactName('Tony Hawk');
+        await this.verifyContactEmail('thawk@test.com');
+        await this.verifyContactPhoneNum('250-123-4564');
+        await this.verifyContactPhoneNumExt('888');
+        await this.verifyContactAltPhoneNum('250-885-4578');
+        await this.verifyContactAltPhoneNumExt('999');
+        await this.verifyContactStartDate('2022/01/01');
         log.info('Contact Verification Complete');
     }
     async verifyContactName(name){
-        await t.expect(this.principalContactName.withText('Tony Hawk').innerText).contains('Tony Hawk');
-        log.info("Contact Name Verified");
+        await t.expect(this.principalContactName.withText(name).innerText).contains(name);
+        log.info(`Contact Name ${name} Verified`);
     }
-    async verifyContactEmail(){
-        await t.expect(this.principalContactEmail.withText('thawk@test.com').innerText).contains('thawk@test.com');
-        log.info("Contact Email Verified");
+    async verifyContactEmail(email){
+        await t.expect(this.principalContactEmail.withText(email).innerText).contains(email);
+        log.info(`Contact Email ${email} Verified`);
     }
-    async verifyContactPhoneNum(){
-        await t.expect(this.principalContactPhoneNumber.withText('250-123-4564').innerText).contains('250-123-4564');
-        log.info("Contact Phone Number Verified");
+    async verifyContactPhoneNum(phoneNumber){
+        await t.expect(this.principalContactPhoneNumber.withText(phoneNumber).innerText).contains(phoneNumber);
+        log.info(`Contact Phone Number ${phoneNumber} Verified`);
     }
-    async verifyContactPhoneNumExt(){
-        await t.expect(this.principalContactPhoneNumberExt.withText('888').innerText).contains('888');
-        log.info("Contact Phone Number Extension Verified");
+    async verifyContactPhoneNumExt(phoneNumberExt){
+        await t.expect(this.principalContactPhoneNumberExt.withText(phoneNumberExt).innerText).contains(phoneNumberExt);
+        log.info(`Contact Phone Number Extension ${phoneNumberExt} Verified`);
     }
-    async verifyContactAltPhoneNum(){
-        await t.expect(this.principalContactAltPhoneNumber.withText('250-885-4578').innerText).contains('250-885-4578');
-        log.info("Contact Alternate Phone Number Verified");
+    async verifyContactAltPhoneNum(altPhoneNumber){
+        await t.expect(this.principalContactAltPhoneNumber.withText(altPhoneNumber).innerText).contains(altPhoneNumber);
+        log.info(`Contact Alternate Phone Number ${altPhoneNumber} Verified`);
     }
-    async verifyContactAltPhoneNumExt(){
-        await t.expect(this.principalContactAltPhoneNumberExt.withText('999').innerText).contains('999');
-        log.info("Contact Alternate Phone Number Extension Verified");
+    async verifyContactAltPhoneNumExt(altPhoneNumberExt){
+        await t.expect(this.principalContactAltPhoneNumberExt.withText(altPhoneNumberExt).innerText).contains(altPhoneNumberExt);
+        log.info(`Contact Alternate Phone Number Extension ${altPhoneNumberExt} Verified`);
     }
-    async verifyContactStartDate(){
-        await t.expect(this.principalContactStartDate.withText('2022/01/01').innerText).contains('2022/01/01');
-        log.info("Contact Start Date Verified");
+    async verifyContactStartDate(startDate){
+        await t.expect(this.principalContactStartDate.withText(startDate).innerText).contains(startDate);
+        log.info(`Contact Start Date ${startDate} Verified`);
     }
 
 }
