@@ -96,7 +96,9 @@
     "instituteContacts": "node tests/e2e/testSuites/instituteE2E/instituteContactsTest.js",
     "instituteDetails": "node tests/e2e/testSuites/instituteE2E/instituteDetailsTest.js",
     "createNewMessageWNote": "node tests/e2e/testSuites/edxE2E/edxMessageTest.js",
-    "viewSchoolContacts": "node tests/e2e/testSuites/instituteE2E/viewSchoolContactsTest.js"
+    "viewSchoolContacts": "node tests/e2e/testSuites/instituteE2E/viewSchoolContactsTest.js",
+    "insertSchoolPrincipal": "node tests/e2e/testCases/studentAdmin/institute/insertSchoolPrincipal.js",
+    "deleteSchoolPrincipal": "node tests/e2e/testCases/studentAdmin/institute/deleteSchoolPrincipal.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
@@ -104,7 +106,10 @@
     "dotenv": "^8.2.0",
     "nconf": "^0.12.0",
     "npmlog": "^4.1.2",
-    "testcafe": "^2.0.1"
+    "testcafe": "^2.0.1",
+    "@js-joda/core": "^2.0.0",
+    "lodash": "^4.17.20",
+    "http-status-codes": "^1.4.0"
   },
   "engines": {
     "node": ">= 6.0.0",
