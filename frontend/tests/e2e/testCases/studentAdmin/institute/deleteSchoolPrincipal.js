@@ -2,7 +2,6 @@ const { teardownSchoolPrincipal } = require('../../../helpers/schoolUtils');
 const log = require("npmlog");
 
 teardownSchoolPrincipal().then(async (data) => {
-    log.info('School Principal Deleted.');
 
 })
 

@@ -3,6 +3,7 @@ const {getSchoolIDBySchoolCode} = require('../services/institute-api-service');
 const constants = require('../config/constants');
 const restUtils = require('./axios-helper');
 const {DateTimeFormatter, LocalDateTime} = require('@js-joda/core');
+const log = require("npmlog");
 
 const schoolUtils = {
 
@@ -28,7 +29,12 @@ const schoolUtils = {
 
     async teardownSchoolPrincipal(){
         let principal = await schoolUtils.getSchoolPrincipalDetails('99999');
-        await schoolUtils.deleteSchoolPrincipal('99999', principal.schoolContactId);
+        if(principal){
+          await schoolUtils.deleteSchoolPrincipal('99999', principal.schoolContactId);
+          log.info('School Principal Deleted.');
+        } else {
+          log.info('School Principal already removed.');
+        }
     },
 
     async createSchoolToTest(){
@@ -91,12 +97,14 @@ const schoolUtils = {
     },
 
     async getSchoolDetails(schoolNumber){
-
         const data = await getToken();
         const token = data.access_token;
         let schoolID = await getSchoolIDBySchoolCode(schoolNumber);
-        const url = `${constants.instituteApiUrl}school/${schoolID}`;
-        return restUtils.getData(token, url);
+        if(schoolID) {
+          const url = `${constants.instituteApiUrl}school/${schoolID}`;
+          return restUtils.getData(token, url);
+        }
+        return null;
     },
     async createSchoolPrincipal(schoolNumber){
         const data = await getToken();
@@ -139,17 +147,19 @@ const schoolUtils = {
         let schoolPrincipal = '';
         let schoolDetails = await schoolUtils.getSchoolDetails(schoolNumber);
 
-        const currentDate = LocalDateTime.now();
-        for (const schoolContact of schoolDetails.contacts){
-            if(schoolContact.schoolContactTypeCode === 'PRINCIPAL'){
-                let parsedExpiryDate = null;
-                if (schoolContact.expiryDate) {
-                    parsedExpiryDate = new LocalDateTime.parse(schoolContact.expiryDate, DateTimeFormatter.ofPattern('uuuu-MM-dd\'T\'HH:mm:ss'));
-                }
-                if (parsedExpiryDate === null || parsedExpiryDate > currentDate) {
-                    schoolPrincipal = schoolContact;
-                }
-            }
+        if(schoolDetails){
+          const currentDate = LocalDateTime.now();
+          for (const schoolContact of schoolDetails.contacts){
+              if(schoolContact.schoolContactTypeCode === 'PRINCIPAL'){
+                  let parsedExpiryDate = null;
+                  if (schoolContact.expiryDate) {
+                      parsedExpiryDate = new LocalDateTime.parse(schoolContact.expiryDate, DateTimeFormatter.ofPattern('uuuu-MM-dd\'T\'HH:mm:ss'));
+                  }
+                  if (parsedExpiryDate === null || parsedExpiryDate > currentDate) {
+                      schoolPrincipal = schoolContact;
+                  }
+              }
+          }
         }
         return schoolPrincipal;
     },
