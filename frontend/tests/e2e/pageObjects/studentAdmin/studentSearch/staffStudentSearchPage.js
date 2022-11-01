@@ -293,6 +293,15 @@ class staffStudentSearchPage {
 
     async verifyTableCell(data) {
         await t.wait(10000)
+
+        for(let i = 0; i < (await Selector('span').count); i++) {
+          const spanText = await Selector('span').nth(i).innerText;
+          if(isNaN(spanText)){
+            console.log('Span Selectors ' + i + ': ' + spanText);
+          }
+
+        }
+
         const text = Selector('span').withExactText(data)
         await t.expect((text).exists).ok()
         log.info("Following Text verified    " + data)
