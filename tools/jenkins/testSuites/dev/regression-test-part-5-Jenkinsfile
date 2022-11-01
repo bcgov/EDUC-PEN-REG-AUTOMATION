@@ -55,6 +55,15 @@ pipeline {
         }
       }
     }
+    stage('insert new school principal') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deleteSchoolPrincipal'
+          sh 'npm run insertSchoolPrincipal'
+        }
+      }
+    }
     stage('verify institute contacts test') {
       steps {
         script {
@@ -67,6 +76,14 @@ pipeline {
             currentBuild.result = 'FAILURE'
             echo "Error detected, Continue to the next step"
           }
+        }
+      }
+    }
+    stage('delete school principal') {
+      steps {
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run deleteSchoolPrincipal'
         }
       }
     }
