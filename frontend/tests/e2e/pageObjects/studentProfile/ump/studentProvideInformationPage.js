@@ -46,7 +46,7 @@ class studentProvideInformationPage {
         log.info('file uploaded')
         await t.click(this.uploadFormButton)
         log.info('upload form button is clicked')
-        await t.expect(this.uploadConfirmation.innerText).eql("File upload successful.", { timeout: 60000 })
+        await t.expect(this.uploadConfirmation.innerText).contains("File upload successful.", { timeout: 60000 })
         log.info('upload confirmation verified')
         await t.click(this.closeButton)
         log.info('close button is clicked')
@@ -55,7 +55,7 @@ class studentProvideInformationPage {
     async verifyMaxFileSizeError(data) {
         await t.setFilesToUpload((this.selectFile), [data])
         log.info('file uploaded')
-        await t.expect(this.canNotUploadLargeFileMessage.innerText).eql("File size should not be larger than 10 MB!", { timeout: 60000 })
+        await t.expect(this.canNotUploadLargeFileMessage.innerText).contains("File size should not be larger than 10 MB!", { timeout: 60000 })
         log.info('File size should not be larger than 10 MB! text verified')
         await t.click(this.closeButton)
         log.info('close button is clicked')
