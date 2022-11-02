@@ -20,7 +20,7 @@ pipeline {
         dir('frontend') {
           script {
             LOCAL_JSON = sh(script: 'oc -n 8878b4-dev -o json get secret test-cafe-config | sed -n \'s/.*"local.json": "\\(.*\\)"/\\1/p\' | base64 --decode', returnStdout: true).trim()
-            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/regression-test-part-4/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
+            writeFile file: '/var/lib/jenkins/jobs/DEV/jobs/TestCafeWorkflows/jobs/TestSuites/jobs/regression-test-part-5/workspace/frontend/tests/e2e/config/index.js', text: LOCAL_JSON
           }
         }
       }
