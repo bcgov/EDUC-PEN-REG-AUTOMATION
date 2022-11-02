@@ -13,7 +13,7 @@ const schoolUtils = {
 
         await schoolUtils.createSchoolPrincipal(newSchool.schoolNumber);
 
-        return await schoolUtils.getSchoolDetails(newSchool.schoolNumber);
+        return schoolUtils.getSchoolDetails(newSchool.schoolNumber);
     },
 
     async teardownSchoolWContact(school){
@@ -24,7 +24,7 @@ const schoolUtils = {
 
     async setupSchoolPrincipal(){
         await schoolUtils.createSchoolPrincipal('99999');
-        return await schoolUtils.getSchoolPrincipalDetails('99999');
+        return schoolUtils.getSchoolPrincipalDetails('99999');
     },
 
     async teardownSchoolPrincipal(){
@@ -133,6 +133,11 @@ const schoolUtils = {
                     expiryDate: null
                 };
 
+        if(!schoolID){
+          await this.createSchoolToTest();
+          schoolID = await getSchoolIDBySchoolCode(schoolNumber);
+        }
+
         const url = `${constants.instituteApiUrl}school/${schoolID}/contact`;
         return restUtils.postData(token, url, schoolPayload);
     },
@@ -169,9 +174,8 @@ const schoolUtils = {
         const url = `${constants.instituteApiUrl}facility-codes`;
         let facilityCodes =  await restUtils.getData(token, url);
 
-        let result = facilityCodes.find( function (i){
+        return facilityCodes.find( function (i){
             return (i.facilityTypeCode === typeCode)}).label;
-        return result;
     },
     async getSchoolCategoryDisplayValue(categoryCode) {
         const data = await getToken();
@@ -179,9 +183,8 @@ const schoolUtils = {
         const url = `${constants.instituteApiUrl}category-codes`;
         let categoryCodes =  await restUtils.getData(token, url);
 
-        let result = categoryCodes.find( function (i){
+        return categoryCodes.find( function (i){
             return (i.schoolCategoryCode === categoryCode)}).label;
-        return result;
     },
     async getSchoolGradeListFormatted(grades) {
         const data = await getToken();
@@ -207,9 +210,8 @@ const schoolUtils = {
         const url = `${constants.instituteApiUrl}organization-codes`;
         let organizationCodes =  await restUtils.getData(token, url);
 
-        let result = organizationCodes.find( function (i){
+        return organizationCodes.find( function (i){
             return (i.schoolOrganizationCode === organizationCode)}).label;
-        return result;
     },
     async getSchoolMailingAddress(addresses) {
         for(const address of addresses){
