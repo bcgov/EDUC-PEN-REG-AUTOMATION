@@ -97,8 +97,7 @@
     "instituteDetails": "node tests/e2e/testSuites/instituteE2E/instituteDetailsTest.js",
     "createNewMessageWNote": "node tests/e2e/testSuites/edxE2E/edxMessageTest.js",
     "viewSchoolContacts": "node tests/e2e/testSuites/instituteE2E/viewSchoolContactsTest.js",
-    "insertSchoolPrincipal": "node tests/e2e/testCases/studentAdmin/institute/insertSchoolPrincipal.js",
-    "deleteSchoolPrincipal": "node tests/e2e/testCases/studentAdmin/institute/deleteSchoolPrincipal.js"
+    "refreshInstituteEntities": "node tests/e2e/testCases/studentAdmin/institute/refreshInstituteEntitites.js"
   },
   "dependencies": {
     "axios": "^0.27.2",

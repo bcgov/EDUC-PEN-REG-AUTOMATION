@@ -3,6 +3,7 @@ const constants = require('../config/constants');
 
 const log = require('npmlog');
 const {getToken} = require('../helpers/generateToken');
+const AUTHORITY_ENDPOINT = `authority`;
 const SCHOOL_ENDPOINT = `school`;
 const DISTRICT_ENDPOINT = `district`;
 
@@ -13,7 +14,41 @@ const instituteApiService = {
         return restUtils.getData(token, url);
     },
 
-    async getSchoolIDBySchoolCode(schoolCode) {
+    async getAuthorityIDByAuthorityNumber(authorityNumber) {
+      const data = await getToken();
+      const token = data.access_token;
+
+      const authoritySearchCriteria = [{
+        condition: null,
+        searchCriteriaList: [
+          {
+            key: "authorityNumber",
+            operation: "eq",
+            value: authorityNumber,
+            valueType: "STRING",
+            condition: "AND"
+          },
+          {
+            key: "closedDate",
+            operation: "eq",
+            value: null,
+            valueType: "STRING",
+            condition: "AND"
+          }
+        ]
+      }];
+
+      const authoritySearchParam = {
+        params: {
+          searchCriteriaList: JSON.stringify(authoritySearchCriteria)
+        }
+      };
+      const url = `${constants.instituteApiUrl}${AUTHORITY_ENDPOINT}/paginated`;
+      const authorityResult = await restUtils.getData(token, url, authoritySearchParam);
+      return authorityResult?.content[0]?.independentAuthorityId;
+    },
+
+    async getSchoolIDBySchoolCodeAndDistrictID(schoolCode, districtID) {
         const data = await getToken();
         const token = data.access_token;
 
@@ -33,6 +68,13 @@ const instituteApiService = {
                     value: null,
                     valueType: "STRING",
                     condition: "AND"
+                },
+                {
+                  key: "districtID",
+                  operation: "eq",
+                  value: districtID,
+                  valueType: "UUID",
+                  condition: "AND"
                 }
             ]
         }];
