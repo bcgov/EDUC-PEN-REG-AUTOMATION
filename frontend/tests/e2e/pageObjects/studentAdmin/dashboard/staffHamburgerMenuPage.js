@@ -105,6 +105,7 @@ class staffHamburgerMenuPage {
     }
 
     async clickInstitutionsAuthoritiesLink(){
+      await t.pressKey('tab');
       await t.click(this.institutionsAuthoritiesLink);
       log.info("Institution authorities link is clicked");
     }
@@ -115,6 +116,7 @@ class staffHamburgerMenuPage {
     }
 
     async clickInstitutionsSchoolLink(){
+        await t.pressKey('tab');
         await t.click(this.institutionsSchoolLink);
         log.info("Institution school link is clicked");
     }
