@@ -9,9 +9,9 @@ getToken().then(async (data) => {
     const token = data.access_token;
 
     const kcResponse = await helper.getData(token, `${constants.kcUrl}?username=${constants.idirReadOnlyCredentials.guid}`);
-    console.log('IDIR user found');
 
     const userId = kcResponse[0].id;
+    console.log('IDIR user found');
 
     const rolesAvailable = await helper.getData(token, `${constants.kcUrl}/${userId}/role-mappings/realm/available`);
     const rolesRequired = [];
