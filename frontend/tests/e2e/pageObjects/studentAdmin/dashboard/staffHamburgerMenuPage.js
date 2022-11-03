@@ -99,13 +99,11 @@ class staffHamburgerMenuPage {
     }
 
     async clickInstitutionsDistrictLink(){
-        await t.pressKey('tab');
         await t.click(this.institutionsDistrictLink);
         log.info("Institution district link is clicked");
     }
 
     async clickInstitutionsAuthoritiesLink(){
-      await t.pressKey('tab');
       await t.click(this.institutionsAuthoritiesLink);
       log.info("Institution authorities link is clicked");
     }
@@ -116,7 +114,6 @@ class staffHamburgerMenuPage {
     }
 
     async clickInstitutionsSchoolLink(){
-        await t.pressKey('tab');
         await t.click(this.institutionsSchoolLink);
         log.info("Institution school link is clicked");
     }
