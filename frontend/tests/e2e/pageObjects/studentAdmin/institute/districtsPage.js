@@ -6,7 +6,7 @@ class DistrictsPage {
     //search box
     this.districtNameTextField = Selector('#name-text-field');
     this.districtSearchButton = Selector('#district-search-button');
-
+    this.districtContactButton = Selector('#districtContacts');
     //search results
     this.districtSearchResultsText = Selector('tr td');
   }
@@ -38,6 +38,11 @@ class DistrictsPage {
   async clickDistrictSearchResult(districtName){
     await t.click(this.districtSearchResultsText.withText(districtName));
     log.info("District information was clicked");
+  }
+
+  async clickDistrictContacts(){
+    await t.click(this.districtContactButton).wait(100);
+    log.info("District contacts selected");
   }
 }
 
