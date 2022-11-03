@@ -1,18 +1,4 @@
 {
-    "availableRoles": [
-        "NOMINAL_ROLL",
-        "STUDENT_ADMIN_READ_ONLY",
-        "SAGA_DASHBOARD_ROLE",
-        "STUDENT_ADMIN_ADMINISTRATOR",
-        "STUDENT_PROFILE_ADMIN",
-        "PEN_REQUEST_BATCH_ADMIN",
-        "STUDENT_SEARCH_ADMIN",
-        "STUDENT_PROFILE_READ_ONLY",
-        "STUDENT_ADMIN",
-        "SECURE_EXCHANGE",
-        "PEN_TEAM_ROLE",
-        "EDX_ADMIN"
-    ],
     "adminRoles": [
         "SAGA_DASHBOARD_ROLE",
         "STUDENT_ADMIN_ADMINISTRATOR",

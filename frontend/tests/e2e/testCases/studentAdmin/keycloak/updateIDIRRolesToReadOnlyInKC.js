@@ -1,40 +1,34 @@
-const helper = require("../../../helpers/axios-helper")
-const constants = require('../../../config/constants')
-const { getToken } = require('../../../helpers/generateToken')
-const rolesData = require('../../../config/roles/rolesData.json')
+const helper = require("../../../helpers/axios-helper");
+const constants = require('../../../config/constants');
+const { getToken } = require('../../../helpers/generateToken');
+const rolesData = require('../../../config/roles/rolesData.json');
 
 
 getToken().then(async (data) => {
 
-    const token = data.access_token
+    const token = data.access_token;
 
-    const kcResponse = await helper.getData(token, `${constants.kcUrl}?username=${constants.idirReadOnlyCredentials.guid}`)
-    console.log(kcResponse)
+    const kcResponse = await helper.getData(token, `${constants.kcUrl}?username=${constants.idirReadOnlyCredentials.guid}`);
 
-    const userId = kcResponse[0].id
-    //console.log(userId)
+    const userId = kcResponse[0].id;
+    console.log('IDIR user found');
 
-    var rolesAvailable = await helper.getData(token, `${constants.kcUrl}/${userId}/role-mappings/realm/available`)
-    //console.log(rolesAvailable)
-    var rolesRequired = []
+    const rolesAvailable = await helper.getData(token, `${constants.kcUrl}/${userId}/role-mappings/realm/available`);
+    const rolesRequired = [];
 
     for (let i = 0; i < rolesAvailable.length; i++) {
-
-        if (rolesAvailable[i].name == rolesData.readOnlyRoles[0] || rolesAvailable[i].name == rolesData.readOnlyRoles[1]
-            || rolesAvailable[i].name == rolesData.readOnlyRoles[2]) {
-
-            //roles added to array    
-            console.log(rolesAvailable[i].name)
-            rolesRequired.push(rolesAvailable[i])
+        if (rolesData.readOnlyRoles.some(role => role === rolesAvailable[i].name)) {
+            //roles added to array
+            rolesRequired.push(rolesAvailable[i]);
         }
     }
 
-    const updateIdirRoles = await helper.postKCUser(token, `${constants.kcUrl}/${userId}/role-mappings/realm`, rolesRequired)
+    const updateIdirRoles = await helper.postKCUser(token, `${constants.kcUrl}/${userId}/role-mappings/realm`, rolesRequired);
     console.log(updateIdirRoles);
 }
 )
     .catch((error => {
-        console.log(error)
-        throw new Error("Test failed")
+        console.log(error);
+        throw new Error("Adding IDIR RolesToReadOnlyInKC failed");
     }))
 

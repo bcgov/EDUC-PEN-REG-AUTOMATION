@@ -119,10 +119,10 @@ pipeline {
         }
       }
     }
-    stage('add admin roles to IDIR') {
+    stage('add read only roles to IDIR') {
       steps {
         dir('frontend') {
-          sh 'npm run updateIDIRRolesInKC'
+          sh 'npm run updateIDIRRolesToReadOnlyInKC'
         }
       }
     }                    
