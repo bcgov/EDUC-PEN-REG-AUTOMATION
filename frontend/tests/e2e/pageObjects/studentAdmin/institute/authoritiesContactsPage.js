@@ -19,7 +19,7 @@ class AuthoritiesContactsPage {
   }
 
   async verifyAuthorityContactName() {
-    await t.expect(this.authorityContactName.withText('Greg').count).eql(1, {timeout: 3000});
+    await t.expect(this.authorityContactName.withText('Automation').count).eql(1, {timeout: 3000});
     log.info('Authority contact name verified');
   }
 }

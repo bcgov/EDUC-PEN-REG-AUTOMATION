@@ -31,13 +31,13 @@ test('Staff view authority contacts test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsAuthoritiesLink();
 
-  await authoritiesPage.setName('agassiz');
+  await authoritiesPage.setName('Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('Agassiz Christian School Society');
+  await authoritiesPage.verifyAuthoritySearchResults('Automation Testing Authority');
   await authoritiesPage.clickAuthorityContacts();
 
-  await authoritiesContactsPage.verifyAuthorityNumberAndName('101 - Agassiz Christian School Society');
+  await authoritiesContactsPage.verifyAuthorityNumberAndName('999 - Automation Testing Authority');
   await authoritiesContactsPage.verifyAuthorityTypeLabel();
   await authoritiesContactsPage.verifyAuthorityContactName();
 });
@@ -50,7 +50,7 @@ test('Staff edit school contact test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsSchoolLink();
 
-  const schoolName = 'EDX Team School';
+  const schoolName = 'Automation Testing School';
   await schoolsPage.setName(schoolName);
   await schoolsPage.selectNameOptionByIndex(0);
   await schoolsPage.selectStatus(1);

@@ -94,7 +94,7 @@ const instituteUtils = {
             phoneNumber: '2505555555',
             email: 'fakeuser@sd5.bc.ca',
             website: null,
-            displayName: 'EDX Team School',
+            displayName: 'Automation Testing School',
             schoolOrganizationCode: 'TWO_SEM',
             schoolCategoryCode: 'PUBLIC',
             facilityTypeCode: 'STANDARD',
