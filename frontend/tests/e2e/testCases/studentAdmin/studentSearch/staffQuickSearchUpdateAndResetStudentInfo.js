@@ -17,7 +17,7 @@ const staffSearch = new staffStudentSearchPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login search update and reset student info test', async t => {
@@ -70,7 +70,7 @@ test('Staff login search update and reset student info test', async t => {
 
     await staffSearch.clickOnFirstSearchResult()
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await studentDetails.setUsualSurname(studentSearchResult.usualSurnameSearchResult)
 

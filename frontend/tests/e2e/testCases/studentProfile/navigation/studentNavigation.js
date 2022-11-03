@@ -7,7 +7,7 @@ const studentLogin = new studentLoginPage()
 fixture`Navigation`
   .page(studentProfileUrl)
   .beforeEach(async t => {
-    await t.maximizeWindow().setTestSpeed(0.5)
+    await t.resizeWindow(1920, 1080).setTestSpeed(0.5)
   })
 
 test('Bceid Login and Verify GMP and UMP navigation test', async t => {

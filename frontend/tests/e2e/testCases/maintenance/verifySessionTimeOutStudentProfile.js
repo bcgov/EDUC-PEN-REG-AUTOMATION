@@ -16,7 +16,7 @@ if (constants.studentEntryPoint == "landingPage") {
         .page(
             constants.studentProfileUrl)
         .beforeEach(async t => {
-            await t.maximizeWindow()
+          await t.resizeWindow(1920, 1080)
         })
 }
 else if (constants.studentEntryPoint == "gmp") {
@@ -24,7 +24,7 @@ else if (constants.studentEntryPoint == "gmp") {
         .page(
             constants.studentProfileUrlGmp)
         .beforeEach(async t => {
-            await t.maximizeWindow()
+          await t.resizeWindow(1920, 1080)
         })
 }
 

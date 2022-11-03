@@ -16,7 +16,7 @@ const newUserInvitePage = new newUserPage();
 fixture`New_User_Invite`
   .page(staffLoginUrl)
   .beforeEach(async t => {
-    await t.maximizeWindow()
+    await t.resizeWindow(1920, 1080)
   });
 
 test('Staff_Add_New_User_Edx_Invite', async t => {

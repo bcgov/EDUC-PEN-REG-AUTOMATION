@@ -19,7 +19,7 @@ const studentDetails = new studentDetailsPage()
 fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff Merge Two students and verify messages test', async t => {
@@ -50,7 +50,7 @@ test('Staff Merge Two students and verify messages test', async t => {
 
     await compare.clickPopUpYesButton()
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await studentDetails.verifyLegalNames(studentData.data[3])
 

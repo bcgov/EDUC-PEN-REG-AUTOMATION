@@ -14,7 +14,7 @@ const penRequestFiles = new penRequestFilesPage()
 fixture`Student Admin - Batch`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+      await t.resizeWindow(1920, 1080)
     })
 
 test('AUTMN005', async t => {
@@ -27,7 +27,7 @@ test('AUTMN005', async t => {
 
     await penRequestFiles.clickOnSubmissionNumber(batchFiles.batchData.test[4].submissionNumber)
 
-    await penRequestFiles.maximizeWindow()
+    await penRequestFiles.resizeWindow()
 
     await penRequestFiles.clickViewDetailsButton()
 

@@ -14,7 +14,7 @@ const dashboard = new staffDashboardPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login and can not request more information/issue Pen  but can reject Draft request test', async t => {

@@ -15,7 +15,7 @@ const accessUsers = new accessUsersPage();
 fixture`Student Admin`
 .page(staffLoginUrl)
 .beforeEach(async t => {
-  await t.maximizeWindow()
+  await t.resizeWindow(1920, 1080)
 });
 
 test('Staff view Pen inbox access management test', async () => {

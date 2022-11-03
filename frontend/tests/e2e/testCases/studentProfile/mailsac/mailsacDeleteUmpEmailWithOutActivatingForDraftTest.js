@@ -8,7 +8,7 @@ const mailsac = new mailsacPage()
 fixture`Mailsac`
     .page(mailsacUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('mailsac Delete email with out activating test', async t => {

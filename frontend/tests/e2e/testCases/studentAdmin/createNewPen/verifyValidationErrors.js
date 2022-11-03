@@ -12,7 +12,7 @@ const create = new createNewPenPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff verify validation errors on create new pen screen test', async t => {

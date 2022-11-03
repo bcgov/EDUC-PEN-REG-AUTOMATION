@@ -335,7 +335,7 @@ class staffStudentSearchPage {
             await t.click(this.searchButton)
             await t.click(this.searchResult)
 
-            await t.maximizeWindow()
+            await t.resizeWindow(1920, 1080)
             await t.wait(2000)
 
             await t.typeText(this.localID, data[i].updates.localID, { replace: true })

@@ -15,7 +15,7 @@ const dashboard = new staffDashboardPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login and request more information from student on Ump request test', async t => {

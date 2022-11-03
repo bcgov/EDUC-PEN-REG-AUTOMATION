@@ -17,7 +17,7 @@ const newUserInvitePage = new newUserPage();
 fixture`New_User_Invite`
   .page(staffLoginUrl)
   .beforeEach(async t => {
-    await t.maximizeWindow()
+    await t.resizeWindow(1920, 1080)
   });
 
 test('Staff view and Manage A District And Invite A new District User', async () => {

@@ -13,7 +13,7 @@ const studentDetails = new studentDetailsPage()
 fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login and verify twin record  test', async t => {
@@ -32,7 +32,7 @@ test('Staff login and verify twin record  test', async t => {
 
     await studentDetails.clickOnTableCell(constants.twinTwoPen)
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await studentDetails.verifyLegalNames(studentData.data[1])
 
@@ -42,7 +42,7 @@ test('Staff login and verify twin record  test', async t => {
 
     await studentDetails.clickOnTableCell(constants.twinOnePen)
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await studentDetails.verifyLegalNames(studentData.data[0])
 

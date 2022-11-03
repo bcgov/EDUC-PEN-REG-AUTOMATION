@@ -31,10 +31,10 @@ class penRequestFilesPage {
         }
     }
 
-    async maximizeWindow(){
-            await t.maximizeWindow()
-            log.info("Maximized the browser window")
-        }
+    async resizeWindow(){
+        await t.resizeWindow(1920, 1080)
+        log.info("Resized the browser window")
+    }
 
     async clickViewDetailsButton(){
             await t.click(this.viewDetailsButton)

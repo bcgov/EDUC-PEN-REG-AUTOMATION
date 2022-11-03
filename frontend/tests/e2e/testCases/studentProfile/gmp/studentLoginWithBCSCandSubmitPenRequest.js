@@ -10,7 +10,7 @@ const penRequest = new penRequestForm()
 fixture`Student Profile`
   .page(constants.studentProfileUrlBcsc)
   .beforeEach(async t => {
-    await t.maximizeWindow()
+    await t.resizeWindow(1920, 1080)
   })
 
 test('BCSC Login and Fill Pen request form test', async t => {

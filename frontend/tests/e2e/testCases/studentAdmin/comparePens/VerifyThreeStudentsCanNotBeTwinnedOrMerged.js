@@ -11,7 +11,7 @@ const compare = new comparePenNumbersPage()
 fixture`Student Admin`
     .page(constants.staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff Verify Three students can not be twinned test', async t => {

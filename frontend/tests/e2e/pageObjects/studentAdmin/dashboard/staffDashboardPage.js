@@ -29,9 +29,9 @@ class staffDashboardPage {
         this.viewPenInboxButton = Selector('#PENTeamInboxBtn')
     }
 
-    async maximizeWindow() {
-        await t.maximizeWindow()
-        log.info("Window maximized")
+    async resizeWindow() {
+        await t.resizeWindow(1920, 1080)
+        log.info("Window resized")
     }
 
     async clickViewGmpButton() {

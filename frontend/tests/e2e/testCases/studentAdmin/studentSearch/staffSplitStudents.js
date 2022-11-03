@@ -14,7 +14,7 @@ const audit = new studentAuditHistoryDetailsPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login, search and split students test', async t => {
@@ -63,7 +63,7 @@ test('Staff login, search and split students test', async t => {
 
     await audit.clickAcceptSplitPenButton()
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await studentDetails.verifyLegalNames(studentData.updates)
 
@@ -72,8 +72,6 @@ test('Staff login, search and split students test', async t => {
     await studentDetails.verifyTwinsNumber("1 Twins")
 
     await studentDetails.clickOnTableCell(penSplit)
-
-    // await dashboard.maximizeWindow()
 
     // await studentDetails.verifyLegalNames(studentData.data)
 

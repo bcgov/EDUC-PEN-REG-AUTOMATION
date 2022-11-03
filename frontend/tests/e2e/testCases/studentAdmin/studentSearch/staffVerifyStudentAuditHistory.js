@@ -14,7 +14,7 @@ const audit = new studentAuditHistoryDetailsPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login search update and reset student info test', async t => {

@@ -17,7 +17,7 @@ const staffSearch = new staffStudentSearchPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login and search pen request data', async t => {
@@ -36,7 +36,7 @@ test('Staff login and search pen request data', async t => {
 
     await penAction.clickSearchButton()
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await staffSearch.verifyStudentSearchResult(penNumber, studentSearchResult)
 

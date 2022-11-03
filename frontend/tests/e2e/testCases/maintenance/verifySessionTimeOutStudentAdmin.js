@@ -17,7 +17,7 @@ const dashboard = new staffDashboardPage()
 fixture`Maintenance`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+      await t.resizeWindow(1920, 1080)
     })
 
 test('Session Timeout test student admin', async t => {

@@ -14,7 +14,7 @@ const studentLogin = new studentLoginPage()
 fixture`Maintenance`
     .page(constants.JB.jbGmpPage)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Verify Journey builder page navigation links test', async t => {
@@ -23,7 +23,7 @@ test('Verify Journey builder page navigation links test', async t => {
 
     await journey.clickLoginButton()
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await studentLogin.jbPageBceidLogin(constants.bceidCredentials)
 

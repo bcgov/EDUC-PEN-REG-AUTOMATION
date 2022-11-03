@@ -10,7 +10,7 @@ const dashboard = new staffDashboardPage()
 fixture`Maintenance`
     .page(constants.JB.jbUmpPage)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Verify Journey builder page navigation links test', async t => {
@@ -19,7 +19,7 @@ test('Verify Journey builder page navigation links test', async t => {
 
     await journey.clikcRegisterButton()
 
-    await dashboard.maximizeWindow()
+    await dashboard.resizeWindow()
 
     await journey.verifyUrl(constants.JB.jbRegisterPage)
 

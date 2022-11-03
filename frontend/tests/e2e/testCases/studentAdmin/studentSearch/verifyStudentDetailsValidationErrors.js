@@ -16,7 +16,7 @@ const staffSearch = new staffStudentSearchPage()
 fixture`Student Admin`
     .page(staffLoginUrl)
     .beforeEach(async t => {
-        await t.maximizeWindow()
+        await t.resizeWindow(1920, 1080)
     })
 
 test('Staff login and verify validation errors test', async t => {
