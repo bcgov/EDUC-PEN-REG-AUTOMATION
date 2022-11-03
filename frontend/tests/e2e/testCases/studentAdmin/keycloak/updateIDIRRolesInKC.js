@@ -1,3 +1,6 @@
+//*deprecated* we are avoiding changing roles data on main IDIR user
+//Keeping this in place in case we need a quick way to add on admin roles for business client
+
 const helper = require("../../../helpers/axios-helper")
 const constants = require('../../../config/constants')
 const { getToken } = require('../../../helpers/generateToken')
