@@ -99,6 +99,7 @@ class staffHamburgerMenuPage {
     }
 
     async clickInstitutionsDistrictLink(){
+        await t.pressKey('tab');
         await t.click(this.institutionsDistrictLink);
         log.info("Institution district link is clicked");
     }
