@@ -97,13 +97,6 @@ pipeline {
         }
       }
     }
-    stage('get and delete IDIR from KC') {
-      steps {
-        dir('frontend') {
-          sh 'npm run deleteIDIRFromKC'
-        }
-      }
-    }
     stage('Run unauthorized IDIR test') {
       steps {
         script {
@@ -119,13 +112,6 @@ pipeline {
         }
       }
     }
-    stage('add read only roles to IDIR') {
-      steps {
-        dir('frontend') {
-          sh 'npm run updateIDIRRolesToReadOnlyInKC'
-        }
-      }
-    }                    
     stage('Run Gmp Workflow two') {
       steps {
         script {

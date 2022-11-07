@@ -75,6 +75,13 @@ module.exports.idirReadOnlyCredentials = Object.freeze({
   guid : config.get('idirReadOnly:guid')
 });
 
+//IDIR unauthorized credentials
+module.exports.idirUnauthorizedCredentials = Object.freeze({
+  username: config.get('idirUnauthorized:user'),
+  password: config.get('idirUnauthorized:pass'),
+  guid : config.get('idirUnauthorized:guid')
+});
+
 //Mailsac email credentials
 module.exports.mailsacCredentials = Object.freeze({
   username: config.get('penemail:user'),
