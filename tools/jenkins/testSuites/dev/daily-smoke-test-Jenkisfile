@@ -23,73 +23,6 @@ pipeline {
         }
       }
     }
-    stage('get and delete pen request one') {
-      steps {
-        dir('frontend') {
-          sh 'npm install'
-          sh 'npm run getAndDeletePenRequestData'
-        }
-      }
-    }    
-    stage('Run Gmp Workflow one') {
-      steps {
-        script {
-          try{
-          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-pen-request-dev-environment')
-          extJSHelper.waitForWorkflowRunComplete(TOKEN)
-          }
-          catch(err){
-            currentBuild.result = 'FAILURE'
-            echo "Error detected, Continue to the next step"
-          }
-        }
-      }
-    }
-    stage('get and delete pen request two') {
-      steps {
-        dir('frontend') {
-          sh 'npm run getAndDeletePenRequestData'
-        }
-      }
-    }
-
-    stage('get and delete ump request one') {
-      steps {
-        dir('frontend') {
-          sh 'npm run getAndDeleteUmpRequestData'
-        }
-      }
-    }    
-    stage('Run Ump Workflow one') {
-      steps {
-        script {
-          try{
-          TOKEN = sh( script: "oc -n 8878b4-dev -o json get secret github-actions-token | sed -n 's/.*\"token\": \"\\(.*\\)\"/\\1/p' | base64 --decode", returnStdout: true);
-          extJSHelper.triggerWorkflow(TOKEN, 'staff-request-more-info-and-reject-ump-request-dev-environment')
-          extJSHelper.waitForWorkflowRunComplete(TOKEN)
-          }
-          catch(err){
-            currentBuild.result = 'FAILURE'
-            echo "Error detected, Continue to the next step"
-          }
-        }
-      }
-    }
-    stage('get and delete ump request two') {
-      steps {
-        dir('frontend') {
-          sh 'npm run getAndDeleteUmpRequestData'
-        }
-      }
-    }
-    stage('get and delete pen request three') {
-      steps {
-        dir('frontend') {
-          sh 'npm run getAndDeletePenRequestData'
-        }
-      }
-    }
     stage('get and delete Bceid from KC') {
       steps {
         dir('frontend') {
@@ -112,7 +45,14 @@ pipeline {
         }
       }
     }
-    stage('Run Gmp Workflow two') {
+    stage('get and delete pen request') {
+      steps {
+        dir('frontend') {
+          sh 'npm run getAndDeletePenRequestData'
+        }
+      }
+    }
+    stage('Run Gmp Workflow') {
       steps {
         script {
           try{
@@ -127,7 +67,7 @@ pipeline {
         }
       }
     }
-    stage('get and delete pen request four') {
+    stage('get and delete pen request') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeletePenRequestData'
