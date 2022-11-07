@@ -1,5 +1,5 @@
 {
-    "browsers": "chrome:headless --incognito",
+    "browsers": "chrome --incognito",
     "reporter": "list",
     "screenshots": {
         "path": "tests/e2e/screenshots/",
@@ -16,8 +16,8 @@
     "speed": 1,
     "retryTestPages": true,
     "hostname": "localhost",
-    "pageLoadTimeout": 20000,
-    "pageRequestTimeout": 20000,
+    "pageLoadTimeout": 60000,
+    "pageRequestTimeout": 60000,
     "selectorTimeout": 20000,
     "disableMultipleWindows": true,
     "skipUncaughtErrors": true,
