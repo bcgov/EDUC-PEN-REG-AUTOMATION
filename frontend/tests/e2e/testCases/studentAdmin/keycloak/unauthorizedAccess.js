@@ -1,6 +1,6 @@
 import staffLoginPage from '../../../pageObjects/login/staffLoginPage'
 import staffDashboardPage from '../../../pageObjects/studentAdmin/dashboard/staffDashboardPage'
-import { idirReadOnlyCredentials, staffLoginUrl } from '../../../config/constants'
+import { idirUnauthorizedCredentials, staffLoginUrl } from '../../../config/constants'
 
 
 const staffLogin = new staffLoginPage()
@@ -15,7 +15,7 @@ fixture`Student Admin`
 
 test('Verify Unauthorized Access test', async t => {
 
-    await staffLogin.staffUnauthorizedlogin(idirReadOnlyCredentials, staffLoginUrl)
+    await staffLogin.staffUnauthorizedlogin(idirUnauthorizedCredentials, staffLoginUrl)
 
     await dashboard.verifyUnauthorizedErrorText()
 

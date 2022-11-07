@@ -49,6 +49,10 @@ nconf.defaults({
     user: process.env.IDIR_READ_ONLY_USER,
     pass: process.env.IDIR_READ_ONLY_PASS
   },
+  idirUnauthorized: {
+    user: process.env.IDIR_UNAUTHORIZED_USER,
+    pass: process.env.IDIR_UNAUTHORIZED_PASS
+  },
   penemail: {
     user: process.env.PENEMAIL_USER,
     pass: process.env.PENEMAIL_PASS
