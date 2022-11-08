@@ -45,7 +45,7 @@ pipeline {
         }
       }
     }
-    stage('get and delete pen request') {
+    stage('get and delete pen request one') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeletePenRequestData'
@@ -67,7 +67,7 @@ pipeline {
         }
       }
     }
-    stage('get and delete pen request') {
+    stage('get and delete pen request two') {
       steps {
         dir('frontend') {
           sh 'npm run getAndDeletePenRequestData'
