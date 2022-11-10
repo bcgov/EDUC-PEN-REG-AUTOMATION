@@ -33,7 +33,7 @@ test('Staff view authority contacts test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsAuthoritiesLink();
 
-  await authoritiesPage.setName('Automation Testing Authority');
+  await authoritiesPage.setName('999 - Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.clickSearchButton();
   await authoritiesPage.verifyAuthoritySearchResults('Automation Testing Authority');
@@ -52,7 +52,7 @@ test('Staff edit school contact test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsSchoolLink();
 
-  const schoolName = 'Automation Testing School';
+  const schoolName = '99999999 - Automation Testing School';
   await schoolsPage.setName(schoolName);
   await schoolsPage.selectNameOptionByIndex(0);
   await schoolsPage.selectStatus(1);
@@ -75,7 +75,7 @@ test('Staff view districts contacts test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsDistrictLink()
 
-  await districtsPage.setName('Automation Testing District');
+  await districtsPage.setName('999 - Automation Testing District');
   await districtsPage.selectNameOptionByIndex(0);
   await districtsPage.clickSearchButton();
   await districtsPage.verifyDistrictSearchResults('Automation Testing District');
