@@ -19,9 +19,9 @@ fixture`Student Admin`
 test('Staff view authority contacts test', async () => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
-  await navigateToAuthorityContacts();
+  await navigateToAuthorityContacts('999 - Automation Testing Authority');
 
-  await authoritiesContactsPage.verifyAuthorityNumberAndName('998 - EDX Automation Testing Authority');
+  await authoritiesContactsPage.verifyAuthorityNumberAndName('999 - Automation Testing Authority');
 
   await authoritiesContactsPage.verifyAuthorityTypeLabel();
   await authoritiesContactsPage.verifyAuthorityContactName();
@@ -31,7 +31,7 @@ test('Staff edit authority contact test', async () => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
-  await navigateToAuthorityContacts();
+  await navigateToAuthorityContacts('999 - Automation Testing Authority');
 
   await authoritiesContactsPage.clickEditContactButton();
   await authoritiesContactsPage.editAuthorityContact();
@@ -42,7 +42,7 @@ test('Staff edit authority contact test', async () => {
 test('Staff edit school contact test', async () => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
-  await navigateToSchoolContacts();
+  await navigateToSchoolContacts('9999999 - Automation Testing School');
 
   await schoolContactsPage.clickEditContactButton();
   await schoolContactsPage.editSchoolContact();
@@ -53,7 +53,7 @@ test('Staff edit school contact test', async () => {
 test('Staff view districts contacts test', async () => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
-  await navigateToDistrictContacts();
+  await navigateToDistrictContacts('999 - Automation Testing District');
 
   await districtContactsPage.verifyDistrictNumberAndName('999 - Automation Testing District');
   await districtContactsPage.verifyDistrictContactTypeLabel();

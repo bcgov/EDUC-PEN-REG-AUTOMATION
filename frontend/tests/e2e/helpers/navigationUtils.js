@@ -12,24 +12,23 @@ const log = require("npmlog");
 
 const navigationUtils = {
 
-    async navigateToAuthorityContacts(){
+    async navigateToAuthorityContacts(authorityName){
         await menu.clickHamburgerMenu();
         await menu.clickInstitutionsMenuOption();
         await menu.clickInstitutionsAuthoritiesLink();
 
-        await authoritiesPage.setName('Automation Testing Authority');
+        await authoritiesPage.setName(authorityName);
         await authoritiesPage.selectNameOptionByIndex(0);
         await authoritiesPage.clickSearchButton();
-        await authoritiesPage.verifyAuthoritySearchResults('Automation Testing Authority');
+        await authoritiesPage.verifyAuthoritySearchResults(authorityName);
         await authoritiesPage.clickAuthorityContacts();
     },
 
-    async navigateToSchoolContacts(){
+    async navigateToSchoolContacts(schoolName){
         await menu.clickHamburgerMenu();
         await menu.clickInstitutionsMenuOption();
         await menu.clickInstitutionsSchoolLink();
 
-        const schoolName = 'Automation Testing School';
         await schoolsPage.setName(schoolName);
         await schoolsPage.selectNameOptionByIndex(0);
         await schoolsPage.selectStatus(1);
@@ -40,15 +39,15 @@ const navigationUtils = {
 
     },
 
-    async navigateToDistrictContacts(){
+    async navigateToDistrictContacts(districtName){
         await menu.clickHamburgerMenu();
         await menu.clickInstitutionsMenuOption();
         await menu.clickInstitutionsDistrictLink()
 
-        await districtsPage.setName('Automation Testing District');
+        await districtsPage.setName(districtName);
         await districtsPage.selectNameOptionByIndex(0);
         await districtsPage.clickSearchButton();
-        await districtsPage.verifyDistrictSearchResults('Automation Testing District');
+        await districtsPage.verifyDistrictSearchResults(districtName);
         await districtsPage.clickDistrictContacts();
     }
 
