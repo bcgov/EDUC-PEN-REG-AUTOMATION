@@ -111,39 +111,42 @@ const instituteUtils = {
     },
 
     async setupSchoolContact(school){
-        const data = await getToken();
-        const token = data.access_token;
+      const data = await getToken();
+      const token = data.access_token;
 
-        const schoolContactPayload =
-        {
-          createUser: 'PENREG1',
-          updateUser: null,
-          createDate: null,
-          updateDate: null,
-          schoolContactId: null,
-          schoolId: school.schoolId,
-          schoolContactTypeCode: 'PRINCIPAL',
-          phoneNumber: '2506656585',
-          phoneExtension: '123',
-          alternatePhoneNumber: '2506544578',
-          alternatePhoneExtension: '321',
-          publiclyAvailable: true,
-          email: 'test@test.com',
-          firstName: 'Automation',
-          lastName: 'Testing',
-          effectiveDate: '2022-10-25T00:00:00',
-          expiryDate: null
-        };
+      const schoolContactPayload =
+      {
+        createUser: 'PENREG1',
+        updateUser: null,
+        createDate: null,
+        updateDate: null,
+        schoolContactId: null,
+        schoolId: school.schoolId,
+        schoolContactTypeCode: 'PRINCIPAL',
+        phoneNumber: '2506656585',
+        phoneExtension: '123',
+        alternatePhoneNumber: '2506544578',
+        alternatePhoneExtension: '321',
+        publiclyAvailable: true,
+        email: 'test@test.com',
+        firstName: 'Automation',
+        lastName: 'Testing',
+        effectiveDate: '2022-10-25T00:00:00',
+        expiryDate: null
+      };
 
-        let newSchool = await restUtils.getData(token, `${constants.instituteApiUrl}school/${school.schoolId}`);
-        let filteredContacts = newSchool.contacts.filter(contact => contact.firstName === 'Automation' && contact.lastName === 'Testing');
-        const url = `${constants.instituteApiUrl}school/${school.schoolId}/contact`;
+      let newSchool = await restUtils.getData(token, `${constants.instituteApiUrl}school/${school.schoolId}`);
+      const contactUrl = `${constants.instituteApiUrl}school/${school.schoolId}/contact`;
 
-        if(filteredContacts.length < 1){
-          return restUtils.postData(token, url, schoolContactPayload);
-        }
-        schoolContactPayload.schoolContactId = filteredContacts[0].schoolContactId;
-        return restUtils.putData(token, url + '/' + schoolContactPayload.schoolContactId, schoolContactPayload);
+      if (newSchool.contacts) {
+        log.info('deleting all school contacts');
+        newSchool?.contacts.forEach(contact => {
+          restUtils.deleteData(token, `${contactUrl}/${contact.schoolContactId}`);
+        });
+      }
+
+      log.info('adding Automation Testing school principal contact')
+      return restUtils.postData(token, contactUrl, schoolContactPayload);
     },
 
     async setupDistrictContact(district){
@@ -173,14 +176,18 @@ const instituteUtils = {
         };
 
       let newDistrict = await restUtils.getData(token, `${constants.instituteApiUrl}district/${district.districtId}`);
-      let filteredContacts = newDistrict.contacts.filter(contact => contact.firstName === 'Automation' && contact.lastName === 'Testing');
-      const url = `${constants.instituteApiUrl}district/${district.districtId}/contact`;
 
-      if(filteredContacts.length < 1){
-        return restUtils.postData(token, url, districtContactPayload);
+      const contactUrl = `${constants.instituteApiUrl}district/${district.districtId}/contact`;
+
+      if (newDistrict.contacts) {
+        log.info('deleting all district contacts');
+        newDistrict?.contacts.forEach(contact => {
+          restUtils.deleteData(token, `${contactUrl}/${contact.districtContactId}`);
+        });
       }
-      districtContactPayload.districtContactId = filteredContacts[0].districtContactId;
-      return restUtils.putData(token, url + '/' + districtContactPayload.districtContactId, districtContactPayload);
+
+      log.info('adding Automation Testing district superintendent contact')
+      return restUtils.postData(token, contactUrl, districtContactPayload);
     },
 
     async setupAuthorityContact(authority){
@@ -209,14 +216,19 @@ const instituteUtils = {
         };
 
       let newAuthority = await restUtils.getData(token, `${constants.instituteApiUrl}authority/${authority.independentAuthorityId}`);
-      let filteredContacts = newAuthority.contacts.filter(contact => contact.firstName === 'Automation' && contact.lastName === 'Testing');
-      const url = `${constants.instituteApiUrl}authority/${authority.independentAuthorityId}/contact`;
 
-      if(filteredContacts.length < 1){
-        return restUtils.postData(token, url, authorityContactPayload);
+      const contactUrl = `${constants.instituteApiUrl}authority/${authority.independentAuthorityId}/contact`;
+
+      if (newAuthority.contacts) {
+        log.info('deleting all authority contacts');
+        newAuthority?.contacts.forEach(contact => {
+          restUtils.deleteData(token, `${contactUrl}/${contact.authorityContactId}`);
+        });
       }
-      authorityContactPayload.authorityContactId = filteredContacts[0].authorityContactId;
-      return restUtils.putData(token, url + '/' + authorityContactPayload.authorityContactId, authorityContactPayload);
+
+      log.info('adding Automation Tester authority contact')
+      return restUtils.postData(token, contactUrl, authorityContactPayload);
+
     },
 
 };
