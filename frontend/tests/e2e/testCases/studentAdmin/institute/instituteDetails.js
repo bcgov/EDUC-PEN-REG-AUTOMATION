@@ -59,6 +59,31 @@ test('Staff view authority details test', async () => {
   await authoritiesDetailsPage.verifyAuthorityNumberAndName('101 - Agassiz Christian School Society');
 });
 
+test('Staff edit authority details test', async () => {
+    await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
+
+    //access district list
+    await menu.clickHamburgerMenu();
+    await menu.clickInstitutionsMenuOption();
+    await menu.clickInstitutionsAuthoritiesLink();
+
+    await authoritiesPage.setName('EDX Automation Testing Authority');
+    await authoritiesPage.selectNameOptionByIndex(0);
+    await authoritiesPage.clickSearchButton();
+    await authoritiesPage.verifyAuthoritySearchResults('EDX Automation Testing Authority');
+    await authoritiesPage.clickAuthorityDetails();
+
+    await authoritiesDetailsPage.verifyAuthorityNumberAndName('998 - EDX Automation Testing Authority');
+
+    await authoritiesDetailsPage.clickEditAuthorityButton();
+    await authoritiesDetailsPage.editAuthorityDetails();
+    await authoritiesDetailsPage.clickSaveAuthorityEditButton();
+
+    await authoritiesDetailsPage.verifyAuthorityPhoneNumber();
+    await authoritiesDetailsPage.verifyAuthorityEmailAddress();
+
+});
+
 test('Staff view school details test', async () => {
     const schoolName = 'Mount Baker Secondary';
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
