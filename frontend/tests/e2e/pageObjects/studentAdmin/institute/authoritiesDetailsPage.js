@@ -7,12 +7,12 @@ class AuthoritiesDetailsPage {
     this.editAuthorityButton = Selector('#editButton');
     this.saveAuthorityEditButton = Selector('#saveButton');
     this.authorityPhoneNumberInput = Selector('#phoneNumberField');
-    this.authroityPhoneNumberSpan = Selector('span');
+    this.authorityPhoneNumberSpan = Selector('span');
     this.authorityEmailInput = Selector('#emailField');
     this.authorityMAddressLine1 = Selector('#mailAddressLine1');
     this.authorityMAddressCity = Selector('#mailAddressCity');
-    this.authorityMAddressProv = Selector('#mailAddressProvince');
-    this.authorityMAddressCountry = Selector('#mailAddressCountry');
+    this.authorityMAddressProv = Selector('#mailAddressProvince').parent('div[role="button"]');
+    this.authorityMAddressCountry = Selector('#mailAddressCountry').parent('div[role="button"]');
     this.authorityMAddressPostal = Selector('#mailAddressPostal');
     this.authorityEmailSpan = Selector('span');
   }
@@ -22,16 +22,15 @@ class AuthoritiesDetailsPage {
     log.info('Authority detail name and number verified');
   }
 
-  async verifyAuthorityPhoneNumber(){
-    await t.expect(this.authroityPhoneNumberSpan.withText('101-101-1100').innerText).contains('101-101-1100');
+  async verifyAuthorityPhoneNumber(phoneNumber){
+    await t.expect(this.authorityPhoneNumberSpan.withText(phoneNumber).innerText).contains(phoneNumber);
     log.info('Authority Phone Number Verified');
   }
 
-  async verifyAuthorityEmailAddress(){
-    await t.expect(this.authorityEmailSpan.withText('test2@test.com').innerText).contains('test2@test.com');
+  async verifyAuthorityEmailAddress(email){
+    await t.expect(this.authorityEmailSpan.withText(email).innerText).contains(email);
     log.info('Authority Email Verified');
   }
-
 
   async clickEditAuthorityButton(){
     await t.click(this.editAuthorityButton);
