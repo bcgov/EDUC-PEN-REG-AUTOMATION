@@ -47,14 +47,14 @@ const instituteUtils = {
       const data = await getToken();
       const token = data.access_token;
 
-      let authorityID = await getAuthorityIDByAuthorityNumber('999');
+      let authorityID = await getAuthorityIDByAuthorityNumber('997'); // we use 997 because 999 exists in legacy data
 
       const authorityPayload = {
         createUser: 'PENREG1',
         updateUser: null,
         createDate: null,
         updateDate: null,
-        authorityNumber: '999',
+        authorityNumber: '997',
         independentAuthorityId: null,
         faxNumber: '2505555555',
         phoneNumber: '2505555555',
