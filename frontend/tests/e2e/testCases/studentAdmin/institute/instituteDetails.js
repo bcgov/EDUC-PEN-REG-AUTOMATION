@@ -67,13 +67,13 @@ test('Staff edit authority details test', async () => {
     await menu.clickInstitutionsMenuOption();
     await menu.clickInstitutionsAuthoritiesLink();
 
-    await authoritiesPage.setName('999 - Automation Testing Authority');
+    await authoritiesPage.setName('997 - Automation Testing Authority');
     await authoritiesPage.selectNameOptionByIndex(0);
     await authoritiesPage.clickSearchButton();
     await authoritiesPage.verifyAuthoritySearchResults('Automation Testing Authority');
     await authoritiesPage.clickAuthorityDetails();
 
-    await authoritiesDetailsPage.verifyAuthorityNumberAndName('999 - Automation Testing Authority');
+    await authoritiesDetailsPage.verifyAuthorityNumberAndName('997 - Automation Testing Authority');
 
     await authoritiesDetailsPage.clickEditAuthorityButton();
     await authoritiesDetailsPage.editAuthorityDetails();
