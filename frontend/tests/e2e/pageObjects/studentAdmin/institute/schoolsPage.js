@@ -39,10 +39,10 @@ class SchoolsPage {
 
   }
 
-  async verifySchoolSearchResults() {
-    await t.expect(this.schoolSearchResultsText.withText('Mount Baker Secondary').count).eql(1, {timeout: 3000});
+  async verifySchoolSearchResults(name) {
+    await t.expect(this.schoolSearchResultsText.withText(name).count).eql(1, {timeout: 3000});
     log.info("One school found after search");
-    await t.expect(this.schoolSearchResultsText.nth(0).innerText).contains('Mount Baker Secondary');
+    await t.expect(this.schoolSearchResultsText.nth(0).innerText).contains(name);
     log.info('School search result verified');
   }
 

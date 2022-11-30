@@ -26,6 +26,7 @@ pipeline {
     stage('get and delete Bceid from KC') {
       steps {
         dir('frontend') {
+          sh 'npm install'
           sh 'npm run deleteBceidFromKC'
         }
       }

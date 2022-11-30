@@ -12,7 +12,7 @@ const districtsPage = new DistrictsPage();
 const authoritiesPage = new AuthoritiesPage();
 const schoolsPage = new SchoolsPage();
 
-fixture`Student Admin`
+fixture`Institute list`
   .page(staffLoginUrl)
   .beforeEach(async t => {
     await t.resizeWindow(1920, 1080)
@@ -26,10 +26,10 @@ test('Staff search districts test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsDistrictLink();
 
-  await districtsPage.setName('arrow');
+  await districtsPage.setName('999 - Automation Testing District');
   await districtsPage.selectNameOptionByIndex(0);
   await districtsPage.clickSearchButton();
-  await districtsPage.verifyDistrictSearchResults('Arrow Lakes');
+  await districtsPage.verifyDistrictSearchResults('999 - Automation Testing District');
 
 });
 
@@ -41,25 +41,17 @@ test('Staff search authorities test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsAuthoritiesLink();
 
-  await authoritiesPage.setName('agassiz');
+  await authoritiesPage.setName('997 - Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('Agassiz Christian School Society');
+  await authoritiesPage.verifyAuthoritySearchResults('997 - Automation Testing Authority');
 
   await authoritiesPage.clickClearButton();
-  await authoritiesPage.selectStatus('Open');
-  await authoritiesPage.setName('Haahuupayak');
+  await authoritiesPage.setName('997 - Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
-  await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('Haahuupayak Society');
-
-  await authoritiesPage.clickClearButton();
-  await authoritiesPage.selectStatus('Closed');
   await authoritiesPage.selectAuthorityType('Independent');
-  await authoritiesPage.setName('Hands On');
-  await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('Hands On Summer Camp Society');
+  await authoritiesPage.verifyAuthoritySearchResults('997 - Automation Testing Authority');
 });
 
 test('Staff search schools test', async () => {
@@ -69,11 +61,11 @@ test('Staff search schools test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsSchoolLink();
 
-  await schoolsPage.setName('Mount Baker Secondary');
-  await schoolsPage.selectNameOptionByIndex(1);
+  await schoolsPage.setName('99999999 - Automation Testing School');
+  await schoolsPage.selectNameOptionByIndex(0);
   await schoolsPage.selectStatus(1);
 
   await schoolsPage.clickSearchButton();
-  await schoolsPage.verifySchoolSearchResults();
+  await schoolsPage.verifySchoolSearchResults('99999999 - Automation Testing School');
 
 });
