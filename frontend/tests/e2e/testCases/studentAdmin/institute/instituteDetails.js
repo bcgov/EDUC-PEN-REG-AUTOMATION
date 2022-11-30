@@ -19,14 +19,14 @@ const districtDetails = new DistrictDetails();
 const schoolsPage = new SchoolsPage();
 const schoolDetailsPage = new SchoolDetailsPage();
 
-fixture`Student Admin`
+fixture`Institute details`
     .page(staffLoginUrl)
     .beforeEach(async t => {
         await t.resizeWindow(1920, 1080)
     });
 
 test('Staff view districts details test', async () => {
-    const districtName = 'Rocky';
+    const districtName = '999 - Automation Testing District';
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
     //access district list
@@ -50,13 +50,13 @@ test('Staff view authority details test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsAuthoritiesLink();
 
-  await authoritiesPage.setName('agassiz');
+  await authoritiesPage.setName('997 - Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('Agassiz Christian School Society');
+  await authoritiesPage.verifyAuthoritySearchResults('997 - Automation Testing Authority');
   await authoritiesPage.clickAuthorityDetails();
 
-  await authoritiesDetailsPage.verifyAuthorityNumberAndName('101 - Agassiz Christian School Society');
+  await authoritiesDetailsPage.verifyAuthorityNumberAndName('997 - Automation Testing Authority');
 });
 
 test('Staff edit authority details test', async () => {
@@ -85,7 +85,7 @@ test('Staff edit authority details test', async () => {
 });
 
 test('Staff view school details test', async () => {
-    const schoolName = 'Mount Baker Secondary';
+    const schoolName = '99999999 - Automation Testing School';
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
     await menu.clickHamburgerMenu();
@@ -93,7 +93,7 @@ test('Staff view school details test', async () => {
     await menu.clickInstitutionsSchoolLink();
 
     await schoolsPage.setName(schoolName);
-    await schoolsPage.selectNameOptionByIndex(1);
+    await schoolsPage.selectNameOptionByIndex(0);
     await schoolsPage.selectStatus(1);
 
     await schoolsPage.clickSearchButton();
@@ -106,7 +106,7 @@ test('Staff view school details test', async () => {
 
 test('Add a note to a school', async () => {
     //Navigate to a school details page.
-    const schoolName = 'Mount Baker Secondary';
+    const schoolName = '99999999 - Automation Testing School';
     await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
     await menu.clickHamburgerMenu();
@@ -114,7 +114,7 @@ test('Add a note to a school', async () => {
     await menu.clickInstitutionsSchoolLink();
 
     await schoolsPage.setName(schoolName);
-    await schoolsPage.selectNameOptionByIndex(1);
+    await schoolsPage.selectNameOptionByIndex(0);
     await schoolsPage.selectStatus(1);
     await schoolsPage.clickSearchButton();
     await schoolsPage.clickSchoolSearchResult();

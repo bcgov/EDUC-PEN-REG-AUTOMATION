@@ -23,13 +23,11 @@ class SchoolDetailsPage {
 
     async verifySchoolDetails() {
 
-        await this.verifySchoolMincodeName('00502001', 'Mount Baker Secondary');
-        await this.verifyOpenDate('1951/09/01');
+        await this.verifySchoolMincodeName('99999999', 'Automation Testing School');
+        await this.verifyOpenDate('2022/01/01');
         await this.verifyFacilityType('Standard');
         await this.verifySchoolCategory('Public');
-        await this.verifyGradesOffered('10, 11, 12');
         await this.verifyOrganization('Two Semesters');
-        await this.verifyMailingAddress('Cranbrook, BC, CA');
 
     }
 
