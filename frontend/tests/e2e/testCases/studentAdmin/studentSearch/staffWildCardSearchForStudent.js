@@ -22,7 +22,7 @@ test('Staff login and wild card search for student test', async t => {
 
     await dashboard.clickFullSearchButton()
 
-    // await staffSearch.setPen(penNumber)
+    await staffSearch.setPen(penNumber)
 
     await staffSearch.setLegalSurname(studentData.legalSurnameWildcard)
 
