@@ -13,14 +13,13 @@ getToken().then(async (data) => {
     email: "tester@test.com"
   };
 
-  //this will give us the school wildflower
   const schoolSearchCriteria = [{
     condition: null,
     searchCriteriaList: [
       {
-        key: "schoolNumber",
+        key: "displayName",
         operation: "eq",
-        value: "99178",
+        value: "Automation Testing School",
         valueType: "STRING",
         condition: null
       }

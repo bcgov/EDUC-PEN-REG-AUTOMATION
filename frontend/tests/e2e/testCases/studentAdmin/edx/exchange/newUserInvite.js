@@ -29,7 +29,7 @@ test('Staff_Add_New_User_Edx_Invite', async t => {
   await menu.clickEDXSchoolAccessMenuLink();
 
   //select school option
-  await access.setInstituteName('wildflower');
+  await access.setInstituteName('automation testing school (99999999)');
   await access.selectInstituteNameOptionByIndex(0);
   await access.clickManageInstituteButton();
 
