@@ -13,7 +13,7 @@ class DocumentUploadPage {
     this.documentTypeSelect = Selector('#uploadDocumentTypeCodeSelect').parent('div[role="button"]');
 
     //response fields
-    this.uploadAlert = Selector('.v-messages__message');
+    this.uploadAlert = Selector('.document-upload .v-messages__message');
   }
 
   async clickUploadButton() {
