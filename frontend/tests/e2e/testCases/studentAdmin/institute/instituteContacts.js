@@ -45,8 +45,9 @@ test('Staff edit school contact test', async () => {
   await navigateToSchoolContacts('9999999 - Automation Testing School');
 
   await schoolContactsPage.clickEditContactButton();
+  await schoolContactsPage.verifyEditSchoolContactCardExists();
   await schoolContactsPage.editSchoolContact();
-
+  await schoolContactsPage.verifyEditSchoolContactCardDoesNotExist();
   await schoolContactsPage.verifySchoolContactDetails();
 });
 
