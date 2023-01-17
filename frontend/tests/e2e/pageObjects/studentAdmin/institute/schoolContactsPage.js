@@ -13,16 +13,17 @@ class SchoolDetailsPage {
         this.principalContactAltPhoneNumberExt = Selector('span');
         this.principalContactStartDate = Selector('span');
         this.editContactButton = Selector('#editContactButton');
-        this.saveContactButton = Selector('#saveEditButton');
+        this.saveChangesToSchoolContactButton = Selector('#saveChangesToSchoolContactButton');
 
-        this.contactFirstName = Selector('#contactEditFirstName');
-        this.contactLastName = Selector('#contactEditLastName');
-        this.contactEditEmail = Selector('#contactEditEmail');
-        this.contactEditPhoneNumber = Selector('#contactEditPhoneNumber');
-        this.contactEditPhoneExt = Selector('#contactEditPhoneExt');
-        this.contactEditAltPhoneNumber = Selector('#contactEditAltPhoneNumber');
-        this.contactEditAltPhoneExt = Selector('#contactEditAltPhoneExt');
-        this.contactEditStartDate = Selector('#editContactEffectiveDateTextField');
+        this.editSchoolContactCard = Selector('#editSchoolContactCard');
+        this.editSchoolContactFirstNameInput = Selector('#editSchoolContactFirstNameInput');
+        this.editSchoolContactLastNameInput = Selector('#editSchoolContactLastNameInput');
+        this.editSchoolContactEmailInput = Selector('#editSchoolContactEmailInput');
+        this.editSchoolContactPhoneNumberInput = Selector('#editSchoolContactPhoneNumberInput');
+        this.editSchoolContactPhoneExtensionInput = Selector('#editSchoolContactPhoneExtensionInput');
+        this.editSchoolContactAltPhoneNumberInput = Selector('#editSchoolContactAltPhoneNumberInput');
+        this.editSchoolContactAltPhoneExtensionInput = Selector('#editSchoolContactAltPhoneExtensionInput');
+        this.editSchoolContactEffectiveDateTextField = Selector('#editSchoolContactEffectiveDateTextField');
         this.datePickerClickOne = Selector('.v-date-picker-header__value').child('div').child('button');
         this.datePickerYear = Selector('.v-date-picker-years').find('li').withText('2022');
         this.datePickerMonth = Selector('div').child('.v-date-picker-table').find('.v-btn__content').withText('JAN');
@@ -34,23 +35,33 @@ class SchoolDetailsPage {
         log.info("Edit School Contact Button Clicked");
     }
 
+    async verifyEditSchoolContactCardExists() {
+        await t.expect(this.editSchoolContactCard.exists).ok();
+        log.info('Verified editSchoolContactCard exists.');
+    }
+
+    async verifyEditSchoolContactCardDoesNotExist() {
+        await t.expect(this.editSchoolContactCard.exists).notOk();
+        log.info('Verified editSchoolContactCard does not exist.');
+    }
+
     async editSchoolContact(){
-        await t.typeText(this.contactFirstName, 'Tony', { replace: true });
-        await t.typeText(this.contactLastName, 'Hawk', { replace: true });
-        await t.typeText(this.contactEditEmail, 'thawk@test.com', { replace: true });
-        await t.typeText(this.contactEditPhoneNumber, '2501234564', { replace: true });
-        await t.typeText(this.contactEditPhoneExt, '888', { replace: true });
-        await t.typeText(this.contactEditAltPhoneNumber, '2508854578', { replace: true });
-        await t.typeText(this.contactEditAltPhoneExt, '999', { replace: true });
+        await t.typeText(this.editSchoolContactFirstNameInput, 'Tony', { replace: true });
+        await t.typeText(this.editSchoolContactLastNameInput, 'Hawk', { replace: true });
+        await t.typeText(this.editSchoolContactEmailInput, 'thawk@test.com', { replace: true });
+        await t.typeText(this.editSchoolContactPhoneNumberInput, '2501234564', { replace: true });
+        await t.typeText(this.editSchoolContactPhoneExtensionInput, '888', { replace: true });
+        await t.typeText(this.editSchoolContactAltPhoneNumberInput, '2508854578', { replace: true });
+        await t.typeText(this.editSchoolContactAltPhoneExtensionInput, '999', { replace: true });
 
         await this.selectStartDate();
 
-        await t.click(this.saveContactButton);
+        await t.click(this.saveChangesToSchoolContactButton);
         log.info("School Contact Edit Complete");
     }
 
     async selectStartDate() {
-        await t.click(this.contactEditStartDate);
+        await t.click(this.editSchoolContactEffectiveDateTextField);
 
         await t.click(this.datePickerClickOne()).wait(1000);
         await t.click(this.datePickerClickOne()).wait(1000);
@@ -62,7 +73,6 @@ class SchoolDetailsPage {
     }
 
     async verifySchoolContactDetails() {
-
         await this.verifyContactName('Tony Hawk');
         await this.verifyContactEmail('thawk@test.com');
         await this.verifyContactPhoneNum('250-123-4564');
@@ -72,6 +82,7 @@ class SchoolDetailsPage {
         await this.verifyContactStartDate('2022/01/01');
         log.info('Contact Verification Complete');
     }
+
     async verifyContactName(name){
         await t.expect(this.principalContactName.withText(name).innerText).contains(name);
         log.info(`Contact Name ${name} Verified`);
