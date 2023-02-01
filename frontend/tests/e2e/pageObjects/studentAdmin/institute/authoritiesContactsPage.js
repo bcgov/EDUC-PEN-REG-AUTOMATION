@@ -16,15 +16,15 @@ class AuthoritiesContactsPage {
     this.authorityContactStartDate = Selector('span');
 
     this.editContactButton = Selector('#editContactButton');
-    this.saveContactButton = Selector('#saveEditButton');
-    this.contactFirstName = Selector('#contactEditFirstName');
-    this.contactLastName = Selector('#contactEditLastName');
-    this.contactEditEmail = Selector('#contactEditEmail');
-    this.contactEditPhoneNumber = Selector('#contactEditPhoneNumber');
-    this.contactEditPhoneExt = Selector('#contactEditPhoneExt');
-    this.contactEditAltPhoneNumber = Selector('#contactEditAltPhoneNumber');
-    this.contactEditAltPhoneExt = Selector('#contactEditAltPhoneExt');
-    this.contactEditStartDate = Selector('#editContactEffectiveDateTextField');
+    this.saveContactButton = Selector('#saveChangesToAuthorityContactButton');
+    this.contactFirstName = Selector('#editAuthorityContactFirstNameInput');
+    this.contactLastName = Selector('#editAuthorityContactLastNameInput');
+    this.contactEditEmail = Selector('#editAuthorityContactEmailInput');
+    this.contactEditPhoneNumber = Selector('#editAuthorityContactPhoneNumberInput');
+    this.contactEditPhoneExt = Selector('#editAuthorityContactPhoneExtensionInput');
+    this.contactEditAltPhoneNumber = Selector('#editAuthorityContactAltPhoneNumberInput');
+    this.contactEditAltPhoneExt = Selector('#editAuthorityContactAltPhoneExtensionInput');
+    this.contactEditStartDate = Selector('#editAuthorityContactEffectiveDateTextField');
     this.datePickerClickOne = Selector('.v-date-picker-header__value').child('div').child('button');
     this.datePickerYear = Selector('.v-date-picker-years').find('li').withText('2022');
     this.datePickerMonth = Selector('div').child('.v-date-picker-table').find('.v-btn__content').withText('JAN');
