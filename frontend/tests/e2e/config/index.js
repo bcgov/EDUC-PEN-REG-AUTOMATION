@@ -15,7 +15,8 @@ nconf.defaults({
   url: {
     pen_namespace: process.env.PEN_NAMESPACE,
     pen_environment: process.env.PEN_ENVIRONMENT,
-    edx_namespace: process.env.EDX_NAMESPACE
+    edx_namespace: process.env.EDX_NAMESPACE,
+    common_namespace: process.env.COMMON_NAMESPACE
   },
   token: {
     token_namespace: process.env.TOKEN_NAMESPACE,
