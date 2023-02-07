@@ -2,7 +2,7 @@ const helper = require("../../../helpers/axios-helper")
 const constants = require('../../../config/constants')
 const studentData = require("../../../config/studentData/createNewPenData.json")
 const { getToken } = require('../../../helpers/generateToken')
-
+const log = require('npmlog')
 
 getToken().then(async (data) => {
     
@@ -26,15 +26,15 @@ getToken().then(async (data) => {
 
     //Get Student record on student service
     const getStudentService = await helper.getData(token, `${constants.studentApiUrl}paginated`, filterParam2)
-    //console.log(getStudentService)
 
     //Get Student ID
-    const studentID = getStudentService.content[0].studentID
-    //console.log("Student ID" + studentID)
+    for (let student of getStudentService.content) {
+        const studentID = student.studentID
 
-    //Delete Student record on student service
-    const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
-    //console.log(deleteStudentService)
+        //Delete Student record on student service
+        await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
+        log.info('deleting newly created pen')
+    }
 
 }
 )
