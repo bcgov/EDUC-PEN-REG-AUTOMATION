@@ -4,6 +4,7 @@ const config =require( '../config/index');
 module.exports.pen_namespace = config.get('url:pen_namespace');
 module.exports.pen_environment = config.get('url:pen_environment');
 module.exports.edx_namespace = config.get('url:edx_namespace');
+module.exports.common_namespace = config.get('url:common_namespace');
 
 //Token related config
 module.exports.token_namespace = config.get('token:token_namespace');
@@ -42,7 +43,7 @@ module.exports.penRegBatchUrl = 'http://pen-reg-batch-api-master.' + module.expo
 module.exports.kcUrl = 'https://soam-' + module.exports.token_environment + '.apps.silver.devops.gov.bc.ca/auth/admin/realms/master/users'
 module.exports.avedUrl = 'https://educ-pen-aved-'+ module.exports.pen_environment +'-api-gov-bc-ca.test.api.gov.bc.ca/'
 module.exports.EDXApiUrl = 'http://edx-api-master.' + module.exports.edx_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/edx/'
-module.exports.instituteApiUrl = 'http://institute-api-master.' + module.exports.edx_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/institute/'
+module.exports.instituteApiUrl = 'http://institute-api-master.' + module.exports.common_namespace + '-' + module.exports.token_environment + '.svc.cluster.local:8080/api/v1/institute/'
 
 //Choose student entry point
 module.exports.studentEntryPoint = config.get('studentEntryPoint')
