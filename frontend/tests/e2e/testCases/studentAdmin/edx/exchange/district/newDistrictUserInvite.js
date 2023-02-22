@@ -30,7 +30,7 @@ test('Staff view and Manage A District And Invite A new District User', async ()
   await menu.clickEDXDistrictAccessMenuLink();
 
   //select district option
-  await access.setInstituteName('Rocky Mountain');
+  await access.setInstituteName('Automation Testing District - 999');
   await access.selectInstituteNameOptionByIndex(0);
   await access.clickManageInstituteButton();
 
