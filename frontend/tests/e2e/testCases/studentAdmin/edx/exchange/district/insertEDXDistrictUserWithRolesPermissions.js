@@ -14,7 +14,7 @@ getToken().then(async (data) => {
   };
 
   const districtsResponse = await helper.getData(token, `${constants.instituteApiUrl}district`);
-  const district = districtsResponse.find(selectDistrict => selectDistrict.displayName.toUpperCase() === 'ROCKY MOUNTAIN');
+  const district = districtsResponse.find(selectDistrict => selectDistrict.displayName === 'Automation Testing District');
   log.info('districts result found');
 
   // create EDX User

@@ -21,5 +21,8 @@
     "selectorTimeout": 20000,
     "disableMultipleWindows": true,
     "skipUncaughtErrors": true,
-    "browserInitTimeout": 480000
+    "browserInitTimeout": 480000,
+    "filter": {
+        "testGrep": ".*"
+    }
 }

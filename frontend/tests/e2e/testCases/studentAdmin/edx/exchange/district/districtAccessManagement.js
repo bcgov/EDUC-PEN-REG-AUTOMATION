@@ -31,7 +31,7 @@ test('Staff view Edx District Access And Manage A District', async () => {
     await menu.clickEDXDistrictAccessMenuLink();
 
     //select district option
-    await access.setInstituteName('Rocky Mountain');
+    await access.setInstituteName('Automation Testing District - 999');
     await access.selectInstituteNameOptionByIndex(0);
     await access.clickManageInstituteButton();
 
