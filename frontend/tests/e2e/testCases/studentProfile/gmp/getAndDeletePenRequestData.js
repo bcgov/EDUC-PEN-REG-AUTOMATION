@@ -79,7 +79,7 @@ getToken().then(async (data) => {
             // //console.log("Student ID" + studentID)
 
             // //Delete Student record on student service
-            // const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}${studentID}`)
+            // const deleteStudentService = await helper.deleteData(token, `${constants.studentApiUrl}/${studentID}`)
             // //console.log(deleteStudentService)
 
             //get student ID and Digita ID
