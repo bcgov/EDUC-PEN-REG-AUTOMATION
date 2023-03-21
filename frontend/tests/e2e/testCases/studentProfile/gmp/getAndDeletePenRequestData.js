@@ -69,7 +69,7 @@ getToken().then(async (data) => {
 
 
         //Get Student record on student service
-        const getStudentService = await helper.getData(token, `${constants.studentApiUrl}paginated`, filterParam2)
+        const getStudentService = await helper.getData(token, `${constants.studentApiUrl}/paginated`, filterParam2)
         //console.log(getStudentService)
 
         if (getStudentService.content && getStudentService.content.length > 0) {
