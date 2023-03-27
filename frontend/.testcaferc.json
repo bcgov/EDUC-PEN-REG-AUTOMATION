@@ -22,7 +22,8 @@
     "disableMultipleWindows": true,
     "skipUncaughtErrors": true,
     "browserInitTimeout": 480000,
+    "debugOnFail": true,
     "filter": {
-        "testGrep": ".*"
+        "fixtureGrep": ".*"
     }
 }
