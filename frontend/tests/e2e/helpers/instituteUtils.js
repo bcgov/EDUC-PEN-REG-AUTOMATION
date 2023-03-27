@@ -97,6 +97,7 @@ const instituteUtils = {
             displayName: 'Automation Testing School',
             schoolOrganizationCode: 'TWO_SEM',
             schoolCategoryCode: 'PUBLIC',
+            schoolReportingRequirementCode: 'REGULAR',
             facilityTypeCode: 'STANDARD',
             openedDate: '2022-01-01T00:00:00',
             closedDate: null
