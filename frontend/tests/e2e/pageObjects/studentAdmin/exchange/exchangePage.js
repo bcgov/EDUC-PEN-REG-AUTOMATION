@@ -42,8 +42,9 @@ class ExchangePage {
   }
 
   async verifyMinistryTeamInboxTitle(title) {
-    await t.expect(this.ministryTeamInboxTitle.innerText).eql(title);
-    log.info('Verified Ministry Team Inbox Title.');
+    const teamName = this.ministryTeamInboxTitle.textContent;
+    await t.expect(teamName).eql(title);
+    log.info(`Verified Ministry Team Inbox Title. ${teamName}`);
   }
 
   async selectStatus(status){
