@@ -41,17 +41,17 @@ test('Staff search authorities test', async () => {
   await menu.clickInstitutionsMenuOption();
   await menu.clickInstitutionsAuthoritiesLink();
 
-  await authoritiesPage.setName('997 - Automation Testing Authority');
+  await authoritiesPage.setName('Student Admin Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('997 - Automation Testing Authority');
+  await authoritiesPage.verifyAuthoritySearchResults('Student Admin Automation Testing Authority');
 
   await authoritiesPage.clickClearButton();
-  await authoritiesPage.setName('997 - Automation Testing Authority');
+  await authoritiesPage.setName('Student Admin Automation Testing Authority');
   await authoritiesPage.selectNameOptionByIndex(0);
   await authoritiesPage.selectAuthorityType('Independent');
   await authoritiesPage.clickSearchButton();
-  await authoritiesPage.verifyAuthoritySearchResults('997 - Automation Testing Authority');
+  await authoritiesPage.verifyAuthoritySearchResults('Student Admin Automation Testing Authority');
 });
 
 test('Staff search schools test', async () => {

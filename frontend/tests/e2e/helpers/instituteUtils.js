@@ -1,8 +1,7 @@
 const {getToken} = require('./generateToken');
-const {getSchoolIDBySchoolCodeAndDistrictID, getDistrictIdByDistrictNumber, getAuthorityIDByAuthorityNumber} = require('../services/institute-api-service');
+const {getSchoolIDBySchoolCodeAndDistrictID, getDistrictIdByDistrictNumber, getAuthorityByAuthorityName} = require('../services/institute-api-service');
 const constants = require('../config/constants');
 const restUtils = require('./axios-helper');
-const {DateTimeFormatter, LocalDateTime} = require('@js-joda/core');
 const log = require("npmlog");
 
 const instituteUtils = {
@@ -47,30 +46,31 @@ const instituteUtils = {
       const data = await getToken();
       const token = data.access_token;
 
-      let authorityID = await getAuthorityIDByAuthorityNumber('997'); // we use 997 because 999 exists in legacy data
+      let authority = await getAuthorityByAuthorityName('Student Admin Automation Testing Authority');
 
       const authorityPayload = {
         createUser: 'PENREG1',
         updateUser: null,
         createDate: null,
         updateDate: null,
-        authorityNumber: '997',
         independentAuthorityId: null,
+        authorityNumber: null,
         faxNumber: '2505555555',
         phoneNumber: '2505555555',
         email: 'fakeuser@sd5.bc.ca',
-        displayName: 'Automation Testing Authority',
+        displayName: 'Student Admin Automation Testing Authority',
         authorityTypeCode: 'INDEPENDNT',
         openedDate: '2022-01-01T00:00:00',
         closedDate: null
       };
       const url = `${constants.instituteApiUrl}authority`;
-      if(!authorityID){
+      if(!authority){
         return restUtils.postData(token, url, authorityPayload);
       }
-      authorityPayload.independentAuthorityId = authorityID;
+      authorityPayload.independentAuthorityId = authority.independentAuthorityId;
+      authorityPayload.authorityNumber = authority.authorityNumber;
 
-      let freshAuthority = await restUtils.putData(token, url + '/' + authorityID, authorityPayload);
+      let freshAuthority = await restUtils.putData(token, url + '/' + authority.independentAuthorityId, authorityPayload);
       await instituteUtils.setupAuthorityContact(freshAuthority);
       return freshAuthority;
     },
@@ -97,10 +97,10 @@ const instituteUtils = {
             displayName: 'Automation Testing School',
             schoolOrganizationCode: 'TWO_SEM',
             schoolCategoryCode: 'PUBLIC',
-            schoolReportingRequirementCode: 'REGULAR',
+            schoolReportingRequirementCode: 'NONE',
             facilityTypeCode: 'STANDARD',
             openedDate: '2022-01-01T00:00:00',
-            closedDate: null
+            closedDate: null,
         };
         const url = `${constants.instituteApiUrl}school`;
         if(!schoolID){
