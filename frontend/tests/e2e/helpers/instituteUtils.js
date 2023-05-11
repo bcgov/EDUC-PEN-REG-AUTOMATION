@@ -141,14 +141,13 @@ const instituteUtils = {
 
       if (newSchool.contacts) {
         log.info('deleting all school contacts');
-        newSchool.contacts.forEach(contact => {
+        for (let contact of newSchool.contacts) {
           try {
-            restUtils.deleteData(token, `${contactUrl}/${contact.schoolContactId}`);
-          }
-          catch (e) {
+            await restUtils.deleteData(token, `${contactUrl}/${contact.schoolContactId}`);
+          } catch (e) {
             log.error(e);
           }
-        });
+        };
       }
 
       log.info('adding Automation Testing school principal contact')
@@ -187,14 +186,13 @@ const instituteUtils = {
 
       if (newDistrict.contacts) {
         log.info('deleting all district contacts');
-        newDistrict.contacts.forEach(contact => {
+        for (let contact of newDistrict.contacts) {
           try {
-            restUtils.deleteData(token, `${contactUrl}/${contact.districtContactId}`);
+            await restUtils.deleteData(token, `${contactUrl}/${contact.districtContactId}`);
           } catch (e) {
             log.error(e);
           }
-
-        });
+        };
       }
 
       log.info('adding Automation Testing district superintendent contact')
@@ -232,16 +230,16 @@ const instituteUtils = {
 
       if (newAuthority.contacts) {
         log.info('deleting all authority contacts');
-        newAuthority.contacts.forEach(contact => {
+        for (let contact of newAuthority.contacts) {
           try {
-            restUtils.deleteData(token, `${contactUrl}/${contact.authorityContactId}`);
+            await restUtils.deleteData(token, `${contactUrl}/${contact.authorityContactId}`);
           } catch (e) {
             log.error(e);
           }
-        });
-      }
+        };
+      };
 
-      log.info('adding Automation Tester authority contact')
+      log.info('adding Automation Tester authority contact');
       return restUtils.postData(token, contactUrl, authorityContactPayload);
 
     },
