@@ -26,11 +26,12 @@ pipeline {
         }
       }
     }
-    stage('pre-delete new exchange message created') {
+    stage('pre-delete new exchange message created and set up entities') {
       steps {
         dir('frontend') {
           sh 'npm install'
           sh 'npm run deletePenInboxNewMessage'
+          sh 'npm run refreshInstituteEntities'
         }
       }
     }

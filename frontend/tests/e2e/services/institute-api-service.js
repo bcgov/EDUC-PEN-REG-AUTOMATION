@@ -1,7 +1,6 @@
 const restUtils = require('../helpers/axios-helper');
 const constants = require('../config/constants');
 
-const log = require('npmlog');
 const {getToken} = require('../helpers/generateToken');
 const AUTHORITY_ENDPOINT = `authority`;
 const SCHOOL_ENDPOINT = `school`;
@@ -14,7 +13,7 @@ const instituteApiService = {
         return restUtils.getData(token, url);
     },
 
-    async getAuthorityIDByAuthorityNumber(authorityNumber) {
+    async getAuthorityByAuthorityName(authorityName) {
       const data = await getToken();
       const token = data.access_token;
 
@@ -22,9 +21,9 @@ const instituteApiService = {
         condition: null,
         searchCriteriaList: [
           {
-            key: "authorityNumber",
+            key: "displayName",
             operation: "eq",
-            value: authorityNumber,
+            value: authorityName,
             valueType: "STRING",
             condition: "AND"
           },
@@ -45,7 +44,7 @@ const instituteApiService = {
       };
       const url = `${constants.instituteApiUrl}${AUTHORITY_ENDPOINT}/paginated`;
       const authorityResult = await restUtils.getData(token, url, authoritySearchParam);
-      return authorityResult?.content[0]?.independentAuthorityId;
+      return authorityResult?.content[0];
     },
 
     async getSchoolIDBySchoolCodeAndDistrictID(schoolCode, districtID) {

@@ -19,9 +19,9 @@ fixture`Student Admin`
 test('Staff view authority contacts test', async () => {
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
-  await navigateToAuthorityContacts('997 - Automation Testing Authority');
+  await navigateToAuthorityContacts('Student Admin Automation Testing Authority');
 
-  await authoritiesContactsPage.verifyAuthorityNumberAndName('997 - Automation Testing Authority');
+  await authoritiesContactsPage.verifyAuthorityNumberAndName('Student Admin Automation Testing Authority');
 
   await authoritiesContactsPage.verifyAuthorityTypeLabel();
   await authoritiesContactsPage.verifyAuthorityContactName();
@@ -31,7 +31,7 @@ test('Staff edit authority contact test', async () => {
 
   await staffLogin.stafflogin(idirAdminCredentials, staffLoginUrl);
 
-  await navigateToAuthorityContacts('997 - Automation Testing Authority');
+  await navigateToAuthorityContacts('Student Admin Automation Testing Authority');
 
   await authoritiesContactsPage.clickEditContactButton();
   await authoritiesContactsPage.editAuthorityContact();
