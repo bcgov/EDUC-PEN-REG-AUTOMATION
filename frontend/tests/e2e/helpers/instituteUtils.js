@@ -142,7 +142,12 @@ const instituteUtils = {
       if (newSchool.contacts) {
         log.info('deleting all school contacts');
         newSchool.contacts.forEach(contact => {
-          restUtils.deleteData(token, `${contactUrl}/${contact.schoolContactId}`);
+          try {
+            restUtils.deleteData(token, `${contactUrl}/${contact.schoolContactId}`);
+          }
+          catch (e) {
+            log.error(e);
+          }
         });
       }
 
@@ -183,7 +188,12 @@ const instituteUtils = {
       if (newDistrict.contacts) {
         log.info('deleting all district contacts');
         newDistrict.contacts.forEach(contact => {
-          restUtils.deleteData(token, `${contactUrl}/${contact.districtContactId}`);
+          try {
+            restUtils.deleteData(token, `${contactUrl}/${contact.districtContactId}`);
+          } catch (e) {
+            log.error(e);
+          }
+
         });
       }
 
@@ -223,7 +233,11 @@ const instituteUtils = {
       if (newAuthority.contacts) {
         log.info('deleting all authority contacts');
         newAuthority.contacts.forEach(contact => {
-          restUtils.deleteData(token, `${contactUrl}/${contact.authorityContactId}`);
+          try {
+            restUtils.deleteData(token, `${contactUrl}/${contact.authorityContactId}`);
+          } catch (e) {
+            log.error(e);
+          }
         });
       }
 
