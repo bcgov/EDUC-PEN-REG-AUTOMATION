@@ -35,7 +35,7 @@ test('Staff view Pen inbox navigation test', async t => {
   //create a new exchange message with attachment
   await exchange.clickNewMessageButton()
   await exchange.clickSetSchoolName()
-  await exchange.selectSchoolByName('Wildflower')
+  await exchange.selectSchoolByName('Automation Testing School')
   await exchange.setSubject('automation test')
   await exchange.setNewMessageText('automation test')
   await exchange.clickAttachFileButton();
@@ -53,7 +53,7 @@ test('Staff view Pen inbox navigation test', async t => {
   await exchange.setClaimedBy('PENREG1')
   await exchange.selectStatus('Open')
   await exchange.selectMessageDate()
-  await exchange.selectContactFilterSchoolByName('Wildflower')
+  await exchange.selectContactFilterSchoolByName('Automation Testing School')
   await exchange.clickSearchFilterButton()
   await exchange.verifySearchResults()
 

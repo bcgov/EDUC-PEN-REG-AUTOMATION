@@ -26,12 +26,13 @@ pipeline {
         }
       }
     }
-    stage('pre-delete new exchange message created and set up entities') {
+    stage('pre-delete new exchange message created and set up entities and edx user') {
       steps {
         dir('frontend') {
           sh 'npm install'
           sh 'npm run deletePenInboxNewMessage'
           sh 'npm run refreshInstituteEntities'
+          sh 'npm run insertEDXUserWithRolesPermissions'
         }
       }
     }
@@ -55,14 +56,6 @@ pipeline {
         dir('frontend') {
           sh 'npm install'
           sh 'npm run deletePenInboxNewMessage'
-        }
-      }
-    }
-    stage('insert new edx user with permissions') {
-      steps {
-        dir('frontend') {
-          sh 'npm install'
-          sh 'npm run insertEDXUserWithRolesPermissions'
         }
       }
     }
