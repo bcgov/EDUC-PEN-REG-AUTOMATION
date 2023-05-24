@@ -37,7 +37,7 @@ test('test-send-new-message-with-students', async t => {
   await inbox.checkAddStudentButtonToMsgIsDisabled();
   await inbox.setSubject(testExchangeSubject);
   await inbox.clickSetSchoolName();
-  await inbox.selectSchoolNameOptionByIndex();
+  await inbox.selectDropdownOptionByIndex();
   const penArr = student_penList;
   //test invalid pen number input
   await inbox.clickOnAddStudentButtonInNewMessage();
@@ -86,7 +86,7 @@ test('test-add-note-to-message', async t => {
   await inbox.setSubject(testExchangeSubject);
   await inbox.setNewMessageText(testExchangeMessage);
   await inbox.clickSetSchoolName();
-  await inbox.selectSchoolNameOptionByIndex();
+  await inbox.selectDropdownOptionByIndex();
   await inbox.clickNewMessagePostButton();
   await t.wait(2000)
   await inbox.clickNthRow(1);
@@ -109,7 +109,7 @@ test('test-send-new-message-with-attachment', async t => {
   await inbox.setSubject(testExchangeSubject);
   await inbox.setNewMessageText(testExchangeMessage);
   await inbox.clickSetSchoolName();
-  await inbox.selectSchoolNameOptionByIndex();
+  await inbox.selectDropdownOptionByIndex();
   await inbox.clickAttachFileButton();
 
   await documentUpload.uploadDocument('../../../../uploads/BC.jpg');
