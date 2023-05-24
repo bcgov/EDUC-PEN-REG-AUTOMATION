@@ -55,12 +55,14 @@ class ExchangePage {
 
   async selectContactFilterSchoolByName(contactName) {
     await t.typeText(this.contactFilter, contactName)
-    await t.click(Selector('div').child('.v-list-item__title').find('.v-list-item__mask').withText(contactName));
+    const text = await Selector('div').child('.v-list-item').withText(contactName).innerText;
+    await t.click(Selector('div').child('.v-list-item').withText(contactName));
+    log.info(`Contact filter option ${text} selected`);
   }
 
   async selectSchoolByName(contactName) {
     await t.typeText(this.schoolNameTextField, contactName).takeScreenshot();
-    await this.selectSchoolNameOptionByIndex(0);
+    await this.selectDropdownOptionByIndex(0);
   }
 
   async selectMessageDate() {
@@ -144,11 +146,11 @@ class ExchangePage {
     log.info("attach file prompt button clicked");
   }
 
-  async selectSchoolNameOptionByIndex(index = 0) {
-    const schoolOption = await Selector('div.v-select-list').nth(index);
-    const schoolOptionSelectedText = await schoolOption.innerText;
-    await t.click(schoolOption);
-    log.info(`School option ${schoolOptionSelectedText} selected`)
+  async selectDropdownOptionByIndex(index = 0) {
+    const dropdownOption = await Selector('div.v-select-list').nth(index);
+    const dropdownOptionSelectedText = await dropdownOption.innerText;
+    await t.click(dropdownOption);
+    log.info(`Dropdown option ${dropdownOptionSelectedText} selected`)
   }
 
   async selectContactNameOptionByIndex(index = 0) {
