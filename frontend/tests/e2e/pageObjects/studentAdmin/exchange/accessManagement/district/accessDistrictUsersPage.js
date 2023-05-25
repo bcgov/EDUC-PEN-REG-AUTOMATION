@@ -12,6 +12,8 @@ class AccessDistrictUsersPage {
         this.navTitle = Selector('#navTitle');
         this.newUserVCard= Selector('#newUserInviteVCard');
         this.vCardTitle = Selector(('#newUserInviteVCardTitle'));
+        this.generatePrimaryActivationCodeButton = Selector('#toggleGenerateNewPrimaryEdxActivationCodeDialogVisibilityButton');
+        this.doGeneratePrimaryEdxActivationCodeButton = Selector('#doGeneratePrimaryEdxActivationCodeButton');
     }
 
     async setName(name) {
@@ -26,6 +28,16 @@ class AccessDistrictUsersPage {
     async clickNewUserButton(){
         await t.click(this.newUserBtn);
         log.info(`New User button clicked`);
+    }
+
+    async clickGeneratePrimaryActivationCodeButton() {
+        await t.click(this.generatePrimaryActivationCodeButton());
+        log.info(`Generate primary activation code button clicked`);
+    }
+
+    async clickDoGeneratePrimaryEdxActivationCodeButton() {
+        await t.click(this.doGeneratePrimaryEdxActivationCodeButton());
+        log.info('Generate primary activation code confirmation button clicked');
     }
 
     async verifyUserAccessAndSearchResults() {
