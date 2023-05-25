@@ -34,6 +34,10 @@ test('Staff view and Manage A District And Invite A new District User', async ()
   await access.selectInstituteNameOptionByIndex(0);
   await access.clickManageInstituteButton();
 
+  //generate primary activation code
+  await accessUsers.clickGeneratePrimaryActivationCodeButton();
+  await accessUsers.clickDoGeneratePrimaryEdxActivationCodeButton();
+
   //click New User and Enter Details and Invite
   await accessUsers.clickNewUserButton();
   await accessUsers.confirmNewUserFormOpen();
