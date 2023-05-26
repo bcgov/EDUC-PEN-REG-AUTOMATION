@@ -10,7 +10,6 @@ class SchoolsPage {
 
     //search results
     this.schoolSearchResultsText = Selector('tr td');
-	this.schoolContactsButton = Selector('#schoolContacts');
   }
 
   async clickSearchButton() {
@@ -49,11 +48,6 @@ class SchoolsPage {
   async clickSchoolSearchResult() {
     await t.click(this.schoolSearchResultsText.nth(0));
     log.info("School Result Clicked");
-  }
-  
-  async clickSchoolSearchResultContacts() {
-    await t.click(this.schoolContactsButton);
-    log.info("School Contacts Button Clicked");
   }
 }
 
