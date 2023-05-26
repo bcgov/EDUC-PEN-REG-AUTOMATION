@@ -2,11 +2,13 @@ import staffHamburgerMenuPage from '../pageObjects/studentAdmin/dashboard/staffH
 import AuthoritiesPage from '../pageObjects/studentAdmin/institute/authoritiesPage';
 import SchoolsPage from '../pageObjects/studentAdmin/institute/schoolsPage';
 import DistrictsPage from '../pageObjects/studentAdmin/institute/districtsPage';
+import SchoolDetailsPage from "../pageObjects/studentAdmin/institute/schoolDetailsPage";
 
 const menu = new staffHamburgerMenuPage();
 const authoritiesPage = new AuthoritiesPage();
 const schoolsPage = new SchoolsPage();
 const districtsPage = new DistrictsPage();
+const schoolDetailPage = new SchoolDetailsPage();
 
 const log = require("npmlog");
 
@@ -34,9 +36,9 @@ const navigationUtils = {
         await schoolsPage.selectStatus(1);
 
         await schoolsPage.clickSearchButton();
+        await schoolsPage.clickSchoolSearchResult();
 
-        await schoolsPage.clickSchoolSearchResultContacts();
-
+        await schoolDetailPage.clickTab("Contacts");
     },
 
     async navigateToDistrictContacts(districtName){

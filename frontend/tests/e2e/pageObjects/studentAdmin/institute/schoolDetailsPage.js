@@ -19,6 +19,8 @@ class SchoolDetailsPage {
         this.newNoteTextArea = Selector('#newNoteTextArea');
         this.cancelNewNoteButton = Selector('#cancelNote');
         this.saveNewNoteButton = Selector('#saveNote');
+
+        this.tab = Selector('div[role=tab]');
     }
 
     async verifySchoolDetails() {
@@ -160,6 +162,11 @@ class SchoolDetailsPage {
     async clickSaveNewNoteButton() {
         await t.click(this.saveNewNoteButton);
         log.info("Save New Note Button clicked.");
+    }
+
+    async clickTab(text) {
+        await t.click(this.tab.withText(text));
+        log.info(`Clicked tab ${text}`);
     }
 
 }
