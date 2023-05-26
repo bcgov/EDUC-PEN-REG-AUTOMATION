@@ -120,6 +120,7 @@ test('Add a note to a school', async () => {
     await schoolsPage.clickSchoolSearchResult();
 
     //Verify the initial school notes timeline state.
+    await schoolDetailsPage.clickTab('Ministry Notes');
     await schoolDetailsPage.verifySchoolNotesTimelineExists();
     await schoolDetailsPage.verifyAddNewNoteButtonExists();
     await schoolDetailsPage.verifyAddNewNoteButtonEnabled();
