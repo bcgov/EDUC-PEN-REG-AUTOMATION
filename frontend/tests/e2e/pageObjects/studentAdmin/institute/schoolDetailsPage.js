@@ -4,7 +4,7 @@ const log = require('npmlog')
 class SchoolDetailsPage {
     constructor() {
 
-        this.schoolMCName = Selector('.subjectHeading');
+        this.schoolDisplayName = Selector('#displayName');
         this.schoolOpenDate = Selector('span');
         this.schoolFacilityType = Selector('span');
         this.schoolCategory = Selector('span');
@@ -23,7 +23,7 @@ class SchoolDetailsPage {
 
     async verifySchoolDetails() {
 
-        await this.verifySchoolMincodeName('99999999', 'Automation Testing School');
+        await this.verifySchoolDisplayName('Automation Testing School');
         await this.verifyOpenDate('2022/01/01');
         await this.verifyFacilityType('Standard');
         await this.verifySchoolCategory('Public');
@@ -31,10 +31,9 @@ class SchoolDetailsPage {
 
     }
 
-    async verifySchoolMincodeName(mincode, displayName) {
-        let mincode_name = mincode + ' - '+ displayName;
-        await t.expect(this.schoolMCName.innerText).contains(mincode_name);
-        log.info("School Mincode and Name Verified");
+    async verifySchoolDisplayName(displayName) {
+        await t.expect(this.schoolDisplayName.innerText).contains(displayName);
+        log.info("School Display Name Verified");
     }
 
     async verifyOpenDate(openDate) {
