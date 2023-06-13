@@ -52,8 +52,8 @@ class AuthoritiesContactsPage {
   }
 
   async editAuthorityContact(){
-    await t.typeText(this.contactFirstName, 'Automation2', { replace: true });
-    await t.typeText(this.contactLastName, 'Testing2', { replace: true });
+    await t.typeText(this.contactFirstName, 'AutomationEdit', { replace: true });
+    await t.typeText(this.contactLastName, 'TestingEdit', { replace: true });
     await t.typeText(this.contactEditEmail, 'test2@test.com', { replace: true });
     await t.typeText(this.contactEditPhoneNumber, '2501234564', { replace: true });
     await t.typeText(this.contactEditPhoneExt, '888', { replace: true });
@@ -80,7 +80,7 @@ class AuthoritiesContactsPage {
 
   async verifyAuthorityContactDetails() {
 
-    await this.verifyContactName('Automation2 Testing2');
+    await this.verifyContactName('AutomationEdit TestingEdit');
     await this.verifyContactEmail('test2@test.com');
     await this.verifyContactPhoneNum('250-123-4564');
     await this.verifyContactPhoneNumExt('888');

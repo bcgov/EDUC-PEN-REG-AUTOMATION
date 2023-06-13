@@ -54,7 +54,7 @@ getToken().then(async (data) => {
   log.info("edx roles found");
 
   //find the secure exchange role to add to the user
-  const secureExchangeRole = edxRoles.find(edxRole => edxRole.edxRoleCode === 'SECURE_EXCHANGE');
+  const secureExchangeRole = edxRoles.find(edxRole => edxRole.edxRoleCode === 'SECURE_EXCHANGE_SCHOOL');
 
   if (secureExchangeRole) {
     log.info("specific edx role found");
